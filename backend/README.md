@@ -46,6 +46,32 @@ Das Sheet erhält die Spalten:
 > **DSGVO:** Für den Newsletter/Launch-Versand nur Kontakte mit
 > `status = confirmed` verwenden – das ist der bestätigte Double-Opt-in.
 
+## Absenderadresse der Bestätigungsmail
+
+Standardmäßig verschickt Apps Script von der Adresse des **ausführenden
+Kontos**. Damit die Mail von `info@gardaunica.com` (oder `tim@`/`cristina@`)
+kommt, gibt es zwei Wege:
+
+- **Sauber (empfohlen für Firmen):** Das Google Sheet + Script unter dem
+  Workspace-Konto (`info@gardaunica.com`) anlegen und dort bereitstellen –
+  dann kommt die Mail automatisch von dieser Adresse, und die Wartelisten-
+  Daten liegen im Firmen-Drive statt in einem Privatkonto.
+- **Schnell (aktuelles Konto behalten):** Im ausführenden Gmail-Konto unter
+  **Einstellungen → Konten und Import → „Senden als"** die Adresse
+  `info@gardaunica.com` hinzufügen und bestätigen. Danach `FROM_ADDRESS` in
+  `Code.gs` auf diese Adresse setzen. Ist sie kein bestätigter Alias, sendet
+  Google ohne Fehler weiter von der Konto-Adresse (Fallback).
+
+> Der Code nutzt jetzt `GmailApp` (statt `MailApp`). Nach dem Einfügen der
+> neuen `Code.gs` verlangt Google **einmalig eine neue Berechtigung**
+> (Gmail-Versand) – beim nächsten Ausführen/Bereitstellen bestätigen.
+
+## Wo landen die Einträge?
+
+Das Script schreibt in einen eigenen Tab **„Warteliste"** innerhalb des
+gebundenen Sheets (nicht in „Tabellenblatt1"). Spalten:
+`created_at · name · email · lang · status · token · source · confirmed_at`.
+
 ## Bei Änderungen am Script
 
 Nach dem Bearbeiten von `Code.gs`: **Bereitstellen → Bereitstellungen verwalten

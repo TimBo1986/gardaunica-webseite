@@ -14,8 +14,14 @@
 // ==== KONFIGURATION ========================================================
 var SHEET_NAME  = 'Warteliste';                 // Tab-Name im gebundenen Sheet
 var FROM_NAME   = 'Garda Unica';                // Absendername
+var FROM_ADDRESS = 'info@gardaunica.com';       // Absenderadresse (siehe Hinweis unten)
 var REPLY_TO    = 'info@gardaunica.com';        // Antwortadresse
 var LOGO_URL    = 'https://www.gardaunica.com/assets/og.jpg';
+// FROM_ADDRESS funktioniert nur, wenn diese Adresse im ausführenden Google-
+// Konto als "Senden als"-Alias bestätigt ist (Gmail -> Einstellungen ->
+// Konten -> Senden als) ODER das Script direkt unter diesem Workspace-Konto
+// läuft. Ist die Adresse kein bestätigter Alias, sendet Google automatisch
+// von der Konto-Adresse (Fallback) – es gibt keinen Fehler.
 // ===========================================================================
 
 function doPost(e) {
@@ -107,16 +113,21 @@ function findRowByToken(sheet, token) {
 function sendConfirmationEmail(email, name, lang, token) {
   var url = ScriptApp.getService().getUrl() + '?confirm=' + encodeURIComponent(token);
   var t = MAIL[lang] || MAIL.de;
-  var subject = t.subject;
   var html = mailTemplate(t, name, url);
 
-  MailApp.sendEmail({
-    to: email,
-    subject: subject,
-    htmlBody: html,
-    name: FROM_NAME,
-    replyTo: REPLY_TO
-  });
+  var options = { htmlBody: html, name: FROM_NAME, replyTo: REPLY_TO };
+
+  // Nur einen bestätigten "Senden als"-Alias als Absender setzen, sonst
+  // sendet GmailApp automatisch von der Konto-Adresse.
+  if (FROM_ADDRESS) {
+    try {
+      if (GmailApp.getAliases().indexOf(FROM_ADDRESS) >= 0) {
+        options.from = FROM_ADDRESS;
+      }
+    } catch (e) { /* GmailApp nicht autorisiert -> Fallback auf Konto-Adresse */ }
+  }
+
+  GmailApp.sendEmail(email, t.subject, '', options);
 }
 
 var MAIL = {
@@ -180,7 +191,7 @@ function confirmPage(lang, ok) {
       '<div style="font-family:Georgia,serif;font-size:24px;font-weight:600;margin-bottom:24px">Garda <em style="color:#B54327">Unica</em></div>' +
       '<h1 style="font-family:Georgia,serif;font-weight:500;font-size:30px;margin:0 0 12px">' + escapeHtml(h) + '</h1>' +
       '<p style="font-size:16px;line-height:1.6;color:#4A5570">' + escapeHtml(p) + '</p>' +
-      '<p style="margin-top:28px"><a href="https://www.gardaunica.com" style="display:inline-block;background:#B54327;color:#FAF5E8;text-decoration:none;font-weight:600;padding:13px 28px;border-radius:999px">' + escapeHtml(t.back) + '</a></p>' +
+      '<p style="margin-top:28px"><a href="https://www.gardaunica.com/app" target="_top" style="display:inline-block;background:#B54327;color:#FAF5E8;text-decoration:none;font-weight:600;padding:13px 28px;border-radius:999px">' + escapeHtml(t.back) + '</a></p>' +
     '</div>';
 }
 
