@@ -194,6 +194,22 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .finale .btn-primary{margin-top:32px}
 .finale .mail{margin-top:16px;font-size:14px;color:var(--notte-3)}
 .finale .mail a{color:var(--terracotta);font-weight:600;text-decoration:none}
+/* waitlist form */
+.wl-form{max-width:460px;margin:30px auto 0;text-align:left;position:relative}
+.wl-row{display:flex;gap:12px;flex-wrap:wrap}
+.wl-row input{flex:1;min-width:150px}
+.wl-form input[type=text],.wl-form input[type=email]{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--linea);background:var(--carta-morn);font-family:var(--f-ui);font-size:15px;color:var(--notte);transition:border-color 160ms var(--ease),box-shadow 160ms var(--ease)}
+.wl-form input::placeholder{color:var(--notte-3)}
+.wl-form input:focus{outline:none;border-color:var(--terracotta);box-shadow:0 0 0 3px rgba(181,67,39,.14)}
+.wl-consent{display:flex;gap:10px;align-items:flex-start;margin-top:14px;font-size:13px;color:var(--notte-2);line-height:1.55;text-align:left;cursor:pointer}
+.wl-consent input{margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:var(--terracotta);cursor:pointer}
+.wl-consent a{color:var(--terracotta);font-weight:600}
+.wl-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.wl-form button[type=submit]{margin-top:18px;width:100%;border:none;cursor:pointer;font-family:var(--f-ui)}
+.wl-form button[type=submit]:disabled{opacity:.6;cursor:default}
+.wl-msg{margin-top:14px;font-size:14px;font-weight:500;min-height:1px;text-align:center}
+.wl-msg.ok{color:var(--oliva)}
+.wl-msg.err{color:var(--terracotta)}
 /* faq */
 .faq-wrap{max-width:720px;margin:0 auto;padding:0 24px 72px}
 .faq-wrap .label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--notte-3);text-align:center;display:block;margin-bottom:20px}
@@ -493,7 +509,16 @@ footer a:hover{color:var(--notte)}
   <span class="eyebrow" data-i18n="wl_eyebrow">Sommer 2026</span>
   <h2 data-i18n="wl_h2">Sei dabei, bevor die <em>Saison</em> beginnt.</h2>
   <p data-i18n="wl_p">Garda Unica startet zur Hauptsaison 2026 am südlichen Gardasee. Trag dich ein und erfahre als Erste:r, wenn es losgeht — kein Spam, nur der Launch.</p>
-  <a class="btn-primary" href="mailto:info@gardaunica.com?subject=Warteliste%20Garda%20Unica" data-i18n="wl_cta">Auf die Warteliste</a>
+  <form class="wl-form" id="wlForm" novalidate>
+    <div class="wl-row">
+      <input type="text" id="wlName" name="name" autocomplete="name" required data-i18n-ph="wl_name" placeholder="Name">
+      <input type="email" id="wlEmail" name="email" autocomplete="email" required data-i18n-ph="wl_email" placeholder="E-Mail">
+    </div>
+    <input class="wl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="wl-consent"><input type="checkbox" required><span data-i18n="wl_consent">Ich möchte zum Start benachrichtigt werden und bin mit der <a href="https://www.lagonord.de/privacy.html" target="_blank" rel="noopener">Datenschutzerklärung</a> einverstanden.</span></label>
+    <button type="submit" class="btn-primary" data-i18n="wl_btn">Benachrichtige mich</button>
+    <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
+  </form>
   <div class="mail" data-i18n="wl_mail">oder schreib uns: <a href="mailto:info@gardaunica.com">info@gardaunica.com</a></div>
 </section>
 
@@ -532,6 +557,7 @@ footer a:hover{color:var(--notte)}
   </div>
 </div>
 
+<script src="assets/waitlist.js"></script>
 <script>
 var I18N={
  de:{
@@ -600,6 +626,10 @@ var I18N={
   wl_eyebrow:"Sommer 2026",wl_h2:"Sei dabei, bevor die <em>Saison</em> beginnt.",
   wl_p:"Garda Unica startet zur Hauptsaison 2026 am südlichen Gardasee. Trag dich ein und erfahre als Erste:r, wenn es losgeht — kein Spam, nur der Launch.",
   wl_cta:"Auf die Warteliste",wl_mail:"oder schreib uns: <a href=\"mailto:info@gardaunica.com\">info@gardaunica.com</a>",
+  wl_name:"Name",wl_email:"E-Mail",wl_btn:"Benachrichtige mich",
+  wl_consent:"Ich möchte zum Start benachrichtigt werden und bin mit der <a href=\"https://www.lagonord.de/privacy.html\" target=\"_blank\" rel=\"noopener\">Datenschutzerklärung</a> einverstanden.",
+  wl_success:"Fast geschafft — bitte bestätige noch den Link in deiner E-Mail.",
+  wl_err:"Etwas ist schiefgelaufen. Bitte versuch es später noch einmal.",
   faq_label:"Häufige Fragen",
   faq1_q:"Was kostet Garda Unica?",faq1_a:"Die App ist zum Start kostenlos. Wir verdienen an vermittelten Erlebnissen bei unseren Partnern — nie an versteckten Platzierungen. Wenn wir etwas empfehlen, steht dabei, warum.",
   faq2_q:"Woher kommen die Crowd-Daten?",faq2_a:"Aus Live-Verkehrsdaten, Wetter und lokalen Mustern, die wir seit Jahren beobachten — alle 30 Minuten aktualisiert. Keine Schätzung ins Blaue, sondern ein ehrliches Bild der Lage vor Ort.",
@@ -678,6 +708,10 @@ var I18N={
   wl_eyebrow:"Estate 2026",wl_h2:"Esserci prima che inizi la <em>stagione.</em>",
   wl_p:"Garda Unica parte per l'alta stagione 2026 sul basso Lago di Garda. Iscriviti e sarai il primo a saperlo — niente spam, solo il lancio.",
   wl_cta:"Entra in lista d'attesa",wl_mail:"oppure scrivici: <a href=\"mailto:info@gardaunica.com\">info@gardaunica.com</a>",
+  wl_name:"Nome",wl_email:"Email",wl_btn:"Avvisami",
+  wl_consent:"Voglio essere avvisato al lancio e accetto l'<a href=\"https://www.lagonord.de/privacy.html\" target=\"_blank\" rel=\"noopener\">informativa sulla privacy</a>.",
+  wl_success:"Ci siamo quasi — conferma il link nella tua email.",
+  wl_err:"Qualcosa è andato storto. Riprova più tardi.",
   faq_label:"Domande frequenti",
   faq1_q:"Quanto costa Garda Unica?",faq1_a:"Al lancio l'app è gratuita. Guadagniamo dalle esperienze prenotate presso i nostri partner — mai da posizionamenti nascosti. Quando consigliamo qualcosa, c'è scritto il perché.",
   faq2_q:"Da dove vengono i dati sull'affluenza?",faq2_a:"Da dati di traffico in tempo reale, meteo e pattern locali che osserviamo da anni — aggiornati ogni 30 minuti. Nessuna stima a caso, ma un quadro onesto della situazione sul posto.",
@@ -756,6 +790,10 @@ var I18N={
   wl_eyebrow:"Summer 2026",wl_h2:"Be there before the <em>season</em> starts.",
   wl_p:"Garda Unica launches for the 2026 high season on the southern Lake Garda. Sign up and be the first to know when we go live — no spam, just the launch.",
   wl_cta:"Join the waitlist",wl_mail:"or write to us: <a href=\"mailto:info@gardaunica.com\">info@gardaunica.com</a>",
+  wl_name:"Name",wl_email:"Email",wl_btn:"Notify me",
+  wl_consent:"I'd like to be notified at launch and agree to the <a href=\"https://www.lagonord.de/privacy.html\" target=\"_blank\" rel=\"noopener\">privacy policy</a>.",
+  wl_success:"Almost there — please confirm the link in your email.",
+  wl_err:"Something went wrong. Please try again later.",
   faq_label:"Frequently asked",
   faq1_q:"What does Garda Unica cost?",faq1_a:"The app is free at launch. We earn from experiences booked with our partners — never from hidden placements. When we recommend something, the reason is right there.",
   faq2_q:"Where does the crowd data come from?",faq2_a:"From live traffic data, weather and local patterns we've been observing for years — updated every 30 minutes. No wild guesses, but an honest picture of the situation on the ground.",
@@ -777,6 +815,10 @@ function setLang(lang){
   document.querySelectorAll("[data-i18n]").forEach(function(el){
     var k=el.getAttribute("data-i18n");
     if(d[k]!==undefined)el.innerHTML=d[k];
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+    var k=el.getAttribute("data-i18n-ph");
+    if(d[k]!==undefined)el.setAttribute("placeholder",d[k]);
   });
   if(d._title)document.title=d._title;
   var md=document.querySelector('meta[name="description"]');
@@ -850,6 +892,8 @@ function makeChatPlayer(container){
   })},{threshold:.4});
   cio.observe(c);
 })();
+/* waitlist */
+if(window.GardaWaitlist){window.GardaWaitlist.init({source:"home",getLang:function(){return window.currentLang||"de";},getDict:function(l){return I18N[l]||I18N.de;}});}
 </script>
 </body>
 </html>
