@@ -12,7 +12,7 @@
    *  Solange leer, zeigt das Formular die Erfolgsmeldung, speichert aber
    *  noch nichts (praktisch für die Vorschau vor dem Go-Live).
    * ===================================================================== */
-  var WAITLIST_ENDPOINT = "";
+  var WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbzKmRfUGBuFQiPYDoSOfp_zHkf6R-RSu-Hzc7WDcrk31SSMKgakIqtypQKRYIQAJIIS/exec";
 
   function val(el) { return el && typeof el.value === "string" ? el.value.trim() : ""; }
 
