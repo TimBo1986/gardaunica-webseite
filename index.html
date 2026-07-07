@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garda Unica — Der Süd-Gardasee, richtig verteilt.</title>
+<meta name="description" content="Dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment, ehrliche Crowd-Daten, lokales Wissen.">
+<meta property="og:title" content="Garda Unica — Der Süd-Gardasee, richtig verteilt.">
+<meta property="og:description" content="Dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment, ehrliche Crowd-Daten, lokales Wissen.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.gardaunica.com">
+<meta property="og:image" content="https://www.gardaunica.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Sora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --carta:#FAF5E8;--carta-warm:#F3EBD8;--carta-morn:#FDFAF2;
+  --terracotta:#B54327;--terracotta-soft:#C96449;
+  --sole:#E5A83A;--sole-soft:#F3D9A8;
+  --oliva:#5C6B3A;--oliva-soft:#DDE2CC;
+  --notte:#1A2540;--notte-2:#4A5570;--notte-3:#8A93AB;
+  --lago:#C9D8D5;
+  --linea:rgba(26,37,64,.14);--linea-soft:rgba(26,37,64,.08);
+  --f-display:'Fraunces',Georgia,serif;
+  --f-ui:'Sora',ui-sans-serif,system-ui,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.2,.9,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--carta);color:var(--notte);font-family:var(--f-ui);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding-left:24px;padding-right:24px}
+section{padding:84px 0}
+.eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--terracotta)}
+h2{font-family:var(--f-display);font-weight:500;font-size:clamp(28px,4.4vw,42px);line-height:1.15;letter-spacing:-.01em;margin-top:12px}
+h2 em{font-style:italic;color:var(--terracotta)}
+a{color:inherit}
+/* nav */
+nav{position:sticky;top:0;z-index:60;background:rgba(250,245,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea-soft)}
+.nav-inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--f-display);font-weight:600;font-size:21px;text-decoration:none;letter-spacing:-.01em}
+.logo em{font-style:italic;color:var(--terracotta)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{text-decoration:none;font-size:13.5px;font-weight:500;color:var(--notte-2);transition:color 180ms var(--ease)}
+.nav-links a:hover{color:var(--notte)}
+.nav-cta{background:var(--terracotta);color:var(--carta)!important;padding:9px 20px;border-radius:999px;font-weight:600;transition:background 180ms var(--ease)}
+.nav-cta:hover{background:var(--terracotta-soft)}
+.lang{display:flex;gap:2px;border:1px solid var(--linea);border-radius:999px;padding:3px;background:var(--carta-morn)}
+.lang button{border:0;background:none;cursor:pointer;font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--notte-3);padding:5px 11px;border-radius:999px;transition:background 160ms var(--ease),color 160ms var(--ease)}
+.lang button.active{background:var(--terracotta);color:var(--carta)}
+.lang button:hover:not(.active){color:var(--notte)}
+@media(max-width:820px){.nav-links a:not(.nav-cta){display:none}}
+@media(max-width:460px){.nav-cta{display:none}}
+/* hero */
+.hero{padding:64px 0 72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-160px;right:-120px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(229,168,58,.22),transparent 65%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr auto;gap:56px;align-items:center;position:relative}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;justify-items:center;text-align:center}}
+h1{font-family:var(--f-display);font-weight:500;font-size:clamp(34px,5.4vw,56px);line-height:1.12;letter-spacing:-.015em;margin-top:14px;max-width:15ch}
+h1 em{font-style:italic;color:var(--terracotta)}
+@media(max-width:860px){h1{margin-left:auto;margin-right:auto}}
+.hero-lede{margin-top:20px;font-size:16.5px;color:var(--notte-2);max-width:46ch;line-height:1.7}
+.hero-actions{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+@media(max-width:860px){.hero-actions{justify-content:center}}
+.btn-primary{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:15px 32px;border-radius:999px;background:var(--terracotta);color:var(--carta);transition:background 180ms var(--ease),transform 180ms var(--ease)}
+.btn-primary:hover{background:var(--terracotta-soft);transform:translateY(-1px)}
+.btn-ghost{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:15px 32px;border-radius:999px;border:1.5px solid var(--notte);color:var(--notte);transition:background 180ms var(--ease),color 180ms var(--ease)}
+.btn-ghost:hover{background:var(--notte);color:var(--carta)}
+.hero-note{margin-top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--notte-3)}
+/* phone frame */
+.phone-frame{width:300px;height:622px;border-radius:44px;background:#141414;padding:10px;box-shadow:0 44px 90px -30px rgba(26,37,64,.45);flex-shrink:0;position:relative}
+.phone-frame .scr{width:100%;height:100%;border-radius:35px;overflow:hidden;position:relative;background:#1A2540}
+.phone-frame .scr img{position:absolute;left:50%;top:0;transform:translateX(-50%);width:100%;height:auto;min-height:100%}
+.phone-sm{width:250px;height:518px;border-radius:38px;padding:8px}
+.phone-sm .scr{border-radius:31px}
+/* problem */
+.problem{background:var(--carta-warm)}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+@media(max-width:820px){.problem-grid{grid-template-columns:1fr}}
+.pcard{border-radius:16px;padding:30px 28px;position:relative;overflow:hidden}
+.pcard.full{background:var(--notte);color:var(--carta)}
+.pcard.free{background:var(--carta-morn);border:1px solid var(--linea)}
+.pcard .place{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.pcard.full .place{color:rgba(250,245,232,.7)}
+.pcard.free .place{color:var(--notte-3)}
+.pcard .dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.pcard.full .dot{background:#E8695A;box-shadow:0 0 9px #E8695A}
+.pcard.free .dot{background:#7BA05B;box-shadow:0 0 9px #7BA05B}
+.pcard h3{font-family:var(--f-display);font-weight:500;font-size:24px;line-height:1.25;margin-top:14px}
+.pcard.full h3 em{font-style:italic;color:var(--sole)}
+.pcard.free h3 em{font-style:italic;color:var(--terracotta)}
+.pcard p{margin-top:10px;font-size:14px;line-height:1.65}
+.pcard.full p{color:rgba(250,245,232,.72)}
+.pcard.free p{color:var(--notte-2)}
+/* live chat in phone */
+.chat-scr{background:var(--carta);display:flex;flex-direction:column}
+.chat-head{display:flex;align-items:center;gap:9px;padding:16px 16px 12px;border-bottom:1px solid var(--linea-soft);flex-shrink:0}
+.orb{width:24px;height:24px;border-radius:50%;background:radial-gradient(circle at 36% 32%,#FFEFC2 0%,#E5A83A 50%,#B54327 100%);box-shadow:inset -2px -2px 5px rgba(142,50,22,.4),0 2px 6px rgba(181,67,39,.3);flex-shrink:0;display:inline-block}
+.chat-title{font-family:var(--f-display);font-weight:600;font-size:14.5px;color:var(--notte)}
+.chat-live{margin-left:auto;font-family:var(--f-mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--notte-3);display:flex;align-items:center;gap:4px}
+.chat-live i{width:6px;height:6px;border-radius:50%;background:var(--oliva);box-shadow:0 0 6px var(--oliva);display:inline-block}
+.chat-body{flex:1;padding:14px 13px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.cm{max-width:86%;padding:9px 13px;border-radius:14px;font-size:11.5px;line-height:1.5}
+.cm.u{align-self:flex-end;background:var(--notte);color:var(--carta);border-bottom-right-radius:4px}
+.cm.a{align-self:flex-start;background:#fff;border:1px solid var(--linea-soft);color:var(--notte);border-bottom-left-radius:4px}
+.cm{opacity:0;transform:translateY(10px);transition:opacity .38s var(--ease),transform .38s var(--ease)}
+.cm.on{opacity:1;transform:none}
+.typing-ind{display:flex;gap:4px;padding:9px 13px;border-radius:14px;background:#fff;border:1px solid var(--linea-soft);align-self:flex-start;width:max-content}
+.typing-ind i{width:6px;height:6px;border-radius:50%;background:var(--notte-3);display:block;animation:tb 1.1s ease-in-out infinite}
+.typing-ind i:nth-child(2){animation-delay:.16s}.typing-ind i:nth-child(3){animation-delay:.32s}
+@keyframes tb{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.chat-foot{display:flex;align-items:center;gap:8px;padding:10px 14px 16px;flex-shrink:0}
+.chat-foot span{flex:1;padding:9px 14px;border-radius:100px;border:1px solid var(--linea);background:#fff;font-size:11px;color:var(--notte-3)}
+.chat-foot i{width:30px;height:30px;border-radius:50%;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-style:normal;flex-shrink:0}
+@media(prefers-reduced-motion:reduce){.cm{opacity:1;transform:none}}
+/* erlebnisse */
+.erlebnis-grid{display:grid;grid-template-columns:1fr auto;gap:56px;align-items:center}
+@media(max-width:820px){.erlebnis-grid{grid-template-columns:1fr;justify-items:center;text-align:center}}
+.erlebnis-copy p{margin-top:16px;color:var(--notte-2);font-size:15px;max-width:48ch;line-height:1.7}
+.ex-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+@media(max-width:820px){.ex-chips{justify-content:center}}
+.ex-chip{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;padding:7px 14px;border-radius:999px;background:var(--carta);color:var(--notte-2);border:1px solid var(--linea)}
+/* problem-proof */
+.problem-proof{display:flex;flex-direction:column;align-items:center;gap:16px;margin-top:44px}
+.proof-caption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--notte-3);text-align:center}
+.problem-line{margin-top:32px;text-align:center;font-family:var(--f-display);font-style:italic;font-size:clamp(19px,2.6vw,24px);color:var(--notte)}
+.problem-line em{color:var(--terracotta);font-style:italic}
+/* day timeline */
+.day-moment{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;padding:52px 0;border-bottom:1px solid var(--linea-soft)}
+.day-moment:last-of-type{border-bottom:none}
+.day-moment.flip{grid-template-columns:1fr auto}
+.day-moment.flip .phone-sm{order:2}
+@media(max-width:820px){
+  .day-moment,.day-moment.flip{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .day-moment.flip .phone-sm{order:0}
+}
+.moment-copy .time{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;color:var(--sole);font-weight:500;background:var(--notte);padding:6px 14px;border-radius:999px;display:inline-block}
+.moment-copy h3{font-family:var(--f-display);font-weight:500;font-size:clamp(24px,3.4vw,32px);line-height:1.2;margin-top:16px}
+.moment-copy h3 em{font-style:italic;color:var(--terracotta)}
+.moment-copy p{margin-top:12px;color:var(--notte-2);font-size:15px;max-width:44ch;line-height:1.7}
+@media(max-width:820px){.moment-copy p{margin-left:auto;margin-right:auto}}
+.moment-copy .quote{margin-top:16px;font-family:var(--f-display);font-style:italic;font-size:14.5px;color:var(--notte-3)}
+/* honesty (notte block) */
+.honest{background:var(--notte);color:var(--carta)}
+.honest .eyebrow{color:var(--sole)}
+.honest h2{color:var(--carta)}
+.honest h2 em{color:var(--sole)}
+.mi-statements{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:36px}
+@media(max-width:820px){.mi-statements{grid-template-columns:1fr}}
+.mi-label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--sole)}
+.mi-text{font-family:var(--f-display);font-weight:500;font-size:clamp(21px,2.8vw,27px);line-height:1.35;margin-top:10px;color:var(--carta)}
+.mi-text em{font-style:italic;color:var(--sole)}
+.mi-text.mi-small{font-size:clamp(16px,2vw,19px);font-weight:400;color:rgba(250,245,232,.85)}
+.pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 44px;margin-top:52px;padding-top:44px;border-top:1px solid rgba(250,245,232,.14)}
+@media(max-width:820px){.pillar-grid{grid-template-columns:1fr}}
+.pillar h3{font-family:var(--f-display);font-weight:500;font-size:19px;color:var(--sole)}
+.pillar p{margin-top:8px;font-size:14px;color:rgba(250,245,232,.72);line-height:1.7;max-width:50ch}
+.mi-quote{margin-top:44px;text-align:center;font-family:var(--f-display);font-style:italic;font-size:15px;color:rgba(250,245,232,.6)}
+/* locals */
+.locals{background:var(--carta-morn)}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+@media(max-width:820px){.team-grid{grid-template-columns:1fr}}
+.person{border:none;font-family:inherit;text-align:left;cursor:pointer;width:100%;border:1px solid var(--linea);border-radius:12px;overflow:hidden;background:var(--carta);padding:0;position:relative;transition:transform 300ms var(--ease),box-shadow 300ms var(--ease)}
+.person:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(26,37,64,.12)}
+.person:hover .zoom-hint{opacity:1;transform:scale(1)}
+.zoom-hint{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;background:rgba(26,37,64,.55);color:var(--carta);display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;transform:scale(.7);transition:opacity 220ms var(--ease),transform 220ms var(--ease);pointer-events:none}
+.person .photo{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.person .inner{padding:18px 20px 20px}
+.person h3{font-family:var(--f-display);font-size:20px;font-weight:500}
+.person .role{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--notte-3);margin:4px 0 10px}
+.person .short{font-size:13.5px;color:var(--notte-2);line-height:1.6}
+.more-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:var(--terracotta)}
+.cerchio-strip{display:flex;gap:36px;align-items:center;background:var(--carta-warm);border-radius:20px;padding:34px 38px;margin-top:44px}
+@media(max-width:820px){.cerchio-strip{flex-direction:column;text-align:center}}
+.cerchio-shot{width:210px;flex-shrink:0;border-radius:14px;overflow:hidden;box-shadow:0 20px 44px -16px rgba(26,37,64,.3)}
+.cerchio-shot img{width:100%;display:block;height:250px;object-fit:cover;object-position:50% 0}
+.cerchio-copy h3{font-family:var(--f-display);font-size:22px;font-weight:500}
+.cerchio-copy h3 em{font-style:italic;color:var(--terracotta)}
+.cerchio-copy p{margin-top:10px;color:var(--notte-2);font-size:14.5px;max-width:44ch}
+.orte-line{margin-top:40px;text-align:center}
+.orte-line .label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--notte-3)}
+.orte-cloud{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.orte-cloud span{font-family:var(--f-display);font-style:italic;font-size:15px;color:var(--notte-2);padding:7px 16px;border:1px solid var(--linea);border-radius:999px;background:var(--carta)}
+/* finale */
+.finale{text-align:center;padding:96px 0 64px}
+.finale h2{max-width:18ch;margin-left:auto;margin-right:auto}
+.finale p{margin:18px auto 0;max-width:48ch;color:var(--notte-2);font-size:15.5px}
+.finale .btn-primary{margin-top:32px}
+.finale .mail{margin-top:16px;font-size:14px;color:var(--notte-3)}
+.finale .mail a{color:var(--terracotta);font-weight:600;text-decoration:none}
+/* faq */
+.faq-wrap{max-width:720px;margin:0 auto;padding:0 24px 72px}
+.faq-wrap .label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--notte-3);text-align:center;display:block;margin-bottom:20px}
+.faq details{border-bottom:1px solid var(--linea-soft);padding:16px 0}
+.faq summary{cursor:pointer;font-size:15.5px;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::after{content:'+';font-family:var(--f-display);font-size:22px;font-weight:400;color:var(--terracotta);transition:transform 300ms var(--ease);flex-shrink:0}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:10px;font-size:14px;color:var(--notte-2);max-width:62ch;line-height:1.7}
+/* b2b line + footer */
+.b2b-line{border-top:1px solid var(--linea-soft);padding:26px 0;text-align:center;font-size:13.5px;color:var(--notte-3)}
+.b2b-line a{color:var(--terracotta);font-weight:600;text-decoration:none}
+.b2b-line a:hover{text-decoration:underline}
+footer{border-top:1px solid var(--linea-soft);padding:32px 0 44px;font-size:13px;color:var(--notte-3)}
+.foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--notte-3);text-decoration:none;font-weight:500}
+footer a:hover{color:var(--notte)}
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease),transform 600ms var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+/* bio modal */
+.bio-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(26,37,64,.55);backdrop-filter:blur(3px);align-items:center;justify-content:center;padding:24px}
+.bio-overlay.open{display:flex}
+.bio-modal{background:var(--carta);border-radius:20px;max-width:640px;width:100%;min-height:400px;display:grid;grid-template-columns:220px 1fr;overflow:hidden;position:relative;box-shadow:0 40px 90px -20px rgba(26,37,64,.5);animation:bioIn 320ms cubic-bezier(.2,.9,.2,1) both}
+@keyframes bioIn{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:560px){.bio-modal{grid-template-columns:1fr}}
+.bio-photo{background:var(--carta-warm)}
+.bio-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;min-height:220px}
+.bio-content{padding:32px 30px;overflow-y:auto;max-height:80vh}
+.bio-content h3{font-family:var(--f-display);font-size:24px;font-weight:600}
+.bio-content .role{margin:4px 0 16px;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--notte-3)}
+.bio-text p{font-family:var(--f-display);font-style:italic;font-size:15px;line-height:1.7;color:var(--notte-2);margin-bottom:10px}
+.bio-text a{color:var(--terracotta)}
+.bio-close{position:absolute;top:14px;right:14px;z-index:2;width:32px;height:32px;border-radius:50%;border:none;background:rgba(26,37,64,.5);color:#fff;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 160ms var(--ease)}
+.bio-close:hover{background:var(--terracotta)}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="#">Garda <em>Unica</em></a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#tag" data-i18n="nav_day">Ein Tag mit Unica</a>
+        <a href="#mission" data-i18n="nav_honest">Mission</a>
+        <a href="#team" data-i18n="nav_team">Wer wir sind</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="#warteliste" data-i18n="nav_cta">Warteliste</a>
+      </div>
+      <div class="lang" role="group" aria-label="Sprache / Lingua / Language">
+        <button data-lang="de" class="active">DE</button>
+        <button data-lang="it">IT</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- 1 · HERO -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow" data-i18n="hero_eyebrow">Süd-Gardasee · Peschiera bis Salò</span>
+      <h1 data-i18n="hero_h1">Der Gardasee ist nicht überlaufen. Er ist <em>falsch verteilt.</em></h1>
+      <p class="hero-lede" data-i18n="hero_lede">Garda Unica ist dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment — mit ehrlichen Crowd-Daten, lokalem Wissen und einem Grund, warum. Gebaut von Menschen, die hier leben.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#warteliste" data-i18n="hero_cta1">Auf die Warteliste</a>
+        <a class="btn-ghost" href="#tag" data-i18n="hero_cta2">Wie es funktioniert</a>
+      </div>
+      <div class="hero-note" data-i18n="hero_note">Start: Sommer 2026 · kostenlos</div>
+    </div>
+    <div class="phone-frame reveal">
+      <div class="scr"><img src="assets/app/oggi_greeting.jpg" alt="Garda Unica — Oggi-Ansicht"></div>
+    </div>
+  </div>
+</header>
+
+<!-- 2 · PROBLEM -->
+<section class="problem">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <span class="eyebrow" data-i18n="pb_eyebrow">Das Problem</span>
+      <h2 data-i18n="pb_h2">Gleicher See. Gleiche Uhrzeit. <em>Zwei Welten.</em></h2>
+    </div>
+    <div class="problem-grid">
+      <div class="pcard full reveal">
+        <div class="place"><span class="dot"></span>Sirmione · 11:30</div>
+        <h3 data-i18n="pb_full_h">40 Minuten <em>Parkplatzsuche.</em></h3>
+        <p data-i18n="pb_full_p">Schlange am Castello: 200 Meter. Der Espresso am Hafen: ein Kampf um den letzten Stehplatz. So sieht „Hochsaison" aus, wenn alle derselben Empfehlung folgen.</p>
+      </div>
+      <div class="pcard free reveal">
+        <div class="place"><span class="dot"></span>Manerba · 11:30</div>
+        <h3 data-i18n="pb_free_h">Ein freier Tisch <em>am Wasser.</em></h3>
+        <p data-i18n="pb_free_p">Zwanzig Autominuten entfernt: Parkplatz direkt am Strand, stilles Ufer, dieselbe Sonne über demselben See. Nur eben ohne die Massen.</p>
+      </div>
+    </div>
+    <div class="problem-proof reveal">
+      <div class="phone-frame phone-sm">
+        <div class="scr"><img src="assets/app/territorio_map.jpg" alt="Garda Unica — Live-Auslastungskarte"></div>
+      </div>
+      <div class="proof-caption" data-i18n="pb_caption">Live: Verkehr · Auslastung · Wetter — alle 30 Minuten, für alle 10 Orte</div>
+    </div>
+    <p class="problem-line reveal" data-i18n="pb_line">Unica kennt den Unterschied — <em>in Echtzeit.</em></p>
+  </div>
+</section>
+
+<!-- 3 · EIN TAG MIT UNICA -->
+<section id="tag" class="wrap">
+  <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
+    <span class="eyebrow" data-i18n="day_eyebrow">Ein Tag mit Unica</span>
+    <h2 data-i18n="day_h2">Vom Aufwachen bis zum <em>Aperitivo.</em></h2>
+  </div>
+
+  <div class="day-moment">
+    <div class="phone-frame phone-sm reveal">
+      <div class="scr"><img src="assets/app/onboarding_wer.jpg" alt="Garda Unica — Onboarding"></div>
+    </div>
+    <div class="moment-copy">
+      <span class="time" data-i18n="m0_time">BEVOR ES LOSGEHT</span>
+      <h3 data-i18n="m0_h">Zwei Minuten — dann kennt Unica <em>euch.</em></h3>
+      <p data-i18n="m0_p">Familie mit Kindern? Zu zweit? Mit Hund? Frühaufsteher oder Dolce Vita? Ein kurzes, charmantes Kennenlernen statt endloser Formulare — und jede Empfehlung passt zu eurem Rhythmus.</p>
+      <div class="quote" data-i18n="m0_q">„Ihr mögt es entspannt. Perfetto."</div>
+    </div>
+  </div>
+
+  <div class="day-moment flip">
+    <div class="moment-copy">
+      <span class="time">08:30</span>
+      <h3 data-i18n="m1_h">Dein Moment <em>wartet schon.</em></h3>
+      <p data-i18n="m1_p">Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und Live-Auslastung passt — mit Uhrzeit, Parkplatz-Info und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.</p>
+      <div class="quote" data-i18n="m1_q">„Die beste Zeit am See: jetzt, ohne Plan."</div>
+    </div>
+    <div class="phone-frame phone-sm reveal">
+      <div class="scr"><img src="assets/app/oggi_wasjetzt.jpg" alt="Garda Unica — Was jetzt? Empfehlung"></div>
+    </div>
+  </div>
+
+  <div class="day-moment">
+    <div class="phone-frame phone-sm reveal">
+      <div class="scr chat-scr">
+        <div class="chat-head">
+          <span class="orb"></span>
+          <span class="chat-title">Unica Concierge</span>
+          <span class="chat-live"><i></i>live</span>
+        </div>
+        <div class="chat-body" id="chatBody" data-chatplay>
+          <div class="cm u" data-i18n="cl_u1">Wann ist Markttag in Lazise?</div>
+          <div class="cm a" data-i18n="cl_a1">Mittwochs, 8 bis 13 Uhr — im historischen Zentrum. Viel Spaß beim Stöbern!</div>
+          <div class="cm u" data-i18n="cl_u2">Und wo gibt's um 22 Uhr noch Pizza in Peschiera?</div>
+          <div class="cm a" data-i18n="cl_a2">Da kenne ich zwei Öfen, die dann noch heiß sind. Soll ich dir den Weg zeigen?</div>
+        </div>
+        <div class="chat-foot"><span data-i18n="cl_input">Ihre Frage…</span><i>➤</i></div>
+      </div>
+    </div>
+    <div class="moment-copy">
+      <span class="time">14:00</span>
+      <h3 data-i18n="m2_h">Frag, was du willst. <em>Auf Deutsch.</em></h3>
+      <p data-i18n="m2_p">Markttag in Lazise? Die Fähre nach Salò? Der Bäcker, der sonntags offen hat? Unica antwortet wie ein Freund, der am See wohnt — aus kuratiertem lokalen Wissen, nicht aus dem Internet-Rauschen.</p>
+      <div class="quote" data-i18n="m2_q">„Der Markt in Lazise ist mittwochs, 8 bis 13 Uhr."</div>
+    </div>
+  </div>
+
+  <div class="day-moment flip">
+    <div class="moment-copy">
+      <span class="time">15:12</span>
+      <h3 data-i18n="m3_h">Und wenn's drauf ankommt, <em>warnt dich der See.</em></h3>
+      <p data-i18n="m3_p">Gewitterfront ab 16:00? Unica sagt es dir, bevor du am Strand bist — mit konkreter Uhrzeit statt vager Wetter-App-Prosa. Nicht nur empfehlen. Wirklich aufpassen.</p>
+      <div class="quote" data-i18n="m3_q">„Sei vor 15:30 zurück vom See — kein Bootsausflug."</div>
+    </div>
+    <div class="phone-frame phone-sm reveal">
+      <div class="scr"><img src="assets/app/storm_warning.jpg" alt="Garda Unica — Unwetterwarnung"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3b · ERLEBNISSE -->
+<section id="erlebnisse" class="problem">
+  <div class="wrap">
+    <div class="erlebnis-grid">
+      <div class="erlebnis-copy">
+        <span class="eyebrow" data-i18n="ex_eyebrow">Scopri · Erlebnisse</span>
+        <h2 data-i18n="ex_h2">Buchbar: Erlebnisse, die kein <em>Portal kennt.</em></h2>
+        <p data-i18n="ex_p">Mit Marco um sechs Uhr früh raus auf dem Fischerboot, wenn der See noch schläft. Solche Momente stehen in keinem Katalog — sie entstehen, weil wir die Menschen dahinter kennen. Buchbar direkt in der App, bei Partnern vor Ort, transparent gekennzeichnet.</p>
+        <div class="ex-chips">
+          <span class="ex-chip" data-i18n="ex_c1">Direkt bei Locals</span>
+          <span class="ex-chip" data-i18n="ex_c2">Kleine Gruppen</span>
+          <span class="ex-chip" data-i18n="ex_c3">Transparent gekennzeichnet</span>
+        </div>
+      </div>
+      <div class="phone-frame phone-sm reveal">
+        <div class="scr"><img src="assets/app/scopri_erlebnis.jpg" alt="Garda Unica — Erlebnisse: Mit Marco auf dem Fischerboot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · MISSION -->
+<section id="mission" class="honest">
+  <div class="wrap">
+    <span class="eyebrow" data-i18n="mi_eyebrow">Warum es uns gibt</span>
+    <div class="mi-statements">
+      <div class="mi-block reveal">
+        <span class="mi-label" data-i18n="mi_vlabel">Vision</span>
+        <p class="mi-text" data-i18n="mi_vision">Ein Gardasee, an dem Gäste und Einheimische denselben Sommer <em>lieben.</em></p>
+      </div>
+      <div class="mi-block reveal">
+        <span class="mi-label" data-i18n="mi_mlabel">Mission</span>
+        <p class="mi-text mi-small" data-i18n="mi_mission">Wir verteilen Tourismus intelligent: Ehrliche Live-Daten und kuratiertes lokales Wissen führen Menschen dorthin, wo der See gerade am schönsten ist — und entlasten die Orte, die Pause brauchen.</p>
+      </div>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar reveal">
+        <h3 data-i18n="pi1_h">Kuratiert, keine Masse</h3>
+        <p data-i18n="pi1_p">Kein Bewertungs-Ozean mit 200 Optionen. Jeder Ort, jeder Tipp ist handverlesen — von Menschen, nicht von einem Ranking-Algorithmus.</p>
+      </div>
+      <div class="pillar reveal">
+        <h3 data-i18n="pi2_h">Echte Daten, vor Ort verifiziert</h3>
+        <p data-i18n="pi2_p">Verkehr, Auslastung, Wetter — alle 30 Minuten aktualisiert. Und was die Daten sagen, prüfen wir selbst nach. Wir wohnen hier.</p>
+      </div>
+      <div class="pillar reveal">
+        <h3 data-i18n="pi3_h">Unabhängig</h3>
+        <p data-i18n="pi3_p">Keine bezahlten Platzierungen. Wenn wir empfehlen, steht dabei, warum. Partner kennzeichnen wir transparent — und was Unica nicht sicher weiß, behauptet sie nicht.</p>
+      </div>
+      <div class="pillar reveal">
+        <h3 data-i18n="pi4_h">Gut für den ganzen See</h3>
+        <p data-i18n="pi4_p">Volle Orte werden entlastet, stille entdeckt. Weniger Parksuche, weniger Stress — und Umsatz auch dort, wo der Rummel sonst nie ankommt.</p>
+      </div>
+    </div>
+    <p class="mi-quote reveal" data-i18n="mi_quote">„Das weiß ich nicht sicher — und ich rate nicht." — Unica</p>
+  </div>
+</section>
+
+<!-- 5 · VON HIER, FÜR HIER -->
+<section id="team" class="locals">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <span class="eyebrow" data-i18n="tm_eyebrow">Von hier, für hier</span>
+      <h2 data-i18n="tm_h2">Von Locals gebaut, nicht von einem <em>Konzern.</em></h2>
+    </div>
+    <div class="team-grid">
+      <button class="person reveal" type="button" onclick="openBio('c')" aria-label="Cristina — Bio öffnen">
+        <img class="photo" src="assets/cristina.jpg" alt="Cristina — Founder &amp; Creative Strategy" onerror="this.style.display='none'">
+        <span class="zoom-hint">＋</span>
+        <div class="inner">
+          <h3>Cristina</h3>
+          <div class="role" data-i18n="c_role">Founder · Creative Strategy</div>
+          <p class="short" data-i18n="c_short">Wirtschaftsingenieurin, ehemalige Strategie-Beraterin. Kuratiert das lokale Wissen hinter Garda Unica.</p>
+          <span class="more-link" data-i18n="more">mehr erfahren →</span>
+        </div>
+      </button>
+      <button class="person reveal" type="button" onclick="openBio('t')" aria-label="Tim — Bio öffnen">
+        <img class="photo" src="assets/tim.jpg" alt="Tim — Founder &amp; Head of AI/Automation" onerror="this.style.display='none'">
+        <span class="zoom-hint">＋</span>
+        <div class="inner">
+          <h3>Tim</h3>
+          <div class="role" data-i18n="t_role">Founder · AI &amp; Automation</div>
+          <p class="short" data-i18n="t_short">Wirtschaftsingenieur, ehemaliger Partner einer IT-Beratung. Baut die KI-Architektur hinter Unica.</p>
+          <span class="more-link" data-i18n="more">mehr erfahren →</span>
+        </div>
+      </button>
+      <button class="person reveal" type="button" onclick="openBio('l')" aria-label="Luna — Bio öffnen">
+        <img class="photo" src="assets/luna.jpg" alt="Luna — Chief Happiness Officer" onerror="this.style.display='none'">
+        <span class="zoom-hint">＋</span>
+        <div class="inner">
+          <h3>Luna</h3>
+          <div class="role" data-i18n="l_role">Chief Happiness Officer</div>
+          <p class="short" data-i18n="l_short">Expertin für analoge Algorithmen. Beweist täglich, dass Natürliche Intelligenz zählt.</p>
+          <span class="more-link" data-i18n="more">mehr erfahren →</span>
+        </div>
+      </button>
+    </div>
+    <div class="cerchio-strip reveal">
+      <div class="cerchio-shot"><img src="assets/app/cerchio_community.jpg" alt="Garda Unica — Il Cerchio Community"></div>
+      <div class="cerchio-copy">
+        <h3 data-i18n="ce_h3">Nicht nur wir kuratieren. <em>Auch der See selbst.</em></h3>
+        <p data-i18n="ce_p">Stell deine Frage in „Domande" — echte Locals und Unicas kuratierte Residenti antworten. Teile deine Momente als „Esperienze". Kein Forum voller Werbung, sondern ein Kreis von Menschen, die hier leben.</p>
+      </div>
+    </div>
+    <div class="orte-line reveal">
+      <span class="label" data-i18n="orte_label">Unser Revier · 10 Orte am Südufer</span>
+      <div class="orte-cloud">
+        <span>Peschiera</span><span>Lazise</span><span>Bardolino</span><span>Garda</span><span>Sirmione</span><span>Desenzano</span><span>Salò</span><span>Manerba</span><span>Padenghe</span><span>Moniga</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · FINALE -->
+<section id="warteliste" class="finale wrap">
+  <span class="eyebrow" data-i18n="wl_eyebrow">Sommer 2026</span>
+  <h2 data-i18n="wl_h2">Sei dabei, bevor die <em>Saison</em> beginnt.</h2>
+  <p data-i18n="wl_p">Garda Unica startet zur Hauptsaison 2026 am südlichen Gardasee. Trag dich ein und erfahre als Erste:r, wenn es losgeht — kein Spam, nur der Launch.</p>
+  <a class="btn-primary" href="mailto:info@gardaunica.com?subject=Warteliste%20Garda%20Unica" data-i18n="wl_cta">Auf die Warteliste</a>
+  <div class="mail" data-i18n="wl_mail">oder schreib uns: <a href="mailto:info@gardaunica.com">info@gardaunica.com</a></div>
+</section>
+
+<div class="faq-wrap faq" id="faq">
+  <span class="label" data-i18n="faq_label">Häufige Fragen</span>
+  <details><summary data-i18n="faq1_q">Was kostet Garda Unica?</summary><p data-i18n="faq1_a">Die App ist zum Start kostenlos. Wir verdienen an vermittelten Erlebnissen bei unseren Partnern — nie an versteckten Platzierungen. Wenn wir etwas empfehlen, steht dabei, warum.</p></details>
+  <details><summary data-i18n="faq2_q">Woher kommen die Crowd-Daten?</summary><p data-i18n="faq2_a">Aus Live-Verkehrsdaten, Wetter und lokalen Mustern, die wir seit Jahren beobachten — alle 30 Minuten aktualisiert. Keine Schätzung ins Blaue, sondern ein ehrliches Bild der Lage vor Ort.</p></details>
+  <details><summary data-i18n="faq3_q">Bezahlen Restaurants für Empfehlungen?</summary><p data-i18n="faq3_a">Nein. Das ist unser wichtigstes Versprechen. Empfehlungen entstehen aus kuratiertem lokalen Wissen — nicht aus Werbebudgets. Partner, mit denen wir zusammenarbeiten, kennzeichnen wir transparent.</p></details>
+  <details><summary data-i18n="faq4_q">Funktioniert die App auf Deutsch?</summary><p data-i18n="faq4_a">Ja — Garda Unica ist für deutschsprachige Gäste gebaut. Unica versteht und antwortet auf Deutsch, mit dem Lokalwissen von Menschen, die am See leben.</p></details>
+  <details><summary data-i18n="faq5_q">Wann geht es los?</summary><p data-i18n="faq5_a">Zur Hauptsaison 2026, zuerst am südlichen Gardasee zwischen Peschiera und Salò. Wer auf der Warteliste steht, erfährt es als Erste:r.</p></details>
+</div>
+
+<div class="b2b-line" data-i18n="b2b_line">Hotelier am Südufer? Unica als Concierge im Zimmer — <a href="mailto:cristina@gardaunica.com?subject=Pilot-Hotel">Pilot-Hotels gesucht</a></div>
+
+<footer>
+  <div class="foot-inner">
+    <div data-i18n="foot_left">Garda <em style="font-family:var(--f-display)">Unica</em> · ein Produkt von <a href="https://www.lagonord.de" rel="noopener">LagoNord AI</a> · © 2026</div>
+    <div style="display:flex;gap:20px">
+      <a href="mailto:info@gardaunica.com" data-i18n="foot_contact">Kontakt</a>
+      <a href="https://www.lagonord.de/imprint.html" data-i18n="foot_imprint">Impressum</a>
+      <a href="https://www.lagonord.de/privacy.html" data-i18n="foot_privacy">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Bio Modal -->
+<div class="bio-overlay" id="bioOverlay" onclick="if(event.target===this)closeBio()">
+  <div class="bio-modal" role="dialog" aria-modal="true" aria-labelledby="bioName">
+    <button class="bio-close" type="button" onclick="closeBio()" aria-label="Schließen">✕</button>
+    <div class="bio-photo"><img id="bioImg" src="" alt=""></div>
+    <div class="bio-content">
+      <h3 id="bioName"></h3>
+      <div class="role" id="bioRole"></div>
+      <div class="bio-text" id="bioText"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+var I18N={
+ de:{
+  pb_caption:"Live: Verkehr · Auslastung · Wetter — alle 30 Minuten, für alle 10 Orte",
+  mi_eyebrow:"Warum es uns gibt",mi_vlabel:"Vision",mi_mlabel:"Mission",
+  mi_vision:"Ein Gardasee, an dem Gäste und Einheimische denselben Sommer <em>lieben.</em>",
+  mi_mission:"Wir verteilen Tourismus intelligent: Ehrliche Live-Daten und kuratiertes lokales Wissen führen Menschen dorthin, wo der See gerade am schönsten ist — und entlasten die Orte, die Pause brauchen.",
+  pi1_h:"Kuratiert, keine Masse",pi1_p:"Kein Bewertungs-Ozean mit 200 Optionen. Jeder Ort, jeder Tipp ist handverlesen — von Menschen, nicht von einem Ranking-Algorithmus.",
+  pi2_h:"Echte Daten, vor Ort verifiziert",pi2_p:"Verkehr, Auslastung, Wetter — alle 30 Minuten aktualisiert. Und was die Daten sagen, prüfen wir selbst nach. Wir wohnen hier.",
+  pi3_h:"Unabhängig",pi3_p:"Keine bezahlten Platzierungen. Wenn wir empfehlen, steht dabei, warum. Partner kennzeichnen wir transparent — und was Unica nicht sicher weiß, behauptet sie nicht.",
+  pi4_h:"Gut für den ganzen See",pi4_p:"Volle Orte werden entlastet, stille entdeckt. Weniger Parksuche, weniger Stress — und Umsatz auch dort, wo der Rummel sonst nie ankommt.",
+  mi_quote:"„Das weiß ich nicht sicher — und ich rate nicht.\" — Unica",
+  ex_eyebrow:"Scopri · Erlebnisse",ex_h2:"Buchbar: Erlebnisse, die kein <em>Portal kennt.</em>",
+  ex_p:"Mit Marco um sechs Uhr früh raus auf dem Fischerboot, wenn der See noch schläft. Solche Momente stehen in keinem Katalog — sie entstehen, weil wir die Menschen dahinter kennen. Buchbar direkt in der App, bei Partnern vor Ort, transparent gekennzeichnet.",
+  ex_c1:"Direkt bei Locals",ex_c2:"Kleine Gruppen",ex_c3:"Transparent gekennzeichnet",
+  cl_u1:"Wann ist Markttag in Lazise?",cl_a1:"Mittwochs, 8 bis 13 Uhr — im historischen Zentrum. Viel Spaß beim Stöbern!",
+  cl_u2:"Und wo gibt's um 22 Uhr noch Pizza in Peschiera?",cl_a2:"Da kenne ich zwei Öfen, die dann noch heiß sind. Soll ich dir den Weg zeigen?",
+  cl_input:"Ihre Frage…",
+  nav_day:"Ein Tag mit Unica",nav_honest:"Unser Prinzip",nav_team:"Wer wir sind",nav_cta:"Warteliste",
+  hero_eyebrow:"Süd-Gardasee · Peschiera bis Salò",
+  hero_h1:"Der Gardasee ist nicht überlaufen. Er ist <em>falsch verteilt.</em>",
+  hero_lede:"Garda Unica ist dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment — mit ehrlichen Crowd-Daten, lokalem Wissen und einem Grund, warum. Gebaut von Menschen, die hier leben.",
+  hero_cta1:"Auf die Warteliste",hero_cta2:"Wie es funktioniert",hero_note:"Start: Sommer 2026 · kostenlos",
+  pb_eyebrow:"Das Problem",pb_h2:"Gleicher See. Gleiche Uhrzeit. <em>Zwei Welten.</em>",
+  pb_full_h:"40 Minuten <em>Parkplatzsuche.</em>",
+  pb_full_p:"Schlange am Castello: 200 Meter. Der Espresso am Hafen: ein Kampf um den letzten Stehplatz. So sieht „Hochsaison\" aus, wenn alle derselben Empfehlung folgen.",
+  pb_free_h:"Ein freier Tisch <em>am Wasser.</em>",
+  pb_free_p:"Zwanzig Autominuten entfernt: Parkplatz direkt am Strand, stilles Ufer, dieselbe Sonne über demselben See. Nur eben ohne die Massen.",
+  pb_line:"Unica kennt den Unterschied — <em>in Echtzeit.</em>",
+  day_eyebrow:"Ein Tag mit Unica",day_h2:"Vom Aufwachen bis zum <em>Aperitivo.</em>",
+  m0_time:"BEVOR ES LOSGEHT",m0_h:"Zwei Minuten — dann kennt Unica <em>euch.</em>",
+  m0_p:"Familie mit Kindern? Zu zweit? Mit Hund? Frühaufsteher oder Dolce Vita? Ein kurzes, charmantes Kennenlernen statt endloser Formulare — und jede Empfehlung passt zu eurem Rhythmus.",
+  m0_q:"„Ihr mögt es entspannt. Perfetto.\"",
+  m1_h:"Dein Moment <em>wartet schon.</em>",
+  m1_p:"Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und Live-Auslastung passt — mit Uhrzeit, Parkplatz-Info und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.",
+  m1_q:"„Die beste Zeit am See: jetzt, ohne Plan.\"",
+  m2_h:"Frag, was du willst. <em>Auf Deutsch.</em>",
+  m2_p:"Markttag in Lazise? Die Fähre nach Salò? Der Bäcker, der sonntags offen hat? Unica antwortet wie ein Freund, der am See wohnt — aus kuratiertem lokalen Wissen, nicht aus dem Internet-Rauschen.",
+  m2_q:"„Der Markt in Lazise ist mittwochs, 8 bis 13 Uhr.\"",
+  m3_h:"Und wenn's drauf ankommt, <em>warnt dich der See.</em>",
+  m3_p:"Gewitterfront ab 16:00? Unica sagt es dir, bevor du am Strand bist — mit konkreter Uhrzeit statt vager Wetter-App-Prosa. Nicht nur empfehlen. Wirklich aufpassen.",
+  m3_q:"„Sei vor 15:30 zurück vom See — kein Bootsausflug.\"",
+  ho_eyebrow:"Unser Prinzip",ho_h2:"KI recherchiert. <em>Mensch verantwortet.</em>",
+  ho1_h:"Keine bezahlten Platzierungen",
+  ho1_p:"Wenn wir ein Restaurant empfehlen, steht dabei, warum. Empfehlungen entstehen aus kuratiertem lokalen Wissen — nicht aus Werbebudgets. Partner kennzeichnen wir transparent.",
+  ho2_h:"Lieber ehrlich als erfunden",
+  ho2_p:"Was Unica nicht sicher weiß, behauptet sie nicht. Jede Antwort basiert auf geprüftem Wissen von Menschen, die am See leben — im Zweifel sagt sie: „Das weiß ich nicht sicher.\"",
+  tm_eyebrow:"Von hier, für hier",tm_h2:"Von Locals gebaut, nicht von einem <em>Konzern.</em>",
+  c_role:"Founder · Creative Strategy",
+  c_short:"Wirtschaftsingenieurin, ehemalige Strategie-Beraterin. Kuratiert das lokale Wissen hinter Garda Unica.",
+  t_role:"Founder · AI &amp; Automation",
+  t_short:"Wirtschaftsingenieur, ehemaliger Partner einer IT-Beratung. Baut die KI-Architektur hinter Unica.",
+  l_role:"Chief Happiness Officer",
+  l_short:"Expertin für analoge Algorithmen. Beweist täglich, dass Natürliche Intelligenz zählt.",
+  more:"mehr erfahren →",
+  c_long:"<p>„Als Wirtschaftsingenieurin und ehemalige Strategie-Beraterin bei der weltgrößten IT-Consultancy weiß ich, wie man Großprojekte steuert. Jahrelang habe ich globale digitale Zukunftsprojekte geleitet. Heute nutze ich diese Präzision, um Marken visuell an die Spitze zu führen. Ich verbinde technische Exzellenz mit ästhetischer Intelligenz — weg von Standard-Lösungen, hin zu maßgeschneiderten Bildwelten und Strategien, die wirken.</p><p>Diese Leidenschaft für Effizienz und Kreativität lebe ich auch privat: Als Autorin schreibe ich Kinderbücher und Kochbücher für berufstätige Eltern mit wenig Zeit. Ob im Business oder in der Küche — mein Ziel ist immer das beste Ergebnis mit smarten Lösungen.“</p>",
+  t_long:"<p>„Ich komme aus der Welt der harten Fakten und komplexen Prozesse. Als Wirtschaftsingenieur und ehemaliger Partner einer renommierten Management- &amp; IT-Beratung habe ich digitale Transformationen in der Automobilindustrie verantwortet. Ich spiele nicht mit KI, ich integriere sie. Ich baue skalierbare, sichere Architekturen, die den gleichen Qualitätsansprüchen genügen wie in der Industrie.“</p>",
+  l_long:"<p>„Ich bin hier die Expertin für analoge Algorithmen. Ich bin der lebende Beweis dafür, dass Natürliche Intelligenz (NI) mindestens genauso wichtig ist wie KI.“</p><p>Testet nebenbei jede Empfehlung persönlich auf Hunde-Tauglichkeit — vom Strand in Manerba bis zur Gelateria in Lazise. Ihre Abenteuer auf Instagram: <a href=\"https://www.instagram.com/luna_the_digital_dog/\" rel=\"noopener\">@Luna_the_Digital_dog</a></p>",
+  ce_h3:"Nicht nur wir kuratieren. <em>Auch der See selbst.</em>",
+  ce_p:"Stell deine Frage in „Domande\" — echte Locals und Unicas kuratierte Residenti antworten. Teile deine Momente als „Esperienze\". Kein Forum voller Werbung, sondern ein Kreis von Menschen, die hier leben.",
+  orte_label:"Unser Revier · 10 Orte am Südufer",
+  wl_eyebrow:"Sommer 2026",wl_h2:"Sei dabei, bevor die <em>Saison</em> beginnt.",
+  wl_p:"Garda Unica startet zur Hauptsaison 2026 am südlichen Gardasee. Trag dich ein und erfahre als Erste:r, wenn es losgeht — kein Spam, nur der Launch.",
+  wl_cta:"Auf die Warteliste",wl_mail:"oder schreib uns: <a href=\"mailto:info@gardaunica.com\">info@gardaunica.com</a>",
+  faq_label:"Häufige Fragen",
+  faq1_q:"Was kostet Garda Unica?",faq1_a:"Die App ist zum Start kostenlos. Wir verdienen an vermittelten Erlebnissen bei unseren Partnern — nie an versteckten Platzierungen. Wenn wir etwas empfehlen, steht dabei, warum.",
+  faq2_q:"Woher kommen die Crowd-Daten?",faq2_a:"Aus Live-Verkehrsdaten, Wetter und lokalen Mustern, die wir seit Jahren beobachten — alle 30 Minuten aktualisiert. Keine Schätzung ins Blaue, sondern ein ehrliches Bild der Lage vor Ort.",
+  faq3_q:"Bezahlen Restaurants für Empfehlungen?",faq3_a:"Nein. Das ist unser wichtigstes Versprechen. Empfehlungen entstehen aus kuratiertem lokalen Wissen — nicht aus Werbebudgets. Partner, mit denen wir zusammenarbeiten, kennzeichnen wir transparent.",
+  faq4_q:"Funktioniert die App auf Deutsch?",faq4_a:"Ja — Garda Unica ist für deutschsprachige Gäste gebaut. Unica versteht und antwortet auf Deutsch, mit dem Lokalwissen von Menschen, die am See leben.",
+  faq5_q:"Wann geht es los?",faq5_a:"Zur Hauptsaison 2026, zuerst am südlichen Gardasee zwischen Peschiera und Salò. Wer auf der Warteliste steht, erfährt es als Erste:r.",
+  b2b_line:"Hotelier am Südufer? Unica als Concierge im Zimmer — <a href=\"mailto:cristina@gardaunica.com?subject=Pilot-Hotel\">Pilot-Hotels gesucht</a>",
+  foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · ein Produkt von <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
+  foot_contact:"Kontakt",foot_imprint:"Impressum",foot_privacy:"Datenschutz",
+  _title:"Garda Unica — Der Süd-Gardasee, richtig verteilt.",
+  _desc:"Dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment, ehrliche Crowd-Daten, lokales Wissen."
+ },
+ it:{
+  pb_caption:"Live: traffico · affluenza · meteo — ogni 30 minuti, per tutte le 10 località",
+  mi_eyebrow:"Perché esistiamo",mi_vlabel:"Visione",mi_mlabel:"Missione",
+  mi_vision:"Un Lago di Garda dove ospiti e residenti amano la stessa <em>estate.</em>",
+  mi_mission:"Distribuiamo il turismo in modo intelligente: dati live onesti e conoscenza locale curata portano le persone dove il lago è più bello in questo momento — e alleggeriscono i luoghi che hanno bisogno di respiro.",
+  pi1_h:"Curato, non di massa",pi1_p:"Nessun oceano di recensioni con 200 opzioni. Ogni luogo, ogni consiglio è selezionato a mano — da persone, non da un algoritmo di ranking.",
+  pi2_h:"Dati veri, verificati sul posto",pi2_p:"Traffico, affluenza, meteo — aggiornati ogni 30 minuti. E ciò che dicono i dati, lo verifichiamo di persona. Viviamo qui.",
+  pi3_h:"Indipendenti",pi3_p:"Nessun posizionamento a pagamento. Quando consigliamo, c'è scritto il perché. I partner sono segnalati in modo trasparente — e ciò che Unica non sa con certezza, non lo afferma.",
+  pi4_h:"Un bene per tutto il lago",pi4_p:"I luoghi pieni vengono alleggeriti, quelli tranquilli scoperti. Meno ricerca di parcheggio, meno stress — e fatturato anche dove la folla non arriva mai.",
+  mi_quote:"„Non lo so con certezza — e non tiro a indovinare.\" — Unica",
+  ex_eyebrow:"Scopri · Esperienze",ex_h2:"Prenotabili: esperienze che nessun <em>portale conosce.</em>",
+  ex_p:"Con Marco alle sei del mattino sulla barca da pesca, quando il lago dorme ancora. Momenti così non stanno in nessun catalogo — nascono perché conosciamo le persone dietro. Prenotabili direttamente nell'app, presso partner locali, segnalati in modo trasparente.",
+  ex_c1:"Direttamente dai locali",ex_c2:"Piccoli gruppi",ex_c3:"Segnalati con trasparenza",
+  cl_u1:"Quando c'è il mercato a Lazise?",cl_a1:"Il mercoledì, dalle 8 alle 13 — nel centro storico. Buona passeggiata tra i banchi!",
+  cl_u2:"E dove trovo una pizza a Peschiera alle 22?",cl_a2:"Conosco due forni ancora caldi a quell'ora. Ti mostro la strada?",
+  cl_input:"La tua domanda…",
+  nav_day:"Una giornata con Unica",nav_honest:"Il nostro principio",nav_team:"Chi siamo",nav_cta:"Lista d'attesa",
+  hero_eyebrow:"Basso Garda · da Peschiera a Salò",
+  hero_h1:"Il Lago di Garda non è sovraffollato. È <em>distribuito male.</em>",
+  hero_lede:"Garda Unica è la tua guida di viaggio AI per il basso Lago di Garda. Un consiglio per ogni momento — con dati reali sull'affluenza, conoscenza locale e il perché. Creata da persone che vivono qui.",
+  hero_cta1:"Entra in lista d'attesa",hero_cta2:"Come funziona",hero_note:"Lancio: estate 2026 · gratuita",
+  pb_eyebrow:"Il problema",pb_h2:"Stesso lago. Stessa ora. <em>Due mondi.</em>",
+  pb_full_h:"40 minuti a cercare <em>parcheggio.</em>",
+  pb_full_p:"Coda al Castello: 200 metri. L'espresso al porto: una lotta per l'ultimo posto in piedi. Ecco l'„alta stagione\" quando tutti seguono lo stesso consiglio.",
+  pb_free_h:"Un tavolo libero <em>sull'acqua.</em>",
+  pb_free_p:"A venti minuti d'auto: parcheggio in spiaggia, riva tranquilla, lo stesso sole sullo stesso lago. Solo senza la folla.",
+  pb_line:"Unica conosce la differenza — <em>in tempo reale.</em>",
+  day_eyebrow:"Una giornata con Unica",day_h2:"Dal risveglio all'<em>aperitivo.</em>",
+  m0_time:"PRIMA DI PARTIRE",m0_h:"Due minuti — e Unica <em>vi conosce.</em>",
+  m0_p:"Famiglia con bambini? In coppia? Con il cane? Mattinieri o dolce vita? Un breve incontro simpatico invece di moduli infiniti — e ogni consiglio si adatta al vostro ritmo.",
+  m0_q:"„Vi piace rilassarvi. Perfetto.\"",
+  m1_h:"Il tuo momento <em>ti aspetta già.</em>",
+  m1_p:"Ogni mattina un consiglio su misura per meteo, giorno della settimana e affluenza live — con orario, info parcheggio e il motivo per cui proprio adesso. Non 200 opzioni. Una, quella giusta.",
+  m1_q:"„Il momento migliore sul lago: adesso, senza piani.\"",
+  m2_h:"Chiedi quello che vuoi. <em>Nella tua lingua.</em>",
+  m2_p:"Giorno di mercato a Lazise? Il traghetto per Salò? Il panificio aperto la domenica? Unica risponde come un amico che vive sul lago — con conoscenza locale curata, non con il rumore di internet.",
+  m2_q:"„Il mercato di Lazise è il mercoledì, dalle 8 alle 13.\"",
+  m3_h:"E quando conta davvero, <em>il lago ti avvisa.</em>",
+  m3_p:"Fronte temporalesco dalle 16:00? Unica te lo dice prima che tu sia in spiaggia — con un orario preciso invece della vaga prosa da app meteo. Non solo consigliare. Davvero vegliare.",
+  m3_q:"„Torna dal lago entro le 15:30 — niente gita in barca.\"",
+  ho_eyebrow:"Il nostro principio",ho_h2:"L'AI ricerca. <em>L'uomo risponde.</em>",
+  ho1_h:"Nessun posizionamento a pagamento",
+  ho1_p:"Quando consigliamo un ristorante, c'è scritto il perché. I consigli nascono dalla conoscenza locale curata — non da budget pubblicitari. I partner sono segnalati in modo trasparente.",
+  ho2_h:"Meglio onesti che inventati",
+  ho2_p:"Ciò che Unica non sa con certezza, non lo afferma. Ogni risposta si basa su conoscenza verificata di chi vive sul lago — nel dubbio dice: „Non lo so con certezza.\"",
+  tm_eyebrow:"Di qui, per qui",tm_h2:"Fatta da locali, non da una <em>multinazionale.</em>",
+  c_role:"Founder · Creative Strategy",
+  c_short:"Ingegnere gestionale, ex consulente strategica. Cura la conoscenza locale dietro Garda Unica.",
+  t_role:"Founder · AI &amp; Automation",
+  t_short:"Ingegnere gestionale, ex Partner di una società di consulenza IT. Costruisce l'architettura AI dietro Unica.",
+  l_role:"Chief Happiness Officer",
+  l_short:"Esperta di algoritmi analogici. Dimostra ogni giorno che l'Intelligenza Naturale conta.",
+  more:"scopri di più →",
+  c_long:"<p>„Come ingegnere gestionale ed ex consulente strategica presso la più grande società di consulenza IT al mondo, so come gestire grandi progetti. Per anni ho guidato progetti digitali globali orientati al futuro. Oggi uso questa precisione per portare i brand al top visivamente. Unisco l'eccellenza tecnica all'intelligenza estetica: niente soluzioni standard, solo strategie su misura che funzionano.</p><p>Vivo questa passione per l'efficienza e la creatività anche nel privato: come autrice, scrivo libri per bambini e ricettari per genitori che lavorano e hanno poco tempo. Nel business come in cucina, il mio obiettivo è sempre il massimo risultato con soluzioni intelligenti.“</p>",
+  t_long:"<p>„Vengo dal mondo dei fatti concreti e dei processi complessi. Come ingegnere gestionale ed ex Partner di una rinomata società di consulenza IT e gestionale, ho guidato trasformazioni digitali nell'industria automobilistica. Non gioco con l'IA, la integro. Costruisco architetture scalabili e sicure che soddisfano gli stessi standard di qualità dell'industria.“</p>",
+  l_long:"<p>„Io sono l'esperta di algoritmi analogici. Sono la prova vivente che l'Intelligenza Naturale (NI) è importante quanto l'IA.“</p><p>Testa personalmente ogni consiglio per l'idoneità ai cani — dalla spiaggia di Manerba alla gelateria di Lazise. Le sue avventure su Instagram: <a href=\"https://www.instagram.com/luna_the_digital_dog/\" rel=\"noopener\">@Luna_the_Digital_dog</a></p>",
+  ce_h3:"Non curiamo solo noi. <em>Anche il lago stesso.</em>",
+  ce_p:"Fai la tua domanda in „Domande\" — rispondono veri locali e i Residenti curati di Unica. Condividi i tuoi momenti come „Esperienze\". Non un forum pieno di pubblicità, ma un cerchio di persone che vivono qui.",
+  orte_label:"Il nostro territorio · 10 località sulla sponda sud",
+  wl_eyebrow:"Estate 2026",wl_h2:"Esserci prima che inizi la <em>stagione.</em>",
+  wl_p:"Garda Unica parte per l'alta stagione 2026 sul basso Lago di Garda. Iscriviti e sarai il primo a saperlo — niente spam, solo il lancio.",
+  wl_cta:"Entra in lista d'attesa",wl_mail:"oppure scrivici: <a href=\"mailto:info@gardaunica.com\">info@gardaunica.com</a>",
+  faq_label:"Domande frequenti",
+  faq1_q:"Quanto costa Garda Unica?",faq1_a:"Al lancio l'app è gratuita. Guadagniamo dalle esperienze prenotate presso i nostri partner — mai da posizionamenti nascosti. Quando consigliamo qualcosa, c'è scritto il perché.",
+  faq2_q:"Da dove vengono i dati sull'affluenza?",faq2_a:"Da dati di traffico in tempo reale, meteo e pattern locali che osserviamo da anni — aggiornati ogni 30 minuti. Nessuna stima a caso, ma un quadro onesto della situazione sul posto.",
+  faq3_q:"I ristoranti pagano per essere consigliati?",faq3_a:"No. È la nostra promessa più importante. I consigli nascono dalla conoscenza locale curata — non da budget pubblicitari. I partner con cui collaboriamo sono segnalati in modo trasparente.",
+  faq4_q:"L'app funziona in italiano?",faq4_a:"Sì — Garda Unica parla tedesco, italiano e inglese. Unica capisce e risponde nella tua lingua, con la conoscenza locale di chi vive sul lago.",
+  faq5_q:"Quando si parte?",faq5_a:"Per l'alta stagione 2026, prima sul basso Garda tra Peschiera e Salò. Chi è in lista d'attesa lo saprà per primo.",
+  b2b_line:"Albergatore sulla sponda sud? Unica come concierge in camera — <a href=\"mailto:cristina@gardaunica.com?subject=Hotel-Pilota\">cerchiamo hotel pilota</a>",
+  foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · un prodotto di <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
+  foot_contact:"Contatti",foot_imprint:"Note legali",foot_privacy:"Privacy",
+  _title:"Garda Unica — Il basso Garda, distribuito bene.",
+  _desc:"La tua guida di viaggio AI per il basso Lago di Garda. Un consiglio per ogni momento, dati reali sull'affluenza, conoscenza locale."
+ },
+ en:{
+  pb_caption:"Live: traffic · crowds · weather — every 30 minutes, for all 10 towns",
+  mi_eyebrow:"Why we exist",mi_vlabel:"Vision",mi_mlabel:"Mission",
+  mi_vision:"A Lake Garda where guests and locals love the same <em>summer.</em>",
+  mi_mission:"We distribute tourism intelligently: honest live data and curated local knowledge guide people to where the lake is most beautiful right now — and give the crowded places room to breathe.",
+  pi1_h:"Curated, not mass",pi1_p:"No ocean of reviews with 200 options. Every place, every tip is hand-picked — by people, not by a ranking algorithm.",
+  pi2_h:"Real data, verified on site",pi2_p:"Traffic, crowds, weather — updated every 30 minutes. And what the data says, we check ourselves. We live here.",
+  pi3_h:"Independent",pi3_p:"No paid placements. When we recommend, the reason is right there. Partners are transparently marked — and what Unica doesn't know for sure, she doesn't claim.",
+  pi4_h:"Good for the whole lake",pi4_p:"Crowded places get relief, quiet ones get discovered. Less parking hunt, less stress — and revenue where the crowds never usually reach.",
+  mi_quote:"„I don't know for sure — and I don't guess.\" — Unica",
+  ex_eyebrow:"Scopri · Experiences",ex_h2:"Bookable: experiences no <em>portal knows.</em>",
+  ex_p:"Out with Marco at six in the morning on the fishing boat, while the lake is still asleep. Moments like these aren't in any catalogue — they exist because we know the people behind them. Bookable directly in the app, with local partners, transparently marked.",
+  ex_c1:"Directly with locals",ex_c2:"Small groups",ex_c3:"Transparently marked",
+  cl_u1:"When is market day in Lazise?",cl_a1:"Wednesdays, 8am to 1pm — in the historic centre. Enjoy browsing!",
+  cl_u2:"And where can I get pizza in Peschiera at 10pm?",cl_a2:"I know two ovens still hot at that hour. Want me to show you the way?",
+  cl_input:"Your question…",
+  nav_day:"A day with Unica",nav_honest:"Our principle",nav_team:"Who we are",nav_cta:"Waitlist",
+  hero_eyebrow:"Southern Lake Garda · Peschiera to Salò",
+  hero_h1:"Lake Garda isn't overcrowded. It's <em>badly distributed.</em>",
+  hero_lede:"Garda Unica is your AI travel companion for the southern Lake Garda. One recommendation per moment — with honest crowd data, local knowledge and a reason why. Built by people who live here.",
+  hero_cta1:"Join the waitlist",hero_cta2:"How it works",hero_note:"Launch: summer 2026 · free",
+  pb_eyebrow:"The problem",pb_h2:"Same lake. Same hour. <em>Two worlds.</em>",
+  pb_full_h:"40 minutes hunting for <em>parking.</em>",
+  pb_full_p:"Queue at the Castello: 200 metres. The espresso at the harbour: a fight for the last standing spot. That's „high season\" when everyone follows the same recommendation.",
+  pb_free_h:"A free table <em>on the water.</em>",
+  pb_free_p:"Twenty minutes' drive away: parking right by the beach, a quiet shore, the same sun over the same lake. Just without the crowds.",
+  pb_line:"Unica knows the difference — <em>in real time.</em>",
+  day_eyebrow:"A day with Unica",day_h2:"From waking up to <em>aperitivo.</em>",
+  m0_time:"BEFORE YOU START",m0_h:"Two minutes — and Unica <em>knows you.</em>",
+  m0_p:"Family with kids? As a couple? With a dog? Early bird or dolce vita? A short, charming get-to-know instead of endless forms — and every recommendation fits your rhythm.",
+  m0_q:"„You like it relaxed. Perfetto.\"",
+  m1_h:"Your moment is <em>already waiting.</em>",
+  m1_p:"Every morning one recommendation that fits the weather, the weekday and live crowds — with a time, parking info and the reason why right now. Not 200 options. One that's right.",
+  m1_q:"„The best time on the lake: now, without a plan.\"",
+  m2_h:"Ask anything. <em>In your language.</em>",
+  m2_p:"Market day in Lazise? The ferry to Salò? The bakery that's open on Sundays? Unica answers like a friend who lives on the lake — from curated local knowledge, not internet noise.",
+  m2_q:"„The market in Lazise is on Wednesdays, 8am to 1pm.\"",
+  m3_h:"And when it matters, <em>the lake warns you.</em>",
+  m3_p:"Storm front from 4pm? Unica tells you before you're on the beach — with a concrete time instead of vague weather-app prose. Not just recommending. Actually watching out.",
+  m3_q:"„Be back from the lake by 3:30pm — no boat trip.\"",
+  ho_eyebrow:"Our principle",ho_h2:"AI researches. <em>Humans take responsibility.</em>",
+  ho1_h:"No paid placements",
+  ho1_p:"When we recommend a restaurant, the reason is right there. Recommendations come from curated local knowledge — not advertising budgets. Partners are transparently marked.",
+  ho2_h:"Rather honest than made up",
+  ho2_p:"What Unica doesn't know for sure, she doesn't claim. Every answer is based on verified knowledge from people who live on the lake — when in doubt she says: „I don't know for sure.\"",
+  tm_eyebrow:"From here, for here",tm_h2:"Built by locals, not by a <em>corporation.</em>",
+  c_role:"Founder · Creative Strategy",
+  c_short:"Industrial engineer, former strategy consultant. Curates the local knowledge behind Garda Unica.",
+  t_role:"Founder · AI &amp; Automation",
+  t_short:"Industrial engineer, former partner at an IT consultancy. Builds the AI architecture behind Unica.",
+  l_role:"Chief Happiness Officer",
+  l_short:"Expert in analogue algorithms. Proves daily that Natural Intelligence matters.",
+  more:"read more →",
+  c_long:"<p>„As an Industrial Engineer and former Strategy Consultant at the world's largest IT consultancy, I know how to manage major programs. I spent years leading global digital future projects. Today, I use this precision to elevate brands visually. I combine technical excellence with aesthetic intelligence — moving away from standard solutions to tailored strategies that truly work.</p><p>I channel this passion for efficiency and creativity into my personal life as well: as an author, I write children's books and cookbooks for busy parents. Whether in business or in the kitchen, my goal is always the best result through smart solutions.“</p>",
+  t_long:"<p>„I come from a world of hard facts and complex processes. As an Industrial Engineer and former Partner at a renowned Management &amp; IT consultancy, I was responsible for digital transformations in the automotive sector. I don't play with AI; I integrate it. I build scalable, secure architectures that meet the same quality standards as in the industry.“</p>",
+  l_long:"<p>„I am the expert in analog algorithms. Proof that Natural Intelligence (NI) matters just as much as AI.“</p><p>She personally tests every recommendation for dog-friendliness — from the beach in Manerba to the gelateria in Lazise. Her adventures on Instagram: <a href=\"https://www.instagram.com/luna_the_digital_dog/\" rel=\"noopener\">@Luna_the_Digital_dog</a></p>",
+  ce_h3:"We're not the only curators. <em>So is the lake itself.</em>",
+  ce_p:"Ask your question in „Domande\" — real locals and Unica's curated Residenti answer. Share your moments as „Esperienze\". Not a forum full of ads, but a circle of people who live here.",
+  orte_label:"Our home turf · 10 towns on the south shore",
+  wl_eyebrow:"Summer 2026",wl_h2:"Be there before the <em>season</em> starts.",
+  wl_p:"Garda Unica launches for the 2026 high season on the southern Lake Garda. Sign up and be the first to know when we go live — no spam, just the launch.",
+  wl_cta:"Join the waitlist",wl_mail:"or write to us: <a href=\"mailto:info@gardaunica.com\">info@gardaunica.com</a>",
+  faq_label:"Frequently asked",
+  faq1_q:"What does Garda Unica cost?",faq1_a:"The app is free at launch. We earn from experiences booked with our partners — never from hidden placements. When we recommend something, the reason is right there.",
+  faq2_q:"Where does the crowd data come from?",faq2_a:"From live traffic data, weather and local patterns we've been observing for years — updated every 30 minutes. No wild guesses, but an honest picture of the situation on the ground.",
+  faq3_q:"Do restaurants pay for recommendations?",faq3_a:"No. That's our most important promise. Recommendations come from curated local knowledge — not advertising budgets. Partners we work with are transparently marked.",
+  faq4_q:"Does the app work in English?",faq4_a:"Yes — Garda Unica speaks German, Italian and English. Unica understands and answers in your language, with the local knowledge of people who live on the lake.",
+  faq5_q:"When does it launch?",faq5_a:"For the 2026 high season, first on the southern Lake Garda between Peschiera and Salò. Waitlist members will be the first to know.",
+  b2b_line:"Hotelier on the south shore? Unica as an in-room concierge — <a href=\"mailto:cristina@gardaunica.com?subject=Pilot-Hotel\">pilot hotels wanted</a>",
+  foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · a product by <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
+  foot_contact:"Contact",foot_imprint:"Imprint",foot_privacy:"Privacy",
+  _title:"Garda Unica — Southern Lake Garda, properly distributed.",
+  _desc:"Your AI travel companion for the southern Lake Garda. One recommendation per moment, honest crowd data, local knowledge."
+ }
+};
+function setLang(lang){
+  if(!I18N[lang])lang="de";
+  var d=I18N[lang];
+  window.currentLang=lang;
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k=el.getAttribute("data-i18n");
+    if(d[k]!==undefined)el.innerHTML=d[k];
+  });
+  if(d._title)document.title=d._title;
+  var md=document.querySelector('meta[name="description"]');
+  if(md&&d._desc)md.setAttribute("content",d._desc);
+  document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("active",b.dataset.lang===lang)});
+  try{var u=new URL(window.location);u.searchParams.set("lang",lang);window.history.replaceState({},"",u);}catch(e){}
+  if(typeof refreshOpenBio==="function")refreshOpenBio();
+  if(typeof chatPlayer!=="undefined"&&chatPlayer&&!REDUCED){var r=chatPlayer.el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)chatPlayer.start();}
+}
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var lang=p.get("lang");
+  if(!lang){var nv=(navigator.language||"de").slice(0,2).toLowerCase();lang=["de","it","en"].indexOf(nv)>=0?nv:"de";}
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+  setLang(lang);
+})();
+/* reveal */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+/* bio modal */
+var PERSON_DATA={
+  c:{name:"Cristina",img:"assets/cristina.jpg",roleKey:"c_role",bioKey:"c_long"},
+  t:{name:"Tim",img:"assets/tim.jpg",roleKey:"t_role",bioKey:"t_long"},
+  l:{name:"Luna",img:"assets/luna.jpg",roleKey:"l_role",bioKey:"l_long"}
+};
+var openBioId=null;
+function openBio(id){
+  openBioId=id;
+  var p=PERSON_DATA[id];
+  var dict=I18N[window.currentLang||"de"];
+  document.getElementById("bioImg").src=p.img;
+  document.getElementById("bioImg").alt=p.name;
+  document.getElementById("bioName").textContent=p.name;
+  document.getElementById("bioRole").textContent=(dict[p.roleKey]||"").replace(/&amp;/g,"&");
+  document.getElementById("bioText").innerHTML=dict[p.bioKey]||"";
+  document.getElementById("bioOverlay").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+function closeBio(){
+  document.getElementById("bioOverlay").classList.remove("open");
+  document.body.style.overflow="";
+  openBioId=null;
+}
+function refreshOpenBio(){if(openBioId)openBio(openBioId);}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeBio();});
+/* chat player */
+var REDUCED=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var chatPlayer=null;
+function makeChatPlayer(container){
+  var msgs=Array.prototype.slice.call(container.querySelectorAll('.cm'));
+  var timer=null,ind=null;
+  function clearInd(){if(ind){ind.remove();ind=null;}}
+  function stop(){if(timer){clearTimeout(timer);timer=null;}clearInd();}
+  function showAll(){msgs.forEach(function(m){m.classList.add('on')});}
+  function run(i){
+    if(i>=msgs.length){timer=setTimeout(function(){msgs.forEach(function(m){m.classList.remove('on')});timer=setTimeout(function(){run(0)},900);},4600);return;}
+    var el=msgs[i],isAi=el.classList.contains('a'),delay=isAi?1100:650;
+    if(isAi){ind=document.createElement('div');ind.className='typing-ind';ind.innerHTML='<i></i><i></i><i></i>';el.before(ind);}
+    timer=setTimeout(function(){clearInd();el.classList.add('on');timer=setTimeout(function(){run(i+1)},750);},delay);
+  }
+  function start(){stop();msgs.forEach(function(m){m.classList.remove('on')});run(0);}
+  return {start:start,stop:stop,showAll:showAll,el:container};
+}
+(function(){
+  var c=document.querySelector('[data-chatplay]');
+  if(!c)return;
+  chatPlayer=makeChatPlayer(c);
+  if(REDUCED){chatPlayer.showAll();return;}
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting)chatPlayer.start();else chatPlayer.stop();
+  })},{threshold:.4});
+  cio.observe(c);
+})();
+</script>
+</body>
+</html>
