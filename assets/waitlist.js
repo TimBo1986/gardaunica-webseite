@@ -72,21 +72,32 @@
         };
 
         if (!WAITLIST_ENDPOINT) {
-          console.warn("[GardaWaitlist] WAITLIST_ENDPOINT ist noch nicht gesetzt (assets/waitlist.js).");
-          done(true);
+          console.error("[GardaWaitlist] WAITLIST_ENDPOINT ist nicht gesetzt (assets/waitlist.js).");
+          done(false);
           return;
         }
 
         // text/plain vermeidet den CORS-Preflight -> funktioniert direkt mit
-        // Google Apps Script Web Apps. Das Backend liest e.postData.contents.
+        // Google Apps Script Web Apps. Das Backend liest e.postData.contents
+        // und antwortet mit JSON {ok:true}. Nur dann gilt der Eintrag als
+        // gespeichert -- eine Login-/Fehlerseite (z.B. Zugriff != "Jeder")
+        // ist kein gueltiges JSON und fuehrt korrekt zur Fehlermeldung.
         fetch(WAITLIST_ENDPOINT, {
           method: "POST",
           headers: { "Content-Type": "text/plain;charset=utf-8" },
           body: JSON.stringify(payload)
         })
           .then(function (r) { return r.text(); })
-          .then(function () { done(true); })
-          .catch(function () { done(false); });
+          .then(function (text) {
+            var ok = false;
+            try { ok = JSON.parse(text).ok === true; } catch (e) { ok = false; }
+            if (!ok) console.error("[GardaWaitlist] Unerwartete Antwort vom Endpoint:", text.slice(0, 300));
+            done(ok);
+          })
+          .catch(function (err) {
+            console.error("[GardaWaitlist] Netzwerk-/CORS-Fehler:", err);
+            done(false);
+          });
       });
     }
   };
