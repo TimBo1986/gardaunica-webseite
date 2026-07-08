@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Garda Unica — App</title>
+<!-- /app/ (mit Slash) leitet auf /app (app.html) weiter; Query-Parameter bleiben erhalten. -->
+<meta http-equiv="refresh" content="0; url=/app">
+<link rel="canonical" href="https://www.gardaunica.com/app">
+<script>
+  // Loop-Schutz: nur weiterleiten, wenn wir nicht ohnehin schon auf /app sind.
+  if (location.pathname !== "/app") {
+    location.replace("/app" + location.search + location.hash);
+  }
+</script>
+</head>
+<body>
+<p>Weiterleitung zu <a href="/app">gardaunica.com/app</a> …</p>
+</body>
+</html>

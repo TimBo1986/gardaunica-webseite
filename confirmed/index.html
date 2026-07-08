@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Garda Unica — Anmeldung bestätigt</title>
+<!-- /confirmed/ (mit Slash) leitet auf /confirmed (confirmed.html) weiter; Query-Parameter bleiben erhalten. -->
+<meta http-equiv="refresh" content="0; url=/confirmed">
+<link rel="canonical" href="https://www.gardaunica.com/confirmed">
+<script>
+  // Loop-Schutz: nur weiterleiten, wenn wir nicht ohnehin schon auf /confirmed sind.
+  if (location.pathname !== "/confirmed") {
+    location.replace("/confirmed" + location.search + location.hash);
+  }
+</script>
+</head>
+<body>
+<p>Weiterleitung zu <a href="/confirmed">gardaunica.com/confirmed</a> …</p>
+</body>
+</html>
