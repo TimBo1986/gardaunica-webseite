@@ -74,6 +74,9 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .stores.on{display:flex}
 .store-btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:15px;padding:13px 24px;border-radius:14px;background:var(--notte);color:var(--carta);transition:transform 180ms var(--ease)}
 .store-btn:hover{transform:translateY(-1px)}
+.app-more{margin-top:26px;text-align:center}
+.app-more a{font-size:14px;font-weight:500;color:var(--notte-2);text-decoration:none;border-bottom:1px solid var(--linea);padding-bottom:2px;transition:color 160ms var(--ease),border-color 160ms var(--ease)}
+.app-more a:hover{color:var(--terracotta);border-color:var(--terracotta)}
 .foot{margin-top:30px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--notte-3)}
 .foot a{color:var(--notte-3);text-decoration:none}
 .foot a:hover{color:var(--notte)}
@@ -109,8 +112,8 @@ h1 em{font-style:italic;color:var(--terracotta)}
       <input class="wl-hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="wl-consent"><input type="checkbox" required><span data-i18n="wl_consent">Ich möchte zum Start benachrichtigt werden und bin mit der <a href="https://www.lagonord.de/privacy.html" target="_blank" rel="noopener">Datenschutzerklärung</a> einverstanden.</span></label>
       <button type="submit" class="btn-primary" data-i18n="wl_btn">Benachrichtige mich</button>
-      <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
     </form>
+    <p class="wl-msg" id="wlMsg" role="status" aria-live="polite"></p>
 
     <!-- ZUM LAUNCH: Formular oben ausblenden und diesen Block aktivieren.
          In den Store-Konstanten unten die echten Links eintragen, dann in
@@ -119,6 +122,8 @@ h1 em{font-style:italic;color:var(--terracotta)}
       <a class="store-btn" id="btnIos" href="#" rel="noopener">App&nbsp;Store</a>
       <a class="store-btn" id="btnAndroid" href="#" rel="noopener">Google&nbsp;Play</a>
     </div>
+
+    <p class="app-more"><a href="/" data-i18n="app_more">Mehr über Garda Unica erfahren →</a></p>
 
     <div class="foot">
       <a href="https://www.lagonord.de/imprint.html" data-i18n="app_imprint">Impressum</a>
@@ -137,8 +142,10 @@ var I18N={
     app_sub:"Trag dich ein, und wir sagen dir Bescheid, sobald du sie laden kannst.",
     wl_name:"Name",wl_email:"E-Mail",wl_btn:"Benachrichtige mich",
     wl_consent:"Ich möchte zum Start benachrichtigt werden und bin mit der <a href=\"https://www.lagonord.de/privacy.html\" target=\"_blank\" rel=\"noopener\">Datenschutzerklärung</a> einverstanden.",
-    wl_success:"Fast geschafft — bitte bestätige noch den Link in deiner E-Mail.",
-    wl_err:"Etwas ist schiefgelaufen. Bitte versuch es später noch einmal.",
+    wl_success:"Fast geschafft — schau in dein Postfach und bestätige deine Anmeldung.",
+    wl_err:"Da ist etwas schiefgelaufen — bitte prüf dein Postfach oder versuch es später erneut.",
+    wl_bademail:"Bitte gib eine gültige E-Mail-Adresse ein.",
+    app_more:"Mehr über Garda Unica erfahren →",
     app_imprint:"Impressum",app_privacy:"Datenschutz",
     _title:"Garda Unica — App",
     _desc:"Garda Unica startet in Kürze — für iPhone und Android. Trag dich ein und wir sagen dir Bescheid, sobald du sie laden kannst."
@@ -149,8 +156,10 @@ var I18N={
     app_sub:"Lascia la tua email e ti avvisiamo appena potrai scaricarla.",
     wl_name:"Nome",wl_email:"Email",wl_btn:"Avvisami",
     wl_consent:"Voglio essere avvisato al lancio e accetto l'<a href=\"https://www.lagonord.de/privacy.html\" target=\"_blank\" rel=\"noopener\">informativa sulla privacy</a>.",
-    wl_success:"Ci siamo quasi — conferma il link nella tua email.",
-    wl_err:"Qualcosa è andato storto. Riprova più tardi.",
+    wl_success:"Ci siamo quasi — controlla la tua casella e conferma l'iscrizione.",
+    wl_err:"Qualcosa è andato storto — controlla la tua casella o riprova più tardi.",
+    wl_bademail:"Inserisci un indirizzo email valido.",
+    app_more:"Scopri di più su Garda Unica →",
     app_imprint:"Note legali",app_privacy:"Privacy",
     _title:"Garda Unica — App",
     _desc:"Garda Unica arriva a breve — per iPhone e Android. Lascia la tua email e ti avvisiamo appena potrai scaricarla."
@@ -161,8 +170,10 @@ var I18N={
     app_sub:"Leave your email and we'll let you know the moment you can download it.",
     wl_name:"Name",wl_email:"Email",wl_btn:"Notify me",
     wl_consent:"I'd like to be notified at launch and agree to the <a href=\"https://www.lagonord.de/privacy.html\" target=\"_blank\" rel=\"noopener\">privacy policy</a>.",
-    wl_success:"Almost there — please confirm the link in your email.",
-    wl_err:"Something went wrong. Please try again later.",
+    wl_success:"Almost there — check your inbox and confirm your sign-up.",
+    wl_err:"Something went wrong — please check your inbox or try again later.",
+    wl_bademail:"Please enter a valid email address.",
+    app_more:"Discover more about Garda Unica →",
     app_imprint:"Imprint",app_privacy:"Privacy",
     _title:"Garda Unica — App",
     _desc:"Garda Unica launches soon — for iPhone and Android. Leave your email and we'll let you know the moment you can download it."
@@ -196,7 +207,7 @@ function setLang(lang){
 })();
 
 /* Warteliste-Formular initialisieren (Endpoint steckt in /assets/waitlist.js) */
-if(window.GardaWaitlist){window.GardaWaitlist.init({source:"app",getLang:function(){return window.currentLang||"de";},getDict:function(l){return I18N[l]||I18N.de;}});}
+if(window.GardaWaitlist){window.GardaWaitlist.init({source:"app-qr",getLang:function(){return window.currentLang||"de";},getDict:function(l){return I18N[l]||I18N.de;}});}
 
 /* ===== ZUM LAUNCH: Store-Links + Geräteerkennung =====================
  * 1) Links eintragen:

@@ -1,18 +1,16 @@
 /* Garda Unica — Warteliste-Formular
- * Backend-agnostisch: sendet {name, email, lang, consent, source} als JSON
- * per POST an WAITLIST_ENDPOINT. Speichern + Double-Opt-in-Mail übernimmt
- * das Backend (empfohlen: Google Apps Script -> siehe /backend).
+ * Sendet {name, email, lang, source, consent} als JSON per POST an den
+ * n8n-Webhook. n8n übernimmt Double-Opt-in (Brevo-Bestätigungsmail) und
+ * leitet nach Klick auf https://gardaunica.com/confirmed weiter.
+ * Erfolgs-Antwort: { "ok": true, "message": "..." }.
  */
 (function () {
   "use strict";
 
   /* =====================================================================
-   *  KONFIGURATION — hier die Google-Apps-Script Web-App-URL eintragen.
-   *  Beispiel: "https://script.google.com/macros/s/AKfycb.../exec"
-   *  Solange leer, zeigt das Formular die Erfolgsmeldung, speichert aber
-   *  noch nichts (praktisch für die Vorschau vor dem Go-Live).
+   *  KONFIGURATION — n8n-Webhook (POST, application/json).
    * ===================================================================== */
-  var WAITLIST_ENDPOINT = "https://script.google.com/macros/s/AKfycbzKmRfUGBuFQiPYDoSOfp_zHkf6R-RSu-Hzc7WDcrk31SSMKgakIqtypQKRYIQAJIIS/exec";
+  var WAITLIST_ENDPOINT = "https://n8n.lagonord.de/webhook/waitlist-signup";
 
   function val(el) { return el && typeof el.value === "string" ? el.value.trim() : ""; }
 
@@ -40,8 +38,8 @@
 
         // Honeypot: von Bots ausgefüllt -> lautlos "erfolgreich" tun.
         if (hp && hp.value) {
+          form.style.display = "none";
           if (msg) { msg.className = "wl-msg ok"; msg.innerHTML = dict.wl_success || ""; }
-          form.reset();
           return;
         }
 
@@ -50,12 +48,18 @@
           return;
         }
 
+        // Leichte E-Mail-Validierung: muss ein @ mit Text davor/danach haben.
+        if (!/.+@.+/.test(email)) {
+          if (msg) { msg.className = "wl-msg err"; msg.innerHTML = dict.wl_bademail || dict.wl_err || ""; }
+          return;
+        }
+
         function done(ok) {
+          if (ok && form) form.style.display = "none";   // Erfolg: Formular ausblenden
           if (msg) {
             msg.className = "wl-msg " + (ok ? "ok" : "err");
             msg.innerHTML = (ok ? dict.wl_success : dict.wl_err) || "";
           }
-          if (ok) form.reset();
           if (btn) btn.disabled = false;
         }
 
@@ -66,9 +70,8 @@
           name: name,
           email: email,
           lang: lang,
-          consent: true,
           source: opts.source || "",
-          page: location.pathname
+          consent: true
         };
 
         if (!WAITLIST_ENDPOINT) {
@@ -77,14 +80,12 @@
           return;
         }
 
-        // text/plain vermeidet den CORS-Preflight -> funktioniert direkt mit
-        // Google Apps Script Web Apps. Das Backend liest e.postData.contents
-        // und antwortet mit JSON {ok:true}. Nur dann gilt der Eintrag als
-        // gespeichert -- eine Login-/Fehlerseite (z.B. Zugriff != "Jeder")
-        // ist kein gueltiges JSON und fuehrt korrekt zur Fehlermeldung.
+        // n8n erwartet application/json und antwortet mit {ok:true}. Nur dann
+        // gilt die Anmeldung als angenommen; alles andere (non-ok, Netzwerk-
+        // oder CORS-Fehler) fuehrt zur neutralen Fehlermeldung.
         fetch(WAITLIST_ENDPOINT, {
           method: "POST",
-          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         })
           .then(function (r) { return r.text(); })
