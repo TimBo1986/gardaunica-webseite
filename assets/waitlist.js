@@ -30,13 +30,16 @@
         var lang = getLang();
         var dict = getDict(lang) || {};
 
-        var hp = form.querySelector('input[name=website]');
+        var hp = form.querySelector('input[name=hp_check]');
         var name = val(form.querySelector('input[name=name]'));
         var email = val(form.querySelector('input[name=email]'));
         var consentEl = form.querySelector('input[type=checkbox]');
         var consent = consentEl ? consentEl.checked : false;
 
         // Honeypot: von Bots ausgefüllt -> lautlos "erfolgreich" tun.
+        // WICHTIG: Feldname muss autofill-neutral sein (nicht website/url/name/
+        // email/tel/...), sonst befüllt Browser-Autofill es und echte Nutzer
+        // werden fälschlich als Bot behandelt (Request wird verschluckt).
         if (hp && hp.value) {
           form.style.display = "none";
           if (msg) { msg.className = "wl-msg ok"; msg.innerHTML = dict.wl_success || ""; }
