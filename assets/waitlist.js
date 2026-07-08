@@ -36,15 +36,12 @@
         var consentEl = form.querySelector('input[type=checkbox]');
         var consent = consentEl ? consentEl.checked : false;
 
-        // Honeypot: von Bots ausgefüllt -> lautlos "erfolgreich" tun.
-        // WICHTIG: Feldname muss autofill-neutral sein (nicht website/url/name/
-        // email/tel/...), sonst befüllt Browser-Autofill es und echte Nutzer
-        // werden fälschlich als Bot behandelt (Request wird verschluckt).
-        if (hp && hp.value) {
-          form.style.display = "none";
-          if (msg) { msg.className = "wl-msg ok"; msg.innerHTML = dict.wl_success || ""; }
-          return;
-        }
+        // Honeypot: reines SERVER-Signal, blockiert NIEMALS den Client.
+        // Browser-Autofill befüllt versteckte Felder trotz autocomplete="off"
+        // (live gesehen: Telefonnummer in hp_check). Würde ein gefülltes Feld
+        // den Submit abbrechen, sperrte das echte Nutzer aus. Deshalb: Wert
+        // nur mitsenden (n8n kann Bots damit markieren) und normal weitermachen.
+        var hpVal = hp ? hp.value : "";
 
         if (!name || !email || !consent) {
           if (form.reportValidity) form.reportValidity();
@@ -74,7 +71,8 @@
           email: email,
           lang: lang,
           source: opts.source || "",
-          consent: true
+          consent: true,
+          hp: hpVal
         };
 
         if (!WAITLIST_ENDPOINT) {
