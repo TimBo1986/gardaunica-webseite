@@ -845,7 +845,10 @@ document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 var PERSON_DATA={
   c:{name:"Cristina",img:"assets/cristina.jpg",roleKey:"c_role",bioKey:"c_long"},
   t:{name:"Tim",img:"assets/tim.jpg",roleKey:"t_role",bioKey:"t_long"},
-  l:{name:"Luna",img:"assets/luna.jpg",roleKey:"l_role",bioKey:"l_long"}
+  // pos: object-position im Bio-Modal (dort wird das quadratische Foto seitlich
+  // beschnitten). Luna nach links verschoben; Wert bei Bedarf anpassen
+  // (kleinerer X-Wert = weiter links).
+  l:{name:"Luna",img:"assets/luna.jpg",roleKey:"l_role",bioKey:"l_long",pos:"30% top"}
 };
 var openBioId=null;
 function openBio(id){
@@ -854,6 +857,7 @@ function openBio(id){
   var dict=I18N[window.currentLang||"de"];
   document.getElementById("bioImg").src=p.img;
   document.getElementById("bioImg").alt=p.name;
+  document.getElementById("bioImg").style.objectPosition=p.pos||"center top";
   document.getElementById("bioName").textContent=p.name;
   document.getElementById("bioRole").textContent=(dict[p.roleKey]||"").replace(/&amp;/g,"&");
   document.getElementById("bioText").innerHTML=dict[p.bioKey]||"";
