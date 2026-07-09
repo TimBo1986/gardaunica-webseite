@@ -104,16 +104,16 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .chat-live i{width:6px;height:6px;border-radius:50%;background:var(--oliva);box-shadow:0 0 6px var(--oliva);display:inline-block}
 .chat-body{flex:1;padding:14px 13px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
 .cm{max-width:86%;padding:9px 13px;border-radius:14px;font-size:11.5px;line-height:1.5}
-.cm.u{align-self:flex-end;background:var(--notte);color:var(--carta);border-bottom-right-radius:4px}
-.cm.a{align-self:flex-start;background:#fff;border:1px solid var(--linea-soft);color:var(--notte);border-bottom-left-radius:4px}
+.cm.u{align-self:flex-end;background:var(--terracotta);color:var(--carta);border-bottom-right-radius:4px}
+.cm.a{align-self:flex-start;background:var(--carta-warm);border:1px solid var(--linea-soft);color:var(--notte);border-bottom-left-radius:4px}
 .cm{opacity:0;transform:translateY(10px);transition:opacity .38s var(--ease),transform .38s var(--ease)}
 .cm.on{opacity:1;transform:none}
-.typing-ind{display:flex;gap:4px;padding:9px 13px;border-radius:14px;background:#fff;border:1px solid var(--linea-soft);align-self:flex-start;width:max-content}
+.typing-ind{display:flex;gap:4px;padding:9px 13px;border-radius:14px;background:var(--carta-warm);border:1px solid var(--linea-soft);align-self:flex-start;width:max-content}
 .typing-ind i{width:6px;height:6px;border-radius:50%;background:var(--notte-3);display:block;animation:tb 1.1s ease-in-out infinite}
 .typing-ind i:nth-child(2){animation-delay:.16s}.typing-ind i:nth-child(3){animation-delay:.32s}
 @keyframes tb{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
 .chat-foot{display:flex;align-items:center;gap:8px;padding:10px 14px 16px;flex-shrink:0}
-.chat-foot span{flex:1;padding:9px 14px;border-radius:100px;border:1px solid var(--linea);background:#fff;font-size:11px;color:var(--notte-3)}
+.chat-foot span{flex:1;padding:9px 14px;border-radius:100px;border:1px solid var(--linea);background:var(--carta-morn);font-size:11px;color:var(--notte-3)}
 .chat-foot i{width:30px;height:30px;border-radius:50%;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;font-size:12px;font-style:normal;flex-shrink:0}
 @media(prefers-reduced-motion:reduce){.cm{opacity:1;transform:none}}
 /* erlebnisse */
@@ -128,6 +128,30 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .proof-caption{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--notte-3);text-align:center}
 .problem-line{margin-top:32px;text-align:center;font-family:var(--f-display);font-style:italic;font-size:clamp(19px,2.6vw,24px);color:var(--notte)}
 .problem-line em{color:var(--terracotta);font-style:italic}
+/* problem vignettes */
+.vign-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
+@media(max-width:820px){.vign-grid{grid-template-columns:1fr}}
+.vcard{background:var(--carta-morn);border:1px solid var(--linea);border-radius:16px;padding:28px 26px;position:relative}
+.vcard .vnum{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.14em;color:var(--terracotta)}
+.vcard h3{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.25;margin-top:14px}
+.vcard h3 em{font-style:italic;color:var(--terracotta)}
+.vcard p{margin-top:10px;font-size:14px;line-height:1.65;color:var(--notte-2)}
+.pivot-wrap{margin-top:44px;text-align:center;max-width:60ch;margin-left:auto;margin-right:auto}
+.pivot-wrap .problem-line{margin-top:0}
+/* solution pillars */
+.loesung{background:var(--carta-morn)}
+.pil-row{display:grid;grid-template-columns:1fr auto;gap:52px;align-items:center;padding:48px 0;border-bottom:1px solid var(--linea-soft)}
+.pil-row:last-of-type{border-bottom:none}
+.pil-row.flip{grid-template-columns:auto 1fr}
+.pil-row.flip .pil-shot{order:-1}
+@media(max-width:820px){.pil-row,.pil-row.flip{grid-template-columns:1fr;justify-items:center;text-align:center}.pil-row.flip .pil-shot{order:0}}
+.pil-copy .pnum{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;color:var(--sole);font-weight:500;background:var(--notte);padding:6px 14px;border-radius:999px;display:inline-block}
+.pil-copy h3{font-family:var(--f-display);font-weight:500;font-size:clamp(22px,3.2vw,30px);line-height:1.2;margin-top:16px}
+.pil-copy h3 em{font-style:italic;color:var(--terracotta)}
+.pil-copy p{margin-top:12px;color:var(--notte-2);font-size:15px;max-width:46ch;line-height:1.7}
+@media(max-width:820px){.pil-copy p{margin-left:auto;margin-right:auto}}
+.pil-copy .pcap{margin-top:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--notte-3);line-height:1.6;max-width:46ch}
+@media(max-width:820px){.pil-copy .pcap{margin-left:auto;margin-right:auto}}
 /* day timeline */
 .day-moment{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center;padding:52px 0;border-bottom:1px solid var(--linea-soft)}
 .day-moment:last-of-type{border-bottom:none}
@@ -222,6 +246,28 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .b2b-line{border-top:1px solid var(--linea-soft);padding:26px 0;text-align:center;font-size:13.5px;color:var(--notte-3)}
 .b2b-line a{color:var(--terracotta);font-weight:600;text-decoration:none}
 .b2b-line a:hover{text-decoration:underline}
+/* ausblick */
+.ausblick{background:var(--notte);color:var(--carta)}
+.ausblick .eyebrow{color:var(--sole)}
+.ausblick h2{color:var(--carta)}
+.ausblick h2 em{color:var(--sole)}
+.ab-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+@media(max-width:820px){.ab-grid{grid-template-columns:1fr}}
+.ab-card{border:1px solid rgba(250,245,232,.16);border-radius:16px;padding:26px 24px;background:rgba(250,245,232,.04)}
+.ab-tag{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--notte);background:var(--sole);padding:4px 10px;border-radius:999px;display:inline-block}
+.ab-card h3{font-family:var(--f-display);font-weight:500;font-size:20px;color:var(--carta);margin-top:14px}
+.ab-card p{margin-top:8px;font-size:14px;color:rgba(250,245,232,.72);line-height:1.65}
+/* partner */
+.partner{background:var(--carta-warm)}
+.partner-intro{max-width:60ch;margin:0 auto;text-align:center}
+.partner-intro p{margin-top:16px;color:var(--notte-2);font-size:15.5px;line-height:1.7}
+.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+@media(max-width:820px){.partner-grid{grid-template-columns:1fr}}
+.pt-card{background:var(--carta);border:1px solid var(--linea);border-radius:16px;padding:30px 28px}
+.pt-card .pt-label{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
+.pt-card h3{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.3;margin-top:12px}
+.pt-card p{margin-top:10px;font-size:14.5px;color:var(--notte-2);line-height:1.65}
+.partner-cta{text-align:center;margin-top:36px}
 footer{border-top:1px solid var(--linea-soft);padding:32px 0 44px;font-size:13px;color:var(--notte-3)}
 .foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--notte-3);text-decoration:none;font-weight:500}
@@ -274,16 +320,16 @@ footer a:hover{color:var(--notte)}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" data-i18n="hero_eyebrow">Süd-Gardasee · Peschiera bis Salò</span>
-      <h1 data-i18n="hero_h1">Der Gardasee ist nicht überlaufen. Er ist <em>falsch verteilt.</em></h1>
-      <p class="hero-lede" data-i18n="hero_lede">Garda Unica ist dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment — mit ehrlichen Crowd-Daten, lokalem Wissen und einem Grund, warum. Gebaut von Menschen, die hier leben.</p>
+      <h1 data-i18n="hero_h1">Dein See. <em>Dein Moment.</em></h1>
+      <p class="hero-lede" data-i18n="hero_lede">Unica zeigt dir den See, den die Einheimischen lieben — den richtigen Ort, zum richtigen Moment, passend zu euch. Eine ehrliche Empfehlung statt zweihundert Optionen.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="#warteliste" data-i18n="hero_cta1">Auf die Warteliste</a>
-        <a class="btn-ghost" href="#tag" data-i18n="hero_cta2">Wie es funktioniert</a>
+        <a class="btn-ghost" href="#loesung" data-i18n="hero_cta2">Wie es funktioniert</a>
       </div>
       <div class="hero-note" data-i18n="hero_note">Start: Sommer 2026 · kostenlos</div>
     </div>
     <div class="phone-frame reveal">
-      <div class="scr"><img src="assets/app/oggi_greeting.jpg" alt="Garda Unica — Oggi-Ansicht"></div>
+      <div class="scr"><img src="assets/app/oggi_greeting.jpg" alt="Garda Unica — Oggi-Ansicht" width="300" height="622" fetchpriority="high" decoding="async"></div>
     </div>
   </div>
 </header>
@@ -292,28 +338,73 @@ footer a:hover{color:var(--notte)}
 <section class="problem">
   <div class="wrap">
     <div style="text-align:center;max-width:60ch;margin:0 auto">
-      <span class="eyebrow" data-i18n="pb_eyebrow">Das Problem</span>
-      <h2 data-i18n="pb_h2">Gleicher See. Gleiche Uhrzeit. <em>Zwei Welten.</em></h2>
+      <span class="eyebrow" data-i18n="pb_eyebrow">Kennst du diese Tage?</span>
+      <h2 data-i18n="pb_h2">Der See ist wunderschön. Und der Tag geht trotzdem <em>daneben.</em></h2>
     </div>
-    <div class="problem-grid">
-      <div class="pcard full reveal">
-        <div class="place"><span class="dot"></span>Sirmione · 11:30</div>
-        <h3 data-i18n="pb_full_h">40 Minuten <em>Parkplatzsuche.</em></h3>
-        <p data-i18n="pb_full_p">Schlange am Castello: 200 Meter. Der Espresso am Hafen: ein Kampf um den letzten Stehplatz. So sieht „Hochsaison" aus, wenn alle derselben Empfehlung folgen.</p>
+    <div class="vign-grid">
+      <div class="vcard reveal">
+        <span class="vnum">01</span>
+        <h3 data-i18n="pb_v1_h">Der <em>volle</em> Parkplatz.</h3>
+        <p data-i18n="pb_v1_p">34 Grad, zwei Kinder, volle Vorfreude — ihr fahrt zur Bucht. „Completo." Der nächste Strand: dasselbe Bild. Zwei Stunden weg, bevor der Tag richtig begonnen hat.</p>
       </div>
-      <div class="pcard free reveal">
-        <div class="place"><span class="dot"></span>Manerba · 11:30</div>
-        <h3 data-i18n="pb_free_h">Ein freier Tisch <em>am Wasser.</em></h3>
-        <p data-i18n="pb_free_p">Zwanzig Autominuten entfernt: Parkplatz direkt am Strand, stilles Ufer, dieselbe Sonne über demselben See. Nur eben ohne die Massen.</p>
+      <div class="vcard reveal">
+        <span class="vnum">02</span>
+        <h3 data-i18n="pb_v2_h">Die <em>hundert</em> Vorschläge.</h3>
+        <p data-i18n="pb_v2_p">Mittagshunger, Google zeigt hundert Pizzerien. Ihr wählt nach Sternen — und sitzt in der einzigen ohne Kindermenü, zwischen zwölf anderen Tischen mit Reiseführer.</p>
+      </div>
+      <div class="vcard reveal">
+        <span class="vnum">03</span>
+        <h3 data-i18n="pb_v3_h">Der <em>falsche</em> Moment.</h3>
+        <p data-i18n="pb_v3_p">Sirmione, Samstag, 11 Uhr im August. Dieselbe Burg um 17:30 wäre ein ganz anderer Ort gewesen — Licht, Ruhe, Platz. Nur wusstet ihr das nicht.</p>
       </div>
     </div>
-    <div class="problem-proof reveal">
-      <div class="phone-frame phone-sm">
-        <div class="scr"><img src="assets/app/territorio_map.jpg" alt="Garda Unica — Live-Auslastungskarte"></div>
-      </div>
-      <div class="proof-caption" data-i18n="pb_caption">Live: Verkehr · Auslastung · Wetter — alle 30 Minuten, für alle 10 Orte</div>
+    <div class="pivot-wrap reveal">
+      <p class="problem-line" data-i18n="pb_pivot">Der See ist nicht das Problem. Die <em>Gleichzeitigkeit</em> ist es. Fünfzehn Minuten weiter — oder zwei Stunden später — liegt derselbe See ganz ruhig da.</p>
     </div>
-    <p class="problem-line reveal" data-i18n="pb_line">Unica kennt den Unterschied — <em>in Echtzeit.</em></p>
+  </div>
+</section>
+
+<!-- 3 · LÖSUNG -->
+<section id="loesung" class="loesung">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
+      <span class="eyebrow" data-i18n="ls_eyebrow">Was Unica tut</span>
+      <h2 data-i18n="ls_h2">Damit der Tag <em>euch</em> gehört.</h2>
+    </div>
+
+    <div class="pil-row">
+      <div class="pil-copy">
+        <span class="pnum" data-i18n="ls1_num">Säule 1</span>
+        <h3 data-i18n="ls1_h">Der richtige <em>Moment.</em></h3>
+        <p data-i18n="ls1_p">Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.</p>
+        <p class="pcap" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
+      </div>
+      <div class="phone-frame phone-sm reveal pil-shot">
+        <div class="scr"><img src="assets/app/oggi_wasjetzt.jpg" alt="Garda Unica — Auslastungs-Einschätzung je Ort" width="250" height="518" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
+
+    <div class="pil-row flip">
+      <div class="phone-frame phone-sm reveal pil-shot">
+        <div class="scr"><img src="assets/app/oggi_greeting.jpg" alt="Garda Unica — eine Empfehlung mit Grund" width="250" height="518" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="pil-copy">
+        <span class="pnum" data-i18n="ls2_num">Säule 2</span>
+        <h3 data-i18n="ls2_h">Eine Entscheidung, <em>kein Katalog.</em></h3>
+        <p data-i18n="ls2_p">Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.</p>
+      </div>
+    </div>
+
+    <div class="pil-row">
+      <div class="pil-copy">
+        <span class="pnum" data-i18n="ls3_num">Säule 3</span>
+        <h3 data-i18n="ls3_h">Kuratiert von Menschen, <em>die hier leben.</em></h3>
+        <p data-i18n="ls3_p">Keine bezahlten Platzierungen, keine zwölftausend Fremd-Sterne. Jeder Tipp ist handverlesen, aus echter Ortskenntnis. „Sag Marco, dass wir dich schicken."</p>
+      </div>
+      <div class="phone-frame phone-sm reveal pil-shot">
+        <div class="scr"><img src="assets/app/storm_warning.jpg" alt="Garda Unica — ehrliche Warnung statt Wetter-Prosa" width="250" height="518" loading="lazy" decoding="async"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -340,7 +431,7 @@ footer a:hover{color:var(--notte)}
     <div class="moment-copy">
       <span class="time">08:30</span>
       <h3 data-i18n="m1_h">Dein Moment <em>wartet schon.</em></h3>
-      <p data-i18n="m1_p">Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und Live-Auslastung passt — mit Uhrzeit, Parkplatz-Info und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.</p>
+      <p data-i18n="m1_p">Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und der aktuellen Auslastungs-Einschätzung passt — mit Uhrzeit und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.</p>
       <div class="quote" data-i18n="m1_q">„Die beste Zeit am See: jetzt, ohne Plan."</div>
     </div>
     <div class="phone-frame phone-sm reveal">
@@ -391,17 +482,17 @@ footer a:hover{color:var(--notte)}
   <div class="wrap">
     <div class="erlebnis-grid">
       <div class="erlebnis-copy">
-        <span class="eyebrow" data-i18n="ex_eyebrow">Scopri · Erlebnisse</span>
-        <h2 data-i18n="ex_h2">Buchbar: Erlebnisse, die kein <em>Portal kennt.</em></h2>
-        <p data-i18n="ex_p">Mit Marco um sechs Uhr früh raus auf dem Fischerboot, wenn der See noch schläft. Solche Momente stehen in keinem Katalog — sie entstehen, weil wir die Menschen dahinter kennen. Buchbar direkt in der App, bei Partnern vor Ort, transparent gekennzeichnet.</p>
+        <span class="eyebrow" data-i18n="ex_eyebrow">Scopri · Dein Diario</span>
+        <h2 data-i18n="ex_h2">Jeder Tag wird eine <em>Erinnerung.</em></h2>
+        <p data-i18n="ex_p">Sammle deine Momente als Stempel und Erlebnisse — und Unica macht aus deinem Tag eine kleine Postkarte. Handverlesene Erlebnisse bei unseren Partnern kommen in Kürze direkt in die App.</p>
         <div class="ex-chips">
-          <span class="ex-chip" data-i18n="ex_c1">Direkt bei Locals</span>
-          <span class="ex-chip" data-i18n="ex_c2">Kleine Gruppen</span>
-          <span class="ex-chip" data-i18n="ex_c3">Transparent gekennzeichnet</span>
+          <span class="ex-chip" data-i18n="ex_c1">Stempel &amp; Diario</span>
+          <span class="ex-chip" data-i18n="ex_c2">KI-Postkarte</span>
+          <span class="ex-chip" data-i18n="ex_c3">Erlebnisse in Kürze</span>
         </div>
       </div>
       <div class="phone-frame phone-sm reveal">
-        <div class="scr"><img src="assets/app/scopri_erlebnis.jpg" alt="Garda Unica — Erlebnisse: Mit Marco auf dem Fischerboot"></div>
+        <div class="scr"><img src="assets/app/scopri_erlebnis.jpg" alt="Garda Unica — Profil, Stempel &amp; Diario" width="250" height="518" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </div>
@@ -428,7 +519,7 @@ footer a:hover{color:var(--notte)}
       </div>
       <div class="pillar reveal">
         <h3 data-i18n="pi2_h">Echte Daten, vor Ort verifiziert</h3>
-        <p data-i18n="pi2_p">Verkehr, Auslastung, Wetter — alle 30 Minuten aktualisiert. Und was die Daten sagen, prüfen wir selbst nach. Wir wohnen hier.</p>
+        <p data-i18n="pi2_p">Verkehr, Wetter und Ortskenntnis fließen in eine regelmäßig neu berechnete Auslastungs-Einschätzung — und was sie sagt, prüfen wir selbst nach. Wir wohnen hier.</p>
       </div>
       <div class="pillar reveal">
         <h3 data-i18n="pi3_h">Unabhängig</h3>
@@ -525,13 +616,66 @@ footer a:hover{color:var(--notte)}
 <div class="faq-wrap faq" id="faq">
   <span class="label" data-i18n="faq_label">Häufige Fragen</span>
   <details><summary data-i18n="faq1_q">Was kostet Garda Unica?</summary><p data-i18n="faq1_a">Die App ist zum Start kostenlos. Wir verdienen an vermittelten Erlebnissen bei unseren Partnern — nie an versteckten Platzierungen. Wenn wir etwas empfehlen, steht dabei, warum.</p></details>
-  <details><summary data-i18n="faq2_q">Woher kommen die Crowd-Daten?</summary><p data-i18n="faq2_a">Aus Live-Verkehrsdaten, Wetter und lokalen Mustern, die wir seit Jahren beobachten — alle 30 Minuten aktualisiert. Keine Schätzung ins Blaue, sondern ein ehrliches Bild der Lage vor Ort.</p></details>
+  <details><summary data-i18n="faq2_q">Wie ermittelt Unica die Auslastung?</summary><p data-i18n="faq2_a">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung, keine Parkplatzdaten. Das Wetter dagegen ist live und echt.</p></details>
   <details><summary data-i18n="faq3_q">Bezahlen Restaurants für Empfehlungen?</summary><p data-i18n="faq3_a">Nein. Das ist unser wichtigstes Versprechen. Empfehlungen entstehen aus kuratiertem lokalen Wissen — nicht aus Werbebudgets. Partner, mit denen wir zusammenarbeiten, kennzeichnen wir transparent.</p></details>
   <details><summary data-i18n="faq4_q">Funktioniert die App auf Deutsch?</summary><p data-i18n="faq4_a">Ja — Garda Unica ist für deutschsprachige Gäste gebaut. Unica versteht und antwortet auf Deutsch, mit dem Lokalwissen von Menschen, die am See leben.</p></details>
   <details><summary data-i18n="faq5_q">Wann geht es los?</summary><p data-i18n="faq5_a">Zur Hauptsaison 2026, zuerst am südlichen Gardasee zwischen Peschiera und Salò. Wer auf der Warteliste steht, erfährt es als Erste:r.</p></details>
+  <details><summary data-i18n="faq6_q">Wo liegen meine Daten?</summary><p data-i18n="faq6_a">Auf EU-Servern in Deutschland, nach DSGVO. Die Anmeldung läuft über Double-Opt-in, und für Nutzerdaten setzen wir keine US-Cloud ein. Deine E-Mail nutzen wir nur für den Launch — kein Weiterverkauf, kein Spam.</p></details>
+  <details><summary data-i18n="faq7_q">Für iPhone und Android?</summary><p data-i18n="faq7_a">Ja, beide — zum Start. Sobald es losgeht, sagen wir dir Bescheid, wo du Garda Unica laden kannst.</p></details>
 </div>
 
-<div class="b2b-line" data-i18n="b2b_line">Hotelier am Südufer? Unica als Concierge im Zimmer — <a href="mailto:cristina@gardaunica.com?subject=Pilot-Hotel">Pilot-Hotels gesucht</a></div>
+<!-- 7 · AUSBLICK -->
+<section id="ausblick" class="ausblick">
+  <div class="wrap">
+    <div style="text-align:center;max-width:60ch;margin:0 auto">
+      <span class="eyebrow" data-i18n="ab_eyebrow">Wohin wir bauen</span>
+      <h2 data-i18n="ab_h2">Ehrlich, was heute läuft — und <em>was als Nächstes kommt.</em></h2>
+    </div>
+    <div class="ab-grid">
+      <div class="ab-card reveal">
+        <span class="ab-tag" data-i18n="ab1_tag">In Arbeit</span>
+        <h3 data-i18n="ab1_h">Antworten auf Ziel-Ebene</h3>
+        <p data-i18n="ab1_p">Kommst du heute rein — und kannst du parken? Diese Antworten bringen wir auf die Ebene einzelner Ziele: Strände, Restaurants, Sehenswürdigkeiten.</p>
+      </div>
+      <div class="ab-card reveal">
+        <span class="ab-tag" data-i18n="ab2_tag">Fundament liegt</span>
+        <h3 data-i18n="ab2_h">Ein Concierge, der deinen Tag kennt</h3>
+        <p data-i18n="ab2_p">Bald bezieht Unica im Chat deinen Plan und das Wetter von heute mit ein — für Antworten, die noch näher an eurem Tag sind.</p>
+      </div>
+      <div class="ab-card reveal">
+        <span class="ab-tag" data-i18n="ab3_tag">Als Nächstes</span>
+        <h3 data-i18n="ab3_h">Erlebnisse direkt buchen</h3>
+        <p data-i18n="ab3_p">Handverlesene Erlebnisse bei unseren Partnern — in Kürze direkt in der App buchbar, transparent gekennzeichnet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · PARTNER -->
+<section id="partner" class="partner">
+  <div class="wrap">
+    <div class="partner-intro">
+      <span class="eyebrow" data-i18n="pt_eyebrow">Für Gastgeber &amp; Betriebe am See</span>
+      <h2 data-i18n="pt_h2">Die richtigen Gäste, zum <em>richtigen Moment.</em></h2>
+      <p data-i18n="pt_intro">Garda Unica bringt Besucher dorthin, wo es gerade passt — und dann, wenn es passt. Für Gastgeber und lokale Betriebe heißt das: Passung statt Masse.</p>
+    </div>
+    <div class="partner-grid">
+      <div class="pt-card reveal">
+        <span class="pt-label" data-i18n="pt1_label">Hotels &amp; Campingplätze</span>
+        <h3 data-i18n="pt1_h">Der Concierge, der nie Feierabend hat.</h3>
+        <p data-i18n="pt1_p">Entlastet Ihre Rezeption, beantwortet die immer gleichen Fragen — und ein gelungener Tag zahlt am Ende auf Ihre Bewertungen ein.</p>
+      </div>
+      <div class="pt-card reveal">
+        <span class="pt-label" data-i18n="pt2_label">Erlebnisse, Weinbau &amp; Gastronomie</span>
+        <h3 data-i18n="pt2_h">Passung statt Rabattschlacht.</h3>
+        <p data-i18n="pt2_p">Die richtigen Gäste zum richtigen Moment — Nebenzeiten statt Andrang, echte Kuratierung, die man nicht kaufen kann.</p>
+      </div>
+    </div>
+    <div class="partner-cta">
+      <a class="btn-primary" href="mailto:cristina@gardaunica.com?subject=Partner%20werden" data-i18n="pt_cta">Partner werden →</a>
+    </div>
+  </div>
+</section>
 
 <footer>
   <div class="foot-inner">
@@ -561,38 +705,47 @@ footer a:hover{color:var(--notte)}
 <script>
 var I18N={
  de:{
-  pb_caption:"Live: Verkehr · Auslastung · Wetter — alle 30 Minuten, für alle 10 Orte",
   mi_eyebrow:"Warum es uns gibt",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"Ein Gardasee, an dem Gäste und Einheimische denselben Sommer <em>lieben.</em>",
   mi_mission:"Wir verteilen Tourismus intelligent: Ehrliche Live-Daten und kuratiertes lokales Wissen führen Menschen dorthin, wo der See gerade am schönsten ist — und entlasten die Orte, die Pause brauchen.",
   pi1_h:"Kuratiert, keine Masse",pi1_p:"Kein Bewertungs-Ozean mit 200 Optionen. Jeder Ort, jeder Tipp ist handverlesen — von Menschen, nicht von einem Ranking-Algorithmus.",
-  pi2_h:"Echte Daten, vor Ort verifiziert",pi2_p:"Verkehr, Auslastung, Wetter — alle 30 Minuten aktualisiert. Und was die Daten sagen, prüfen wir selbst nach. Wir wohnen hier.",
+  pi2_h:"Echte Daten, vor Ort verifiziert",pi2_p:"Verkehr, Wetter und Ortskenntnis fließen in eine regelmäßig neu berechnete Auslastungs-Einschätzung — und was sie sagt, prüfen wir selbst nach. Wir wohnen hier.",
   pi3_h:"Unabhängig",pi3_p:"Keine bezahlten Platzierungen. Wenn wir empfehlen, steht dabei, warum. Partner kennzeichnen wir transparent — und was Unica nicht sicher weiß, behauptet sie nicht.",
   pi4_h:"Gut für den ganzen See",pi4_p:"Volle Orte werden entlastet, stille entdeckt. Weniger Parksuche, weniger Stress — und Umsatz auch dort, wo der Rummel sonst nie ankommt.",
   mi_quote:"„Das weiß ich nicht sicher — und ich rate nicht.\" — Unica",
-  ex_eyebrow:"Scopri · Erlebnisse",ex_h2:"Buchbar: Erlebnisse, die kein <em>Portal kennt.</em>",
-  ex_p:"Mit Marco um sechs Uhr früh raus auf dem Fischerboot, wenn der See noch schläft. Solche Momente stehen in keinem Katalog — sie entstehen, weil wir die Menschen dahinter kennen. Buchbar direkt in der App, bei Partnern vor Ort, transparent gekennzeichnet.",
-  ex_c1:"Direkt bei Locals",ex_c2:"Kleine Gruppen",ex_c3:"Transparent gekennzeichnet",
+  ex_eyebrow:"Scopri · Dein Diario",ex_h2:"Jeder Tag wird eine <em>Erinnerung.</em>",
+  ex_p:"Sammle deine Momente als Stempel und Erlebnisse — und Unica macht aus deinem Tag eine kleine Postkarte. Handverlesene Erlebnisse bei unseren Partnern kommen in Kürze direkt in die App.",
+  ex_c1:"Stempel &amp; Diario",ex_c2:"KI-Postkarte",ex_c3:"Erlebnisse in Kürze",
   cl_u1:"Wann ist Markttag in Lazise?",cl_a1:"Mittwochs, 8 bis 13 Uhr — im historischen Zentrum. Viel Spaß beim Stöbern!",
   cl_u2:"Und wo gibt's um 22 Uhr noch Pizza in Peschiera?",cl_a2:"Da kenne ich zwei Öfen, die dann noch heiß sind. Soll ich dir den Weg zeigen?",
   cl_input:"Ihre Frage…",
   nav_day:"Ein Tag mit Unica",nav_honest:"Unser Prinzip",nav_team:"Wer wir sind",nav_cta:"Warteliste",
   hero_eyebrow:"Süd-Gardasee · Peschiera bis Salò",
-  hero_h1:"Der Gardasee ist nicht überlaufen. Er ist <em>falsch verteilt.</em>",
-  hero_lede:"Garda Unica ist dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment — mit ehrlichen Crowd-Daten, lokalem Wissen und einem Grund, warum. Gebaut von Menschen, die hier leben.",
+  hero_h1:"Dein See. <em>Dein Moment.</em>",
+  hero_lede:"Unica zeigt dir den See, den die Einheimischen lieben — den richtigen Ort, zum richtigen Moment, passend zu euch. Eine ehrliche Empfehlung statt zweihundert Optionen.",
   hero_cta1:"Auf die Warteliste",hero_cta2:"Wie es funktioniert",hero_note:"Start: Sommer 2026 · kostenlos",
-  pb_eyebrow:"Das Problem",pb_h2:"Gleicher See. Gleiche Uhrzeit. <em>Zwei Welten.</em>",
-  pb_full_h:"40 Minuten <em>Parkplatzsuche.</em>",
-  pb_full_p:"Schlange am Castello: 200 Meter. Der Espresso am Hafen: ein Kampf um den letzten Stehplatz. So sieht „Hochsaison\" aus, wenn alle derselben Empfehlung folgen.",
-  pb_free_h:"Ein freier Tisch <em>am Wasser.</em>",
-  pb_free_p:"Zwanzig Autominuten entfernt: Parkplatz direkt am Strand, stilles Ufer, dieselbe Sonne über demselben See. Nur eben ohne die Massen.",
-  pb_line:"Unica kennt den Unterschied — <em>in Echtzeit.</em>",
+  pb_eyebrow:"Kennst du diese Tage?",pb_h2:"Der See ist wunderschön. Und der Tag geht trotzdem <em>daneben.</em>",
+  pb_v1_h:"Der <em>volle</em> Parkplatz.",
+  pb_v1_p:"34 Grad, zwei Kinder, volle Vorfreude — ihr fahrt zur Bucht. „Completo.\" Der nächste Strand: dasselbe Bild. Zwei Stunden weg, bevor der Tag richtig begonnen hat.",
+  pb_v2_h:"Die <em>hundert</em> Vorschläge.",
+  pb_v2_p:"Mittagshunger, Google zeigt hundert Pizzerien. Ihr wählt nach Sternen — und sitzt in der einzigen ohne Kindermenü, zwischen zwölf anderen Tischen mit Reiseführer.",
+  pb_v3_h:"Der <em>falsche</em> Moment.",
+  pb_v3_p:"Sirmione, Samstag, 11 Uhr im August. Dieselbe Burg um 17:30 wäre ein ganz anderer Ort gewesen — Licht, Ruhe, Platz. Nur wusstet ihr das nicht.",
+  pb_pivot:"Der See ist nicht das Problem. Die <em>Gleichzeitigkeit</em> ist es. Fünfzehn Minuten weiter — oder zwei Stunden später — liegt derselbe See ganz ruhig da.",
+  ls_eyebrow:"Was Unica tut",ls_h2:"Damit der Tag <em>euch</em> gehört.",
+  ls1_num:"Säule 1",ls1_h:"Der richtige <em>Moment.</em>",
+  ls1_p:"Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.",
+  ls1_cap:"Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.",
+  ls2_num:"Säule 2",ls2_h:"Eine Entscheidung, <em>kein Katalog.</em>",
+  ls2_p:"Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?\" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.",
+  ls3_num:"Säule 3",ls3_h:"Kuratiert von Menschen, <em>die hier leben.</em>",
+  ls3_p:"Keine bezahlten Platzierungen, keine zwölftausend Fremd-Sterne. Jeder Tipp ist handverlesen, aus echter Ortskenntnis. „Sag Marco, dass wir dich schicken.\"",
   day_eyebrow:"Ein Tag mit Unica",day_h2:"Vom Aufwachen bis zum <em>Aperitivo.</em>",
   m0_time:"BEVOR ES LOSGEHT",m0_h:"Zwei Minuten — dann kennt Unica <em>euch.</em>",
   m0_p:"Familie mit Kindern? Zu zweit? Mit Hund? Frühaufsteher oder Dolce Vita? Ein kurzes, charmantes Kennenlernen statt endloser Formulare — und jede Empfehlung passt zu eurem Rhythmus.",
   m0_q:"„Ihr mögt es entspannt. Perfetto.\"",
   m1_h:"Dein Moment <em>wartet schon.</em>",
-  m1_p:"Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und Live-Auslastung passt — mit Uhrzeit, Parkplatz-Info und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.",
+  m1_p:"Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und der aktuellen Auslastungs-Einschätzung passt — mit Uhrzeit und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.",
   m1_q:"„Die beste Zeit am See: jetzt, ohne Plan.\"",
   m2_h:"Frag, was du willst. <em>Auf Deutsch.</em>",
   m2_p:"Markttag in Lazise? Die Fähre nach Salò? Der Bäcker, der sonntags offen hat? Unica antwortet wie ein Freund, der am See wohnt — aus kuratiertem lokalen Wissen, nicht aus dem Internet-Rauschen.",
@@ -633,49 +786,68 @@ var I18N={
   wl_bademail:"Bitte gib eine gültige E-Mail-Adresse ein.",
   faq_label:"Häufige Fragen",
   faq1_q:"Was kostet Garda Unica?",faq1_a:"Die App ist zum Start kostenlos. Wir verdienen an vermittelten Erlebnissen bei unseren Partnern — nie an versteckten Platzierungen. Wenn wir etwas empfehlen, steht dabei, warum.",
-  faq2_q:"Woher kommen die Crowd-Daten?",faq2_a:"Aus Live-Verkehrsdaten, Wetter und lokalen Mustern, die wir seit Jahren beobachten — alle 30 Minuten aktualisiert. Keine Schätzung ins Blaue, sondern ein ehrliches Bild der Lage vor Ort.",
+  faq2_q:"Wie ermittelt Unica die Auslastung?",faq2_a:"Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung, keine Parkplatzdaten. Das Wetter dagegen ist live und echt.",
   faq3_q:"Bezahlen Restaurants für Empfehlungen?",faq3_a:"Nein. Das ist unser wichtigstes Versprechen. Empfehlungen entstehen aus kuratiertem lokalen Wissen — nicht aus Werbebudgets. Partner, mit denen wir zusammenarbeiten, kennzeichnen wir transparent.",
   faq4_q:"Funktioniert die App auf Deutsch?",faq4_a:"Ja — Garda Unica ist für deutschsprachige Gäste gebaut. Unica versteht und antwortet auf Deutsch, mit dem Lokalwissen von Menschen, die am See leben.",
   faq5_q:"Wann geht es los?",faq5_a:"Zur Hauptsaison 2026, zuerst am südlichen Gardasee zwischen Peschiera und Salò. Wer auf der Warteliste steht, erfährt es als Erste:r.",
-  b2b_line:"Hotelier am Südufer? Unica als Concierge im Zimmer — <a href=\"mailto:cristina@gardaunica.com?subject=Pilot-Hotel\">Pilot-Hotels gesucht</a>",
+  faq6_q:"Wo liegen meine Daten?",faq6_a:"Auf EU-Servern in Deutschland, nach DSGVO. Die Anmeldung läuft über Double-Opt-in, und für Nutzerdaten setzen wir keine US-Cloud ein. Deine E-Mail nutzen wir nur für den Launch — kein Weiterverkauf, kein Spam.",
+  faq7_q:"Für iPhone und Android?",faq7_a:"Ja, beide — zum Start. Sobald es losgeht, sagen wir dir Bescheid, wo du Garda Unica laden kannst.",
+  ab_eyebrow:"Wohin wir bauen",ab_h2:"Ehrlich, was heute läuft — und <em>was als Nächstes kommt.</em>",
+  ab1_tag:"In Arbeit",ab1_h:"Antworten auf Ziel-Ebene",ab1_p:"Kommst du heute rein — und kannst du parken? Diese Antworten bringen wir auf die Ebene einzelner Ziele: Strände, Restaurants, Sehenswürdigkeiten.",
+  ab2_tag:"Fundament liegt",ab2_h:"Ein Concierge, der deinen Tag kennt",ab2_p:"Bald bezieht Unica im Chat deinen Plan und das Wetter von heute mit ein — für Antworten, die noch näher an eurem Tag sind.",
+  ab3_tag:"Als Nächstes",ab3_h:"Erlebnisse direkt buchen",ab3_p:"Handverlesene Erlebnisse bei unseren Partnern — in Kürze direkt in der App buchbar, transparent gekennzeichnet.",
+  pt_eyebrow:"Für Gastgeber &amp; Betriebe am See",pt_h2:"Die richtigen Gäste, zum <em>richtigen Moment.</em>",
+  pt_intro:"Garda Unica bringt Besucher dorthin, wo es gerade passt — und dann, wenn es passt. Für Gastgeber und lokale Betriebe heißt das: Passung statt Masse.",
+  pt1_label:"Hotels &amp; Campingplätze",pt1_h:"Der Concierge, der nie Feierabend hat.",pt1_p:"Entlastet Ihre Rezeption, beantwortet die immer gleichen Fragen — und ein gelungener Tag zahlt am Ende auf Ihre Bewertungen ein.",
+  pt2_label:"Erlebnisse, Weinbau &amp; Gastronomie",pt2_h:"Passung statt Rabattschlacht.",pt2_p:"Die richtigen Gäste zum richtigen Moment — Nebenzeiten statt Andrang, echte Kuratierung, die man nicht kaufen kann.",
+  pt_cta:"Partner werden →",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · ein Produkt von <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Kontakt",foot_imprint:"Impressum",foot_privacy:"Datenschutz",
   _title:"Garda Unica — Der Süd-Gardasee, richtig verteilt.",
   _desc:"Dein KI-Reisebegleiter für den südlichen Gardasee. Eine Empfehlung pro Moment, ehrliche Crowd-Daten, lokales Wissen."
  },
  it:{
-  pb_caption:"Live: traffico · affluenza · meteo — ogni 30 minuti, per tutte le 10 località",
   mi_eyebrow:"Perché esistiamo",mi_vlabel:"Visione",mi_mlabel:"Missione",
   mi_vision:"Un Lago di Garda dove ospiti e residenti amano la stessa <em>estate.</em>",
   mi_mission:"Distribuiamo il turismo in modo intelligente: dati live onesti e conoscenza locale curata portano le persone dove il lago è più bello in questo momento — e alleggeriscono i luoghi che hanno bisogno di respiro.",
   pi1_h:"Curato, non di massa",pi1_p:"Nessun oceano di recensioni con 200 opzioni. Ogni luogo, ogni consiglio è selezionato a mano — da persone, non da un algoritmo di ranking.",
-  pi2_h:"Dati veri, verificati sul posto",pi2_p:"Traffico, affluenza, meteo — aggiornati ogni 30 minuti. E ciò che dicono i dati, lo verifichiamo di persona. Viviamo qui.",
+  pi2_h:"Dati veri, verificati sul posto",pi2_p:"Traffico, meteo e conoscenza del territorio confluiscono in una stima dell'affluenza ricalcolata regolarmente — e ciò che dice lo verifichiamo di persona. Viviamo qui.",
   pi3_h:"Indipendenti",pi3_p:"Nessun posizionamento a pagamento. Quando consigliamo, c'è scritto il perché. I partner sono segnalati in modo trasparente — e ciò che Unica non sa con certezza, non lo afferma.",
   pi4_h:"Un bene per tutto il lago",pi4_p:"I luoghi pieni vengono alleggeriti, quelli tranquilli scoperti. Meno ricerca di parcheggio, meno stress — e fatturato anche dove la folla non arriva mai.",
   mi_quote:"„Non lo so con certezza — e non tiro a indovinare.\" — Unica",
-  ex_eyebrow:"Scopri · Esperienze",ex_h2:"Prenotabili: esperienze che nessun <em>portale conosce.</em>",
-  ex_p:"Con Marco alle sei del mattino sulla barca da pesca, quando il lago dorme ancora. Momenti così non stanno in nessun catalogo — nascono perché conosciamo le persone dietro. Prenotabili direttamente nell'app, presso partner locali, segnalati in modo trasparente.",
-  ex_c1:"Direttamente dai locali",ex_c2:"Piccoli gruppi",ex_c3:"Segnalati con trasparenza",
+  ex_eyebrow:"Scopri · Il tuo Diario",ex_h2:"Ogni giornata diventa un <em>ricordo.</em>",
+  ex_p:"Colleziona i tuoi momenti come timbri ed esperienze — e Unica trasforma la tua giornata in una piccola cartolina. Le esperienze selezionate a mano presso i nostri partner arrivano a breve direttamente in app.",
+  ex_c1:"Timbri &amp; Diario",ex_c2:"Cartolina AI",ex_c3:"Esperienze a breve",
   cl_u1:"Quando c'è il mercato a Lazise?",cl_a1:"Il mercoledì, dalle 8 alle 13 — nel centro storico. Buona passeggiata tra i banchi!",
   cl_u2:"E dove trovo una pizza a Peschiera alle 22?",cl_a2:"Conosco due forni ancora caldi a quell'ora. Ti mostro la strada?",
   cl_input:"La tua domanda…",
   nav_day:"Una giornata con Unica",nav_honest:"Il nostro principio",nav_team:"Chi siamo",nav_cta:"Lista d'attesa",
   hero_eyebrow:"Basso Garda · da Peschiera a Salò",
-  hero_h1:"Il Lago di Garda non è sovraffollato. È <em>distribuito male.</em>",
-  hero_lede:"Garda Unica è la tua guida di viaggio AI per il basso Lago di Garda. Un consiglio per ogni momento — con dati reali sull'affluenza, conoscenza locale e il perché. Creata da persone che vivono qui.",
+  hero_h1:"Il tuo lago. <em>Il tuo momento.</em>",
+  hero_lede:"Unica ti mostra il lago che amano le persone del posto — il luogo giusto, al momento giusto, su misura per voi. Un consiglio onesto invece di duecento opzioni.",
   hero_cta1:"Entra in lista d'attesa",hero_cta2:"Come funziona",hero_note:"Lancio: estate 2026 · gratuita",
-  pb_eyebrow:"Il problema",pb_h2:"Stesso lago. Stessa ora. <em>Due mondi.</em>",
-  pb_full_h:"40 minuti a cercare <em>parcheggio.</em>",
-  pb_full_p:"Coda al Castello: 200 metri. L'espresso al porto: una lotta per l'ultimo posto in piedi. Ecco l'„alta stagione\" quando tutti seguono lo stesso consiglio.",
-  pb_free_h:"Un tavolo libero <em>sull'acqua.</em>",
-  pb_free_p:"A venti minuti d'auto: parcheggio in spiaggia, riva tranquilla, lo stesso sole sullo stesso lago. Solo senza la folla.",
-  pb_line:"Unica conosce la differenza — <em>in tempo reale.</em>",
+  pb_eyebrow:"Conosci queste giornate?",pb_h2:"Il lago è bellissimo. Eppure la giornata va <em>storta.</em>",
+  pb_v1_h:"Il parcheggio <em>pieno.</em>",
+  pb_v1_p:"34 gradi, due bambini, tanta voglia — andate alla baia. „Completo.\" La spiaggia dopo: stessa scena. Due ore perse prima ancora che la giornata cominci.",
+  pb_v2_h:"I <em>cento</em> suggerimenti.",
+  pb_v2_p:"Fame a mezzogiorno, Google mostra cento pizzerie. Scegliete in base alle stelle — e finite nell'unica senza menù bambini, tra dodici tavoli con la guida turistica.",
+  pb_v3_h:"Il momento <em>sbagliato.</em>",
+  pb_v3_p:"Sirmione, sabato, ore 11 ad agosto. Lo stesso castello alle 17:30 sarebbe stato tutt'altro posto — luce, calma, spazio. Solo che non lo sapevate.",
+  pb_pivot:"Il lago non è il problema. È la <em>contemporaneità.</em> Quindici minuti più in là — o due ore più tardi — lo stesso lago è lì tranquillo.",
+  ls_eyebrow:"Cosa fa Unica",ls_h2:"Perché la giornata sia <em>vostra.</em>",
+  ls1_num:"Pilastro 1",ls1_h:"Il momento <em>giusto.</em>",
+  ls1_p:"Unica legge il lago per te: una stima di quanto è affollato ogni luogo, meteo reale e allerte — ricalcolata regolarmente. Così sai dove vale la pena andare oggi.",
+  ls1_cap:"L'affluenza è una stima ricalcolata regolarmente per ogni località — da dati di traffico e meteo e conoscenza del territorio. Nessun sensore stradale, nessun conteggio di persone. Il meteo è reale e in tempo reale.",
+  ls2_num:"Pilastro 2",ls2_h:"Una decisione, <em>non un catalogo.</em>",
+  ls2_p:"Invece di cento opzioni: un consiglio adatto a meteo, giorno e situazione — con un „Perché?\" e un'alternativa. Basta discussioni infinite a colazione.",
+  ls3_num:"Pilastro 3",ls3_h:"Curato da persone <em>che vivono qui.</em>",
+  ls3_p:"Nessun posizionamento a pagamento, nessuna dodicimila stelle di sconosciuti. Ogni consiglio è scelto a mano, da vera conoscenza del posto. „Di' a Marco che ti mandiamo noi.\"",
   day_eyebrow:"Una giornata con Unica",day_h2:"Dal risveglio all'<em>aperitivo.</em>",
   m0_time:"PRIMA DI PARTIRE",m0_h:"Due minuti — e Unica <em>vi conosce.</em>",
   m0_p:"Famiglia con bambini? In coppia? Con il cane? Mattinieri o dolce vita? Un breve incontro simpatico invece di moduli infiniti — e ogni consiglio si adatta al vostro ritmo.",
   m0_q:"„Vi piace rilassarvi. Perfetto.\"",
   m1_h:"Il tuo momento <em>ti aspetta già.</em>",
-  m1_p:"Ogni mattina un consiglio su misura per meteo, giorno della settimana e affluenza live — con orario, info parcheggio e il motivo per cui proprio adesso. Non 200 opzioni. Una, quella giusta.",
+  m1_p:"Ogni mattina un consiglio su misura per meteo, giorno della settimana e la stima di affluenza attuale — con orario e il motivo per cui proprio adesso. Non 200 opzioni. Una, quella giusta.",
   m1_q:"„Il momento migliore sul lago: adesso, senza piani.\"",
   m2_h:"Chiedi quello che vuoi. <em>Nella tua lingua.</em>",
   m2_p:"Giorno di mercato a Lazise? Il traghetto per Salò? Il panificio aperto la domenica? Unica risponde come un amico che vive sul lago — con conoscenza locale curata, non con il rumore di internet.",
@@ -716,49 +888,68 @@ var I18N={
   wl_bademail:"Inserisci un indirizzo email valido.",
   faq_label:"Domande frequenti",
   faq1_q:"Quanto costa Garda Unica?",faq1_a:"Al lancio l'app è gratuita. Guadagniamo dalle esperienze prenotate presso i nostri partner — mai da posizionamenti nascosti. Quando consigliamo qualcosa, c'è scritto il perché.",
-  faq2_q:"Da dove vengono i dati sull'affluenza?",faq2_a:"Da dati di traffico in tempo reale, meteo e pattern locali che osserviamo da anni — aggiornati ogni 30 minuti. Nessuna stima a caso, ma un quadro onesto della situazione sul posto.",
+  faq2_q:"Come stima Unica l'affluenza?",faq2_a:"L'affluenza è una stima ricalcolata regolarmente per ogni località — da dati di traffico e meteo e conoscenza del territorio. Nessun sensore stradale, nessun conteggio di persone, nessun dato sui parcheggi. Il meteo invece è reale e in tempo reale.",
   faq3_q:"I ristoranti pagano per essere consigliati?",faq3_a:"No. È la nostra promessa più importante. I consigli nascono dalla conoscenza locale curata — non da budget pubblicitari. I partner con cui collaboriamo sono segnalati in modo trasparente.",
   faq4_q:"L'app funziona in italiano?",faq4_a:"Sì — Garda Unica parla tedesco, italiano e inglese. Unica capisce e risponde nella tua lingua, con la conoscenza locale di chi vive sul lago.",
   faq5_q:"Quando si parte?",faq5_a:"Per l'alta stagione 2026, prima sul basso Garda tra Peschiera e Salò. Chi è in lista d'attesa lo saprà per primo.",
-  b2b_line:"Albergatore sulla sponda sud? Unica come concierge in camera — <a href=\"mailto:cristina@gardaunica.com?subject=Hotel-Pilota\">cerchiamo hotel pilota</a>",
+  faq6_q:"Dove sono i miei dati?",faq6_a:"Su server UE in Germania, secondo il GDPR. L'iscrizione avviene con doppio opt-in e per i dati degli utenti non usiamo cloud statunitensi. La tua email la usiamo solo per il lancio — nessuna rivendita, nessuno spam.",
+  faq7_q:"Per iPhone e Android?",faq7_a:"Sì, entrambi — al lancio. Appena si parte, ti diciamo dove scaricare Garda Unica.",
+  ab_eyebrow:"Dove stiamo costruendo",ab_h2:"Onesti su cosa c'è oggi — e <em>cosa arriva dopo.</em>",
+  ab1_tag:"In lavorazione",ab1_h:"Risposte a livello di destinazione",ab1_p:"Riesci a entrare oggi — e a parcheggiare? Portiamo queste risposte al livello dei singoli luoghi: spiagge, ristoranti, attrazioni.",
+  ab2_tag:"Le basi ci sono",ab2_h:"Un concierge che conosce la tua giornata",ab2_p:"Presto Unica in chat terrà conto del tuo piano e del meteo di oggi — per risposte ancora più vicine alla vostra giornata.",
+  ab3_tag:"Prossimamente",ab3_h:"Prenotare esperienze direttamente",ab3_p:"Esperienze selezionate a mano presso i nostri partner — a breve prenotabili direttamente in app, segnalate con trasparenza.",
+  pt_eyebrow:"Per host e attività sul lago",pt_h2:"Gli ospiti giusti, al <em>momento giusto.</em>",
+  pt_intro:"Garda Unica porta i visitatori dove va bene — e quando va bene. Per host e attività locali significa: affinità, non massa.",
+  pt1_label:"Hotel &amp; campeggi",pt1_h:"Il concierge che non stacca mai.",pt1_p:"Alleggerisce la reception, risponde alle solite domande — e una giornata riuscita alla fine premia le vostre recensioni.",
+  pt2_label:"Esperienze, vino &amp; ristorazione",pt2_h:"Affinità, non guerra di sconti.",pt2_p:"Gli ospiti giusti al momento giusto — orari di morbida invece della calca, una curatela vera che non si può comprare.",
+  pt_cta:"Diventa partner →",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · un prodotto di <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Contatti",foot_imprint:"Note legali",foot_privacy:"Privacy",
   _title:"Garda Unica — Il basso Garda, distribuito bene.",
   _desc:"La tua guida di viaggio AI per il basso Lago di Garda. Un consiglio per ogni momento, dati reali sull'affluenza, conoscenza locale."
  },
  en:{
-  pb_caption:"Live: traffic · crowds · weather — every 30 minutes, for all 10 towns",
   mi_eyebrow:"Why we exist",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"A Lake Garda where guests and locals love the same <em>summer.</em>",
   mi_mission:"We distribute tourism intelligently: honest live data and curated local knowledge guide people to where the lake is most beautiful right now — and give the crowded places room to breathe.",
   pi1_h:"Curated, not mass",pi1_p:"No ocean of reviews with 200 options. Every place, every tip is hand-picked — by people, not by a ranking algorithm.",
-  pi2_h:"Real data, verified on site",pi2_p:"Traffic, crowds, weather — updated every 30 minutes. And what the data says, we check ourselves. We live here.",
+  pi2_h:"Real data, verified on site",pi2_p:"Traffic, weather and local knowledge feed a regularly recalculated crowding estimate — and what it says, we check ourselves. We live here.",
   pi3_h:"Independent",pi3_p:"No paid placements. When we recommend, the reason is right there. Partners are transparently marked — and what Unica doesn't know for sure, she doesn't claim.",
   pi4_h:"Good for the whole lake",pi4_p:"Crowded places get relief, quiet ones get discovered. Less parking hunt, less stress — and revenue where the crowds never usually reach.",
   mi_quote:"„I don't know for sure — and I don't guess.\" — Unica",
-  ex_eyebrow:"Scopri · Experiences",ex_h2:"Bookable: experiences no <em>portal knows.</em>",
-  ex_p:"Out with Marco at six in the morning on the fishing boat, while the lake is still asleep. Moments like these aren't in any catalogue — they exist because we know the people behind them. Bookable directly in the app, with local partners, transparently marked.",
-  ex_c1:"Directly with locals",ex_c2:"Small groups",ex_c3:"Transparently marked",
+  ex_eyebrow:"Scopri · Your Diario",ex_h2:"Every day becomes a <em>memory.</em>",
+  ex_p:"Collect your moments as stamps and experiences — and Unica turns your day into a little postcard. Hand-picked experiences with our partners are coming to the app soon.",
+  ex_c1:"Stamps &amp; Diario",ex_c2:"AI postcard",ex_c3:"Experiences soon",
   cl_u1:"When is market day in Lazise?",cl_a1:"Wednesdays, 8am to 1pm — in the historic centre. Enjoy browsing!",
   cl_u2:"And where can I get pizza in Peschiera at 10pm?",cl_a2:"I know two ovens still hot at that hour. Want me to show you the way?",
   cl_input:"Your question…",
   nav_day:"A day with Unica",nav_honest:"Our principle",nav_team:"Who we are",nav_cta:"Waitlist",
   hero_eyebrow:"Southern Lake Garda · Peschiera to Salò",
-  hero_h1:"Lake Garda isn't overcrowded. It's <em>badly distributed.</em>",
-  hero_lede:"Garda Unica is your AI travel companion for the southern Lake Garda. One recommendation per moment — with honest crowd data, local knowledge and a reason why. Built by people who live here.",
+  hero_h1:"Your lake. <em>Your moment.</em>",
+  hero_lede:"Unica shows you the lake the locals love — the right place, at the right moment, tailored to you. One honest recommendation instead of two hundred options.",
   hero_cta1:"Join the waitlist",hero_cta2:"How it works",hero_note:"Launch: summer 2026 · free",
-  pb_eyebrow:"The problem",pb_h2:"Same lake. Same hour. <em>Two worlds.</em>",
-  pb_full_h:"40 minutes hunting for <em>parking.</em>",
-  pb_full_p:"Queue at the Castello: 200 metres. The espresso at the harbour: a fight for the last standing spot. That's „high season\" when everyone follows the same recommendation.",
-  pb_free_h:"A free table <em>on the water.</em>",
-  pb_free_p:"Twenty minutes' drive away: parking right by the beach, a quiet shore, the same sun over the same lake. Just without the crowds.",
-  pb_line:"Unica knows the difference — <em>in real time.</em>",
+  pb_eyebrow:"Know those days?",pb_h2:"The lake is beautiful. And the day still goes <em>sideways.</em>",
+  pb_v1_h:"The <em>full</em> car park.",
+  pb_v1_p:"34 degrees, two kids, full of anticipation — you head for the bay. „Completo.\" The next beach: same picture. Two hours gone before the day has really begun.",
+  pb_v2_h:"The <em>hundred</em> suggestions.",
+  pb_v2_p:"Lunchtime hunger, Google shows a hundred pizzerias. You pick by stars — and end up in the one without a kids' menu, among twelve other tables holding a guidebook.",
+  pb_v3_h:"The <em>wrong</em> moment.",
+  pb_v3_p:"Sirmione, Saturday, 11am in August. The same castle at 5:30pm would have been a whole different place — light, calm, space. You just didn't know it.",
+  pb_pivot:"The lake isn't the problem. The <em>simultaneity</em> is. Fifteen minutes further — or two hours later — the same lake lies perfectly calm.",
+  ls_eyebrow:"What Unica does",ls_h2:"So the day belongs to <em>you.</em>",
+  ls1_num:"Pillar 1",ls1_h:"The right <em>moment.</em>",
+  ls1_p:"Unica reads the lake for you: an estimate of how busy each place is right now, real weather and warnings — recalculated regularly. So you know where today's trip is worth it.",
+  ls1_cap:"Crowding is a regularly recalculated estimate per town — from traffic and weather data and local knowledge. No road sensors, no head-counting. Weather is real and live.",
+  ls2_num:"Pillar 2",ls2_h:"One decision, <em>not a catalogue.</em>",
+  ls2_p:"Instead of a hundred options: one recommendation that fits the weather, the day and the situation — with a „Why?\" and an alternative. No more talking it to death over breakfast.",
+  ls3_num:"Pillar 3",ls3_h:"Curated by people <em>who live here.</em>",
+  ls3_p:"No paid placements, no twelve thousand stars from strangers. Every tip is hand-picked, from real local knowledge. „Tell Marco we sent you.\"",
   day_eyebrow:"A day with Unica",day_h2:"From waking up to <em>aperitivo.</em>",
   m0_time:"BEFORE YOU START",m0_h:"Two minutes — and Unica <em>knows you.</em>",
   m0_p:"Family with kids? As a couple? With a dog? Early bird or dolce vita? A short, charming get-to-know instead of endless forms — and every recommendation fits your rhythm.",
   m0_q:"„You like it relaxed. Perfetto.\"",
   m1_h:"Your moment is <em>already waiting.</em>",
-  m1_p:"Every morning one recommendation that fits the weather, the weekday and live crowds — with a time, parking info and the reason why right now. Not 200 options. One that's right.",
+  m1_p:"Every morning one recommendation that fits the weather, the weekday and the current crowding estimate — with a time and the reason why right now. Not 200 options. One that's right.",
   m1_q:"„The best time on the lake: now, without a plan.\"",
   m2_h:"Ask anything. <em>In your language.</em>",
   m2_p:"Market day in Lazise? The ferry to Salò? The bakery that's open on Sundays? Unica answers like a friend who lives on the lake — from curated local knowledge, not internet noise.",
@@ -799,11 +990,21 @@ var I18N={
   wl_bademail:"Please enter a valid email address.",
   faq_label:"Frequently asked",
   faq1_q:"What does Garda Unica cost?",faq1_a:"The app is free at launch. We earn from experiences booked with our partners — never from hidden placements. When we recommend something, the reason is right there.",
-  faq2_q:"Where does the crowd data come from?",faq2_a:"From live traffic data, weather and local patterns we've been observing for years — updated every 30 minutes. No wild guesses, but an honest picture of the situation on the ground.",
+  faq2_q:"How does Unica estimate crowding?",faq2_a:"Crowding is a regularly recalculated estimate per town — from traffic and weather data and local knowledge. No road sensors, no head-counting, no parking data. Weather, on the other hand, is real and live.",
   faq3_q:"Do restaurants pay for recommendations?",faq3_a:"No. That's our most important promise. Recommendations come from curated local knowledge — not advertising budgets. Partners we work with are transparently marked.",
   faq4_q:"Does the app work in English?",faq4_a:"Yes — Garda Unica speaks German, Italian and English. Unica understands and answers in your language, with the local knowledge of people who live on the lake.",
   faq5_q:"When does it launch?",faq5_a:"For the 2026 high season, first on the southern Lake Garda between Peschiera and Salò. Waitlist members will be the first to know.",
-  b2b_line:"Hotelier on the south shore? Unica as an in-room concierge — <a href=\"mailto:cristina@gardaunica.com?subject=Pilot-Hotel\">pilot hotels wanted</a>",
+  faq6_q:"Where is my data kept?",faq6_a:"On EU servers in Germany, under GDPR. Sign-up uses double opt-in, and we use no US cloud for user data. We use your email only for the launch — no reselling, no spam.",
+  faq7_q:"For iPhone and Android?",faq7_a:"Yes, both — at launch. The moment we go live, we'll tell you where to download Garda Unica.",
+  ab_eyebrow:"Where we're building",ab_h2:"Honest about what runs today — and <em>what comes next.</em>",
+  ab1_tag:"In progress",ab1_h:"Answers at destination level",ab1_p:"Can you get in today — and can you park? We're bringing these answers down to individual places: beaches, restaurants, sights.",
+  ab2_tag:"Foundation in place",ab2_h:"A concierge that knows your day",ab2_p:"Soon Unica in chat will factor in your plan and today's weather — for answers even closer to your day.",
+  ab3_tag:"Up next",ab3_h:"Book experiences directly",ab3_p:"Hand-picked experiences with our partners — bookable directly in the app soon, transparently marked.",
+  pt_eyebrow:"For hosts &amp; businesses on the lake",pt_h2:"The right guests, at the <em>right moment.</em>",
+  pt_intro:"Garda Unica brings visitors where it fits — and when it fits. For hosts and local businesses that means fit, not mass.",
+  pt1_label:"Hotels &amp; campsites",pt1_h:"The concierge that never clocks off.",pt1_p:"Takes load off your reception, answers the same questions again and again — and a day well spent pays back into your reviews.",
+  pt2_label:"Experiences, wine &amp; dining",pt2_h:"Fit, not a discount war.",pt2_p:"The right guests at the right moment — off-peak instead of the crush, real curation you can't buy.",
+  pt_cta:"Become a partner →",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · a product by <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Contact",foot_imprint:"Imprint",foot_privacy:"Privacy",
   _title:"Garda Unica — Southern Lake Garda, properly distributed.",
