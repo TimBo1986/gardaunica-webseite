@@ -700,6 +700,7 @@ footer a:hover{color:var(--notte)}
   </div>
 </div>
 
+<script src="assets/lang.js"></script>
 <script src="assets/waitlist.js"></script>
 <script>
 var I18N={
@@ -1036,6 +1037,7 @@ function setLang(lang){
   var md=document.querySelector('meta[name="description"]');
   if(md&&d._desc)md.setAttribute("content",d._desc);
   document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("active",b.dataset.lang===lang)});
+  if(window.GardaLang)GardaLang.remember(lang);
   try{var u=new URL(window.location);u.searchParams.set("lang",lang);window.history.replaceState({},"",u);}catch(e){}
   // Partner-Seite in derselben Sprache öffnen
   document.querySelectorAll('a[href^="/partner"]').forEach(function(a){a.setAttribute("href","/partner?lang="+lang)});
@@ -1043,9 +1045,7 @@ function setLang(lang){
   if(typeof chatPlayer!=="undefined"&&chatPlayer&&!REDUCED){var r=chatPlayer.el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)chatPlayer.start();}
 }
 (function(){
-  var p=new URLSearchParams(window.location.search);
-  var lang=p.get("lang");
-  if(!lang){var nv=(navigator.language||"de").slice(0,2).toLowerCase();lang=["de","it","en"].indexOf(nv)>=0?nv:"de";}
+  var lang=(window.GardaLang?GardaLang.detect(["de","it","en"],"en"):"de");
   document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
   setLang(lang);
 })();

@@ -413,6 +413,7 @@ footer a:hover{color:var(--notte)}
   </div>
 </footer>
 
+<script src="/assets/lang.js"></script>
 <script>
 var I18N={
  de:{
@@ -637,12 +638,11 @@ function setLang(lang){
   var wb=document.getElementById("waBtn");
   if(wb)wb.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(d.pk_wa);
   document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("active",b.dataset.lang===lang)});
+  if(window.GardaLang)GardaLang.remember(lang);
   try{var u=new URL(window.location);u.searchParams.set("lang",lang);window.history.replaceState({},"",u);}catch(e){}
 }
 (function(){
-  var p=new URLSearchParams(window.location.search);
-  var lang=p.get("lang");
-  if(!lang){var nv=(navigator.language||"de").slice(0,2).toLowerCase();lang=["de","it","en"].indexOf(nv)>=0?nv:"de";}
+  var lang=(window.GardaLang?GardaLang.detect(["de","it","en"],"en"):"de");
   document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
   setLang(lang);
 })();
