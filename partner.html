@@ -32,80 +32,133 @@
 html{scroll-behavior:smooth}
 body{background:var(--carta);color:var(--notte);font-family:var(--f-ui);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-.wrap{max-width:820px;margin:0 auto;padding-left:24px;padding-right:24px}
-section{padding:64px 0}
+.wrap{max-width:900px;margin:0 auto;padding-left:24px;padding-right:24px}
+section{padding:56px 0}
 .eyebrow{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--terracotta)}
-h2{font-family:var(--f-display);font-weight:500;font-size:clamp(26px,4vw,36px);line-height:1.18;letter-spacing:-.01em;margin-top:12px}
+h2{font-family:var(--f-display);font-weight:500;font-size:clamp(26px,4vw,36px);line-height:1.18;letter-spacing:-.01em;margin-top:10px}
 h2 em{font-style:italic;color:var(--terracotta)}
+.sep{border:none;border-top:1px solid var(--linea);margin:0}
 /* nav */
 nav{position:sticky;top:0;z-index:60;background:rgba(250,245,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea-soft)}
-.nav-inner{max-width:820px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{font-family:var(--f-display);font-weight:600;font-size:21px;text-decoration:none;letter-spacing:-.01em}
 .logo em{font-style:italic;color:var(--terracotta)}
+.nav-right{display:flex;align-items:center;gap:18px}
 .nav-back{font-size:13.5px;font-weight:500;color:var(--notte-2);text-decoration:none;transition:color 180ms var(--ease)}
 .nav-back:hover{color:var(--notte)}
-/* hero */
-.hero{padding:56px 0 8px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-160px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(229,168,58,.22),transparent 65%);pointer-events:none}
-h1{font-family:var(--f-display);font-weight:500;font-size:clamp(32px,5.6vw,52px);line-height:1.1;letter-spacing:-.015em;margin-top:14px;position:relative}
+.nav-pdf{font-size:13px;font-weight:600;color:var(--carta);background:var(--terracotta);padding:8px 16px;border-radius:999px;text-decoration:none;transition:background 180ms var(--ease)}
+.nav-pdf:hover{background:var(--terracotta-soft)}
+@media(max-width:600px){.nav-back{display:none}}
+/* hero — zentriert wie der Flyer */
+.hero{padding:56px 0 44px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(229,168,58,.2),transparent 65%);pointer-events:none}
+.hero-mark{font-family:var(--f-display);font-weight:600;font-size:clamp(30px,5vw,40px);letter-spacing:-.01em;position:relative}
+.hero-mark em{font-style:italic;color:var(--terracotta)}
+h1{font-family:var(--f-display);font-weight:500;font-size:clamp(30px,5.4vw,48px);line-height:1.12;letter-spacing:-.015em;margin-top:22px;position:relative}
 h1 em{font-style:italic;color:var(--terracotta)}
-.lede{margin-top:20px;font-size:17px;color:var(--notte-2);max-width:52ch;line-height:1.7;position:relative}
-.hero-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;position:relative}
+.hero-sub{margin-top:16px;font-family:var(--f-display);font-style:italic;font-size:clamp(16px,2.2vw,19px);color:var(--notte-2);position:relative}
+.hero-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative}
 .btn-primary{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;background:var(--terracotta);color:var(--carta);transition:background 180ms var(--ease),transform 180ms var(--ease)}
 .btn-primary:hover{background:var(--terracotta-soft);transform:translateY(-1px)}
-.btn-ghost{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;border:1.5px solid var(--notte);color:var(--notte);transition:background 180ms var(--ease),color 180ms var(--ease)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px;padding:15px 30px;border-radius:999px;border:1.5px solid var(--notte);color:var(--notte);transition:background 180ms var(--ease),color 180ms var(--ease)}
 .btn-ghost:hover{background:var(--notte);color:var(--carta)}
 .hero-note{margin-top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--notte-3);position:relative}
 /* prosa */
-.prosa p{margin-top:16px;font-size:16px;color:var(--notte-2);line-height:1.75;max-width:62ch}
+.prosa p{margin-top:16px;font-size:16px;color:var(--notte-2);line-height:1.75}
 .prosa p:first-child{margin-top:0}
-/* diagnose */
-.diagnosi{background:var(--carta-warm)}
-.claim{font-family:var(--f-display);font-style:italic;font-size:clamp(20px,2.8vw,26px);line-height:1.4;color:var(--notte);max-width:26ch}
-.claim em{color:var(--terracotta);font-style:italic}
+.prosa strong{color:var(--notte)}
+/* rubriche */
+.rubriche-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:26px;align-items:start}
+@media(max-width:760px){.rubriche-grid{grid-template-columns:1fr;gap:28px}}
+.rub-list{list-style:none;margin-top:18px}
+.rub-list li{position:relative;padding-left:18px;margin-top:11px;font-size:15px;color:var(--notte-2);line-height:1.6}
+.rub-list li::before{content:'•';position:absolute;left:0;color:var(--terracotta);font-weight:700}
+.rub-list strong{color:var(--notte);font-weight:600}
+.info-box{background:var(--carta-warm);border-radius:16px;padding:24px 26px;margin-top:24px}
+.info-box h3{font-family:var(--f-display);font-weight:500;font-size:20px;line-height:1.3}
+.info-box p{margin-top:10px;font-size:14.5px;color:var(--notte-2);line-height:1.7}
+.info-box em{font-style:italic}
+/* esperienze */
+.esperienze{background:var(--carta-morn)}
+.exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+@media(max-width:860px){.exp-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
+.exp-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px -14px rgba(26,37,64,.28);display:flex;flex-direction:column}
+.exp-top{background:var(--notte);height:58px;position:relative}
+.exp-price{position:absolute;top:12px;right:12px;background:#fff;border-radius:999px;padding:5px 13px;font-family:var(--f-mono);font-size:11px;font-weight:500;color:var(--notte)}
+.exp-body{padding:16px 18px 0;flex:1}
+.exp-badge{display:inline-block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracotta);background:var(--sole-soft);opacity:.9;padding:4px 10px;border-radius:999px}
+.exp-card h3{font-family:var(--f-display);font-weight:500;font-size:18px;line-height:1.3;margin-top:12px}
+.exp-place{font-family:var(--f-display);font-style:italic;font-size:13.5px;color:var(--notte-3);margin-top:4px}
+.exp-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.exp-pills span{font-family:var(--f-mono);font-size:10px;color:var(--notte-2);border:1px solid var(--linea);border-radius:999px;padding:4px 9px}
+.exp-quote{margin-top:14px;padding-left:11px;border-left:3px solid var(--sole);font-family:var(--f-display);font-style:italic;font-size:13.5px;color:var(--notte-2);line-height:1.5}
+.exp-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px 16px;margin-top:16px;border-top:1px solid var(--linea-soft)}
+.exp-seal{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--oliva);display:flex;align-items:center;gap:6px}
+.exp-seal i{width:6px;height:6px;border-radius:50%;background:var(--oliva);display:inline-block}
+.exp-btn{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--terracotta);color:var(--carta);padding:8px 14px;border-radius:999px;white-space:nowrap}
+.exp-note{margin-top:18px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--notte-3);text-align:center}
+/* ospiti + stagione */
+.ospiti-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:start;margin-top:8px}
+@media(max-width:800px){.ospiti-grid{grid-template-columns:1fr;gap:26px}}
+.osp-list{list-style:none;margin-top:18px}
+.osp-list li{position:relative;padding-left:18px;margin-top:12px;font-size:15px;color:var(--notte-2);line-height:1.6}
+.osp-list li::before{content:'•';position:absolute;left:0;color:var(--terracotta);font-weight:700}
+.osp-list strong{color:var(--notte);font-weight:600}
+.stag-box{background:var(--carta-warm);border-radius:16px;padding:28px 26px}
+.stag-box h3{font-family:var(--f-display);font-weight:500;font-size:clamp(19px,2.4vw,23px);line-height:1.25}
+.stag-box p{margin-top:12px;font-size:14.5px;color:var(--notte-2);line-height:1.7}
+.stag-pill{display:inline-block;margin-top:18px;background:var(--notte);color:var(--sole);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:7px 15px;border-radius:6px}
 /* scambio */
-.scambio{background:var(--carta-morn)}
-.tausch-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px}
+.scambio{background:var(--carta-warm)}
+.tausch-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
 @media(max-width:760px){.tausch-grid{grid-template-columns:1fr}}
-.tcard{background:var(--carta);border:1px solid var(--linea);border-radius:16px;padding:28px 26px}
-.tcard.give{background:var(--notte);color:var(--carta);border-color:transparent}
-.tcard .tlabel{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--terracotta)}
-.tcard.give .tlabel{color:var(--sole)}
-.tcard h3{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.3;margin-top:12px}
+.tcard{background:var(--carta-morn);border:1px solid var(--linea);border-radius:16px;padding:26px 24px}
+.tcard h3{font-family:var(--f-display);font-weight:500;font-size:20px;line-height:1.3}
 .tcard ul{margin-top:14px;padding-left:0;list-style:none}
-.tcard li{position:relative;padding-left:20px;margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--notte-2)}
-.tcard.give li{color:rgba(250,245,232,.78)}
-.tcard li::before{content:'—';position:absolute;left:0;color:var(--terracotta)}
-.tcard.give li::before{color:var(--sole)}
-.tausch-line{margin-top:32px;text-align:center;font-family:var(--f-display);font-style:italic;font-size:clamp(17px,2.2vw,21px);color:var(--notte)}
-.tausch-line em{color:var(--terracotta);font-style:italic}
-.tausch-sub{margin-top:12px;text-align:center;font-size:14.5px;color:var(--notte-2);max-width:60ch;margin-left:auto;margin-right:auto}
-/* stagione */
-.stagione{background:var(--notte);color:var(--carta)}
-.stagione .eyebrow{color:var(--sole)}
-.stagione h2{color:var(--carta)}
-.stagione h2 em{color:var(--sole)}
-.stagione p{margin-top:16px;font-size:16px;color:rgba(250,245,232,.78);line-height:1.75;max-width:58ch}
+.tcard li{position:relative;padding-left:18px;margin-top:10px;font-size:14.5px;line-height:1.6;color:var(--notte-2)}
+.tcard li::before{content:'•';position:absolute;left:0;color:var(--terracotta);font-weight:700}
+.tcard strong{color:var(--notte);font-weight:600}
+.tausch-close{margin-top:28px;text-align:center;max-width:66ch;margin-left:auto;margin-right:auto}
+.tausch-close p{font-size:15px;color:var(--notte-2);line-height:1.7;margin-top:8px}
+.tausch-close .lead{font-family:var(--f-display);font-style:italic;font-size:clamp(17px,2.2vw,20px);color:var(--notte)}
+.tausch-close strong{color:var(--notte)}
+/* claim */
+.claim-sec{text-align:center;padding:56px 0 8px}
+.claim{font-family:var(--f-display);font-style:italic;font-size:clamp(21px,3vw,28px);line-height:1.35;color:var(--notte)}
+.claim em{color:var(--terracotta);font-style:italic}
+/* flyer download — prominent */
+.flyer{background:var(--notte);color:var(--carta)}
+.flyer .eyebrow{color:var(--sole)}
+.flyer h2{color:var(--carta)}
+.flyer h2 em{color:var(--sole)}
+.flyer-grid{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;margin-top:30px}
+@media(max-width:760px){.flyer-grid{grid-template-columns:1fr;gap:26px;text-align:center;justify-items:center}}
+.flyer-shots{display:flex;gap:12px}
+.flyer-shots img{width:150px;height:auto;border-radius:8px;box-shadow:0 18px 44px -14px rgba(0,0,0,.55);display:block;transition:transform 260ms var(--ease)}
+.flyer-shots a:hover img{transform:translateY(-4px)}
+.flyer-shots img:last-child{opacity:.92}
+@media(max-width:420px){.flyer-shots img{width:126px}}
+.flyer-copy p{margin-top:12px;font-size:15px;color:rgba(250,245,232,.78);line-height:1.7;max-width:44ch}
+.btn-download{display:inline-flex;align-items:center;gap:10px;margin-top:20px;text-decoration:none;font-weight:600;font-size:15px;padding:15px 28px;border-radius:999px;background:var(--sole);color:var(--notte);transition:background 180ms var(--ease),transform 180ms var(--ease)}
+.btn-download:hover{background:#F0BC5C;transform:translateY(-1px)}
+.flyer-meta{display:block;margin-top:12px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:rgba(250,245,232,.5)}
 /* cta */
-.cta{text-align:center;padding:72px 0 56px}
-.cta h2{max-width:20ch;margin-left:auto;margin-right:auto}
+.cta{text-align:center;padding:64px 0 56px}
+.cta h2{max-width:22ch;margin-left:auto;margin-right:auto}
 .cta p{margin:18px auto 0;max-width:52ch;color:var(--notte-2);font-size:15.5px}
-.cta-actions{margin-top:32px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.cta-actions{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
 .btn-wa{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px;padding:15px 28px;border-radius:999px;background:var(--oliva);color:var(--carta);transition:transform 180ms var(--ease),background 180ms var(--ease)}
 .btn-wa:hover{background:#6E7F46;transform:translateY(-1px)}
 .btn-wa svg{width:17px;height:17px;fill:currentColor;flex-shrink:0}
 .cta-direct{margin-top:20px;font-size:14.5px;color:var(--notte-3)}
 .cta-direct a{color:var(--terracotta);font-weight:600;text-decoration:none}
 .cta-direct a:hover{text-decoration:underline}
-.download{margin-top:34px;padding-top:28px;border-top:1px solid var(--linea-soft)}
-.download a{display:inline-flex;align-items:center;gap:10px;font-size:14.5px;font-weight:500;color:var(--notte-2);text-decoration:none;border-bottom:1px solid var(--linea);padding-bottom:3px;transition:color 160ms var(--ease),border-color 160ms var(--ease)}
-.download a:hover{color:var(--terracotta);border-color:var(--terracotta)}
-.download .meta{display:block;margin-top:10px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;color:var(--notte-3)}
 /* footer */
 footer{border-top:1px solid var(--linea-soft);padding:30px 0 44px;font-size:13px;color:var(--notte-3)}
-.foot-inner{max-width:820px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot-inner{max-width:900px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--notte-3);text-decoration:none;font-weight:500}
 footer a:hover{color:var(--notte)}
+.foot-sign{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--notte-3);text-align:center;padding:0 24px 8px}
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease),transform 600ms var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -117,96 +170,208 @@ footer a:hover{color:var(--notte)}
 <nav>
   <div class="nav-inner">
     <a class="logo" href="https://www.gardaunica.com">Garda <em>Unica</em></a>
-    <a class="nav-back" href="https://www.gardaunica.com">← Il sito per gli ospiti</a>
+    <div class="nav-right">
+      <a class="nav-back" href="https://www.gardaunica.com">← Il sito per gli ospiti</a>
+      <a class="nav-pdf" href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener">↓ Flyer PDF</a>
+    </div>
   </div>
 </nav>
 
+<!-- HERO (wie Flyer S.1 oben) -->
 <header class="hero">
   <div class="wrap">
+    <div class="hero-mark">Garda <em>Unica</em></div>
     <span class="eyebrow">Per cantine e frantoi del basso Garda</span>
     <h1>Non più ospiti.<br>Ma gli ospiti <em>giusti.</em></h1>
-    <p class="lede">Ospiti che sanno apprezzare il vostro vino e il vostro olio. Abbiamo creato un'app per il basso Lago di Garda — in autunno andiamo online, e vorremmo davvero avere voi al nostro fianco.</p>
+    <p class="hero-sub">Ospiti che sanno apprezzare il vostro vino e il vostro olio.</p>
     <div class="hero-actions">
       <a class="btn-primary" href="#contatto">Diventate partner →</a>
-      <a class="btn-ghost" href="#scambio">Come funziona</a>
+      <a class="btn-ghost" href="#flyer">↓ Scarica il flyer</a>
     </div>
     <div class="hero-note">Lancio: autunno 2026 · fase pilota gratuita</div>
   </div>
 </header>
 
-<!-- DIAGNOSI -->
-<section class="diagnosi">
-  <div class="wrap">
-    <span class="eyebrow">Il problema</span>
-    <h2>Il Garda non è troppo pieno: <em>è distribuito male.</em></h2>
-    <div class="prosa" style="margin-top:22px">
-      <p>Ogni giorno migliaia di ospiti passano accanto a cantine e frantoi straordinari senza saperlo. Chi cercherebbe davvero il vostro vino, spesso non vi trova.</p>
-      <p>Garda Unica nasce a San Benedetto di Lugana, da chi vive qui: Cristina, con radici italiane, e Tim, che sviluppa la tecnologia. E Luna, il nostro cane, che ha una rubrica tutta sua. Non un portale straniero che vende visibilità — vicini di casa che conoscono il territorio.</p>
-    </div>
+<div class="wrap"><hr class="sep"></div>
+
+<!-- INTRO (Flyer S.1) -->
+<section style="padding-top:44px;padding-bottom:44px">
+  <div class="wrap prosa">
+    <p><strong>Abbiamo creato un'app per il basso Lago di Garda.</strong> In autunno andiamo online — e vorremmo davvero avere voi al nostro fianco.</p>
+    <p>Garda Unica nasce a San Benedetto di Lugana, da chi vive qui: Cristina, con radici italiane, e Tim, che sviluppa la tecnologia. E Luna, il nostro cane, che ha una rubrica tutta sua. Non un portale straniero che vende visibilità — vicini di casa che conoscono il territorio.</p>
+    <p>Il Garda non è troppo pieno: è distribuito male. Ogni giorno migliaia di ospiti passano accanto a cantine e frantoi straordinari senza saperlo. <strong>Chi cercherebbe davvero il vostro vino, spesso non vi trova.</strong></p>
   </div>
 </section>
 
-<!-- COSA APPARE NELL'APP -->
+<div class="wrap"><hr class="sep"></div>
+
+<!-- RUBRICHE (Flyer S.1 unten) -->
 <section>
   <div class="wrap">
     <span class="eyebrow">Così apparirete nell'app</span>
-    <h2>Non un semplice indirizzo <em>sulla mappa.</em></h2>
-    <div class="prosa" style="margin-top:22px">
-      <p>Visite, degustazioni, vendemmia e molitura raccontate bene — e proposte all'ospite nel momento in cui è pronto a viverle. Con la durata, la lingua, il numero di posti. Prenotabili dal lancio.</p>
-      <p>Le nostre sezioni sono selezionate a mano e hanno tutte lo stesso peso. <strong>Vino &amp; Olio</strong> è quella che stiamo costruendo adesso — ed è il motivo per cui vi scriviamo oggi.</p>
+    <div class="rubriche-grid">
+      <div>
+        <h2>Le nostre <em>rubriche.</em></h2>
+        <p style="margin-top:14px;font-size:15px;color:var(--notte-2);line-height:1.7">Sei sezioni curate a mano, tutte con lo stesso peso. <strong style="color:var(--notte)">Vino &amp; Olio</strong> è quella che stiamo costruendo adesso — ed è il motivo per cui vi scriviamo oggi.</p>
+        <ul class="rub-list">
+          <li><strong>Vino &amp; Olio</strong> — cantine, frantoi, degustazioni, bottiglie e olio da portare a casa</li>
+          <li><strong>Le Tavole</strong> — ristoranti, osterie e bar</li>
+          <li><strong>A quattro zampe</strong> — il lago con il cane, con Luna come padrona di casa</li>
+          <li><strong>Spiagge</strong> — spiagge e baie, al momento giusto</li>
+          <li><strong>Noleggi</strong> — bici, Vespa, auto, barca</li>
+          <li><strong>In Giro</strong> — traghetto, bus e treno: il lago senza auto</li>
+        </ul>
+      </div>
+      <div>
+        <div class="info-box reveal">
+          <h3>Il lago cambia cinque volte l'anno.</h3>
+          <p>Da settembre a ottobre l'app si apre su <em>Il tempo del vino</em>: in cima, prima di ogni altra cosa. Poi l'olio, le passeggiate, le terrazze, il lago. Chi ama il vino arriva da voi nelle settimane in cui avete qualcosa da mostrare.</p>
+        </div>
+        <div class="info-box reveal" style="background:transparent;border:1px solid var(--linea);margin-top:16px">
+          <h3 style="font-style:italic">Nessun luogo che non abbiamo visto di persona.</h3>
+          <p>Il lago, scelto a mano — sezione per sezione, stagione per stagione.</p>
+        </div>
+      </div>
     </div>
-    <p class="claim reveal" style="margin-top:34px">Nessun luogo <em>che non abbiamo visto di persona.</em></p>
   </div>
 </section>
 
-<!-- LO SCAMBIO -->
+<!-- ESPERIENZE (Flyer S.2 oben) -->
+<section class="esperienze">
+  <div class="wrap">
+    <span class="eyebrow">Esperienze</span>
+    <h2>Le vostre esperienze, <em>prenotabili.</em></h2>
+    <p style="margin-top:14px;font-size:15.5px;color:var(--notte-2);line-height:1.75;max-width:70ch">Non un semplice indirizzo sulla mappa. Visite, degustazioni, vendemmia e molitura raccontate bene e proposte all'ospite nel momento in cui è pronto a viverle. <strong style="color:var(--notte)">Ecco come potrebbero apparire le vostre:</strong></p>
+
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <div class="exp-top"><span class="exp-price">€45 / persona</span></div>
+        <div class="exp-body">
+          <span class="exp-badge">◆ Vendemmia</span>
+          <h3>Vendemmia e degustazione</h3>
+          <div class="exp-place">La vostra cantina · San Benedetto</div>
+          <div class="exp-pills"><span>2h 30</span><span>Max 8</span><span>IT · DE</span></div>
+          <p class="exp-quote">A settembre, quando l'uva entra in cantina.</p>
+        </div>
+        <div class="exp-foot"><span class="exp-seal"><i></i>Vissuto da noi</span><span class="exp-btn">Prenota</span></div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-top"><span class="exp-price">€35 / persona</span></div>
+        <div class="exp-body">
+          <span class="exp-badge">◆ Cantina</span>
+          <h3>Visita in bottaia, quattro calici</h3>
+          <div class="exp-place">La vostra cantina · Peschiera</div>
+          <div class="exp-pills"><span>1h 30</span><span>Max 12</span><span>IT · DE · EN</span></div>
+          <p class="exp-quote">Il venerdì pomeriggio, prima dell'aperitivo.</p>
+        </div>
+        <div class="exp-foot"><span class="exp-seal"><i></i>Vissuto da noi</span><span class="exp-btn">Prenota</span></div>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-top"><span class="exp-price">€28 / persona</span></div>
+        <div class="exp-body">
+          <span class="exp-badge">◆ Olio nuovo</span>
+          <h3>Molitura e olio nuovo</h3>
+          <div class="exp-place">Il vostro frantoio · Lazise</div>
+          <div class="exp-pills"><span>1h 00</span><span>Max 10</span><span>IT · DE</span></div>
+          <p class="exp-quote">A novembre, quando esce l'olio nuovo.</p>
+        </div>
+        <div class="exp-foot"><span class="exp-seal"><i></i>Vissuto da noi</span><span class="exp-btn">Prenota</span></div>
+      </div>
+    </div>
+    <p class="exp-note">Esempi illustrativi · durate, prezzi e lingue li decidete voi</p>
+  </div>
+</section>
+
+<!-- OSPITI + STAGIONE (Flyer S.2 Mitte) -->
+<section>
+  <div class="wrap">
+    <div class="ospiti-grid">
+      <div>
+        <h2>I nostri <em>ospiti.</em></h2>
+        <ul class="osp-list">
+          <li><strong>Coppie tra i 45 e gli 80 anni</strong>, senza figli al seguito, fuori dall'alta stagione</li>
+          <li><strong>Capacità di spesa alta</strong> — qualità e non quantità, e comprano volentieri da portare a casa</li>
+          <li><strong>Spesso con il cane</strong> — un pubblico fedele, che sceglie con cura dove è il benvenuto</li>
+          <li><strong>Di lingua tedesca</strong> — il mercato più ricettivo per il Garda DOP e per il Lugana</li>
+          <li><strong>Tornano</strong> — chi vive una bella esperienza in autunno rientra in primavera, e porta amici</li>
+        </ul>
+      </div>
+      <div class="stag-box reveal">
+        <h3>Riempiamo i mesi buoni,<br>non solo agosto.</h3>
+        <p>Il nostro focus è autunno e primavera: vendemmia, olio nuovo, la Festa dell'Uva di Bardolino, le giornate miti di San Martino. I mesi in cui avete tempo per accogliere davvero.</p>
+        <span class="stag-pill">Lancio · autunno 2026</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LO SCAMBIO (Flyer S.2 unten) -->
 <section id="scambio" class="scambio">
   <div class="wrap">
     <span class="eyebrow">Lo scambio, in tutta trasparenza</span>
     <h2>Perché non vi <em>costa nulla.</em></h2>
-    <div class="prosa" style="margin-top:22px">
-      <p>In questo momento il denaro sarebbe la valuta sbagliata. Un consiglio vale solo quanto valgono le realtà che vi compaiono — ed è utile solo se lo usano abbastanza ospiti. Stiamo costruendo entrambe le cose adesso. Per questo non cerchiamo inserzionisti paganti, ma partner veri. <strong>Da noi non si compra una posizione: mai.</strong></p>
-    </div>
+    <p style="margin-top:14px;font-size:15.5px;color:var(--notte-2);line-height:1.75;max-width:72ch">Perché in questo momento il denaro sarebbe la valuta sbagliata. Un consiglio vale solo quanto valgono le realtà che vi compaiono — ed è utile solo se lo usano abbastanza ospiti. Stiamo costruendo entrambe le cose adesso. Per questo non cerchiamo inserzionisti paganti, ma partner veri. <strong style="color:var(--notte)">Da noi non si compra una posizione: mai.</strong></p>
+
     <div class="tausch-grid">
       <div class="tcard reveal">
-        <span class="tlabel">Cosa ricevete voi</span>
-        <h3>Visibilità dove conta.</h3>
+        <h3>Cosa ricevete voi</h3>
         <ul>
           <li>Un posto tra i nostri consigli selezionati, in tre lingue</li>
           <li>Visite, degustazioni ed eventi resi visibili e prenotabili</li>
           <li>Ospiti che capiscono la vostra qualità — e che tornano in primavera</li>
         </ul>
       </div>
-      <div class="tcard give reveal">
-        <span class="tlabel">Cosa chiediamo a voi</span>
-        <h3>Poco, ma sincero.</h3>
+      <div class="tcard reveal">
+        <h3>Cosa chiediamo a voi</h3>
         <ul>
-          <li>Un piccolo QR code nel wine shop, al banco o in sala degustazioni</li>
+          <li><strong>Visibilità presso i vostri ospiti</strong>: un piccolo QR code nel wine shop, al banco o in sala degustazioni</li>
           <li>Il vostro programma, gli orari e qualche immagine</li>
           <li>Un riscontro sincero durante la prima stagione</li>
         </ul>
       </div>
     </div>
-    <p class="tausch-line reveal">Voi ci fate conoscere ai vostri ospiti. <em>Noi facciamo conoscere voi ai nostri.</em></p>
-    <p class="tausch-sub">Nessun denaro, in nessuna direzione. Uno scambio equo, in cui entrambi guadagnano qualcosa. Partiamo con una fase pilota: per i partner della prima ora è gratuita, e ciò che avrà senso in seguito lo decideremo insieme a voi.</p>
+
+    <div class="tausch-close">
+      <p class="lead">Voi ci fate conoscere ai vostri ospiti. Noi facciamo conoscere voi ai nostri.</p>
+      <p><strong>Nessun denaro, in nessuna direzione.</strong> Uno scambio equo, in cui entrambi guadagnano qualcosa.</p>
+      <p>Partiamo con una fase pilota: per i partner della prima ora è gratuita, e ciò che avrà senso in seguito lo decideremo insieme a voi.</p>
+    </div>
   </div>
 </section>
 
-<!-- STAGIONE -->
-<section class="stagione">
+<!-- CLAIM (Flyer S.2 Schluss) -->
+<section class="claim-sec">
   <div class="wrap">
-    <span class="eyebrow">Lancio · autunno 2026</span>
-    <h2>Riempiamo i mesi buoni, <em>non solo agosto.</em></h2>
-    <p>Il nostro focus è autunno e primavera: vendemmia, olio nuovo, la Festa dell'Uva di Bardolino, le giornate miti di San Martino. I mesi in cui avete tempo per accogliere davvero.</p>
-    <p>Da settembre a ottobre l'app si apre su <em>Il tempo del vino</em>: in cima, prima di ogni altra cosa. Chi ama il vino arriva da voi nelle settimane in cui avete qualcosa da mostrare.</p>
+    <p class="claim">Il Garda merita di essere scoperto bene.<br>E voi meritate di essere <em>trovati.</em></p>
+  </div>
+</section>
+
+<!-- FLYER DOWNLOAD — prominent -->
+<section id="flyer" class="flyer">
+  <div class="wrap">
+    <span class="eyebrow">La presentazione</span>
+    <h2>Tutto in due pagine, <em>da stampare.</em></h2>
+    <div class="flyer-grid">
+      <div class="flyer-shots reveal">
+        <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener"><img src="/assets/flyer-cantine-p1.jpg" alt="Flyer Garda Unica per cantine — pagina 1" width="620" height="879" loading="lazy" decoding="async"></a>
+        <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener"><img src="/assets/flyer-cantine-p2.jpg" alt="Flyer Garda Unica per cantine — pagina 2" width="620" height="879" loading="lazy" decoding="async"></a>
+      </div>
+      <div class="flyer-copy">
+        <p>Il nostro flyer per cantine e frantoi: la stessa storia che avete appena letto, in formato A5 — comodo da leggere con calma, da stampare o da girare a un collega.</p>
+        <a class="btn-download" href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener">↓ Scarica il flyer (PDF)</a>
+        <span class="flyer-meta">A5 · 2 pagine · 460 KB · italiano</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTATTO -->
 <section id="contatto" class="cta wrap">
   <span class="eyebrow">Parliamone</span>
-  <h2>Il Garda merita di essere <em>scoperto bene.</em></h2>
-  <p>E voi meritate di essere trovati. Scriveteci due righe o mandateci un messaggio — vi richiamiamo volentieri.</p>
+  <h2>Scriveteci — vi <em>richiamiamo volentieri.</em></h2>
+  <p>Due righe bastano: chi siete, dove siete e cosa offrite. Al resto pensiamo noi.</p>
   <div class="cta-actions">
     <a class="btn-primary" href="mailto:cristina@gardaunica.com?subject=Garda%20Unica%20%E2%80%94%20la%20nostra%20cantina&amp;body=Azienda%3A%0ALocalit%C3%A0%3A%0AReferente%3A%0ATelefono%20%2F%20WhatsApp%3A%0A%0ACosa%20offriamo%20(visite%2C%20degustazioni%2C%20vendemmia%E2%80%A6)%3A%0A">Scriveteci una mail</a>
     <a class="btn-wa" href="https://wa.me/393471050557?text=Buongiorno%2C%20vi%20scrivo%20per%20Garda%20Unica%20%E2%80%94%20la%20nostra%20azienda%20%C3%A8%3A%20" target="_blank" rel="noopener">
@@ -215,11 +380,9 @@ footer a:hover{color:var(--notte)}
     </a>
   </div>
   <div class="cta-direct">oppure direttamente: <a href="mailto:cristina@gardaunica.com">cristina@gardaunica.com</a> · <a href="tel:+393471050557">+39 347 105 0557</a></div>
-  <div class="download">
-    <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener">↓ Scarica la presentazione (PDF)</a>
-    <span class="meta">A5 · 2 pagine · 460 KB · italiano</span>
-  </div>
 </section>
+
+<div class="foot-sign">Cristina Uhl · Garda Unica · LagoNord AI · San Benedetto di Lugana (VR)</div>
 
 <footer>
   <div class="foot-inner">

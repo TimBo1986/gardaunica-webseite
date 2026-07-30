@@ -77,6 +77,11 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .app-more{margin-top:26px;text-align:center}
 .app-more a{font-size:14px;font-weight:500;color:var(--notte-2);text-decoration:none;border-bottom:1px solid var(--linea);padding-bottom:2px;transition:color 160ms var(--ease),border-color 160ms var(--ease)}
 .app-more a:hover{color:var(--terracotta);border-color:var(--terracotta)}
+/* Partner-Streifen: klar abgesetzt vom Gäste-Flow */
+.partner-strip{margin-top:34px;padding:18px 20px;border:1px dashed var(--linea);border-radius:14px;background:var(--carta-warm);text-align:center}
+.ps-label{display:block;font-size:12.5px;color:var(--notte-2);line-height:1.5}
+.ps-link{display:inline-block;margin-top:8px;font-size:13.5px;font-weight:600;color:var(--terracotta);text-decoration:none;border-bottom:1px solid rgba(181,67,39,.35);padding-bottom:2px;transition:border-color 160ms var(--ease)}
+.ps-link:hover{border-color:var(--terracotta)}
 .foot{margin-top:30px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--notte-3)}
 .foot a{color:var(--notte-3);text-decoration:none}
 .foot a:hover{color:var(--notte)}
@@ -125,6 +130,12 @@ h1 em{font-style:italic;color:var(--terracotta)}
 
     <p class="app-more"><a href="/" data-i18n="app_more">Mehr über Garda Unica erfahren →</a></p>
 
+    <!-- Abgesetzter Partner-Streifen: der QR wird auch von Betrieben gescannt -->
+    <aside class="partner-strip">
+      <span class="ps-label" data-i18n="ps_label">Siete una cantina, un frantoio o un hotel?</span>
+      <a class="ps-link" href="/partner">Garda Unica per i partner →</a>
+    </aside>
+
     <div class="foot">
       <a href="https://www.lagonord.de/imprint.html" data-i18n="app_imprint">Impressum</a>
       &nbsp;·&nbsp;
@@ -146,6 +157,7 @@ var I18N={
     wl_err:"Da ist etwas schiefgelaufen — bitte prüf dein Postfach oder versuch es später erneut.",
     wl_bademail:"Bitte gib eine gültige E-Mail-Adresse ein.",
     app_more:"Mehr über Garda Unica erfahren →",
+    ps_label:"Sie führen ein Weingut, eine Ölmühle oder ein Hotel?",
     app_imprint:"Impressum",app_privacy:"Datenschutz",
     _title:"Garda Unica — App",
     _desc:"Garda Unica startet in Kürze — für iPhone und Android. Trag dich ein und wir sagen dir Bescheid, sobald du sie laden kannst."
@@ -160,6 +172,7 @@ var I18N={
     wl_err:"Qualcosa è andato storto — controlla la tua casella o riprova più tardi.",
     wl_bademail:"Inserisci un indirizzo email valido.",
     app_more:"Scopri di più su Garda Unica →",
+    ps_label:"Siete una cantina, un frantoio o un hotel?",
     app_imprint:"Note legali",app_privacy:"Privacy",
     _title:"Garda Unica — App",
     _desc:"Garda Unica arriva a breve — per iPhone e Android. Lascia la tua email e ti avvisiamo appena potrai scaricarla."
@@ -174,6 +187,7 @@ var I18N={
     wl_err:"Something went wrong — please check your inbox or try again later.",
     wl_bademail:"Please enter a valid email address.",
     app_more:"Discover more about Garda Unica →",
+    ps_label:"Do you run a winery, an oil mill or a hotel?",
     app_imprint:"Imprint",app_privacy:"Privacy",
     _title:"Garda Unica — App",
     _desc:"Garda Unica launches soon — for iPhone and Android. Leave your email and we'll let you know the moment you can download it."
