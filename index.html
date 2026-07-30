@@ -277,6 +277,9 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .pt-card h3{font-family:var(--f-display);font-weight:500;font-size:21px;line-height:1.3;margin-top:12px}
 .pt-card p{margin-top:10px;font-size:14.5px;color:var(--notte-2);line-height:1.65}
 .partner-cta{text-align:center;margin-top:36px}
+.pt-note{margin-top:16px}
+.pt-note a{font-size:13.5px;font-weight:500;color:var(--notte-2);text-decoration:none;border-bottom:1px solid var(--linea);padding-bottom:2px;transition:color 160ms var(--ease),border-color 160ms var(--ease)}
+.pt-note a:hover{color:var(--terracotta);border-color:var(--terracotta)}
 footer{border-top:1px solid var(--linea-soft);padding:32px 0 44px;font-size:13px;color:var(--notte-3)}
 .foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--notte-3);text-decoration:none;font-weight:500}
@@ -637,7 +640,8 @@ footer a:hover{color:var(--notte)}
       </div>
     </div>
     <div class="partner-cta">
-      <a class="btn-primary" href="mailto:cristina@gardaunica.com?subject=Partner%20werden" data-i18n="pt_cta">Partner werden →</a>
+      <a class="btn-primary" href="/partner" data-i18n="pt_cta">Partner werden →</a>
+      <p class="pt-note"><a href="/partner" data-i18n="pt_more">Alles für Gastgeber &amp; Betriebe (auf Italienisch) →</a></p>
     </div>
   </div>
 </section>
@@ -676,6 +680,7 @@ footer a:hover{color:var(--notte)}
     <div data-i18n="foot_left">Garda <em style="font-family:var(--f-display)">Unica</em> · ein Produkt von <a href="https://www.lagonord.de" rel="noopener">LagoNord AI</a> · © 2026</div>
     <div style="display:flex;gap:20px">
       <a href="mailto:info@gardaunica.com" data-i18n="foot_contact">Kontakt</a>
+      <a href="/partner" data-i18n="foot_partner">Für Partner</a>
       <a href="https://www.lagonord.de/imprint.html" data-i18n="foot_imprint">Impressum</a>
       <a href="https://www.lagonord.de/privacy.html" data-i18n="foot_privacy">Datenschutz</a>
     </div>
@@ -797,7 +802,7 @@ var I18N={
   pt_intro:"Garda Unica bringt Besucher dorthin, wo es gerade passt — und dann, wenn es passt. Für Gastgeber und lokale Betriebe heißt das: Passung statt Masse.",
   pt1_label:"Hotels &amp; Campingplätze",pt1_h:"Der Concierge, der nie Feierabend hat.",pt1_p:"Entlastet Ihre Rezeption, beantwortet die immer gleichen Fragen — und ein gelungener Tag zahlt am Ende auf Ihre Bewertungen ein.",
   pt2_label:"Erlebnisse, Weinbau &amp; Gastronomie",pt2_h:"Passung statt Rabattschlacht.",pt2_p:"Die richtigen Gäste zum richtigen Moment — Nebenzeiten statt Andrang, eine echte Auswahl, die man nicht kaufen kann.",
-  pt_cta:"Partner werden →",
+  pt_cta:"Partner werden →",pt_more:"Alles für Gastgeber &amp; Betriebe (auf Italienisch) →",foot_partner:"Für Partner",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · ein Produkt von <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Kontakt",foot_imprint:"Impressum",foot_privacy:"Datenschutz",
   _title:"Garda Unica — Dein See. Dein Moment.",
@@ -902,7 +907,7 @@ var I18N={
   pt_intro:"Garda Unica porta i visitatori dove va bene — e quando va bene. Per host e attività locali significa: affinità, non massa.",
   pt1_label:"Hotel &amp; campeggi",pt1_h:"Il concierge che non stacca mai.",pt1_p:"Alleggerisce la reception, risponde alle solite domande — e una giornata riuscita alla fine premia le vostre recensioni.",
   pt2_label:"Esperienze, vino &amp; ristorazione",pt2_h:"Affinità, non guerra di sconti.",pt2_p:"Gli ospiti giusti al momento giusto — orari di morbida invece della calca, una selezione vera che non si può comprare.",
-  pt_cta:"Diventa partner →",
+  pt_cta:"Diventa partner →",pt_more:"Tutto per host e attività →",foot_partner:"Per i partner",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · un prodotto di <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Contatti",foot_imprint:"Note legali",foot_privacy:"Privacy",
   _title:"Garda Unica — Il tuo lago. Il tuo momento.",
@@ -1007,7 +1012,7 @@ var I18N={
   pt_intro:"Garda Unica brings visitors where it fits — and when it fits. For hosts and local businesses that means fit, not mass.",
   pt1_label:"Hotels &amp; campsites",pt1_h:"The concierge that never clocks off.",pt1_p:"Takes load off your reception, answers the same questions again and again — and a day well spent pays back into your reviews.",
   pt2_label:"Experiences, wine &amp; dining",pt2_h:"Fit, not a discount war.",pt2_p:"The right guests at the right moment — off-peak instead of the crush, a real selection you can't buy.",
-  pt_cta:"Become a partner →",
+  pt_cta:"Become a partner →",pt_more:"Everything for hosts &amp; businesses (in Italian) →",foot_partner:"For partners",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · a product by <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Contact",foot_imprint:"Imprint",foot_privacy:"Privacy",
   _title:"Garda Unica — Your lake. Your moment.",
