@@ -223,6 +223,8 @@ function setLang(lang){
   var md=document.querySelector('meta[name="description"]');
   if(md&&d._desc)md.setAttribute("content",d._desc);
   document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("active",b.dataset.lang===lang)});
+  // Partner-Seite in derselben Sprache öffnen
+  document.querySelectorAll('a[href^="/partner"]').forEach(function(a){a.setAttribute("href","/partner?lang="+lang)});
   try{var u=new URL(window.location);u.searchParams.set("lang",lang);window.history.replaceState({},"",u);}catch(e){}
 }
 (function(){

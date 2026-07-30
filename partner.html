@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Garda Unica — Per cantine e frantoi del basso Garda</title>
-<meta name="description" content="Non più ospiti. Ma gli ospiti giusti. Garda Unica cerca cantine e frantoi del basso Lago di Garda per la fase pilota — nessun denaro, in nessuna direzione.">
+<title>Garda Unica — Für Weingüter und Ölmühlen am Südufer</title>
+<meta name="description" content="Nicht mehr Gäste. Sondern die richtigen. Garda Unica sucht Weingüter und Ölmühlen am südlichen Gardasee für die Pilotphase — kein Geld, in keine Richtung.">
 <link rel="canonical" href="https://www.gardaunica.com/partner">
-<meta property="og:title" content="Garda Unica — Per cantine e frantoi del basso Garda">
-<meta property="og:description" content="Non più ospiti. Ma gli ospiti giusti. Uno scambio equo per la fase pilota: voi ci fate conoscere ai vostri ospiti, noi facciamo conoscere voi ai nostri.">
+<meta property="og:title" content="Garda Unica — Für Weingüter und Ölmühlen am Südufer">
+<meta property="og:description" content="Nicht mehr Gäste. Sondern die richtigen. Ein fairer Tausch für die Pilotphase: Ihr macht uns bei euren Gästen bekannt, wir euch bei unseren.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.gardaunica.com/partner">
 <meta property="og:image" content="https://www.gardaunica.com/assets/og.jpg">
@@ -40,16 +40,21 @@ h2 em{font-style:italic;color:var(--terracotta)}
 .sep{border:none;border-top:1px solid var(--linea);margin:0}
 /* nav */
 nav{position:sticky;top:0;z-index:60;background:rgba(250,245,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea-soft)}
-.nav-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo{font-family:var(--f-display);font-weight:600;font-size:21px;text-decoration:none;letter-spacing:-.01em}
+.nav-inner{max-width:900px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.logo{font-family:var(--f-display);font-weight:600;font-size:21px;text-decoration:none;letter-spacing:-.01em;flex-shrink:0}
 .logo em{font-style:italic;color:var(--terracotta)}
-.nav-right{display:flex;align-items:center;gap:18px}
+.nav-right{display:flex;align-items:center;gap:14px}
 .nav-back{font-size:13.5px;font-weight:500;color:var(--notte-2);text-decoration:none;transition:color 180ms var(--ease)}
 .nav-back:hover{color:var(--notte)}
-.nav-pdf{font-size:13px;font-weight:600;color:var(--carta);background:var(--terracotta);padding:8px 16px;border-radius:999px;text-decoration:none;transition:background 180ms var(--ease)}
+.nav-pdf{font-size:13px;font-weight:600;color:var(--carta);background:var(--terracotta);padding:8px 15px;border-radius:999px;text-decoration:none;transition:background 180ms var(--ease);white-space:nowrap}
 .nav-pdf:hover{background:var(--terracotta-soft)}
-@media(max-width:600px){.nav-back{display:none}}
-/* hero — zentriert wie der Flyer */
+.lang{display:flex;gap:2px;border:1px solid var(--linea);border-radius:999px;padding:3px;background:var(--carta-morn)}
+.lang button{border:0;background:none;cursor:pointer;font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--notte-3);padding:5px 10px;border-radius:999px;transition:background 160ms var(--ease),color 160ms var(--ease)}
+.lang button.active{background:var(--terracotta);color:var(--carta)}
+.lang button:hover:not(.active){color:var(--notte)}
+@media(max-width:820px){.nav-back{display:none}}
+@media(max-width:520px){.nav-pdf{display:none}}
+/* hero */
 .hero{padding:56px 0 44px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(229,168,58,.2),transparent 65%);pointer-events:none}
 .hero-mark{font-family:var(--f-display);font-weight:600;font-size:clamp(30px,5vw,40px);letter-spacing:-.01em;position:relative}
@@ -70,6 +75,8 @@ h1 em{font-style:italic;color:var(--terracotta)}
 /* rubriche */
 .rubriche-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:26px;align-items:start}
 @media(max-width:760px){.rubriche-grid{grid-template-columns:1fr;gap:28px}}
+.rub-intro{margin-top:14px;font-size:15px;color:var(--notte-2);line-height:1.7}
+.rub-intro strong{color:var(--notte)}
 .rub-list{list-style:none;margin-top:18px}
 .rub-list li{position:relative;padding-left:18px;margin-top:11px;font-size:15px;color:var(--notte-2);line-height:1.6}
 .rub-list li::before{content:'•';position:absolute;left:0;color:var(--terracotta);font-weight:700}
@@ -78,8 +85,12 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .info-box h3{font-family:var(--f-display);font-weight:500;font-size:20px;line-height:1.3}
 .info-box p{margin-top:10px;font-size:14.5px;color:var(--notte-2);line-height:1.7}
 .info-box em{font-style:italic}
+.info-box.ghost{background:transparent;border:1px solid var(--linea);margin-top:16px}
+.info-box.ghost h3{font-style:italic}
 /* esperienze */
 .esperienze{background:var(--carta-morn)}
+.exp-intro{margin-top:14px;font-size:15.5px;color:var(--notte-2);line-height:1.75;max-width:70ch}
+.exp-intro strong{color:var(--notte)}
 .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
 @media(max-width:860px){.exp-grid{grid-template-columns:1fr;max-width:420px;margin-left:auto;margin-right:auto}}
 .exp-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 12px 30px -14px rgba(26,37,64,.28);display:flex;flex-direction:column}
@@ -94,7 +105,7 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .exp-quote{margin-top:14px;padding-left:11px;border-left:3px solid var(--sole);font-family:var(--f-display);font-style:italic;font-size:13.5px;color:var(--notte-2);line-height:1.5}
 .exp-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px 16px;margin-top:16px;border-top:1px solid var(--linea-soft)}
 .exp-seal{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--oliva);display:flex;align-items:center;gap:6px}
-.exp-seal i{width:6px;height:6px;border-radius:50%;background:var(--oliva);display:inline-block}
+.exp-seal i{width:6px;height:6px;border-radius:50%;background:var(--oliva);display:inline-block;flex-shrink:0}
 .exp-btn{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--terracotta);color:var(--carta);padding:8px 14px;border-radius:999px;white-space:nowrap}
 .exp-note{margin-top:18px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--notte-3);text-align:center}
 /* ospiti + stagione */
@@ -110,6 +121,8 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .stag-pill{display:inline-block;margin-top:18px;background:var(--notte);color:var(--sole);font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:7px 15px;border-radius:6px}
 /* scambio */
 .scambio{background:var(--carta-warm)}
+.sc-intro{margin-top:14px;font-size:15.5px;color:var(--notte-2);line-height:1.75;max-width:72ch}
+.sc-intro strong{color:var(--notte)}
 .tausch-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:28px}
 @media(max-width:760px){.tausch-grid{grid-template-columns:1fr}}
 .tcard{background:var(--carta-morn);border:1px solid var(--linea);border-radius:16px;padding:26px 24px}
@@ -126,7 +139,7 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .claim-sec{text-align:center;padding:56px 0 8px}
 .claim{font-family:var(--f-display);font-style:italic;font-size:clamp(21px,3vw,28px);line-height:1.35;color:var(--notte)}
 .claim em{color:var(--terracotta);font-style:italic}
-/* flyer download — prominent */
+/* flyer */
 .flyer{background:var(--notte);color:var(--carta)}
 .flyer .eyebrow{color:var(--sole)}
 .flyer h2{color:var(--carta)}
@@ -171,231 +184,468 @@ footer a:hover{color:var(--notte)}
   <div class="nav-inner">
     <a class="logo" href="https://www.gardaunica.com">Garda <em>Unica</em></a>
     <div class="nav-right">
-      <a class="nav-back" href="https://www.gardaunica.com">← Il sito per gli ospiti</a>
-      <a class="nav-pdf" href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener">↓ Flyer PDF</a>
+      <a class="nav-back" href="https://www.gardaunica.com" data-i18n="pn_back">← Zur Gäste-Seite</a>
+      <a class="nav-pdf" href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener" data-i18n="pn_pdf">↓ Flyer PDF</a>
+      <div class="lang" role="group" aria-label="Sprache / Lingua / Language">
+        <button data-lang="de" class="active">DE</button>
+        <button data-lang="it">IT</button>
+        <button data-lang="en">EN</button>
+      </div>
     </div>
   </div>
 </nav>
 
-<!-- HERO (wie Flyer S.1 oben) -->
+<!-- HERO -->
 <header class="hero">
   <div class="wrap">
     <div class="hero-mark">Garda <em>Unica</em></div>
-    <span class="eyebrow">Per cantine e frantoi del basso Garda</span>
-    <h1>Non più ospiti.<br>Ma gli ospiti <em>giusti.</em></h1>
-    <p class="hero-sub">Ospiti che sanno apprezzare il vostro vino e il vostro olio.</p>
+    <span class="eyebrow" data-i18n="ph_eyebrow">Für Weingüter und Ölmühlen am Südufer</span>
+    <h1 data-i18n="ph_h1">Nicht mehr Gäste.<br>Sondern die <em>richtigen.</em></h1>
+    <p class="hero-sub" data-i18n="ph_sub">Gäste, die euren Wein und euer Öl zu schätzen wissen.</p>
     <div class="hero-actions">
-      <a class="btn-primary" href="#contatto">Diventate partner →</a>
-      <a class="btn-ghost" href="#flyer">↓ Scarica il flyer</a>
+      <a class="btn-primary" href="#contatto" data-i18n="ph_cta1">Partner werden →</a>
+      <a class="btn-ghost" href="#flyer" data-i18n="ph_cta2">↓ Flyer ansehen</a>
     </div>
-    <div class="hero-note">Lancio: autunno 2026 · fase pilota gratuita</div>
+    <div class="hero-note" data-i18n="ph_note">Start: Herbst 2026 · Pilotphase kostenlos</div>
   </div>
 </header>
 
 <div class="wrap"><hr class="sep"></div>
 
-<!-- INTRO (Flyer S.1) -->
+<!-- INTRO -->
 <section style="padding-top:44px;padding-bottom:44px">
   <div class="wrap prosa">
-    <p><strong>Abbiamo creato un'app per il basso Lago di Garda.</strong> In autunno andiamo online — e vorremmo davvero avere voi al nostro fianco.</p>
-    <p>Garda Unica nasce a San Benedetto di Lugana, da chi vive qui: Cristina, con radici italiane, e Tim, che sviluppa la tecnologia. E Luna, il nostro cane, che ha una rubrica tutta sua. Non un portale straniero che vende visibilità — vicini di casa che conoscono il territorio.</p>
-    <p>Il Garda non è troppo pieno: è distribuito male. Ogni giorno migliaia di ospiti passano accanto a cantine e frantoi straordinari senza saperlo. <strong>Chi cercherebbe davvero il vostro vino, spesso non vi trova.</strong></p>
+    <p data-i18n="pi_1"><strong>Wir haben eine App für den südlichen Gardasee gebaut.</strong> Im Herbst gehen wir online — und wir hätten euch wirklich gern an unserer Seite.</p>
+    <p data-i18n="pi_2">Garda Unica entsteht in San Benedetto di Lugana, von Menschen, die hier leben: Cristina, mit italienischen Wurzeln, und Tim, der die Technik baut. Und Luna, unsere Hündin, die ihre eigene Rubrik hat. Kein ausländisches Portal, das Sichtbarkeit verkauft — Nachbarn, die die Gegend kennen.</p>
+    <p data-i18n="pi_3">Der Gardasee ist nicht zu voll: er ist falsch verteilt. Jeden Tag fahren tausende Gäste an außergewöhnlichen Weingütern und Ölmühlen vorbei, ohne es zu wissen. <strong>Wer euren Wein wirklich suchen würde, findet euch oft nicht.</strong></p>
   </div>
 </section>
 
 <div class="wrap"><hr class="sep"></div>
 
-<!-- RUBRICHE (Flyer S.1 unten) -->
+<!-- RUBRIKEN -->
 <section>
   <div class="wrap">
-    <span class="eyebrow">Così apparirete nell'app</span>
+    <span class="eyebrow" data-i18n="pr_eyebrow">So erscheint ihr in der App</span>
     <div class="rubriche-grid">
       <div>
-        <h2>Le nostre <em>rubriche.</em></h2>
-        <p style="margin-top:14px;font-size:15px;color:var(--notte-2);line-height:1.7">Sei sezioni curate a mano, tutte con lo stesso peso. <strong style="color:var(--notte)">Vino &amp; Olio</strong> è quella che stiamo costruendo adesso — ed è il motivo per cui vi scriviamo oggi.</p>
+        <h2 data-i18n="pr_h2">Unsere <em>Rubriken.</em></h2>
+        <p class="rub-intro" data-i18n="pr_p">Sechs handverlesene Sektionen, alle mit demselben Gewicht. <strong>Wein &amp; Öl</strong> ist die, die wir gerade bauen — und der Grund, warum wir euch heute schreiben.</p>
         <ul class="rub-list">
-          <li><strong>Vino &amp; Olio</strong> — cantine, frantoi, degustazioni, bottiglie e olio da portare a casa</li>
-          <li><strong>Le Tavole</strong> — ristoranti, osterie e bar</li>
-          <li><strong>A quattro zampe</strong> — il lago con il cane, con Luna come padrona di casa</li>
-          <li><strong>Spiagge</strong> — spiagge e baie, al momento giusto</li>
-          <li><strong>Noleggi</strong> — bici, Vespa, auto, barca</li>
-          <li><strong>In Giro</strong> — traghetto, bus e treno: il lago senza auto</li>
+          <li data-i18n="pr_l1"><strong>Vino &amp; Olio</strong> — Weingüter, Ölmühlen, Degustationen, Flaschen und Öl für daheim</li>
+          <li data-i18n="pr_l2"><strong>Le Tavole</strong> — Restaurants, Osterien und Bars</li>
+          <li data-i18n="pr_l3"><strong>A quattro zampe</strong> — der See mit Hund, mit Luna als Gastgeberin</li>
+          <li data-i18n="pr_l4"><strong>Spiagge</strong> — Strände und Buchten, zum richtigen Moment</li>
+          <li data-i18n="pr_l5"><strong>Noleggi</strong> — Fahrrad, Vespa, Auto, Boot</li>
+          <li data-i18n="pr_l6"><strong>In Giro</strong> — Fähre, Bus und Zug: der See ohne Auto</li>
         </ul>
       </div>
       <div>
         <div class="info-box reveal">
-          <h3>Il lago cambia cinque volte l'anno.</h3>
-          <p>Da settembre a ottobre l'app si apre su <em>Il tempo del vino</em>: in cima, prima di ogni altra cosa. Poi l'olio, le passeggiate, le terrazze, il lago. Chi ama il vino arriva da voi nelle settimane in cui avete qualcosa da mostrare.</p>
+          <h3 data-i18n="pr_box_h">Der See wechselt fünfmal im Jahr.</h3>
+          <p data-i18n="pr_box_p">Von September bis Oktober öffnet die App auf <em>Il tempo del vino</em> — der Zeit des Weins: ganz oben, vor allem anderen. Dann das Öl, die Spaziergänge, die Terrassen, der See. Wer Wein liebt, kommt in den Wochen zu euch, in denen ihr etwas zu zeigen habt.</p>
         </div>
-        <div class="info-box reveal" style="background:transparent;border:1px solid var(--linea);margin-top:16px">
-          <h3 style="font-style:italic">Nessun luogo che non abbiamo visto di persona.</h3>
-          <p>Il lago, scelto a mano — sezione per sezione, stagione per stagione.</p>
+        <div class="info-box ghost reveal">
+          <h3 data-i18n="pr_box2_h">Kein Ort, den wir nicht selbst gesehen haben.</h3>
+          <p data-i18n="pr_box2_p">Der See, handverlesen — Sektion für Sektion, Saison für Saison.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ESPERIENZE (Flyer S.2 oben) -->
+<!-- ERLEBNISSE -->
 <section class="esperienze">
   <div class="wrap">
-    <span class="eyebrow">Esperienze</span>
-    <h2>Le vostre esperienze, <em>prenotabili.</em></h2>
-    <p style="margin-top:14px;font-size:15.5px;color:var(--notte-2);line-height:1.75;max-width:70ch">Non un semplice indirizzo sulla mappa. Visite, degustazioni, vendemmia e molitura raccontate bene e proposte all'ospite nel momento in cui è pronto a viverle. <strong style="color:var(--notte)">Ecco come potrebbero apparire le vostre:</strong></p>
+    <span class="eyebrow" data-i18n="pe_eyebrow">Erlebnisse</span>
+    <h2 data-i18n="pe_h2">Eure Erlebnisse, <em>buchbar.</em></h2>
+    <p class="exp-intro" data-i18n="pe_p">Nicht bloß eine Adresse auf der Karte. Besichtigungen, Degustationen, Weinlese und Ölmühle — gut erzählt und dem Gast in genau dem Moment vorgeschlagen, in dem er bereit ist, sie zu erleben. <strong>So könnten eure aussehen:</strong></p>
 
     <div class="exp-grid">
       <div class="exp-card reveal">
-        <div class="exp-top"><span class="exp-price">€45 / persona</span></div>
+        <div class="exp-top"><span class="exp-price">€45 / Person</span></div>
         <div class="exp-body">
-          <span class="exp-badge">◆ Vendemmia</span>
-          <h3>Vendemmia e degustazione</h3>
-          <div class="exp-place">La vostra cantina · San Benedetto</div>
-          <div class="exp-pills"><span>2h 30</span><span>Max 8</span><span>IT · DE</span></div>
-          <p class="exp-quote">A settembre, quando l'uva entra in cantina.</p>
+          <span class="exp-badge" data-i18n="pe_c1_badge">◆ Weinlese</span>
+          <h3 data-i18n="pe_c1_h">Weinlese und Degustation</h3>
+          <div class="exp-place" data-i18n="pe_c1_place">Euer Weingut · San Benedetto</div>
+          <div class="exp-pills"><span>2h 30</span><span data-i18n="pe_max8">Max 8</span><span>IT · DE</span></div>
+          <p class="exp-quote" data-i18n="pe_c1_q">Im September, wenn die Trauben in den Keller kommen.</p>
         </div>
-        <div class="exp-foot"><span class="exp-seal"><i></i>Vissuto da noi</span><span class="exp-btn">Prenota</span></div>
+        <div class="exp-foot"><span class="exp-seal"><i></i><span data-i18n="pe_seal">Von uns selbst erlebt</span></span><span class="exp-btn" data-i18n="pe_btn">Buchen</span></div>
       </div>
 
       <div class="exp-card reveal">
-        <div class="exp-top"><span class="exp-price">€35 / persona</span></div>
+        <div class="exp-top"><span class="exp-price">€35 / Person</span></div>
         <div class="exp-body">
-          <span class="exp-badge">◆ Cantina</span>
-          <h3>Visita in bottaia, quattro calici</h3>
-          <div class="exp-place">La vostra cantina · Peschiera</div>
-          <div class="exp-pills"><span>1h 30</span><span>Max 12</span><span>IT · DE · EN</span></div>
-          <p class="exp-quote">Il venerdì pomeriggio, prima dell'aperitivo.</p>
+          <span class="exp-badge" data-i18n="pe_c2_badge">◆ Weinkeller</span>
+          <h3 data-i18n="pe_c2_h">Besuch im Fasskeller, vier Gläser</h3>
+          <div class="exp-place" data-i18n="pe_c2_place">Euer Weingut · Peschiera</div>
+          <div class="exp-pills"><span>1h 30</span><span data-i18n="pe_max12">Max 12</span><span>IT · DE · EN</span></div>
+          <p class="exp-quote" data-i18n="pe_c2_q">Freitagnachmittags, vor dem Aperitivo.</p>
         </div>
-        <div class="exp-foot"><span class="exp-seal"><i></i>Vissuto da noi</span><span class="exp-btn">Prenota</span></div>
+        <div class="exp-foot"><span class="exp-seal"><i></i><span data-i18n="pe_seal">Von uns selbst erlebt</span></span><span class="exp-btn" data-i18n="pe_btn">Buchen</span></div>
       </div>
 
       <div class="exp-card reveal">
-        <div class="exp-top"><span class="exp-price">€28 / persona</span></div>
+        <div class="exp-top"><span class="exp-price">€28 / Person</span></div>
         <div class="exp-body">
-          <span class="exp-badge">◆ Olio nuovo</span>
-          <h3>Molitura e olio nuovo</h3>
-          <div class="exp-place">Il vostro frantoio · Lazise</div>
-          <div class="exp-pills"><span>1h 00</span><span>Max 10</span><span>IT · DE</span></div>
-          <p class="exp-quote">A novembre, quando esce l'olio nuovo.</p>
+          <span class="exp-badge" data-i18n="pe_c3_badge">◆ Neues Öl</span>
+          <h3 data-i18n="pe_c3_h">Ölmühle und neues Öl</h3>
+          <div class="exp-place" data-i18n="pe_c3_place">Eure Ölmühle · Lazise</div>
+          <div class="exp-pills"><span>1h 00</span><span data-i18n="pe_max10">Max 10</span><span>IT · DE</span></div>
+          <p class="exp-quote" data-i18n="pe_c3_q">Im November, wenn das neue Öl herauskommt.</p>
         </div>
-        <div class="exp-foot"><span class="exp-seal"><i></i>Vissuto da noi</span><span class="exp-btn">Prenota</span></div>
+        <div class="exp-foot"><span class="exp-seal"><i></i><span data-i18n="pe_seal">Von uns selbst erlebt</span></span><span class="exp-btn" data-i18n="pe_btn">Buchen</span></div>
       </div>
     </div>
-    <p class="exp-note">Esempi illustrativi · durate, prezzi e lingue li decidete voi</p>
+    <p class="exp-note" data-i18n="pe_note">Illustrative Beispiele · Dauer, Preise und Sprachen bestimmt ihr</p>
   </div>
 </section>
 
-<!-- OSPITI + STAGIONE (Flyer S.2 Mitte) -->
+<!-- GÄSTE + SAISON -->
 <section>
   <div class="wrap">
     <div class="ospiti-grid">
       <div>
-        <h2>I nostri <em>ospiti.</em></h2>
+        <h2 data-i18n="po_h2">Unsere <em>Gäste.</em></h2>
         <ul class="osp-list">
-          <li><strong>Coppie tra i 45 e gli 80 anni</strong>, senza figli al seguito, fuori dall'alta stagione</li>
-          <li><strong>Capacità di spesa alta</strong> — qualità e non quantità, e comprano volentieri da portare a casa</li>
-          <li><strong>Spesso con il cane</strong> — un pubblico fedele, che sceglie con cura dove è il benvenuto</li>
-          <li><strong>Di lingua tedesca</strong> — il mercato più ricettivo per il Garda DOP e per il Lugana</li>
-          <li><strong>Tornano</strong> — chi vive una bella esperienza in autunno rientra in primavera, e porta amici</li>
+          <li data-i18n="po_l1"><strong>Paare zwischen 45 und 80</strong>, ohne Kinder, außerhalb der Hochsaison</li>
+          <li data-i18n="po_l2"><strong>Hohe Kaufkraft</strong> — Qualität statt Quantität, und sie kaufen gern etwas für daheim</li>
+          <li data-i18n="po_l3"><strong>Oft mit Hund</strong> — ein treues Publikum, das sorgfältig wählt, wo es willkommen ist</li>
+          <li data-i18n="po_l4"><strong>Deutschsprachig</strong> — der aufnahmefähigste Markt für Garda DOP und Lugana</li>
+          <li data-i18n="po_l5"><strong>Sie kommen wieder</strong> — wer im Herbst ein schönes Erlebnis hat, kommt im Frühling zurück und bringt Freunde mit</li>
         </ul>
       </div>
       <div class="stag-box reveal">
-        <h3>Riempiamo i mesi buoni,<br>non solo agosto.</h3>
-        <p>Il nostro focus è autunno e primavera: vendemmia, olio nuovo, la Festa dell'Uva di Bardolino, le giornate miti di San Martino. I mesi in cui avete tempo per accogliere davvero.</p>
-        <span class="stag-pill">Lancio · autunno 2026</span>
+        <h3 data-i18n="po_box_h">Wir füllen die guten Monate,<br>nicht nur den August.</h3>
+        <p data-i18n="po_box_p">Unser Fokus ist Herbst und Frühling: Weinlese, neues Öl, das Traubenfest in Bardolino, die milden Tage um San Martino. Die Monate, in denen ihr Zeit habt, wirklich zu empfangen.</p>
+        <span class="stag-pill" data-i18n="po_pill">Start · Herbst 2026</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LO SCAMBIO (Flyer S.2 unten) -->
+<!-- DER TAUSCH -->
 <section id="scambio" class="scambio">
   <div class="wrap">
-    <span class="eyebrow">Lo scambio, in tutta trasparenza</span>
-    <h2>Perché non vi <em>costa nulla.</em></h2>
-    <p style="margin-top:14px;font-size:15.5px;color:var(--notte-2);line-height:1.75;max-width:72ch">Perché in questo momento il denaro sarebbe la valuta sbagliata. Un consiglio vale solo quanto valgono le realtà che vi compaiono — ed è utile solo se lo usano abbastanza ospiti. Stiamo costruendo entrambe le cose adesso. Per questo non cerchiamo inserzionisti paganti, ma partner veri. <strong style="color:var(--notte)">Da noi non si compra una posizione: mai.</strong></p>
+    <span class="eyebrow" data-i18n="ps_eyebrow">Der Tausch, ganz transparent</span>
+    <h2 data-i18n="ps_h2">Warum es euch <em>nichts kostet.</em></h2>
+    <p class="sc-intro" data-i18n="ps_p">Weil Geld im Moment die falsche Währung wäre. Eine Empfehlung ist nur so viel wert wie die Betriebe, die darin erscheinen — und sie ist nur nützlich, wenn genug Gäste sie nutzen. Beides bauen wir gerade auf. Deshalb suchen wir keine zahlenden Anzeigenkunden, sondern echte Partner. <strong>Bei uns kauft man keine Position: niemals.</strong></p>
 
     <div class="tausch-grid">
       <div class="tcard reveal">
-        <h3>Cosa ricevete voi</h3>
+        <h3 data-i18n="ps_g1_h">Was ihr bekommt</h3>
         <ul>
-          <li>Un posto tra i nostri consigli selezionati, in tre lingue</li>
-          <li>Visite, degustazioni ed eventi resi visibili e prenotabili</li>
-          <li>Ospiti che capiscono la vostra qualità — e che tornano in primavera</li>
+          <li data-i18n="ps_g1_l1">Einen Platz in unseren handverlesenen Empfehlungen, in drei Sprachen</li>
+          <li data-i18n="ps_g1_l2">Besichtigungen, Degustationen und Veranstaltungen sichtbar und buchbar</li>
+          <li data-i18n="ps_g1_l3">Gäste, die eure Qualität verstehen — und die im Frühling wiederkommen</li>
         </ul>
       </div>
       <div class="tcard reveal">
-        <h3>Cosa chiediamo a voi</h3>
+        <h3 data-i18n="ps_g2_h">Was wir euch bitten</h3>
         <ul>
-          <li><strong>Visibilità presso i vostri ospiti</strong>: un piccolo QR code nel wine shop, al banco o in sala degustazioni</li>
-          <li>Il vostro programma, gli orari e qualche immagine</li>
-          <li>Un riscontro sincero durante la prima stagione</li>
+          <li data-i18n="ps_g2_l1"><strong>Sichtbarkeit bei euren Gästen</strong>: ein kleiner QR-Code im Wine-Shop, an der Theke oder im Degustationsraum</li>
+          <li data-i18n="ps_g2_l2">Euer Programm, die Öffnungszeiten und ein paar Bilder</li>
+          <li data-i18n="ps_g2_l3">Eine ehrliche Rückmeldung in der ersten Saison</li>
         </ul>
       </div>
     </div>
 
     <div class="tausch-close">
-      <p class="lead">Voi ci fate conoscere ai vostri ospiti. Noi facciamo conoscere voi ai nostri.</p>
-      <p><strong>Nessun denaro, in nessuna direzione.</strong> Uno scambio equo, in cui entrambi guadagnano qualcosa.</p>
-      <p>Partiamo con una fase pilota: per i partner della prima ora è gratuita, e ciò che avrà senso in seguito lo decideremo insieme a voi.</p>
+      <p class="lead" data-i18n="ps_close1">Ihr macht uns bei euren Gästen bekannt. Wir machen euch bei unseren bekannt.</p>
+      <p data-i18n="ps_close2"><strong>Kein Geld, in keine Richtung.</strong> Ein fairer Tausch, bei dem beide etwas gewinnen.</p>
+      <p data-i18n="ps_close3">Wir starten mit einer Pilotphase: für die Partner der ersten Stunde ist sie kostenlos, und was danach sinnvoll ist, entscheiden wir gemeinsam mit euch.</p>
     </div>
   </div>
 </section>
 
-<!-- CLAIM (Flyer S.2 Schluss) -->
+<!-- CLAIM -->
 <section class="claim-sec">
   <div class="wrap">
-    <p class="claim">Il Garda merita di essere scoperto bene.<br>E voi meritate di essere <em>trovati.</em></p>
+    <p class="claim" data-i18n="pc_claim">Der Gardasee verdient es, gut entdeckt zu werden.<br>Und ihr verdient es, <em>gefunden zu werden.</em></p>
   </div>
 </section>
 
-<!-- FLYER DOWNLOAD — prominent -->
+<!-- FLYER -->
 <section id="flyer" class="flyer">
   <div class="wrap">
-    <span class="eyebrow">La presentazione</span>
-    <h2>Tutto in due pagine, <em>da stampare.</em></h2>
+    <span class="eyebrow" data-i18n="pf_eyebrow">Die Präsentation</span>
+    <h2 data-i18n="pf_h2">Alles auf zwei Seiten, <em>zum Ausdrucken.</em></h2>
     <div class="flyer-grid">
       <div class="flyer-shots reveal">
-        <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener"><img src="/assets/flyer-cantine-p1.jpg" alt="Flyer Garda Unica per cantine — pagina 1" width="620" height="879" loading="lazy" decoding="async"></a>
-        <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener"><img src="/assets/flyer-cantine-p2.jpg" alt="Flyer Garda Unica per cantine — pagina 2" width="620" height="879" loading="lazy" decoding="async"></a>
+        <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener"><img src="/assets/flyer-cantine-p1.jpg" alt="Flyer Garda Unica per cantine — pagina 1" width="620" height="877" loading="lazy" decoding="async"></a>
+        <a href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener"><img src="/assets/flyer-cantine-p2.jpg" alt="Flyer Garda Unica per cantine — pagina 2" width="620" height="877" loading="lazy" decoding="async"></a>
       </div>
       <div class="flyer-copy">
-        <p>Il nostro flyer per cantine e frantoi: la stessa storia che avete appena letto, in formato A4 — comodo da leggere con calma, da stampare o da girare a un collega.</p>
-        <a class="btn-download" href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener">↓ Scarica il flyer (PDF)</a>
-        <span class="flyer-meta">A4 · 2 pagine · 680 KB · italiano</span>
+        <p data-i18n="pf_p">Unser Flyer für Weingüter und Ölmühlen: dieselbe Geschichte, die ihr gerade gelesen habt, im A4-Format — bequem in Ruhe zu lesen, zum Ausdrucken oder Weitergeben.</p>
+        <a class="btn-download" href="/assets/garda-unica-partner-cantine-it.pdf" target="_blank" rel="noopener" data-i18n="pf_btn">↓ Flyer herunterladen (PDF)</a>
+        <span class="flyer-meta" data-i18n="pf_meta">A4 · 2 Seiten · 680 KB · italienisch</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTATTO -->
+<!-- KONTAKT -->
 <section id="contatto" class="cta wrap">
-  <span class="eyebrow">Parliamone</span>
-  <h2>Scriveteci — vi <em>richiamiamo volentieri.</em></h2>
-  <p>Due righe bastano: chi siete, dove siete e cosa offrite. Al resto pensiamo noi.</p>
+  <span class="eyebrow" data-i18n="pk_eyebrow">Sprechen wir darüber</span>
+  <h2 data-i18n="pk_h2">Schreibt uns — wir <em>rufen gern zurück.</em></h2>
+  <p data-i18n="pk_p">Zwei Zeilen genügen: wer ihr seid, wo ihr seid und was ihr anbietet. Um den Rest kümmern wir uns.</p>
   <div class="cta-actions">
-    <a class="btn-primary" href="mailto:cristina@gardaunica.com?subject=Garda%20Unica%20%E2%80%94%20la%20nostra%20cantina&amp;body=Azienda%3A%0ALocalit%C3%A0%3A%0AReferente%3A%0ATelefono%20%2F%20WhatsApp%3A%0A%0ACosa%20offriamo%20(visite%2C%20degustazioni%2C%20vendemmia%E2%80%A6)%3A%0A">Scriveteci una mail</a>
-    <a class="btn-wa" href="https://wa.me/393471050557?text=Buongiorno%2C%20vi%20scrivo%20per%20Garda%20Unica%20%E2%80%94%20la%20nostra%20azienda%20%C3%A8%3A%20" target="_blank" rel="noopener">
+    <a class="btn-primary" id="mailBtn" href="#" data-i18n="pk_mail">Schreibt uns eine Mail</a>
+    <a class="btn-wa" id="waBtn" href="#" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2m0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2"/></svg>
       WhatsApp
     </a>
   </div>
-  <div class="cta-direct">oppure direttamente: <a href="mailto:cristina@gardaunica.com">cristina@gardaunica.com</a> · <a href="tel:+393471050557">+39 347 105 0557</a></div>
+  <div class="cta-direct"><span data-i18n="pk_direct">oder direkt:</span> <a href="mailto:cristina@gardaunica.com">cristina@gardaunica.com</a> · <a href="tel:+393471050557">+39 347 105 0557</a></div>
 </section>
 
 <div class="foot-sign">Cristina Uhl · Garda Unica · LagoNord AI · San Benedetto di Lugana (VR)</div>
 
 <footer>
   <div class="foot-inner">
-    <div>Garda <em style="font-family:var(--f-display)">Unica</em> · un prodotto di <a href="https://www.lagonord.de" rel="noopener">LagoNord AI</a> · © 2026</div>
+    <div data-i18n="pfo_left">Garda <em style="font-family:var(--f-display)">Unica</em> · ein Produkt von <a href="https://www.lagonord.de" rel="noopener">LagoNord AI</a> · © 2026</div>
     <div style="display:flex;gap:20px">
-      <a href="https://www.gardaunica.com">Sito per ospiti</a>
-      <a href="https://www.lagonord.de/imprint.html">Note legali</a>
-      <a href="https://www.lagonord.de/privacy.html" target="_blank" rel="noopener">Privacy</a>
+      <a href="https://www.gardaunica.com" data-i18n="pfo_site">Gäste-Seite</a>
+      <a href="https://www.lagonord.de/imprint.html" data-i18n="pfo_imprint">Impressum</a>
+      <a href="https://www.lagonord.de/privacy.html" target="_blank" rel="noopener" data-i18n="pfo_privacy">Datenschutz</a>
     </div>
   </div>
 </footer>
 
 <script>
+var I18N={
+ de:{
+  pn_back:"← Zur Gäste-Seite",pn_pdf:"↓ Flyer PDF",
+  ph_eyebrow:"Für Weingüter und Ölmühlen am Südufer",
+  ph_h1:"Nicht mehr Gäste.<br>Sondern die <em>richtigen.</em>",
+  ph_sub:"Gäste, die euren Wein und euer Öl zu schätzen wissen.",
+  ph_cta1:"Partner werden →",ph_cta2:"↓ Flyer ansehen",
+  ph_note:"Start: Herbst 2026 · Pilotphase kostenlos",
+  pi_1:"<strong>Wir haben eine App für den südlichen Gardasee gebaut.</strong> Im Herbst gehen wir online — und wir hätten euch wirklich gern an unserer Seite.",
+  pi_2:"Garda Unica entsteht in San Benedetto di Lugana, von Menschen, die hier leben: Cristina, mit italienischen Wurzeln, und Tim, der die Technik baut. Und Luna, unsere Hündin, die ihre eigene Rubrik hat. Kein ausländisches Portal, das Sichtbarkeit verkauft — Nachbarn, die die Gegend kennen.",
+  pi_3:"Der Gardasee ist nicht zu voll: er ist falsch verteilt. Jeden Tag fahren tausende Gäste an außergewöhnlichen Weingütern und Ölmühlen vorbei, ohne es zu wissen. <strong>Wer euren Wein wirklich suchen würde, findet euch oft nicht.</strong>",
+  pr_eyebrow:"So erscheint ihr in der App",pr_h2:"Unsere <em>Rubriken.</em>",
+  pr_p:"Sechs handverlesene Sektionen, alle mit demselben Gewicht. <strong>Vino &amp; Olio</strong> ist die, die wir gerade bauen — und der Grund, warum wir euch heute schreiben.",
+  pr_l1:"<strong>Vino &amp; Olio</strong> — Weingüter, Ölmühlen, Degustationen, Flaschen und Öl für daheim",
+  pr_l2:"<strong>Le Tavole</strong> — Restaurants, Osterien und Bars",
+  pr_l3:"<strong>A quattro zampe</strong> — der See mit Hund, mit Luna als Gastgeberin",
+  pr_l4:"<strong>Spiagge</strong> — Strände und Buchten, zum richtigen Moment",
+  pr_l5:"<strong>Noleggi</strong> — Fahrrad, Vespa, Auto, Boot",
+  pr_l6:"<strong>In Giro</strong> — Fähre, Bus und Zug: der See ohne Auto",
+  pr_box_h:"Der See wechselt fünfmal im Jahr.",
+  pr_box_p:"Von September bis Oktober öffnet die App auf <em>Il tempo del vino</em> — der Zeit des Weins: ganz oben, vor allem anderen. Dann das Öl, die Spaziergänge, die Terrassen, der See. Wer Wein liebt, kommt in den Wochen zu euch, in denen ihr etwas zu zeigen habt.",
+  pr_box2_h:"Kein Ort, den wir nicht selbst gesehen haben.",
+  pr_box2_p:"Der See, handverlesen — Sektion für Sektion, Saison für Saison.",
+  pe_eyebrow:"Erlebnisse",pe_h2:"Eure Erlebnisse, <em>buchbar.</em>",
+  pe_p:"Nicht bloß eine Adresse auf der Karte. Besichtigungen, Degustationen, Weinlese und Ölmühle — gut erzählt und dem Gast in genau dem Moment vorgeschlagen, in dem er bereit ist, sie zu erleben. <strong>So könnten eure aussehen:</strong>",
+  pe_c1_badge:"◆ Weinlese",pe_c1_h:"Weinlese und Degustation",pe_c1_place:"Euer Weingut · San Benedetto",pe_c1_q:"Im September, wenn die Trauben in den Keller kommen.",
+  pe_c2_badge:"◆ Weinkeller",pe_c2_h:"Besuch im Fasskeller, vier Gläser",pe_c2_place:"Euer Weingut · Peschiera",pe_c2_q:"Freitagnachmittags, vor dem Aperitivo.",
+  pe_c3_badge:"◆ Neues Öl",pe_c3_h:"Ölmühle und neues Öl",pe_c3_place:"Eure Ölmühle · Lazise",pe_c3_q:"Im November, wenn das neue Öl herauskommt.",
+  pe_max8:"Max. 8",pe_max12:"Max. 12",pe_max10:"Max. 10",
+  pe_seal:"Von uns selbst erlebt",pe_btn:"Buchen",
+  pe_note:"Illustrative Beispiele · Dauer, Preise und Sprachen bestimmt ihr",
+  po_h2:"Unsere <em>Gäste.</em>",
+  po_l1:"<strong>Paare zwischen 45 und 80</strong>, ohne Kinder, außerhalb der Hochsaison",
+  po_l2:"<strong>Hohe Kaufkraft</strong> — Qualität statt Quantität, und sie kaufen gern etwas für daheim",
+  po_l3:"<strong>Oft mit Hund</strong> — ein treues Publikum, das sorgfältig wählt, wo es willkommen ist",
+  po_l4:"<strong>Deutschsprachig</strong> — der aufnahmefähigste Markt für Garda DOP und Lugana",
+  po_l5:"<strong>Sie kommen wieder</strong> — wer im Herbst ein schönes Erlebnis hat, kommt im Frühling zurück und bringt Freunde mit",
+  po_box_h:"Wir füllen die guten Monate,<br>nicht nur den August.",
+  po_box_p:"Unser Fokus ist Herbst und Frühling: Weinlese, neues Öl, das Traubenfest in Bardolino, die milden Tage um San Martino. Die Monate, in denen ihr Zeit habt, wirklich zu empfangen.",
+  po_pill:"Start · Herbst 2026",
+  ps_eyebrow:"Der Tausch, ganz transparent",ps_h2:"Warum es euch <em>nichts kostet.</em>",
+  ps_p:"Weil Geld im Moment die falsche Währung wäre. Eine Empfehlung ist nur so viel wert wie die Betriebe, die darin erscheinen — und sie ist nur nützlich, wenn genug Gäste sie nutzen. Beides bauen wir gerade auf. Deshalb suchen wir keine zahlenden Anzeigenkunden, sondern echte Partner. <strong>Bei uns kauft man keine Position: niemals.</strong>",
+  ps_g1_h:"Was ihr bekommt",
+  ps_g1_l1:"Einen Platz in unseren handverlesenen Empfehlungen, in drei Sprachen",
+  ps_g1_l2:"Besichtigungen, Degustationen und Veranstaltungen sichtbar und buchbar",
+  ps_g1_l3:"Gäste, die eure Qualität verstehen — und die im Frühling wiederkommen",
+  ps_g2_h:"Was wir euch bitten",
+  ps_g2_l1:"<strong>Sichtbarkeit bei euren Gästen</strong>: ein kleiner QR-Code im Wine-Shop, an der Theke oder im Degustationsraum",
+  ps_g2_l2:"Euer Programm, die Öffnungszeiten und ein paar Bilder",
+  ps_g2_l3:"Eine ehrliche Rückmeldung in der ersten Saison",
+  ps_close1:"Ihr macht uns bei euren Gästen bekannt. Wir machen euch bei unseren bekannt.",
+  ps_close2:"<strong>Kein Geld, in keine Richtung.</strong> Ein fairer Tausch, bei dem beide etwas gewinnen.",
+  ps_close3:"Wir starten mit einer Pilotphase: für die Partner der ersten Stunde ist sie kostenlos, und was danach sinnvoll ist, entscheiden wir gemeinsam mit euch.",
+  pc_claim:"Der Gardasee verdient es, gut entdeckt zu werden.<br>Und ihr verdient es, <em>gefunden zu werden.</em>",
+  pf_eyebrow:"Die Präsentation",pf_h2:"Alles auf zwei Seiten, <em>zum Ausdrucken.</em>",
+  pf_p:"Unser Flyer für Weingüter und Ölmühlen: dieselbe Geschichte, die ihr gerade gelesen habt, im A4-Format — bequem in Ruhe zu lesen, zum Ausdrucken oder Weitergeben.",
+  pf_btn:"↓ Flyer herunterladen (PDF)",pf_meta:"A4 · 2 Seiten · 680 KB · italienisch",
+  pk_eyebrow:"Sprechen wir darüber",pk_h2:"Schreibt uns — wir <em>rufen gern zurück.</em>",
+  pk_p:"Zwei Zeilen genügen: wer ihr seid, wo ihr seid und was ihr anbietet. Um den Rest kümmern wir uns.",
+  pk_mail:"Schreibt uns eine Mail",pk_direct:"oder direkt:",
+  pk_subject:"Garda Unica — unser Weingut",
+  pk_body:"Betrieb:\nOrt:\nAnsprechpartner:\nTelefon / WhatsApp:\n\nWas wir anbieten (Besichtigungen, Degustationen, Weinlese…):\n",
+  pk_wa:"Guten Tag, wir schreiben Ihnen wegen Garda Unica — unser Betrieb ist: ",
+  pfo_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · ein Produkt von <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
+  pfo_site:"Gäste-Seite",pfo_imprint:"Impressum",pfo_privacy:"Datenschutz",
+  _title:"Garda Unica — Für Weingüter und Ölmühlen am Südufer",
+  _desc:"Nicht mehr Gäste. Sondern die richtigen. Garda Unica sucht Weingüter und Ölmühlen am südlichen Gardasee für die Pilotphase — kein Geld, in keine Richtung."
+ },
+ it:{
+  pn_back:"← Il sito per gli ospiti",pn_pdf:"↓ Flyer PDF",
+  ph_eyebrow:"Per cantine e frantoi del basso Garda",
+  ph_h1:"Non più ospiti.<br>Ma gli ospiti <em>giusti.</em>",
+  ph_sub:"Ospiti che sanno apprezzare il vostro vino e il vostro olio.",
+  ph_cta1:"Diventate partner →",ph_cta2:"↓ Scarica il flyer",
+  ph_note:"Lancio: autunno 2026 · fase pilota gratuita",
+  pi_1:"<strong>Abbiamo creato un'app per il basso Lago di Garda.</strong> In autunno andiamo online — e vorremmo davvero avere voi al nostro fianco.",
+  pi_2:"Garda Unica nasce a San Benedetto di Lugana, da chi vive qui: Cristina, con radici italiane, e Tim, che sviluppa la tecnologia. E Luna, il nostro cane, che ha una rubrica tutta sua. Non un portale straniero che vende visibilità — vicini di casa che conoscono il territorio.",
+  pi_3:"Il Garda non è troppo pieno: è distribuito male. Ogni giorno migliaia di ospiti passano accanto a cantine e frantoi straordinari senza saperlo. <strong>Chi cercherebbe davvero il vostro vino, spesso non vi trova.</strong>",
+  pr_eyebrow:"Così apparirete nell'app",pr_h2:"Le nostre <em>rubriche.</em>",
+  pr_p:"Sei sezioni curate a mano, tutte con lo stesso peso. <strong>Vino &amp; Olio</strong> è quella che stiamo costruendo adesso — ed è il motivo per cui vi scriviamo oggi.",
+  pr_l1:"<strong>Vino &amp; Olio</strong> — cantine, frantoi, degustazioni, bottiglie e olio da portare a casa",
+  pr_l2:"<strong>Le Tavole</strong> — ristoranti, osterie e bar",
+  pr_l3:"<strong>A quattro zampe</strong> — il lago con il cane, con Luna come padrona di casa",
+  pr_l4:"<strong>Spiagge</strong> — spiagge e baie, al momento giusto",
+  pr_l5:"<strong>Noleggi</strong> — bici, Vespa, auto, barca",
+  pr_l6:"<strong>In Giro</strong> — traghetto, bus e treno: il lago senza auto",
+  pr_box_h:"Il lago cambia cinque volte l'anno.",
+  pr_box_p:"Da settembre a ottobre l'app si apre su <em>Il tempo del vino</em>: in cima, prima di ogni altra cosa. Poi l'olio, le passeggiate, le terrazze, il lago. Chi ama il vino arriva da voi nelle settimane in cui avete qualcosa da mostrare.",
+  pr_box2_h:"Nessun luogo che non abbiamo visto di persona.",
+  pr_box2_p:"Il lago, scelto a mano — sezione per sezione, stagione per stagione.",
+  pe_eyebrow:"Esperienze",pe_h2:"Le vostre esperienze, <em>prenotabili.</em>",
+  pe_p:"Non un semplice indirizzo sulla mappa. Visite, degustazioni, vendemmia e molitura raccontate bene e proposte all'ospite nel momento in cui è pronto a viverle. <strong>Ecco come potrebbero apparire le vostre:</strong>",
+  pe_c1_badge:"◆ Vendemmia",pe_c1_h:"Vendemmia e degustazione",pe_c1_place:"La vostra cantina · San Benedetto",pe_c1_q:"A settembre, quando l'uva entra in cantina.",
+  pe_c2_badge:"◆ Cantina",pe_c2_h:"Visita in bottaia, quattro calici",pe_c2_place:"La vostra cantina · Peschiera",pe_c2_q:"Il venerdì pomeriggio, prima dell'aperitivo.",
+  pe_c3_badge:"◆ Olio nuovo",pe_c3_h:"Molitura e olio nuovo",pe_c3_place:"Il vostro frantoio · Lazise",pe_c3_q:"A novembre, quando esce l'olio nuovo.",
+  pe_max8:"Max 8",pe_max12:"Max 12",pe_max10:"Max 10",
+  pe_seal:"Vissuto da noi",pe_btn:"Prenota",
+  pe_note:"Esempi illustrativi · durate, prezzi e lingue li decidete voi",
+  po_h2:"I nostri <em>ospiti.</em>",
+  po_l1:"<strong>Coppie tra i 45 e gli 80 anni</strong>, senza figli al seguito, fuori dall'alta stagione",
+  po_l2:"<strong>Capacità di spesa alta</strong> — qualità e non quantità, e comprano volentieri da portare a casa",
+  po_l3:"<strong>Spesso con il cane</strong> — un pubblico fedele, che sceglie con cura dove è il benvenuto",
+  po_l4:"<strong>Di lingua tedesca</strong> — il mercato più ricettivo per il Garda DOP e per il Lugana",
+  po_l5:"<strong>Tornano</strong> — chi vive una bella esperienza in autunno rientra in primavera, e porta amici",
+  po_box_h:"Riempiamo i mesi buoni,<br>non solo agosto.",
+  po_box_p:"Il nostro focus è autunno e primavera: vendemmia, olio nuovo, la Festa dell'Uva di Bardolino, le giornate miti di San Martino. I mesi in cui avete tempo per accogliere davvero.",
+  po_pill:"Lancio · autunno 2026",
+  ps_eyebrow:"Lo scambio, in tutta trasparenza",ps_h2:"Perché non vi <em>costa nulla.</em>",
+  ps_p:"Perché in questo momento il denaro sarebbe la valuta sbagliata. Un consiglio vale solo quanto valgono le realtà che vi compaiono — ed è utile solo se lo usano abbastanza ospiti. Stiamo costruendo entrambe le cose adesso. Per questo non cerchiamo inserzionisti paganti, ma partner veri. <strong>Da noi non si compra una posizione: mai.</strong>",
+  ps_g1_h:"Cosa ricevete voi",
+  ps_g1_l1:"Un posto tra i nostri consigli selezionati, in tre lingue",
+  ps_g1_l2:"Visite, degustazioni ed eventi resi visibili e prenotabili",
+  ps_g1_l3:"Ospiti che capiscono la vostra qualità — e che tornano in primavera",
+  ps_g2_h:"Cosa chiediamo a voi",
+  ps_g2_l1:"<strong>Visibilità presso i vostri ospiti</strong>: un piccolo QR code nel wine shop, al banco o in sala degustazioni",
+  ps_g2_l2:"Il vostro programma, gli orari e qualche immagine",
+  ps_g2_l3:"Un riscontro sincero durante la prima stagione",
+  ps_close1:"Voi ci fate conoscere ai vostri ospiti. Noi facciamo conoscere voi ai nostri.",
+  ps_close2:"<strong>Nessun denaro, in nessuna direzione.</strong> Uno scambio equo, in cui entrambi guadagnano qualcosa.",
+  ps_close3:"Partiamo con una fase pilota: per i partner della prima ora è gratuita, e ciò che avrà senso in seguito lo decideremo insieme a voi.",
+  pc_claim:"Il Garda merita di essere scoperto bene.<br>E voi meritate di essere <em>trovati.</em>",
+  pf_eyebrow:"La presentazione",pf_h2:"Tutto in due pagine, <em>da stampare.</em>",
+  pf_p:"Il nostro flyer per cantine e frantoi: la stessa storia che avete appena letto, in formato A4 — comodo da leggere con calma, da stampare o da girare a un collega.",
+  pf_btn:"↓ Scarica il flyer (PDF)",pf_meta:"A4 · 2 pagine · 680 KB · italiano",
+  pk_eyebrow:"Parliamone",pk_h2:"Scriveteci — vi <em>richiamiamo volentieri.</em>",
+  pk_p:"Due righe bastano: chi siete, dove siete e cosa offrite. Al resto pensiamo noi.",
+  pk_mail:"Scriveteci una mail",pk_direct:"oppure direttamente:",
+  pk_subject:"Garda Unica — la nostra cantina",
+  pk_body:"Azienda:\nLocalità:\nReferente:\nTelefono / WhatsApp:\n\nCosa offriamo (visite, degustazioni, vendemmia…):\n",
+  pk_wa:"Buongiorno, vi scrivo per Garda Unica — la nostra azienda è: ",
+  pfo_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · un prodotto di <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
+  pfo_site:"Sito per ospiti",pfo_imprint:"Note legali",pfo_privacy:"Privacy",
+  _title:"Garda Unica — Per cantine e frantoi del basso Garda",
+  _desc:"Non più ospiti. Ma gli ospiti giusti. Garda Unica cerca cantine e frantoi del basso Lago di Garda per la fase pilota — nessun denaro, in nessuna direzione."
+ },
+ en:{
+  pn_back:"← To the guest site",pn_pdf:"↓ Flyer PDF",
+  ph_eyebrow:"For wineries and oil mills on the southern shore",
+  ph_h1:"Not more guests.<br>But the <em>right ones.</em>",
+  ph_sub:"Guests who know how to appreciate your wine and your oil.",
+  ph_cta1:"Become a partner →",ph_cta2:"↓ View the flyer",
+  ph_note:"Launch: autumn 2026 · pilot phase free",
+  pi_1:"<strong>We've built an app for the southern Lake Garda.</strong> We go live in autumn — and we'd really like to have you alongside us.",
+  pi_2:"Garda Unica is made in San Benedetto di Lugana, by people who live here: Cristina, with Italian roots, and Tim, who builds the technology. And Luna, our dog, who has a section of her own. Not a foreign portal selling visibility — neighbours who know the area.",
+  pi_3:"Lake Garda isn't too full: it's badly distributed. Every day thousands of guests drive past extraordinary wineries and oil mills without knowing. <strong>The people who would truly look for your wine often don't find you.</strong>",
+  pr_eyebrow:"How you'll appear in the app",pr_h2:"Our <em>sections.</em>",
+  pr_p:"Six hand-picked sections, all with equal weight. <strong>Vino &amp; Olio</strong> is the one we're building right now — and the reason we're writing to you today.",
+  pr_l1:"<strong>Vino &amp; Olio</strong> — wineries, oil mills, tastings, bottles and oil to take home",
+  pr_l2:"<strong>Le Tavole</strong> — restaurants, osterias and bars",
+  pr_l3:"<strong>A quattro zampe</strong> — the lake with a dog, with Luna as host",
+  pr_l4:"<strong>Spiagge</strong> — beaches and bays, at the right moment",
+  pr_l5:"<strong>Noleggi</strong> — bike, Vespa, car, boat",
+  pr_l6:"<strong>In Giro</strong> — ferry, bus and train: the lake without a car",
+  pr_box_h:"The lake changes five times a year.",
+  pr_box_p:"From September to October the app opens on <em>Il tempo del vino</em> — the time of wine: at the top, before anything else. Then the oil, the walks, the terraces, the lake. People who love wine come to you in the weeks when you have something to show.",
+  pr_box2_h:"No place we haven't seen ourselves.",
+  pr_box2_p:"The lake, hand-picked — section by section, season by season.",
+  pe_eyebrow:"Experiences",pe_h2:"Your experiences, <em>bookable.</em>",
+  pe_p:"Not just an address on a map. Visits, tastings, harvest and milling — told well and offered to the guest at the very moment they're ready to live them. <strong>Here's how yours could look:</strong>",
+  pe_c1_badge:"◆ Harvest",pe_c1_h:"Harvest and tasting",pe_c1_place:"Your winery · San Benedetto",pe_c1_q:"In September, when the grapes come into the cellar.",
+  pe_c2_badge:"◆ Cellar",pe_c2_h:"Barrel cellar visit, four glasses",pe_c2_place:"Your winery · Peschiera",pe_c2_q:"Friday afternoons, before the aperitivo.",
+  pe_c3_badge:"◆ New oil",pe_c3_h:"Milling and new oil",pe_c3_place:"Your oil mill · Lazise",pe_c3_q:"In November, when the new oil comes out.",
+  pe_max8:"Max 8",pe_max12:"Max 12",pe_max10:"Max 10",
+  pe_seal:"Experienced by us",pe_btn:"Book",
+  pe_note:"Illustrative examples · durations, prices and languages are yours to decide",
+  po_h2:"Our <em>guests.</em>",
+  po_l1:"<strong>Couples between 45 and 80</strong>, without children, outside the high season",
+  po_l2:"<strong>High spending power</strong> — quality over quantity, and happy to buy something to take home",
+  po_l3:"<strong>Often with a dog</strong> — a loyal audience that chooses carefully where it's welcome",
+  po_l4:"<strong>German-speaking</strong> — the most receptive market for Garda DOP and Lugana",
+  po_l5:"<strong>They come back</strong> — a good autumn experience brings them back in spring, with friends",
+  po_box_h:"We fill the good months,<br>not just August.",
+  po_box_p:"Our focus is autumn and spring: the harvest, new oil, the grape festival in Bardolino, the mild days around San Martino. The months when you have time to truly welcome people.",
+  po_pill:"Launch · autumn 2026",
+  ps_eyebrow:"The exchange, fully transparent",ps_h2:"Why it <em>costs you nothing.</em>",
+  ps_p:"Because money would be the wrong currency right now. A recommendation is only worth as much as the places in it — and it's only useful if enough guests use it. We're building both right now. That's why we're not looking for paying advertisers, but for real partners. <strong>With us, a position is never for sale.</strong>",
+  ps_g1_h:"What you get",
+  ps_g1_l1:"A place among our hand-picked recommendations, in three languages",
+  ps_g1_l2:"Visits, tastings and events made visible and bookable",
+  ps_g1_l3:"Guests who understand your quality — and who return in spring",
+  ps_g2_h:"What we ask of you",
+  ps_g2_l1:"<strong>Visibility with your guests</strong>: a small QR code in the wine shop, at the counter or in the tasting room",
+  ps_g2_l2:"Your programme, your opening hours and a few images",
+  ps_g2_l3:"Honest feedback during the first season",
+  ps_close1:"You introduce us to your guests. We introduce you to ours.",
+  ps_close2:"<strong>No money, in either direction.</strong> A fair exchange in which both sides gain something.",
+  ps_close3:"We're starting with a pilot phase: free for the first partners, and whatever makes sense afterwards we'll decide together with you.",
+  pc_claim:"Lake Garda deserves to be discovered well.<br>And you deserve to be <em>found.</em>",
+  pf_eyebrow:"The presentation",pf_h2:"Everything on two pages, <em>ready to print.</em>",
+  pf_p:"Our flyer for wineries and oil mills: the same story you've just read, in A4 — easy to read at your leisure, to print or to pass on to a colleague.",
+  pf_btn:"↓ Download the flyer (PDF)",pf_meta:"A4 · 2 pages · 680 KB · Italian",
+  pk_eyebrow:"Let's talk",pk_h2:"Write to us — we'll <em>gladly call back.</em>",
+  pk_p:"Two lines are enough: who you are, where you are and what you offer. We'll take care of the rest.",
+  pk_mail:"Write us an email",pk_direct:"or directly:",
+  pk_subject:"Garda Unica — our winery",
+  pk_body:"Business:\nTown:\nContact:\nPhone / WhatsApp:\n\nWhat we offer (visits, tastings, harvest…):\n",
+  pk_wa:"Hello, I'm writing about Garda Unica — our business is: ",
+  pfo_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · a product by <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
+  pfo_site:"Guest site",pfo_imprint:"Imprint",pfo_privacy:"Privacy",
+  _title:"Garda Unica — For wineries and oil mills on the southern shore",
+  _desc:"Not more guests. But the right ones. Garda Unica is looking for wineries and oil mills on the southern Lake Garda for the pilot phase — no money, in either direction."
+ }
+};
+var WA_NUMBER="393471050557";
+var MAIL_TO="cristina@gardaunica.com";
+function setLang(lang){
+  if(!I18N[lang])lang="de";
+  var d=I18N[lang];
+  window.currentLang=lang;
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k=el.getAttribute("data-i18n");
+    if(d[k]!==undefined)el.innerHTML=d[k];
+  });
+  if(d._title)document.title=d._title;
+  var md=document.querySelector('meta[name="description"]');
+  if(md&&d._desc)md.setAttribute("content",d._desc);
+  // Kontakt-Links in der jeweiligen Sprache aufbauen
+  var mb=document.getElementById("mailBtn");
+  if(mb)mb.href="mailto:"+MAIL_TO+"?subject="+encodeURIComponent(d.pk_subject)+"&body="+encodeURIComponent(d.pk_body);
+  var wb=document.getElementById("waBtn");
+  if(wb)wb.href="https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(d.pk_wa);
+  document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("active",b.dataset.lang===lang)});
+  try{var u=new URL(window.location);u.searchParams.set("lang",lang);window.history.replaceState({},"",u);}catch(e){}
+}
+(function(){
+  var p=new URLSearchParams(window.location.search);
+  var lang=p.get("lang");
+  if(!lang){var nv=(navigator.language||"de").slice(0,2).toLowerCase();lang=["de","it","en"].indexOf(nv)>=0?nv:"de";}
+  document.querySelectorAll(".lang button").forEach(function(b){b.addEventListener("click",function(){setLang(b.dataset.lang)})});
+  setLang(lang);
+})();
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 </script>

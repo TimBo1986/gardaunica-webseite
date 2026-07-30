@@ -802,7 +802,7 @@ var I18N={
   pt_intro:"Garda Unica bringt Besucher dorthin, wo es gerade passt — und dann, wenn es passt. Für Gastgeber und lokale Betriebe heißt das: Passung statt Masse.",
   pt1_label:"Hotels &amp; Campingplätze",pt1_h:"Der Concierge, der nie Feierabend hat.",pt1_p:"Entlastet Ihre Rezeption, beantwortet die immer gleichen Fragen — und ein gelungener Tag zahlt am Ende auf Ihre Bewertungen ein.",
   pt2_label:"Erlebnisse, Weinbau &amp; Gastronomie",pt2_h:"Passung statt Rabattschlacht.",pt2_p:"Die richtigen Gäste zum richtigen Moment — Nebenzeiten statt Andrang, eine echte Auswahl, die man nicht kaufen kann.",
-  pt_cta:"Partner werden →",pt_more:"Alles für Gastgeber &amp; Betriebe (auf Italienisch) →",foot_partner:"Für Partner",
+  pt_cta:"Partner werden →",pt_more:"Alles für Gastgeber &amp; Betriebe →",foot_partner:"Für Partner",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · ein Produkt von <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Kontakt",foot_imprint:"Impressum",foot_privacy:"Datenschutz",
   _title:"Garda Unica — Dein See. Dein Moment.",
@@ -1012,7 +1012,7 @@ var I18N={
   pt_intro:"Garda Unica brings visitors where it fits — and when it fits. For hosts and local businesses that means fit, not mass.",
   pt1_label:"Hotels &amp; campsites",pt1_h:"The concierge that never clocks off.",pt1_p:"Takes load off your reception, answers the same questions again and again — and a day well spent pays back into your reviews.",
   pt2_label:"Experiences, wine &amp; dining",pt2_h:"Fit, not a discount war.",pt2_p:"The right guests at the right moment — off-peak instead of the crush, a real selection you can't buy.",
-  pt_cta:"Become a partner →",pt_more:"Everything for hosts &amp; businesses (in Italian) →",foot_partner:"For partners",
+  pt_cta:"Become a partner →",pt_more:"Everything for hosts &amp; businesses →",foot_partner:"For partners",
   foot_left:"Garda <em style=\"font-family:var(--f-display)\">Unica</em> · a product by <a href=\"https://www.lagonord.de\" rel=\"noopener\">LagoNord AI</a> · © 2026",
   foot_contact:"Contact",foot_imprint:"Imprint",foot_privacy:"Privacy",
   _title:"Garda Unica — Your lake. Your moment.",
@@ -1037,6 +1037,8 @@ function setLang(lang){
   if(md&&d._desc)md.setAttribute("content",d._desc);
   document.querySelectorAll(".lang button").forEach(function(b){b.classList.toggle("active",b.dataset.lang===lang)});
   try{var u=new URL(window.location);u.searchParams.set("lang",lang);window.history.replaceState({},"",u);}catch(e){}
+  // Partner-Seite in derselben Sprache öffnen
+  document.querySelectorAll('a[href^="/partner"]').forEach(function(a){a.setAttribute("href","/partner?lang="+lang)});
   if(typeof refreshOpenBio==="function")refreshOpenBio();
   if(typeof chatPlayer!=="undefined"&&chatPlayer&&!REDUCED){var r=chatPlayer.el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)chatPlayer.start();}
 }
