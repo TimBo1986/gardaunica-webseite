@@ -1,4 +1,4 @@
-/* Garda Unica — Spracherkennung (gemeinsam für alle Seiten)
+/* Unica Benaco — Spracherkennung (gemeinsam für alle Seiten)
  *
  * Reihenfolge der Signale, absteigende Priorität:
  *   1. ?lang=xx            — explizite Wahl, gewinnt immer

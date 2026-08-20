@@ -1,4 +1,4 @@
-/* Garda Unica — Warteliste-Formular
+/* Unica Benaco — Warteliste-Formular
  * Sendet {name, email, lang, source, consent} als JSON per POST an den
  * n8n-Webhook. n8n übernimmt Double-Opt-in (Brevo-Bestätigungsmail) und
  * leitet nach Klick auf https://unicabenaco.com/confirmed weiter.

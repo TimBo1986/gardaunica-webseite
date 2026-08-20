@@ -46,17 +46,20 @@ EXCLUDES=(--exclude-dir=.git --exclude-dir=node_modules --exclude-dir=build
           --exclude=*.webp --exclude=*.pdf --exclude=*.ico --exclude=*.ttf)
 for m in "${META[@]}"; do EXCLUDES+=(--exclude="$m"); done
 
-# name|regex|erwartung_nach_WEB-01
+# name|regex|erwartung_nach_dem_zuletzt_gelaufenen_Task (derzeit WEB-02)
 PATTERNS=(
   "M2 alte Domain (URL)|gardaunica\.(com|de|it|app|eu)|0"
   "M3 alte Mailadressen|@gardaunica\.|0"
   "MK Wortmarke alt|Garda <em>Unica</em>|0"
   "MK Wortmarke neu|Unica <em>Benaco</em>|5"
-  "M1 garda-unica gesamt|garda[ _-]?unica|Rest = sichtbarer Text (WEB-02/03/04)"
+  "M1 garda-unica gesamt|garda[ _-]?unica|4 = PDF-Dateiname, faellt mit WEB-04"
   "M8 unica-benaco|unica[ _-]?benaco|steigend"
   "M9 benaco-unica (Gegenprobe)|benaco[ _-]?unica|0"
-  "NEG Geografie Garda|lago di garda|gardasee|unveraendert"
-  "NEG Peschiera|peschiera|unveraendert"
+  # Die Geografie-Kontrolle hat sich mit WEB-02 einmalig bewegt: 28 + 11
+  # Descriptor-Einfuegungen "Unica Benaco · Lago di Garda" (5 index, 5 app,
+  # 1 app-Stub). Ab hier wieder unveraendert.
+  "NEG Geografie Garda|lago di garda|gardasee|39 (28 + 11 Descriptor aus WEB-02)"
+  "NEG Peschiera|peschiera|17 unveraendert"
 )
 
 if [ "$MODE" = "csv" ]; then echo "muster,datei,zeile,fundstelle"; fi
@@ -105,7 +108,7 @@ for name, rx, soll in PAT:
             hits.append((os.path.relpath(p, root), s.count('\n', 0, m.start()) + 1, frag))
     if mode == 'count':
         nf = len({h[0] for h in hits})
-        print("%-32s %4d Vork.  in %2d Dateien   (Soll nach WEB-01a: %s)" % (name, len(hits), nf, soll))
+        print("%-32s %4d Vork.  in %2d Dateien   (Soll: %s)" % (name, len(hits), nf, soll))
     elif mode == 'list':
         print("\n== %s  (%d Vorkommen)  Soll: %s" % (name, len(hits), soll))
         for f, l, frag in hits:
@@ -121,7 +124,7 @@ for entry in "${PATTERNS[@]}"; do
   n=$(grep -rIiEl "$rx" . "${EXCLUDES[@]}" 2>/dev/null | wc -l)
   lines=$(grep -rIiE "$rx" . "${EXCLUDES[@]}" 2>/dev/null | wc -l)
   case "$MODE" in
-    count) printf "%-32s %4s Zeilen in %2s Dateien   (Soll nach WEB-01: %s)\n" "$name" "$lines" "$n" "$soll" ;;
+    count) printf "%-32s %4s Zeilen in %2s Dateien   (Soll: %s)\n" "$name" "$lines" "$n" "$soll" ;;
     list)
       printf "\n== %s  (%s Zeilen)  Soll: %s\n" "$name" "$lines" "$soll"
       grep -rInIiE "$rx" . "${EXCLUDES[@]}" 2>/dev/null | sed 's/^\.\///' | cut -c1-150

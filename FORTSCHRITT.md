@@ -7,6 +7,92 @@ Selbsttest des Werkzeugs: `tools/rename_scan.sh --selftest`.
 
 ---
 
+## WEB-02 — Sichtbarer Text DE/IT/EN
+
+**Branch:** `claude/web-02`, Basis `main` auf `6f743af`
+
+**108 Ersetzungen in 9 Dateien.** 97 nach der Grundregel „`Garda Unica` →
+`Unica Benaco`, sonst ändert sich am Satz nichts", 11 nach der wörtlichen
+Vorgabeliste. Keine eigenen Formulierungen, keine Stil-Angleichungen; die
+Claims (`Dein See. Dein Moment.` und Übersetzungen) sind unangetastet.
+
+| Datei | Grundregel | wörtlich |
+|---|---|---|
+| `index.html` | 43 | 5 |
+| `app.html` | 18 | 5 |
+| `partner.html` | 21 | — |
+| `confirmed.html` | 11 | — |
+| `app/index.html` | — | 1 |
+| `partner/index.html`, `confirmed/index.html` | je 1 | — |
+| `assets/waitlist.js`, `assets/lang.js` | je 1 (Header-Kommentar) | — |
+
+**Die elf wörtlichen Stellen** bekommen den Marken-Descriptor
+`Unica Benaco · Lago di Garda`, damit das Wort *Garda* nicht aus den
+Seitentiteln verschwindet: `index.html` `<title>`, `og:title` und `_title`
+DE/IT/EN; `app.html` `<title>`, `og:title` und `_title` DE/IT/EN;
+`app/index.html` `<title>`. `partner.html` und `confirmed.html` bleiben
+bewusst ohne Descriptor — die Partner-Titel tragen ihre Garda-Referenz
+selbst (`basso Garda`, `südlichen Gardasee`), die Confirmed-Seite ist kein
+Suchziel.
+
+**Abnahme**
+
+| Prüfung | Soll | Ist |
+|---|---|---|
+| `garda[ _-]?unica` zeilenweise | 0 | **4** — siehe Abweichung |
+| markup-tolerant, alter Name | 0 | **0** |
+| markup-tolerant, neuer Name | 13 | **13** |
+| `lago di garda\|gardasee` | 38 | **39** — siehe Abweichung |
+| `peschiera` | 17 unverändert | **17** |
+
+Browser: 4 Seiten × DE/IT/EN, FAQ aufgeklappt, `mailto:`-Betreff auf
+`/partner` geprüft (`Unica Benaco — unser Weingut` / `la nostra cantina` /
+`our winery`), Untertitel auf `/confirmed` geprüft. **0** sichtbares
+„Garda Unica" in allen Sprachen, keine JS-Fehler.
+
+**Abweichungen**
+
+- **`garda[ _-]?unica` bleibt bei 4, nicht 0.** Alle vier stehen in
+  `partner.html` und sind `href`-Pfade auf
+  `/assets/garda-unica-partner-cantine-it.pdf` — der Dateiname des Flyers,
+  kein sichtbarer Text. Sie mitzuändern hieße die PDF-Datei umzubenennen,
+  und die ist in diesem Task ausdrücklich tabu. Fällt mit WEB-04.
+- **Geografie landet bei 39, nicht 38.** Die Vorgabe rechnete mit zehn
+  Descriptor-Einfügungen („5 in index, 5 in app/app-stub"), die wörtliche
+  Liste enthält aber elf: `app.html` allein hat fünf (`<title>`, `og:title`,
+  3 × `_title`), der Stub `app/index.html` kommt als sechste dazu. Gezählt
+  statt Sollwert angepasst: 28 + 11 = 39, aufgeschlüsselt index 5, app 5,
+  Stub 1. Keine der elf Zielzeilen trug vorher schon Geografie.
+- **OFFEN-Posten (holpernde Sätze): keine.** Der Name steht überall als
+  Subjekt oder Objekt im Satz, kein Genitiv, kein Kompositum, kein Artikel
+  davor. Die Kurzform „Unica" allein (z. B. `faq4_a`: „Unica versteht und
+  antwortet auf Deutsch") stand schon vor der Umbenennung so da und trägt
+  weiter.
+
+Am Prüfwerkzeug nachgezogen: die Soll-Werte für `M1` und die
+Geografie-Kontrolle, damit WEB-03/04 kein veraltetes Gate erbt.
+
+### WEB-02 · Gegenlesen Cristina
+
+Die Fassungen gelten bis dahin als `AUTO — Cristina-Gegenlesen offen`.
+
+1. **OFFEN** — Die fünf Descriptor-Titel aus der Vorgabeliste. Insbesondere
+   IT: `Unica Benaco · Lago di Garda — Il tuo lago. Il tuo momento.` doppelt
+   das Wort *lago*. Bewusst so gelassen, weil die Alternative den Claim
+   ändern würde. Cristinas Ohr entscheidet.
+2. **OFFEN** — Die IT-Sätze mit dem Namen mitten im Satz:
+   `tm_story3` („il sapere che vive dentro Unica Benaco"),
+   `c_short` („la conoscenza locale dietro Unica Benaco"),
+   `wl_h2` („Presto Unica Benaco ti mostrerà il tuo lago proprio così."),
+   `pi_2` („Unica Benaco nasce a San Benedetto di Lugana"),
+   `t_long` („i contatti di cui vive Unica Benaco").
+3. **OFFEN** — Alle EN-Wörterbuchtexte pauschal. Die waren schon vor der
+   Umbenennung maschinell erzeugt.
+4. **OFFEN** — `pk_subject` und `pk_wa` in allen drei Sprachen. Das sind die
+   Texte, die Partner tatsächlich absenden.
+
+---
+
 ## WEB-01b — Fußzeile `confirmed.html`
 
 **Branch:** `claude/web-01a` (kein eigener Branch)
@@ -135,10 +221,9 @@ die sich nicht ändern dürfen.
 
 ## Noch offen
 
-- **WEB-02** — sichtbarer Fließtext, Titles, Descriptions, H1, FAQ
-  (~110 Zeilen, gemeinsam mit Cristina). Dazu gehören auch die
-  Mail-Betreffzeilen auf `/partner`.
 - **WEB-03** — Bilder
-- **WEB-04** — Partner-Flyer (PDF) und dessen Vorschaubilder
+- **WEB-04** — Partner-Flyer (PDF) und dessen Vorschaubilder. Dabei fallen
+  auch die vier verbliebenen `href`-Pfade auf
+  `/assets/garda-unica-partner-cantine-it.pdf` in `partner.html`.
 - **WEB-05** — Bestätigungslink in n8n
 - `index.html` hat kein `<link rel="canonical">` → **mit WEB-01a erledigt**
