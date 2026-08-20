@@ -7,6 +7,28 @@ Selbsttest des Werkzeugs: `tools/rename_scan.sh --selftest`.
 
 ---
 
+## WEB-01b — Fußzeile `confirmed.html`
+
+**Branch:** `claude/web-01a` (kein eigener Branch)
+
+`cf_foot` in `confirmed.html`, 4 Vorkommen: DOM plus DE/IT/EN-Wörterbuch.
+„Garda Unica" → „Unica Benaco", der Rest der Zeile unverändert, auch die
+Sprachvarianten „un prodotto di" / „a product by".
+
+Zuordnung: isolierter Markenname in einer Signaturzeile, identisch zum
+`.foot-sign` in `partner.html` aus WEB-01a §2b. Kein redaktioneller Text.
+Damit ist der offene Punkt aus WEB-01a erledigt.
+
+**Abnahme:** `garda[ _-]?unica` zeilenweise 114 → **110**, Negativkontrolle
+**28 / 17 unverändert**, markup-tolerant alter Name **0**. Fußzeile im Browser
+in DE/IT/EN geprüft, keine JS-Fehler.
+
+Nicht angefasst: `cf_sub` („Wir melden uns, sobald Garda Unica startet.") sowie
+`_title`, `og:title` und `og:description` derselben Seite — redaktioneller Text
+bzw. Metatexte, gehören zu WEB-02.
+
+---
+
 ## WEB-01a — Fußzeilen-Wortmarke, Signatur, canonical, Scan-Härtung
 
 **Branch:** `claude/web-01a` (auf `claude/page-not-found-config-lja2hx` aufgesetzt)
@@ -65,10 +87,10 @@ JS-Fehler.
 - Der Selbsttest findet 13 Vorkommen, der Task nannte 7. Beides stimmt: 7
   Platzierungen, davon zwei Fußzeilen, die je viermal im Repo stehen
   (DOM + DE + IT + EN) → 5 + 8 = 13 Vorkommen.
-- **Offen für WEB-02:** `confirmed.html` (`cf_foot`) trägt weiterhin
-  „Garda Unica · ein Produkt von LagoNord AI". Das ist derselbe Signaturtyp
-  wie die geänderte Zeile in `partner.html`, stand aber nicht in der
-  Zielmenge dieses Tasks.
+- `confirmed.html` (`cf_foot`) trug weiterhin „Garda Unica · ein Produkt von
+  LagoNord AI" — derselbe Signaturtyp wie die geänderte Zeile in
+  `partner.html`, stand aber nicht in der Zielmenge dieses Tasks.
+  **Mit WEB-01b nachgezogen.**
 
 ---
 
@@ -114,8 +136,8 @@ die sich nicht ändern dürfen.
 ## Noch offen
 
 - **WEB-02** — sichtbarer Fließtext, Titles, Descriptions, H1, FAQ
-  (~114 Zeilen, gemeinsam mit Cristina). Dazu gehören auch die
-  Mail-Betreffzeilen auf `/partner` und die Fußzeile auf `/confirmed`.
+  (~110 Zeilen, gemeinsam mit Cristina). Dazu gehören auch die
+  Mail-Betreffzeilen auf `/partner`.
 - **WEB-03** — Bilder
 - **WEB-04** — Partner-Flyer (PDF) und dessen Vorschaubilder
 - **WEB-05** — Bestätigungslink in n8n
