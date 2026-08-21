@@ -55,10 +55,13 @@ PATTERNS=(
   "M1 garda-unica gesamt|garda[ _-]?unica|4 = PDF-Dateiname, faellt mit WEB-04"
   "M8 unica-benaco|unica[ _-]?benaco|steigend"
   "M9 benaco-unica (Gegenprobe)|benaco[ _-]?unica|0"
-  # Die Geografie-Kontrolle hat sich mit WEB-02 einmalig bewegt: 28 + 11
-  # Descriptor-Einfuegungen "Unica Benaco · Lago di Garda" (5 index, 5 app,
-  # 1 app-Stub). Ab hier wieder unveraendert.
-  "NEG Geografie Garda|lago di garda|gardasee|39 (28 + 11 Descriptor aus WEB-02)"
+  # Die Geografie-Kontrolle ist zweimal absichtlich gewachsen:
+  #   WEB-02  28 -> 39  elf Titel-Descriptor "Unica Benaco · Lago di Garda"
+  #                     (5 index, 5 app, 1 app-Stub)
+  #   WEB-06  39 -> 44  fuenf Logo-Descriptor <span class="logo-desc">
+  #                     (index, app, confirmed, partner nav + hero-mark)
+  # Ab hier wieder unveraendert.
+  "NEG Geografie Garda|lago di garda|gardasee|44 (39 + 5 Logo-Descriptor aus WEB-06)"
   "NEG Peschiera|peschiera|17 unveraendert"
 )
 
