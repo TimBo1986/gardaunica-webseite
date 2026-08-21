@@ -7,6 +7,71 @@ Selbsttest des Werkzeugs: `tools/rename_scan.sh --selftest`.
 
 ---
 
+## WEB-06 — Descriptor „Lago di Garda" in der Wortmarke
+
+**Branch:** `claude/web-06`, Basis `main` auf `fdbc13d`
+**Variante A** (gestapelt) · **HERO_MITMACHEN = ja**
+
+Beide Parameter waren in der Vorgabe leer. Nicht selbst gewählt, sondern bei
+Tim erfragt — so verlangt es §1 des Tasks.
+
+**Fünf Stellen, Werte wörtlich aus §3 übernommen:**
+
+| Datei | Zeile | Element |
+|---|---|---|
+| `index.html` | 315 | `<a class="logo">` |
+| `app.html` | 98 | `<a class="logo">` |
+| `partner.html` | 188 | `<a class="logo">` |
+| `partner.html` | 204 | `<div class="hero-mark">` (HERO_MITMACHEN) |
+| `confirmed.html` | 61 | `<a class="logo">` |
+
+Markup je Stelle: `<span class="logo-desc">Lago di Garda</span>` innerhalb des
+bestehenden Elements, `href` unverändert. CSS unmittelbar nach der jeweiligen
+`.logo em`-Zeile eingefügt, in `partner.html` zusätzlich
+`.hero-mark .logo-desc` nach `.hero-mark em`.
+
+**Der Descriptor wird nicht übersetzt.** Kein `data-i18n`, kein
+Wörterbucheintrag, keine Fassung „Gardasee" oder „Lake Garda" — es ist ein
+Ortsname im Markenlogo, kein Satz. Im Browser in allen drei Sprachen
+identisch geprüft; `setLang()` fasst das Element nicht an.
+
+**Abnahme**
+
+| Prüfung | Soll | Ist |
+|---|---|---|
+| Geografie (`lago di garda\|gardasee`) | 44 | **44** |
+| `peschiera` | 17 unverändert | **17** |
+| alter Name zeilenweise | 4 unverändert | **4** |
+| markup-tolerant, alter Name | 0 | **0** |
+| `Lago di Garda` im Descriptor | 5 | **5** |
+| `data-i18n` am Descriptor | 0 | **0** |
+
+**Nav-Höhe, gemessen gegen `main`** — die Vorschau kündigte ~7 px Zuwachs an,
+tatsächlich sind es 0 bis 1 px. Der gestapelte Descriptor passt in die Höhe,
+die die Warteliste-Schaltfläche ohnehin vorgibt:
+
+| Seite | Desktop | Handy 380 px |
+|---|---|---|
+| `index.html` | 69 → 69 px | 64 → 64 px |
+| `app.html` | 70 → 71 px | 70 → 71 px |
+| `partner.html` | 66 → 66 px | 64 → 64 px |
+| `confirmed.html` | 70 → 71 px | 70 → 71 px |
+
+Bei 380 px kein Umbruch, keine Überlappung mit der Schaltfläche, keine
+JS-Fehler.
+
+**Beobachtung, nicht geändert:** Auf `/partner` stehen im Seitenkopf jetzt
+zwei Versalzeilen direkt untereinander — der Descriptor `LAGO DI GARDA` in
+Grau und darunter die bestehende Eyebrow-Zeile („Für Weingüter und Ölmühlen
+am Südufer") in Terracotta. Das ist eine Folge von `HERO_MITMACHEN = ja`, die
+die Vorgabe nicht vorhergesehen hat. Nichts ist kaputt, und „optimieren" wäre
+in diesem Task ausdrücklich verboten — Tim und Cristina entscheiden, ob das so
+bleibt.
+
+Zwei getrennte Commits: Arbeit und Messlatte wurden nicht gemeinsam bewegt.
+
+---
+
 ## WEB-02 — Sichtbarer Text DE/IT/EN
 
 **Branch:** `claude/web-02`, Basis `main` auf `6f743af`

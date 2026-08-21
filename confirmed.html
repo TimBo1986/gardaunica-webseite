@@ -34,6 +34,8 @@ a{color:inherit}
 .topbar{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:640px;margin:0 auto;width:100%}
 .logo{font-family:var(--f-display);font-weight:600;font-size:21px;text-decoration:none;letter-spacing:-.01em}
 .logo em{font-style:italic;color:var(--terracotta)}
+.logo{line-height:1}
+.logo-desc{display:block;font-family:var(--f-mono);font-weight:400;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--notte-3);margin-top:5px;padding-left:1px}
 .lang{display:flex;gap:2px;border:1px solid var(--linea);border-radius:999px;padding:3px;background:var(--carta-morn)}
 .lang button{border:0;background:none;cursor:pointer;font-family:var(--f-ui);font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--notte-3);padding:5px 11px;border-radius:999px;transition:background 160ms var(--ease),color 160ms var(--ease)}
 .lang button.active{background:var(--terracotta);color:var(--carta)}
@@ -56,7 +58,7 @@ h1 em{font-style:italic;color:var(--terracotta)}
 <body>
 
 <div class="topbar">
-  <a class="logo" href="https://unicabenaco.com">Unica <em>Benaco</em></a>
+  <a class="logo" href="https://unicabenaco.com">Unica <em>Benaco</em><span class="logo-desc">Lago di Garda</span></a>
   <div class="lang" role="group" aria-label="Sprache / Lingua / Language">
     <button data-lang="de" class="active">DE</button>
     <button data-lang="it">IT</button>

@@ -43,6 +43,8 @@ nav{position:sticky;top:0;z-index:60;background:rgba(250,245,232,.92);backdrop-f
 .nav-inner{max-width:1080px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--f-display);font-weight:600;font-size:21px;text-decoration:none;letter-spacing:-.01em}
 .logo em{font-style:italic;color:var(--terracotta)}
+.logo{line-height:1}
+.logo-desc{display:block;font-family:var(--f-mono);font-weight:400;font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--notte-3);margin-top:5px;padding-left:1px}
 .nav-right{display:flex;align-items:center;gap:20px}
 .nav-links{display:flex;gap:22px;align-items:center}
 .nav-links a{text-decoration:none;font-size:13.5px;font-weight:500;color:var(--notte-2);transition:color 180ms var(--ease)}
@@ -310,7 +312,7 @@ footer a:hover{color:var(--notte)}
 
 <nav>
   <div class="nav-inner">
-    <a class="logo" href="#">Unica <em>Benaco</em></a>
+    <a class="logo" href="#">Unica <em>Benaco</em><span class="logo-desc">Lago di Garda</span></a>
     <div class="nav-right">
       <div class="nav-links">
         <a href="#tag" data-i18n="nav_day">Ein Tag mit Unica</a>
