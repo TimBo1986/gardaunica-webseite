@@ -7,6 +7,148 @@ Selbsttest des Werkzeugs: `tools/rename_scan.sh --selftest`.
 
 ---
 
+## Spec 0001 — Drei Pfeiler und Produktbeweis
+
+**Branch:** `feature/pfeiler-v2`, Basis `main` auf `44b42e2`
+**Vorgabe:** `docs/specs/0001-pfeiler-und-produktbeweis.md`
+**Zehn Commits**, einer je Änderung, plus diese Notiz. Alles in `index.html`,
+die eine Datei bleibt — bis auf das Prüfwerkzeug und diese Datei.
+
+Kein Rename-Task — die erste Arbeit in diesem Protokoll, die es nicht ist. Sie
+steht trotzdem hier, weil sie zwei Zähler des Prüfwerkzeugs bewegt und WEB-03
+und WEB-04 sonst ein veraltetes Gate erben.
+
+### Was umgesetzt ist
+
+| Änderung | Ergebnis |
+|---|---|
+| Ä1 | Drei Pfeiler: Planer+Territorio · Diario · Cerchio. `#erlebnisse` aufgegangen |
+| Ä2 | Cerchio auf den Stand seit Juli 2026: Wochen-Kohorte, sieben Tage, neuer Kreis |
+| Ä3 | Pfeiler 1 mit `oggi_tipp.jpg`; Pfeiler 2 und 3 als gekennzeichnete Plätze |
+| Ä4 | Hero zeigt `territorio_map.jpg` statt `oggi_greeting.jpg` |
+| Ä5 | Vignette 01 auf Paare mit Hund, DE/IT/EN |
+| Ä6 | **nur vorbereitet** — der Saisonsatz gehört Cristina, siehe unten |
+| Ä7 | Mission mit der Behandlung von 21:00; dunkles Band bleibt in voller Breite |
+| Ä8 | `ho_*`, `ab_*`, `wl_cta` als ausgesetzt gekennzeichnet, nichts gelöscht |
+| — | Vier Foto-Plätze (Querformat), von Tim bestellt, außerhalb der Spec |
+
+**Die Copy-Regel ist eingehalten.** Neue Copy entstand an genau den drei Stellen,
+die die Spec dafür vorsieht: Ä1 Pfeiler 2 (`di_h`/`di_p`), Ä2 Cerchio
+(`cr_h`/`cr_p`), Ä5 Vignette 01 (`pb_v1_p`). Alles andere ist wortgleich umgezogen.
+Kein Wörterbuchwert aus dem Vorstand ist verschwunden — auch die abgelösten
+nicht: sie stehen ausgesetzt und kommentiert weiter in der Datei.
+
+### Abnahme
+
+| Kriterium | Ist |
+|---|---|
+| 1 · drei Pfeiler mit je einem Bildschirm | **teilweise** — zwei Aufnahmen fehlen |
+| 2 · Cerchio-Bild ohne Persona-Karte | **erfüllt** — alte Aufnahme raus, nicht ersetzt |
+| 3 · kein Satz gelöscht ohne Inhalt anderswo | **erfüllt**, maschinell geprüft |
+| 4 · alle neuen Texte in IT und EN | **erfüllt**, im Browser durchgeschaltet |
+| 5 · keine neuen externen Requests | **erfüllt** — dieselben sechs Verweise |
+| 6 · Bilder lokal, lazy, unter der Grenze | **erfüllt** für alles Vorhandene |
+| 7 · Kontrast neuer Elemente ≥ 4.5:1 | **erfüllt** |
+| 8 · 390 / 768 / 1440 px ohne Umbrüche | **erfüllt**, je in DE, IT und EN |
+| 9 · Arbeitsstand in der Commit-Meldung | **erfüllt** |
+
+Zusätzlich je Commit maschinell geprüft: Inline-JS syntaktisch gültig, alle 127
+`data-i18n`-Schlüssel des DOM in allen drei Wörterbüchern vorhanden, kein Wert
+aus dem Vergleichsstand verloren, kein `<img>` ohne lokale Quelle. Im Browser:
+keine JS-Fehler, Chat-Player läuft (4 Nachrichten, `showAll()` bei reduzierter
+Bewegung), FAQ, Bio-Modal und Warteliste unberührt.
+
+### Abweichungen
+
+- **Die Badges heißen weiter „Säule 1/2/3"** (IT „Pilastro", EN „Pillar"), nicht
+  „Pfeiler". „Pfeiler" ist die Sprache der Spec, nicht die der Seite; sie
+  umzubenennen wäre eine Copy-Änderung und von der Copy-Regel nicht gedeckt.
+- **Ä3 Tabelle, Pfeiler 1.** Die Spec nennt für Pfeiler 1 die
+  Territorio-Übersicht, Ä4 schickt genau dieselbe Aufnahme in den Hero. Statt
+  sie zu doppeln, zeigt Pfeiler 1 `oggi_tipp.jpg` — den Entscheidungs-Screen,
+  der zu `ls2_p` gehört, das mit Ä1 dorthin gezogen ist. Der Territorio-Beweis
+  steht unmittelbar darüber im Hero. Von Tim so entschieden.
+- **Ä7.** Der Abschnitt war über `.honest` schon ganzflächig dunkel — die Spec
+  liest sich, als wäre er es nicht. Das Band bleibt in voller Breite und wird
+  nur geschärft (104px statt 84px, Eyebrow in der Pillenform von
+  `.day-close .time`). Von Tim so entschieden.
+- **`assets/app/scopri_erlebnis.jpg` ist aus der Seite gefallen.** Säule 3
+  („Handverlesen von Menschen, die hier leben") ist mit Ä1 in den
+  Mission-Abschnitt aufgegangen, und der trägt kein Bild. Datei bleibt liegen.
+- **Fünf Aufnahmen liegen jetzt unbenutzt in `assets/app/`:**
+  `cerchio_community` (Persona-Karte, mit Ä3 abgelöst), `oggi_greeting` (mit Ä4
+  abgelöst), `scopri_erlebnis` (siehe oben) sowie `chat_lazise` und
+  `oggi_wasjetzt`, die schon vorher niemand einband. Keine gelöscht — das ist
+  keine Entscheidung dieser Spec.
+- **Zwei Screenshots tragen noch „Garda Unica" im Bild.** Beim Prüfen der
+  Bildköpfe aufgefallen, nicht durch diese Arbeit entstanden: `oggi_tipp.jpg`
+  (jetzt Pfeiler 1) zeigt in der Kopfzeile „Garda Unica", `storm_warning.jpg`
+  (15:12 im Tagesbogen) ebenfalls. `territorio_map.jpg` — das neue Hero-Bild —
+  ist sauber, ebenso `verkehr_liste.jpg`, `planungsmodi.jpg` und
+  `onboarding_wer.jpg`. Beide betroffenen Aufnahmen standen schon vor dieser
+  Spec auf der Seite; sie gehören zu **WEB-03 (Bilder)**, das weiter offen ist.
+  Nicht angefasst, weil Bilder in dieser Spec nicht neu aufgenommen werden.
+  **Wichtig für die zwei fehlenden Aufnahmen:** `diario_raster.jpg` und
+  `cerchio_woche.jpg` aus einem Stand aufnehmen, der bereits „Unica Benaco"
+  zeigt — sonst kommen zwei weitere Fundstellen dazu.
+- **Vorbestand, nicht angefasst:** `onboarding_wer.jpg` sowie die drei
+  Team-Fotos stehen unterhalb der Falz ohne `loading="lazy"`;
+  `onboarding_wer.jpg` hat zusätzlich kein `width`/`height`. Das war schon
+  vorher so und steht nicht in dieser Spec. `.pcap` in `--notte-3` liegt mit
+  ≈ 3,0:1 unter 4,5:1 — Palette ist Nicht-Ziel, der Text ist nicht neu.
+
+### Prüfwerkzeug
+
+Zwei Soll-Werte nachgezogen, gezählt statt weggeschaut:
+
+| Kontrolle | vorher | jetzt | Grund |
+|---|---|---|---|
+| NEG Geografie Garda | 44 | **47** | +1 Spec-Datei (`b33db21`), +1 Ä6-Kommentar, +1 Alt-Text `weinberg_see.jpg` |
+| NEG Peschiera | 17 | **19** | +2 Zeilen mit dem Dateinamen `peschiera_abend.jpg` |
+
+`M8 unica-benaco` fällt in `index.html` von 56 auf 55 Zeilen. Soll ist
+„steigend", also kein Gate-Bruch; die Differenz ist der Alt-Text von
+`scopri_erlebnis.jpg`. Alle übrigen Muster unverändert, `--selftest` grün.
+
+### Offen vor dem Livegang
+
+1. **Copy-Freigabe Cristina** — vier Stellen, alle als Entwurf gekennzeichnet:
+   `di_h`/`di_p` (Ä1), `cr_h`/`cr_p` (Ä2), `pb_v1_p` (Ä5) und der Saisonsatz
+   (Ä6). Die DE-Fassungen von Ä2 und Ä5 sind wortgleich aus der Spec; alles
+   übrige ist meine Formulierung.
+2. **IT und EN** aller neuen Texte. Stehen als Entwurf drin, damit die Seite in
+   allen drei Sprachen vollständig ist, nicht weil sie freigegeben wären.
+3. **Der Saisonsatz aus Ä6.** Bewusst nicht erfunden — Ä6 ist keine der drei
+   Stellen, an denen diese Spec neue Copy zulässt. Der Platz ist vorbereitet:
+   Kommentar im Pivot-Block, fertiges Markup, Schlüssel `pb_saison`, kein
+   leerer Wörterbucheintrag.
+4. **Sechs Aufnahmen fehlen.** Alle sechs stehen als Platzhalter im Quelltext,
+   mit Kommentar und `onerror`, das sie bis zur Lieferung rückstandslos
+   herausnimmt. Kein Ersatz aus `assets/` gegriffen.
+
+   | Datei | Ort | Format |
+   |---|---|---|
+   | `assets/app/diario_raster.jpg` | Pfeiler 2 | 1080×2115, ≤ 250 KB |
+   | `assets/app/cerchio_woche.jpg` | Pfeiler 3 | 1080×2115, ≤ 250 KB |
+   | `assets/foto/peschiera_abend.jpg` | Hero, dahinter | 16:9, ≤ 200 KB |
+   | `assets/foto/steg_mittag.jpg` | Vignette 03 | 3:2, ≤ 200 KB |
+   | `assets/foto/zypressen_abend.jpg` | Pfeiler 1, Saison | 3:2, ≤ 200 KB |
+   | `assets/foto/weinberg_see.jpg` | Von hier, für hier | 3:2, ≤ 200 KB |
+
+   `cerchio_woche.jpg` ist die zwingende: ESPERIENZE-Feed mit dem Kopf
+   „Cerchio Estate 2026 · Settimana 35", **ohne Persona-Karte**, ohne
+   RESIDENTI. Die abgelöste `cerchio_community.jpg` zeigte unten
+   „Marco · AI · Fischer · Lazise" und oben noch die überholte Kopfzeile —
+   Zuschneiden half nicht.
+
+   Die beiden Screenshots danach auch auf IT und EN aufnehmen. Die Alt-Texte
+   der vier Fotos sind vorläufig und gegen die gelieferten Aufnahmen
+   gegenzulesen.
+5. **Abnahmekriterium 1** ist erst mit `diario_raster.jpg` und
+   `cerchio_woche.jpg` erfüllt.
+
+---
+
 ## WEB-06 — Descriptor „Lago di Garda" in der Wortmarke
 
 **Branch:** `claude/web-06`, Basis `main` auf `fdbc13d`
