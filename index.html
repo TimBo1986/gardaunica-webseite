@@ -409,13 +409,21 @@ footer a:hover{color:var(--notte)}
         <p class="pcap" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/territorio_map.jpg" alt="Unica Benaco — Auslastungs-Einschätzung je Ort auf der Karte" width="250" height="518" loading="lazy" decoding="async"></div>
+        <div class="scr"><img src="assets/app/oggi_tipp.jpg" alt="Unica Benaco — eine Empfehlung mit Warum-Button" width="250" height="518" loading="lazy" decoding="async"></div>
       </div>
     </div>
 
     <!-- Pfeiler 2 · Dein Tag (Diario). Stempel, Tagesstory, La Carte du Soir.
          ENTWURF — Cristina entscheidet. Bildschirm folgt mit Ä3. -->
-    <div class="pil-row">
+    <div class="pil-row flip">
+      <!-- PLATZHALTER · Datei fehlt: assets/app/diario_raster.jpg
+           Von Tim angekündigt: Diario-Raster, die Stempel eines Tages.
+           1080×2115 wie die übrigen Aufnahmen, JPG ≤ 250 KB, später dieselbe
+           Ansicht auf IT und EN. Solange die Datei fehlt, nimmt onerror die
+           Aufnahme heraus — nicht durch ein anderes Bild aus assets/ ersetzen. -->
+      <div class="phone-frame phone-sm reveal pil-shot">
+        <div class="scr"><img src="assets/app/diario_raster.jpg" alt="Unica Benaco — Diario: die Stempel eines Tages" width="250" height="518" loading="lazy" decoding="async" onerror="this.closest('.phone-frame').remove()"></div>
+      </div>
       <div class="pil-copy">
         <span class="pnum" data-i18n="ls2_num">Säule 2</span>
         <h3 data-i18n="di_h">Der Tag, den ihr <em>behaltet.</em></h3>
@@ -438,8 +446,14 @@ footer a:hover{color:var(--notte)}
           <span class="ex-chip" data-i18n="ex_c3">KI transparent gekennzeichnet</span>
         </div>
       </div>
+      <!-- PLATZHALTER · Datei fehlt: assets/app/cerchio_woche.jpg
+           Von Tim angekündigt: ESPERIENZE-Feed mit dem Kopf
+           "Cerchio Estate 2026 · Settimana 35", ohne Persona-Karte, ohne
+           RESIDENTI. Zwingend nach Ä3 — die abgelöste cerchio_community.jpg
+           zeigte unten "Marco · AI · Fischer · Lazise". 1080×2115, ≤ 250 KB,
+           später IT und EN. Nicht durch ein anderes Bild aus assets/ ersetzen. -->
       <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/cerchio_community.jpg" alt="Unica Benaco — Il Cerchio: Unica antwortet aus lokalen Quellen, KI-Beiträge gekennzeichnet" width="250" height="518" loading="lazy" decoding="async"></div>
+        <div class="scr"><img src="assets/app/cerchio_woche.jpg" alt="Unica Benaco — Il Cerchio: die Momente dieser Woche am See" width="250" height="518" loading="lazy" decoding="async" onerror="this.closest('.phone-frame').remove()"></div>
       </div>
     </div>
   </div>
