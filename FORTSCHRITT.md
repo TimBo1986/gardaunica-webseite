@@ -80,17 +80,25 @@ Bewegung), FAQ, Bio-Modal und Warteliste unberührt.
   abgelöst), `scopri_erlebnis` (siehe oben) sowie `chat_lazise` und
   `oggi_wasjetzt`, die schon vorher niemand einband. Keine gelöscht — das ist
   keine Entscheidung dieser Spec.
-- **Zwei Screenshots tragen noch „Garda Unica" im Bild.** Beim Prüfen der
-  Bildköpfe aufgefallen, nicht durch diese Arbeit entstanden: `oggi_tipp.jpg`
-  (jetzt Pfeiler 1) zeigt in der Kopfzeile „Garda Unica", `storm_warning.jpg`
-  (15:12 im Tagesbogen) ebenfalls. `territorio_map.jpg` — das neue Hero-Bild —
-  ist sauber, ebenso `verkehr_liste.jpg`, `planungsmodi.jpg` und
-  `onboarding_wer.jpg`. Beide betroffenen Aufnahmen standen schon vor dieser
-  Spec auf der Seite; sie gehören zu **WEB-03 (Bilder)**, das weiter offen ist.
-  Nicht angefasst, weil Bilder in dieser Spec nicht neu aufgenommen werden.
-  **Wichtig für die zwei fehlenden Aufnahmen:** `diario_raster.jpg` und
-  `cerchio_woche.jpg` aus einem Stand aufnehmen, der bereits „Unica Benaco"
-  zeigt — sonst kommen zwei weitere Fundstellen dazu.
+- **Noch ein Screenshot trägt „Garda Unica" im Bild:** `storm_warning.jpg`
+  (15:12 im Tagesbogen). `oggi_tipp.jpg` war ebenfalls betroffen und ist von Tim
+  ersetzt — die Aufnahme zeigt jetzt „Unica Benaco" und „Oggi — Solferino".
+  Sauber sind außerdem `territorio_map.jpg`, `cerchio_woche.jpg`,
+  `verkehr_liste.jpg`, `planungsmodi.jpg` und `onboarding_wer.jpg`, ebenso die
+  drei noch nicht eingebundenen `il_giorno.jpg`, `meteo.jpg` und
+  `onboarding_paar.jpg`. `storm_warning.jpg` gehört zu **WEB-03 (Bilder)**, das
+  weiter offen ist.
+- **Seitenverhältnis der Geräte-Aufnahmen korrigiert.** Bis dahin zog
+  `height:auto` zusammen mit `min-height:100%` jede Aufnahme um rund 9,5 % in
+  die Länge — betroffen waren alle sechs Mockups, auch das Hero-Bild. Die Spec
+  verlangt unter „Technische Vorgaben" ausdrücklich, das Seitenverhältnis am
+  Bild festzumachen, nicht am Container. Die Rahmenhöhen folgen jetzt den
+  1080×2115 der Aufnahmen (Innenmaß 280×548 bzw. 234×458, auf 0,06 % genau),
+  das Bild füllt per `object-fit:cover`. Nichts gestreckt, nichts beschnitten.
+  Der Chat-Rahmen behält über `.chat-phone` seine 518 px: er trägt kein Bild,
+  und bei 474 px liefe der Chat-Player mit Tippanzeige um 19 px über.
+  Die `width`/`height`-Attribute der sechs `<img>` stehen jetzt auf den
+  tatsächlichen Bildmaßen statt auf den Rahmenmaßen.
 - **Vorbestand, nicht angefasst:** `onboarding_wer.jpg` sowie die drei
   Team-Fotos stehen unterhalb der Falz ohne `loading="lazy"`;
   `onboarding_wer.jpg` hat zusätzlich kein `width`/`height`. Das war schon

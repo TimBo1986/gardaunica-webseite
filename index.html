@@ -80,11 +80,19 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .btn-ghost{display:inline-block;text-decoration:none;font-weight:600;font-size:15px;padding:15px 32px;border-radius:999px;border:1.5px solid var(--notte);color:var(--notte);transition:background 180ms var(--ease),color 180ms var(--ease)}
 .btn-ghost:hover{background:var(--notte);color:var(--carta)}
 .hero-note{margin-top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;color:var(--notte-3)}
-/* phone frame */
-.phone-frame{width:300px;height:622px;border-radius:44px;background:#141414;padding:10px;box-shadow:0 44px 90px -30px rgba(26,37,64,.45);flex-shrink:0;position:relative}
+/* phone frame
+   Die Rahmenhoehen folgen dem Seitenverhaeltnis der Aufnahmen (1080x2115),
+   nicht umgekehrt — so verlangt es die Spec unter "Technische Vorgaben".
+   Vorher zog height:auto zusammen mit min-height:100% jede Aufnahme um rund
+   9,5 % in die Laenge. Innenmass jetzt 280x548 bzw. 234x458, das trifft
+   1080/2115 auf 0,06 % genau: nichts gestreckt, nichts beschnitten.
+   Der Chat-Rahmen behaelt seine Hoehe — er traegt kein Bild, sondern den
+   Chat-Player, und bei 474px liefe der mit Tippanzeige um 19 px ueber. */
+.phone-frame{width:300px;height:568px;border-radius:44px;background:#141414;padding:10px;box-shadow:0 44px 90px -30px rgba(26,37,64,.45);flex-shrink:0;position:relative}
 .phone-frame .scr{width:100%;height:100%;border-radius:35px;overflow:hidden;position:relative;background:#1A2540}
-.phone-frame .scr img{position:absolute;left:50%;top:0;transform:translateX(-50%);width:100%;height:auto;min-height:100%}
-.phone-sm{width:250px;height:518px;border-radius:38px;padding:8px}
+.phone-frame .scr img{position:absolute;left:50%;top:0;transform:translateX(-50%);width:100%;height:100%;object-fit:cover}
+.phone-sm{width:250px;height:474px;border-radius:38px;padding:8px}
+.phone-sm.chat-phone{height:518px}
 .phone-sm .scr{border-radius:31px}
 /* problem */
 .problem{background:var(--carta-warm)}
@@ -383,7 +391,7 @@ footer a:hover{color:var(--notte)}
       <div class="hero-note" data-i18n="hero_note">Start: Herbst 2026 · kostenlos</div>
     </div>
     <div class="phone-frame reveal">
-      <div class="scr"><img src="assets/app/territorio_map.jpg" alt="Unica Benaco — Auslastungs-Einschätzung für zehn Orte am Südufer, auf der Karte" width="300" height="622" fetchpriority="high" decoding="async"></div>
+      <div class="scr"><img src="assets/app/territorio_map.jpg" alt="Unica Benaco — wie sich der See heute verteilt: zehn Orte auf der Karte, dazu Wetter, Wassertemperatur und Verkehr" width="1080" height="2115" fetchpriority="high" decoding="async"></div>
     </div>
   </div>
 </header>
@@ -470,7 +478,7 @@ footer a:hover{color:var(--notte)}
         <figure class="pfoto"><img src="assets/foto/zypressen_abend.jpg" alt="Reihe von Zypressen gegen die untergehende Sonne" loading="lazy" decoding="async"></figure>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/oggi_tipp.jpg" alt="Unica Benaco — eine Empfehlung mit Warum-Button" width="250" height="518" loading="lazy" decoding="async"></div>
+        <div class="scr"><img src="assets/app/oggi_tipp.jpg" alt="Unica Benaco — eine Empfehlung mit Warum-Button" width="1080" height="2115" loading="lazy" decoding="async"></div>
       </div>
     </div>
 
@@ -483,7 +491,7 @@ footer a:hover{color:var(--notte)}
            Ansicht auf IT und EN. Solange die Datei fehlt, nimmt onerror die
            Aufnahme heraus — nicht durch ein anderes Bild aus assets/ ersetzen. -->
       <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/diario_raster.jpg" alt="Unica Benaco — Diario: die Stempel eines Tages" width="250" height="518" loading="lazy" decoding="async" onerror="this.closest('.phone-frame').remove()"></div>
+        <div class="scr"><img src="assets/app/diario_raster.jpg" alt="Unica Benaco — Diario: die Stempel eines Tages" width="1080" height="2115" loading="lazy" decoding="async" onerror="this.closest('.phone-frame').remove()"></div>
       </div>
       <div class="pil-copy">
         <span class="pnum" data-i18n="ls2_num">Säule 2</span>
@@ -512,7 +520,7 @@ footer a:hover{color:var(--notte)}
            Löst cerchio_community.jpg ab, die unten "Marco · AI · Fischer · Lazise"
            zeigte. Offen: dieselbe Ansicht noch auf IT und EN aufnehmen. -->
       <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/cerchio_woche.jpg" alt="Unica Benaco — Il Cerchio: der Kreis dieser Woche mit den Momenten vom See" width="250" height="518" loading="lazy" decoding="async"></div>
+        <div class="scr"><img src="assets/app/cerchio_woche.jpg" alt="Unica Benaco — Il Cerchio: der Kreis dieser Woche mit den Momenten vom See" width="1080" height="2115" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </div>
@@ -545,12 +553,12 @@ footer a:hover{color:var(--notte)}
       <div class="quote" data-i18n="m1_q">„Um 8:30 ist die Bucht noch leer. Um 11 nicht mehr."</div>
     </div>
     <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/verkehr_liste.jpg" alt="Unica Benaco — Auslastungs-Einschätzung nach Ort" width="250" height="518" loading="lazy" decoding="async"></div>
+      <div class="scr"><img src="assets/app/verkehr_liste.jpg" alt="Unica Benaco — Auslastungs-Einschätzung nach Ort" width="1080" height="2115" loading="lazy" decoding="async"></div>
     </div>
   </div>
 
   <div class="day-moment">
-    <div class="phone-frame phone-sm reveal">
+    <div class="phone-frame phone-sm reveal chat-phone">
       <div class="scr chat-scr">
         <div class="chat-head">
           <span class="orb"></span>
@@ -582,7 +590,7 @@ footer a:hover{color:var(--notte)}
       <div class="quote" data-i18n="m3_q">„Sei vor 15:30 zurück vom See — kein Bootsausflug."</div>
     </div>
     <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/storm_warning.jpg" alt="Unica Benaco — Unwetterwarnung" width="250" height="518" loading="lazy" decoding="async"></div>
+      <div class="scr"><img src="assets/app/storm_warning.jpg" alt="Unica Benaco — Unwetterwarnung" width="1080" height="2115" loading="lazy" decoding="async"></div>
     </div>
   </div>
 
