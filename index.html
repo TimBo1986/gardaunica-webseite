@@ -388,7 +388,7 @@ footer a:hover{color:var(--notte)}
   </div>
 </section>
 
-<!-- 3 · LÖSUNG -->
+<!-- 3 · LÖSUNG · die drei Pfeiler des Produkts (Spec 0001, Ä1) -->
 <section id="loesung" class="loesung">
   <div class="wrap">
     <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
@@ -396,11 +396,16 @@ footer a:hover{color:var(--notte)}
       <h2 data-i18n="ls_h2">Damit der Tag <em>euch</em> gehört.</h2>
     </div>
 
+    <!-- Pfeiler 1 · Der richtige Moment (Planer + Territorio).
+         ls2_p ist die frühere Säule 2, wortgleich hierhergezogen: Territorio
+         liefert die Lage, der Planer macht daraus eine Entscheidung.
+         ls1_cap bleibt die Ehrlichkeitszeile an dieser Stelle. -->
     <div class="pil-row">
       <div class="pil-copy">
         <span class="pnum" data-i18n="ls1_num">Säule 1</span>
         <h3 data-i18n="ls1_h">Der richtige <em>Moment.</em></h3>
         <p data-i18n="ls1_p">Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.</p>
+        <p data-i18n="ls2_p">Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.</p>
         <p class="pcap" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
@@ -408,25 +413,33 @@ footer a:hover{color:var(--notte)}
       </div>
     </div>
 
-    <div class="pil-row flip">
-      <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/oggi_tipp.jpg" alt="Unica Benaco — eine Empfehlung mit Warum-Button" width="250" height="518" loading="lazy" decoding="async"></div>
-      </div>
+    <!-- Pfeiler 2 · Dein Tag (Diario). Stempel, Tagesstory, La Carte du Soir.
+         ENTWURF — Cristina entscheidet. Bildschirm folgt mit Ä3. -->
+    <div class="pil-row">
       <div class="pil-copy">
         <span class="pnum" data-i18n="ls2_num">Säule 2</span>
-        <h3 data-i18n="ls2_h">Eine Entscheidung, <em>kein Katalog.</em></h3>
-        <p data-i18n="ls2_p">Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.</p>
+        <h3 data-i18n="di_h">Der Tag, den ihr <em>behaltet.</em></h3>
+        <p data-i18n="di_p">Ein Stempel für jeden Ort, an dem ihr wart. Abends läuft der Tag als Story zurück — und La Carte du Soir schreibt ihn in einem Satz auf, aus eurem tatsächlichen Tagesverlauf. Bewusst ohne Bild: Unicas eigene Beobachtung, kein Foto-Recycling.</p>
       </div>
     </div>
 
+    <!-- Pfeiler 3 · Der Kreis (Cerchio). Ersetzt den eigenständigen Abschnitt
+         „Il Cerchio · Community": Überschrift, Absatz und die drei Chips sind
+         wortgleich von dort hierhergezogen. Der Text ist noch der Stand vor dem
+         Umbau vom Juli 2026 — Ä2 zieht ihn nach. -->
     <div class="pil-row">
       <div class="pil-copy">
         <span class="pnum" data-i18n="ls3_num">Säule 3</span>
-        <h3 data-i18n="ls3_h">Handverlesen von Menschen, <em>die hier leben.</em></h3>
-        <p data-i18n="ls3_p">Keine bezahlten Platzierungen, kein Sterne-Rauschen von Leuten, die einmal da waren. Jeder Tipp ist handverlesen, aus echter Ortskenntnis. „Sag Marco, dass wir dich schicken."</p>
+        <h3 data-i18n="ex_h2">Fragen und Antworten <em>im Kreis.</em></h3>
+        <p data-i18n="ex_p">Stell deine Frage — Unica stellt die Antwort aus lokalen Quellen zusammen, und Gäste teilen ihre Erlebnisse. KI-Beiträge sind klar gekennzeichnet. Kein Werbe-Forum, sondern ein Kreis rund um den See.</p>
+        <div class="ex-chips">
+          <span class="ex-chip" data-i18n="ex_c1">aus lokalen Quellen</span>
+          <span class="ex-chip" data-i18n="ex_c2">Community-Beiträge</span>
+          <span class="ex-chip" data-i18n="ex_c3">KI transparent gekennzeichnet</span>
+        </div>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/scopri_erlebnis.jpg" alt="Unica Benaco — Erlebnis mit Marco, buchbar bei Partnern" width="250" height="518" loading="lazy" decoding="async"></div>
+        <div class="scr"><img src="assets/app/cerchio_community.jpg" alt="Unica Benaco — Il Cerchio: Unica antwortet aus lokalen Quellen, KI-Beiträge gekennzeichnet" width="250" height="518" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </div>
@@ -514,27 +527,6 @@ footer a:hover{color:var(--notte)}
     <div class="cerchio-copy">
       <h3 data-i18n="ce_h3">Du entscheidest, wie viel Unica <em>plant.</em></h3>
       <p data-i18n="ce_p">Von „überrasch mich" bis „wir planen zu zweit": Wähl deinen Modus — und wechsle jederzeit, auch mitten im Urlaub. Unica denkt mit, nie über deinen Kopf hinweg.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 3b · ERLEBNISSE -->
-<section id="erlebnisse" class="problem">
-  <div class="wrap">
-    <div class="erlebnis-grid">
-      <div class="erlebnis-copy">
-        <span class="eyebrow" data-i18n="ex_eyebrow">Il Cerchio · Community</span>
-        <h2 data-i18n="ex_h2">Fragen und Antworten <em>im Kreis.</em></h2>
-        <p data-i18n="ex_p">Stell deine Frage — Unica stellt die Antwort aus lokalen Quellen zusammen, und Gäste teilen ihre Erlebnisse. KI-Beiträge sind klar gekennzeichnet. Kein Werbe-Forum, sondern ein Kreis rund um den See.</p>
-        <div class="ex-chips">
-          <span class="ex-chip" data-i18n="ex_c1">aus lokalen Quellen</span>
-          <span class="ex-chip" data-i18n="ex_c2">Community-Beiträge</span>
-          <span class="ex-chip" data-i18n="ex_c3">KI transparent gekennzeichnet</span>
-        </div>
-      </div>
-      <div class="phone-frame phone-sm reveal">
-        <div class="scr"><img src="assets/app/cerchio_community.jpg" alt="Unica Benaco — Il Cerchio: Unica antwortet aus lokalen Quellen, KI-Beiträge gekennzeichnet" width="250" height="518" loading="lazy" decoding="async"></div>
-      </div>
     </div>
   </div>
 </section>
@@ -723,6 +715,9 @@ var I18N={
   pi3_h:"Unabhängig",pi3_p:"Keine bezahlten Platzierungen. Wenn wir empfehlen, steht dabei, warum. Partner kennzeichnen wir transparent — und was Unica nicht sicher weiß, behauptet sie nicht.",
   pi4_h:"Gut für den ganzen See",pi4_p:"Volle Orte werden entlastet, stille entdeckt. Weniger Parksuche, weniger Stress — und Umsatz auch dort, wo der Rummel sonst nie ankommt.",
   mi_quote:"„Das weiß ich nicht sicher — und ich rate nicht.\" — Unica",
+  /* ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit
+     Ä1 in Pfeiler 3 aufgegangen; die Pfeiler-Zeilen tragen keine Eyebrow.
+     Ausgesetzt, nicht gelöscht. ex_h2/ex_p/ex_c1-3 stehen weiter live. */
   ex_eyebrow:"Il Cerchio · Community",ex_h2:"Fragen und Antworten <em>im Kreis.</em>",
   ex_p:"Stell deine Frage — Unica stellt die Antwort aus lokalen Quellen zusammen, und Gäste teilen ihre Erlebnisse. KI-Beiträge sind klar gekennzeichnet. Kein Werbe-Forum, sondern ein Kreis rund um den See.",
   ex_c1:"aus lokalen Quellen",ex_c2:"Community-Beiträge",ex_c3:"KI transparent gekennzeichnet",
@@ -745,10 +740,19 @@ var I18N={
   ls_eyebrow:"Was Unica tut",ls_h2:"Damit der Tag <em>euch</em> gehört.",
   ls1_num:"Säule 1",ls1_h:"Der richtige <em>Moment.</em>",
   ls1_p:"Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.",
-  ls1_cap:"Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.",
-  ls2_num:"Säule 2",ls2_h:"Eine Entscheidung, <em>kein Katalog.</em>",
   ls2_p:"Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?\" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.",
-  ls3_num:"Säule 3",ls3_h:"Handverlesen von Menschen, <em>die hier leben.</em>",
+  ls1_cap:"Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.",
+  ls2_num:"Säule 2",
+  di_h:"Der Tag, den ihr <em>behaltet.</em>",
+  di_p:"Ein Stempel für jeden Ort, an dem ihr wart. Abends läuft der Tag als Story zurück — und La Carte du Soir schreibt ihn in einem Satz auf, aus eurem tatsächlichen Tagesverlauf. Bewusst ohne Bild: Unicas eigene Beobachtung, kein Foto-Recycling.",
+  ls3_num:"Säule 3",
+  /* AUSGESETZT mit Ä1 (Spec 0001) — Text bleibt erhalten, nichts gelöscht.
+     ls2_h: Inhalt steckt vollständig in ls2_p, das jetzt in Pfeiler 1 steht.
+     ls3_h/ls3_p: Inhalt steht im Mission-Abschnitt — pi1_* „Handverlesen,
+     keine Masse" und pi3_* „Unabhängig". Wiedereinbau entscheiden Tim und
+     Cristina. */
+  ls2_h:"Eine Entscheidung, <em>kein Katalog.</em>",
+  ls3_h:"Handverlesen von Menschen, <em>die hier leben.</em>",
   ls3_p:"Keine bezahlten Platzierungen, kein Sterne-Rauschen von Leuten, die einmal da waren. Jeder Tipp ist handverlesen, aus echter Ortskenntnis. „Sag Marco, dass wir dich schicken.\"",
   day_eyebrow:"Ein Tag mit Unica",day_h2:"Vom Aufwachen bis zum <em>Aperitivo.</em>",
   m0_time:"BEVOR ES LOSGEHT",m0_h:"Zwei Minuten — dann kennt Unica <em>euch.</em>",
@@ -828,6 +832,9 @@ var I18N={
   pi3_h:"Indipendenti",pi3_p:"Nessun posizionamento a pagamento. Quando consigliamo, c'è scritto il perché. I partner sono segnalati in modo trasparente — e ciò che Unica non sa con certezza, non lo afferma.",
   pi4_h:"Un bene per tutto il lago",pi4_p:"I luoghi pieni vengono alleggeriti, quelli tranquilli scoperti. Meno ricerca di parcheggio, meno stress — e fatturato anche dove la folla non arriva mai.",
   mi_quote:"„Non lo so con certezza — e non tiro a indovinare.\" — Unica",
+  /* ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit
+     Ä1 in Pfeiler 3 aufgegangen; die Pfeiler-Zeilen tragen keine Eyebrow.
+     Ausgesetzt, nicht gelöscht. ex_h2/ex_p/ex_c1-3 stehen weiter live. */
   ex_eyebrow:"Il Cerchio · Community",ex_h2:"Domande e risposte <em>nel cerchio.</em>",
   ex_p:"Fai la tua domanda — Unica compone la risposta da fonti locali, e gli ospiti condividono le loro esperienze. I contributi AI sono chiaramente segnalati. Non un forum pubblicitario, ma un cerchio attorno al lago.",
   ex_c1:"da fonti locali",ex_c2:"Contributi community",ex_c3:"AI segnalata con trasparenza",
@@ -850,10 +857,19 @@ var I18N={
   ls_eyebrow:"Cosa fa Unica",ls_h2:"Perché la giornata sia <em>vostra.</em>",
   ls1_num:"Pilastro 1",ls1_h:"Il momento <em>giusto.</em>",
   ls1_p:"Unica legge il lago per te: una stima di quanto è affollato ogni luogo, meteo reale e allerte — ricalcolata regolarmente. Così sai dove vale la pena andare oggi.",
-  ls1_cap:"L'affluenza è una stima ricalcolata regolarmente per ogni località — da dati di traffico e meteo e conoscenza del territorio. Nessun sensore stradale, nessun conteggio di persone. Il meteo è reale e in tempo reale.",
-  ls2_num:"Pilastro 2",ls2_h:"Una decisione, <em>non un catalogo.</em>",
   ls2_p:"Invece di cento opzioni: un consiglio adatto a meteo, giorno e situazione — con un „Perché?\" e un'alternativa. Basta discussioni infinite a colazione.",
-  ls3_num:"Pilastro 3",ls3_h:"Selezionato a mano da chi <em>vive qui.</em>",
+  ls1_cap:"L'affluenza è una stima ricalcolata regolarmente per ogni località — da dati di traffico e meteo e conoscenza del territorio. Nessun sensore stradale, nessun conteggio di persone. Il meteo è reale e in tempo reale.",
+  ls2_num:"Pilastro 2",
+  di_h:"La giornata che <em>vi resta.</em>",
+  di_p:"Un timbro per ogni luogo in cui siete stati. La sera la giornata scorre indietro come una storia — e La Carte du Soir la scrive in una frase, a partire dal vostro percorso reale. Volutamente senza immagine: l'osservazione di Unica, non foto riciclate.",
+  ls3_num:"Pilastro 3",
+  /* AUSGESETZT mit Ä1 (Spec 0001) — Text bleibt erhalten, nichts gelöscht.
+     ls2_h: Inhalt steckt vollständig in ls2_p, das jetzt in Pfeiler 1 steht.
+     ls3_h/ls3_p: Inhalt steht im Mission-Abschnitt — pi1_* „Handverlesen,
+     keine Masse" und pi3_* „Unabhängig". Wiedereinbau entscheiden Tim und
+     Cristina. */
+  ls2_h:"Una decisione, <em>non un catalogo.</em>",
+  ls3_h:"Selezionato a mano da chi <em>vive qui.</em>",
   ls3_p:"Nessun posizionamento a pagamento, nessun rumore di stelle di chi è passato una volta sola. Ogni consiglio è scelto a mano, da vera conoscenza del posto. „Di' a Marco che ti mandiamo noi.\"",
   day_eyebrow:"Una giornata con Unica",day_h2:"Dal risveglio all'<em>aperitivo.</em>",
   m0_time:"PRIMA DI PARTIRE",m0_h:"Due minuti — e Unica <em>vi conosce.</em>",
@@ -933,6 +949,9 @@ var I18N={
   pi3_h:"Independent",pi3_p:"No paid placements. When we recommend, the reason is right there. Partners are transparently marked — and what Unica doesn't know for sure, she doesn't claim.",
   pi4_h:"Good for the whole lake",pi4_p:"Crowded places get relief, quiet ones get discovered. Less parking hunt, less stress — and revenue where the crowds never usually reach.",
   mi_quote:"„I don't know for sure — and I don't guess.\" — Unica",
+  /* ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit
+     Ä1 in Pfeiler 3 aufgegangen; die Pfeiler-Zeilen tragen keine Eyebrow.
+     Ausgesetzt, nicht gelöscht. ex_h2/ex_p/ex_c1-3 stehen weiter live. */
   ex_eyebrow:"Il Cerchio · Community",ex_h2:"Questions and answers <em>in the circle.</em>",
   ex_p:"Ask your question — Unica puts the answer together from local sources, and guests share their experiences. AI contributions are clearly labelled. Not an ad-filled forum, but a circle around the lake.",
   ex_c1:"from local sources",ex_c2:"Community posts",ex_c3:"AI transparently labelled",
@@ -955,10 +974,19 @@ var I18N={
   ls_eyebrow:"What Unica does",ls_h2:"So the day belongs to <em>you.</em>",
   ls1_num:"Pillar 1",ls1_h:"The right <em>moment.</em>",
   ls1_p:"Unica reads the lake for you: an estimate of how busy each place is right now, real weather and warnings — recalculated regularly. So you know where today's trip is worth it.",
-  ls1_cap:"Crowding is a regularly recalculated estimate per town — from traffic and weather data and local knowledge. No road sensors, no head-counting. Weather is real and live.",
-  ls2_num:"Pillar 2",ls2_h:"One decision, <em>not a catalogue.</em>",
   ls2_p:"Instead of a hundred options: one recommendation that fits the weather, the day and the situation — with a „Why?\" and an alternative. No more talking it to death over breakfast.",
-  ls3_num:"Pillar 3",ls3_h:"Hand-picked by people <em>who live here.</em>",
+  ls1_cap:"Crowding is a regularly recalculated estimate per town — from traffic and weather data and local knowledge. No road sensors, no head-counting. Weather is real and live.",
+  ls2_num:"Pillar 2",
+  di_h:"The day you <em>keep.</em>",
+  di_p:"A stamp for every place you've been. In the evening the day plays back as a story — and La Carte du Soir writes it down in one sentence, drawn from where you actually went. Deliberately without a picture: Unica's own observation, not recycled photos.",
+  ls3_num:"Pillar 3",
+  /* AUSGESETZT mit Ä1 (Spec 0001) — Text bleibt erhalten, nichts gelöscht.
+     ls2_h: Inhalt steckt vollständig in ls2_p, das jetzt in Pfeiler 1 steht.
+     ls3_h/ls3_p: Inhalt steht im Mission-Abschnitt — pi1_* „Handverlesen,
+     keine Masse" und pi3_* „Unabhängig". Wiedereinbau entscheiden Tim und
+     Cristina. */
+  ls2_h:"One decision, <em>not a catalogue.</em>",
+  ls3_h:"Hand-picked by people <em>who live here.</em>",
   ls3_p:"No paid placements, no star-noise from people who came once. Every tip is hand-picked, from real local knowledge. „Tell Marco we sent you.\"",
   day_eyebrow:"A day with Unica",day_h2:"From waking up to <em>aperitivo.</em>",
   m0_time:"BEFORE YOU START",m0_h:"Two minutes — and Unica <em>knows you.</em>",
