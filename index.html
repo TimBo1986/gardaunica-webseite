@@ -186,9 +186,14 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .day-close .quote{margin-top:18px;font-family:var(--f-display);font-style:italic;font-size:15px;color:rgba(250,245,232,.6)}
 /* modus close */
 .modus-note{margin-top:20px}
-/* honesty (notte block) */
-.honest{background:var(--notte);color:var(--carta)}
-.honest .eyebrow{color:var(--sole)}
+/* honesty (notte block)
+   Ä7 (Spec 0001): der Abschnitt ist das Fundament unter allen drei Pfeilern,
+   stand optisch aber wie ein weiterer Abschnitt in der Reihe. Er bekommt die
+   Behandlung von 21:00 im Tagesbogen — Werte 1:1 aus .day-close .time, dazu
+   mehr Luft als die 84px der Nachbarabschnitte. Das Band bleibt in voller
+   Breite. Keine neue Farbe, keine neue Schrift, kein neues Element. */
+.honest{background:var(--notte);color:var(--carta);padding:104px 0}
+.honest .eyebrow{color:var(--sole);background:rgba(250,245,232,.1);padding:6px 14px;border-radius:999px;display:inline-block}
 .honest h2{color:var(--carta)}
 .honest h2 em{color:var(--sole)}
 .mi-statements{display:grid;grid-template-columns:1fr 1fr;gap:44px;margin-top:36px}
