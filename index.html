@@ -425,13 +425,13 @@ footer a:hover{color:var(--notte)}
 
     <!-- Pfeiler 3 · Der Kreis (Cerchio). Ersetzt den eigenständigen Abschnitt
          „Il Cerchio · Community": Überschrift, Absatz und die drei Chips sind
-         wortgleich von dort hierhergezogen. Der Text ist noch der Stand vor dem
-         Umbau vom Juli 2026 — Ä2 zieht ihn nach. -->
+         wortgleich von dort hierhergezogen. Überschrift und Absatz tragen seit
+         Ä2 den geltenden Stand: Wochen-Kohorte statt Dauer-Community. -->
     <div class="pil-row">
       <div class="pil-copy">
         <span class="pnum" data-i18n="ls3_num">Säule 3</span>
-        <h3 data-i18n="ex_h2">Fragen und Antworten <em>im Kreis.</em></h3>
-        <p data-i18n="ex_p">Stell deine Frage — Unica stellt die Antwort aus lokalen Quellen zusammen, und Gäste teilen ihre Erlebnisse. KI-Beiträge sind klar gekennzeichnet. Kein Werbe-Forum, sondern ein Kreis rund um den See.</p>
+        <h3 data-i18n="cr_h">Der Kreis derer, die <em>jetzt hier sind.</em></h3>
+        <p data-i18n="cr_p">Keine Dauer-Community, kein Feed. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Danach ist es vorbei.</p>
         <div class="ex-chips">
           <span class="ex-chip" data-i18n="ex_c1">aus lokalen Quellen</span>
           <span class="ex-chip" data-i18n="ex_c2">Community-Beiträge</span>
@@ -715,11 +715,19 @@ var I18N={
   pi3_h:"Unabhängig",pi3_p:"Keine bezahlten Platzierungen. Wenn wir empfehlen, steht dabei, warum. Partner kennzeichnen wir transparent — und was Unica nicht sicher weiß, behauptet sie nicht.",
   pi4_h:"Gut für den ganzen See",pi4_p:"Volle Orte werden entlastet, stille entdeckt. Weniger Parksuche, weniger Stress — und Umsatz auch dort, wo der Rummel sonst nie ankommt.",
   mi_quote:"„Das weiß ich nicht sicher — und ich rate nicht.\" — Unica",
-  /* ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit
-     Ä1 in Pfeiler 3 aufgegangen; die Pfeiler-Zeilen tragen keine Eyebrow.
-     Ausgesetzt, nicht gelöscht. ex_h2/ex_p/ex_c1-3 stehen weiter live. */
-  ex_eyebrow:"Il Cerchio · Community",ex_h2:"Fragen und Antworten <em>im Kreis.</em>",
+  /* AUSGESETZT mit Ä1 und Ä2 (Spec 0001) — Text bleibt erhalten, nichts gelöscht.
+     ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit Ä1
+     in Pfeiler 3 aufgegangen; Pfeiler-Zeilen tragen keine Eyebrow.
+     ex_h2/ex_p: Stand vor dem Cerchio-Umbau vom Juli 2026, sachlich überholt.
+     An ihre Stelle treten cr_h/cr_p. Die Chips ex_c1-3 stehen weiter live. */
+  ex_eyebrow:"Il Cerchio · Community",
+  ex_h2:"Fragen und Antworten <em>im Kreis.</em>",
   ex_p:"Stell deine Frage — Unica stellt die Antwort aus lokalen Quellen zusammen, und Gäste teilen ihre Erlebnisse. KI-Beiträge sind klar gekennzeichnet. Kein Werbe-Forum, sondern ein Kreis rund um den See.",
+  /* Ä2 · ENTWURF, Cristina entscheidet. Geltender Stand seit Juli 2026:
+     Wochen-Kohorte statt Dauer-Community, Beiträge verfallen nach sieben
+     Tagen, jede Woche ein neuer Kreis. */
+  cr_h:"Der Kreis derer, die <em>jetzt hier sind.</em>",
+  cr_p:"Keine Dauer-Community, kein Feed. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Danach ist es vorbei.",
   ex_c1:"aus lokalen Quellen",ex_c2:"Community-Beiträge",ex_c3:"KI transparent gekennzeichnet",
   cl_u1:"Wann ist Markttag in Lazise?",cl_a1:"Mittwochs, 8 bis 13 Uhr — im historischen Zentrum. Viel Spaß beim Stöbern!",
   cl_u2:"Und wo gibt's um 22 Uhr noch Pizza in Peschiera?",cl_a2:"Da kenne ich zwei Öfen, die dann noch heiß sind. Soll ich dir den Weg zeigen?",
@@ -832,11 +840,19 @@ var I18N={
   pi3_h:"Indipendenti",pi3_p:"Nessun posizionamento a pagamento. Quando consigliamo, c'è scritto il perché. I partner sono segnalati in modo trasparente — e ciò che Unica non sa con certezza, non lo afferma.",
   pi4_h:"Un bene per tutto il lago",pi4_p:"I luoghi pieni vengono alleggeriti, quelli tranquilli scoperti. Meno ricerca di parcheggio, meno stress — e fatturato anche dove la folla non arriva mai.",
   mi_quote:"„Non lo so con certezza — e non tiro a indovinare.\" — Unica",
-  /* ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit
-     Ä1 in Pfeiler 3 aufgegangen; die Pfeiler-Zeilen tragen keine Eyebrow.
-     Ausgesetzt, nicht gelöscht. ex_h2/ex_p/ex_c1-3 stehen weiter live. */
-  ex_eyebrow:"Il Cerchio · Community",ex_h2:"Domande e risposte <em>nel cerchio.</em>",
+  /* AUSGESETZT mit Ä1 und Ä2 (Spec 0001) — Text bleibt erhalten, nichts gelöscht.
+     ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit Ä1
+     in Pfeiler 3 aufgegangen; Pfeiler-Zeilen tragen keine Eyebrow.
+     ex_h2/ex_p: Stand vor dem Cerchio-Umbau vom Juli 2026, sachlich überholt.
+     An ihre Stelle treten cr_h/cr_p. Die Chips ex_c1-3 stehen weiter live. */
+  ex_eyebrow:"Il Cerchio · Community",
+  ex_h2:"Domande e risposte <em>nel cerchio.</em>",
   ex_p:"Fai la tua domanda — Unica compone la risposta da fonti locali, e gli ospiti condividono le loro esperienze. I contributi AI sono chiaramente segnalati. Non un forum pubblicitario, ma un cerchio attorno al lago.",
+  /* Ä2 · ENTWURF, Cristina entscheidet. Geltender Stand seit Juli 2026:
+     Wochen-Kohorte statt Dauer-Community, Beiträge verfallen nach sieben
+     Tagen, jede Woche ein neuer Kreis. */
+  cr_h:"Il cerchio di chi <em>è qui adesso.</em>",
+  cr_p:"Nessuna community permanente, nessun feed. Ogni settimana un cerchio nuovo — quello che succede sul lago questa settimana, questa settimana si legge. Poi è finita.",
   ex_c1:"da fonti locali",ex_c2:"Contributi community",ex_c3:"AI segnalata con trasparenza",
   cl_u1:"Quando c'è il mercato a Lazise?",cl_a1:"Il mercoledì, dalle 8 alle 13 — nel centro storico. Buona passeggiata tra i banchi!",
   cl_u2:"E dove trovo una pizza a Peschiera alle 22?",cl_a2:"Conosco due forni ancora caldi a quell'ora. Ti mostro la strada?",
@@ -949,11 +965,19 @@ var I18N={
   pi3_h:"Independent",pi3_p:"No paid placements. When we recommend, the reason is right there. Partners are transparently marked — and what Unica doesn't know for sure, she doesn't claim.",
   pi4_h:"Good for the whole lake",pi4_p:"Crowded places get relief, quiet ones get discovered. Less parking hunt, less stress — and revenue where the crowds never usually reach.",
   mi_quote:"„I don't know for sure — and I don't guess.\" — Unica",
-  /* ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit
-     Ä1 in Pfeiler 3 aufgegangen; die Pfeiler-Zeilen tragen keine Eyebrow.
-     Ausgesetzt, nicht gelöscht. ex_h2/ex_p/ex_c1-3 stehen weiter live. */
-  ex_eyebrow:"Il Cerchio · Community",ex_h2:"Questions and answers <em>in the circle.</em>",
+  /* AUSGESETZT mit Ä1 und Ä2 (Spec 0001) — Text bleibt erhalten, nichts gelöscht.
+     ex_eyebrow: der eigenständige Abschnitt „Il Cerchio · Community" ist mit Ä1
+     in Pfeiler 3 aufgegangen; Pfeiler-Zeilen tragen keine Eyebrow.
+     ex_h2/ex_p: Stand vor dem Cerchio-Umbau vom Juli 2026, sachlich überholt.
+     An ihre Stelle treten cr_h/cr_p. Die Chips ex_c1-3 stehen weiter live. */
+  ex_eyebrow:"Il Cerchio · Community",
+  ex_h2:"Questions and answers <em>in the circle.</em>",
   ex_p:"Ask your question — Unica puts the answer together from local sources, and guests share their experiences. AI contributions are clearly labelled. Not an ad-filled forum, but a circle around the lake.",
+  /* Ä2 · ENTWURF, Cristina entscheidet. Geltender Stand seit Juli 2026:
+     Wochen-Kohorte statt Dauer-Community, Beiträge verfallen nach sieben
+     Tagen, jede Woche ein neuer Kreis. */
+  cr_h:"The circle of those <em>here right now.</em>",
+  cr_p:"No permanent community, no feed. Every week a new circle — what happens at the lake this week is what stands there this week. After that it is over.",
   ex_c1:"from local sources",ex_c2:"Community posts",ex_c3:"AI transparently labelled",
   cl_u1:"When is market day in Lazise?",cl_a1:"Wednesdays, 8am to 1pm — in the historic centre. Enjoy browsing!",
   cl_u2:"And where can I get pizza in Peschiera at 10pm?",cl_a2:"I know two ovens still hot at that hour. Want me to show you the way?",
