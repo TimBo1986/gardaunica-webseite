@@ -343,6 +343,28 @@ footer a:hover{color:var(--notte)}
    stattdessen oben und unten, dort haelt die 40 % die Liegestuehle ganz. */
 .foto-band.b-steg img{object-position:0 40%}
 .problem .foto-band,#team .foto-band{margin-top:44px}
+/* Beats — die sieben Kapitel der Storyline. Ein Rhythmus fuer alle:
+   Textspalte auf Textbreite, Geraet daneben, das Paar zentriert wie die
+   Ueberschriften darueber. Gleiche Geometrie wie .pil-row, nur ohne
+   Trennlinie, weil jeder Beat ein eigener Abschnitt ist. */
+.beat{padding:84px 0}
+.beat-hell{background:var(--carta-morn)}
+.beat-row{display:grid;grid-template-columns:minmax(0,46ch) auto;justify-content:center;gap:56px;align-items:center}
+.beat-row.flip{grid-template-columns:auto minmax(0,46ch)}
+.beat-row.flip .pil-shot{order:-1}
+@media(max-width:820px){
+  .beat-row,.beat-row.flip{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .beat-row.flip .pil-shot{order:0}
+}
+.beat-copy p{margin-top:14px;color:var(--notte-2);font-size:15.5px;line-height:1.7;max-width:46ch}
+@media(max-width:820px){.beat-copy p{margin-left:auto;margin-right:auto}}
+/* Kennzahlen-Reihe. Nimmt die Zusammenfassungszeile aus der App auf — dort
+   stehen unter der Karte dieselben drei Werte nebeneinander. Seite und App
+   reimen sich damit. */
+.fakten{display:flex;gap:30px;flex-wrap:wrap;margin-top:26px;padding:18px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);list-style:none}
+@media(max-width:820px){.fakten{justify-content:center}}
+.fakten li{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--notte-3)}
+.fakten b{display:block;font-family:var(--f-display);font-weight:500;font-size:21px;letter-spacing:-.01em;text-transform:none;color:var(--notte);margin-bottom:3px}
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease),transform 600ms var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -465,6 +487,31 @@ footer a:hover{color:var(--notte)}
            Dazu den Schlüssel pb_saison in allen drei Wörterbüchern anlegen,
            DE zuerst, IT und EN danach. pb_pivot ("Der See ist nicht das
            Problem. Es ist der Moment.") bleibt dabei unangetastet. -->
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 3 · Der See hat einen Puls.
+     Steht direkt nach dem Pivot-Satz: der Pivot behauptet, fuenfzehn Minuten
+     weiter liege derselbe See ruhig da — dieser Beat belegt es.
+     Beweis: il_giorno, das Polso-Raster ueber zehn Orte und vierzehn Stunden,
+     mit VORHERSAGE-Kennzeichnung und dem ruhigen Fenster darunter.
+     ENTWURF — Ueberschrift von Tim, Fliesstext von mir, Cristina entscheidet. -->
+<section id="puls" class="beat beat-hell">
+  <div class="wrap beat-row">
+    <div class="beat-copy">
+      <span class="eyebrow" data-i18n="b3_eyebrow">Was dahinter rechnet</span>
+      <h2 data-i18n="b3_h2">Der See hat einen <em>Puls.</em></h2>
+      <p data-i18n="b3_p1">Jede Stunde rechnet Unica den Südsee neu: Verkehr, Wetter und eine Auslastungs-Einschätzung für zehn Orte, vierzehn Stunden im Voraus. Nicht auf Anfrage, sondern einmal für alle — wer morgens fragt, liest dieselbe Rechnung wie der, der mittags fragt.</p>
+      <ul class="fakten">
+        <li data-i18n="b3_f1"><b>stündlich</b> neu gerechnet</li>
+        <li data-i18n="b3_f2"><b>10 Orte</b> am Südufer</li>
+        <li data-i18n="b3_f3"><b>14 Stunden</b> im Voraus</li>
+      </ul>
+      <p data-i18n="b3_p2">Daraus werden zwei Fragen auf zwei Ebenen: Lohnt sich die Richtung überhaupt — und ist es dort, wo ihr hinwollt, gerade erträglich?</p>
+    </div>
+    <div class="phone-frame phone-sm reveal pil-shot">
+      <div class="scr"><img src="assets/app/il_giorno.jpg" alt="Unica Benaco — Il Polso del Lago: zehn Orte über den Tag, mit Vorhersage und ruhigem Fenster" width="1080" height="2115" loading="lazy" decoding="async"></div>
     </div>
   </div>
 </section>
@@ -811,6 +858,15 @@ footer a:hover{color:var(--notte)}
 <script>
 var I18N={
  de:{
+  /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. IT und EN ebenfalls meine Fassung. */
+  b3_eyebrow:"Was dahinter rechnet",
+  b3_h2:"Der See hat einen <em>Puls.</em>",
+  b3_p1:"Jede Stunde rechnet Unica den Südsee neu: Verkehr, Wetter und eine Auslastungs-Einschätzung für zehn Orte, vierzehn Stunden im Voraus. Nicht auf Anfrage, sondern einmal für alle — wer morgens fragt, liest dieselbe Rechnung wie der, der mittags fragt.",
+  b3_f1:"<b>stündlich</b> neu gerechnet",
+  b3_f2:"<b>10 Orte</b> am Südufer",
+  b3_f3:"<b>14 Stunden</b> im Voraus",
+  b3_p2:"Daraus werden zwei Fragen auf zwei Ebenen: Lohnt sich die Richtung überhaupt — und ist es dort, wo ihr hinwollt, gerade erträglich?",
   mi_eyebrow:"Warum es uns gibt",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"Dass der Gardasee der Ort bleibt, in den man sich <em>verliebt</em> — weil jeder zur richtigen Zeit am richtigen Platz ist.",
   mi_mission:"Wir verteilen Tourismus intelligent: Unica rechnet mit Live-Daten — Wetter und Verkehr in Echtzeit — und lokalem Wissen von Menschen, die hier leben, und macht daraus eine ehrliche Einschätzung, wo der See gerade am schönsten ist. So finden Gäste ihren Platz, und die Orte, die Pause brauchen, bekommen sie.",
@@ -956,6 +1012,15 @@ var I18N={
   _desc:"Unica zeigt dir den südlichen Gardasee, den die Einheimischen lieben — der richtige Ort, zum richtigen Moment, passend zu euch. Eine ehrliche Empfehlung statt zweihundert Optionen."
  },
  it:{
+  /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. IT und EN ebenfalls meine Fassung. */
+  b3_eyebrow:"Cosa calcola dietro le quinte",
+  b3_h2:"Il lago ha un <em>battito.</em>",
+  b3_p1:"Ogni ora Unica ricalcola il basso lago: traffico, meteo e una stima dell’affluenza per dieci località, quattordici ore in anticipo. Non su richiesta, ma una volta per tutti — chi chiede la mattina legge lo stesso calcolo di chi chiede a mezzogiorno.",
+  b3_f1:"ricalcolato <b>ogni ora</b>",
+  b3_f2:"<b>10 località</b> sulla sponda sud",
+  b3_f3:"<b>14 ore</b> in anticipo",
+  b3_p2:"Ne nascono due domande su due livelli: vale la pena andare in quella direzione — e là dove volete andare, adesso si sta bene?",
   mi_eyebrow:"Perché esistiamo",mi_vlabel:"Visione",mi_mlabel:"Missione",
   mi_vision:"Che il Lago di Garda resti il luogo di cui ci si <em>innamora</em> — perché ognuno è al posto giusto al momento giusto.",
   mi_mission:"Distribuiamo il turismo in modo intelligente: Unica calcola con dati live — meteo e traffico in tempo reale — e la conoscenza locale di chi vive qui, e ne ricava una stima onesta di dove il lago è più bello ora. Così gli ospiti trovano il loro posto, e i luoghi che hanno bisogno di respiro lo ottengono.",
@@ -1101,6 +1166,15 @@ var I18N={
   _desc:"Unica ti mostra il basso Lago di Garda che amano le persone del posto — il luogo giusto, al momento giusto, su misura per voi. Un consiglio onesto invece di duecento opzioni."
  },
  en:{
+  /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. IT und EN ebenfalls meine Fassung. */
+  b3_eyebrow:"What is computing behind it",
+  b3_h2:"The lake has a <em>pulse.</em>",
+  b3_p1:"Every hour Unica recalculates the southern lake: traffic, weather and a crowding estimate for ten towns, fourteen hours ahead. Not on request, but once for everyone — whoever asks in the morning reads the same calculation as whoever asks at noon.",
+  b3_f1:"recalculated <b>hourly</b>",
+  b3_f2:"<b>10 towns</b> on the southern shore",
+  b3_f3:"<b>14 hours</b> ahead",
+  b3_p2:"Two questions come out of it, on two levels: is the direction worth it at all — and where you are heading, is it bearable right now?",
   mi_eyebrow:"Why we exist",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"That Lake Garda stays the place you <em>fall in love</em> with — because everyone is in the right place at the right time.",
   mi_mission:"We distribute tourism intelligently: Unica computes with live data — weather and traffic in real time — and local knowledge from people who live here, and turns it into an honest estimate of where the lake is loveliest right now. So guests find their place, and the places that need a breather get one.",
