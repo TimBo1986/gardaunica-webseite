@@ -42,7 +42,7 @@ nicht: sie stehen ausgesetzt und kommentiert weiter in der Datei.
 
 | Kriterium | Ist |
 |---|---|
-| 1 · drei Pfeiler mit je einem Bildschirm | **teilweise** — zwei Aufnahmen fehlen |
+| 1 · drei Pfeiler mit je einem Bildschirm | **teilweise** — `diario_raster.jpg` fehlt noch |
 | 2 · Cerchio-Bild ohne Persona-Karte | **erfüllt** — alte Aufnahme raus, nicht ersetzt |
 | 3 · kein Satz gelöscht ohne Inhalt anderswo | **erfüllt**, maschinell geprüft |
 | 4 · alle neuen Texte in IT und EN | **erfüllt**, im Browser durchgeschaltet |
@@ -103,12 +103,43 @@ Zwei Soll-Werte nachgezogen, gezählt statt weggeschaut:
 
 | Kontrolle | vorher | jetzt | Grund |
 |---|---|---|---|
-| NEG Geografie Garda | 44 | **47** | +1 Spec-Datei (`b33db21`), +1 Ä6-Kommentar, +1 Alt-Text `weinberg_see.jpg` |
+| NEG Geografie Garda | 44 | **46** | +1 Spec-Datei (`b33db21`), +1 Ä6-Kommentar |
 | NEG Peschiera | 17 | **19** | +2 Zeilen mit dem Dateinamen `peschiera_abend.jpg` |
 
 `M8 unica-benaco` fällt in `index.html` von 56 auf 55 Zeilen. Soll ist
 „steigend", also kein Gate-Bruch; die Differenz ist der Alt-Text von
 `scopri_erlebnis.jpg`. Alle übrigen Muster unverändert, `--selftest` grün.
+
+### Bildaufbereitung
+
+Der Screenshot verliert Status- und Navigationsleiste (Zuschnitt 0/90 bis
+1080/2205 = genau 1080×2115, die Konvention der übrigen Aufnahmen). Die vier
+Fotos behalten ihr Seitenverhältnis — **kein Zuschnitt am Motiv**. Den
+Ausschnitt macht das CSS über `object-fit:cover`, so bleibt das volle Bild
+erhalten, falls der Ausschnitt später verschoben werden soll. Die drei
+Karten-/Spaltenfotos sind 4:3 und werden auf 3:2 gerahmt, mittig.
+
+Breiten sind an der tatsächlichen Darstellung ausgerichtet, nicht pauschal
+gesetzt. Qualität wird nur bis q=68 gesenkt; passt es dann noch nicht unter die
+Grenze, wird die Breite reduziert statt weiter komprimiert. Grenzen dezimal
+gerechnet (200 000 bzw. 250 000 Bytes) — die strengere der beiden Lesarten.
+
+**EXIF ist entfernt.** `Fotos/peschiera_4.jpg` trug GPS-Koordinaten
+(45°26′20″N, 10°41′41″E). Auf einer öffentlichen Seite haben die nichts
+verloren; das Neukodieren verwirft sie, und ein Test in der Aufbereitung prüft
+danach, dass keine EXIF-Daten übrig sind.
+
+**Zwei Alt-Texte waren falsch** und sind gegen die gelieferten Aufnahmen
+korrigiert: `zypressen_abend.jpg` zeigt keinen See (war „Zypressen über dem See
+im Abendlicht"), und bei `weinberg_see.jpg` ist nicht zu erkennen, welches
+Gewässer im Bild liegt — die Ortsangabe „bei San Benedetto di Lugana" ist
+gestrichen. Deshalb fällt die Geografie-Kontrolle auf 46 statt 47.
+
+**Vignette 03:** das Foto sitzt am Kartenfuß, nicht am Kartenkopf. Am Kopf
+schob es Nummer und Überschrift von Karte 03 nach unten, während 01 und 02 oben
+standen — die Reihe sah verrutscht aus. Am Fuß (`margin-top:auto` in einer
+Flex-Spalte) fluchten alle drei Überschriften, und das Foto füllt den Platz,
+den die gleich hohen Karten ohnehin lassen.
 
 ### Offen vor dem Livegang
 
@@ -122,30 +153,25 @@ Zwei Soll-Werte nachgezogen, gezählt statt weggeschaut:
    Stellen, an denen diese Spec neue Copy zulässt. Der Platz ist vorbereitet:
    Kommentar im Pivot-Block, fertiges Markup, Schlüssel `pb_saison`, kein
    leerer Wörterbucheintrag.
-4. **Sechs Aufnahmen fehlen.** Alle sechs stehen als Platzhalter im Quelltext,
-   mit Kommentar und `onerror`, das sie bis zur Lieferung rückstandslos
-   herausnimmt. Kein Ersatz aus `assets/` gegriffen.
+4. **Fünf der sechs Aufnahmen sind geliefert.** Aufbereitet aus Material, das
+   schon im Arbeitsverzeichnis lag (`screenshot/` und `Fotos/`, beide
+   unversioniert). Kein Bild erfunden, keines aus `assets/` ersetzt.
 
-   | Datei | Ort | Format |
-   |---|---|---|
-   | `assets/app/diario_raster.jpg` | Pfeiler 2 | 1080×2115, ≤ 250 KB |
-   | `assets/app/cerchio_woche.jpg` | Pfeiler 3 | 1080×2115, ≤ 250 KB |
-   | `assets/foto/peschiera_abend.jpg` | Hero, dahinter | 16:9, ≤ 200 KB |
-   | `assets/foto/steg_mittag.jpg` | Vignette 03 | 3:2, ≤ 200 KB |
-   | `assets/foto/zypressen_abend.jpg` | Pfeiler 1, Saison | 3:2, ≤ 200 KB |
-   | `assets/foto/weinberg_see.jpg` | Von hier, für hier | 3:2, ≤ 200 KB |
+   | Datei | Quelle | Maße | Größe |
+   |---|---|---|---|
+   | `assets/app/cerchio_woche.jpg` | `screenshot/…/cerchio_pics.jpg` | 1080×2115 | 246,8 KB |
+   | `assets/foto/peschiera_abend.jpg` | `Fotos/peschiera_4.jpg` | 1728×807 | 197,9 KB |
+   | `assets/foto/steg_mittag.jpg` | `Fotos/port_al_lago.jpg` | 1100×825 | 198,3 KB |
+   | `assets/foto/zypressen_abend.jpg` | `Fotos/sunset.jpg` | 1300×975 | 196,3 KB |
+   | `assets/foto/weinberg_see.jpg` | `Fotos/vino_1.jpg` | 1021×765 | 197,2 KB |
 
-   `cerchio_woche.jpg` ist die zwingende: ESPERIENZE-Feed mit dem Kopf
-   „Cerchio Estate 2026 · Settimana 35", **ohne Persona-Karte**, ohne
-   RESIDENTI. Die abgelöste `cerchio_community.jpg` zeigte unten
-   „Marco · AI · Fischer · Lazise" und oben noch die überholte Kopfzeile —
-   Zuschneiden half nicht.
+   **Offen bleibt `assets/app/diario_raster.jpg`** — im vorhandenen Material ist
+   kein Diario-Raster. Der Platz steht weiter im Quelltext, mit Kommentar und
+   `onerror`; Pfeiler 2 trägt bis dahin kein Gerät.
 
-   Die beiden Screenshots danach auch auf IT und EN aufnehmen. Die Alt-Texte
-   der vier Fotos sind vorläufig und gegen die gelieferten Aufnahmen
-   gegenzulesen.
-5. **Abnahmekriterium 1** ist erst mit `diario_raster.jpg` und
-   `cerchio_woche.jpg` erfüllt.
+   Ebenfalls offen: `cerchio_woche.jpg` noch auf IT und EN aufnehmen.
+
+5. **Abnahmekriterium 1** ist erst mit `diario_raster.jpg` erfüllt.
 
 ---
 

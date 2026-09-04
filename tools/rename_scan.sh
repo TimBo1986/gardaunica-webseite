@@ -60,12 +60,15 @@ PATTERNS=(
   #                     (5 index, 5 app, 1 app-Stub)
   #   WEB-06  39 -> 44  fuenf Logo-Descriptor <span class="logo-desc">
   #                     (index, app, confirmed, partner nav + hero-mark)
-  #   Spec 0001 44 -> 47  eine Zeile in der Spec-Datei selbst (Commit b33db21,
-  #                     Zitat des Hero-Satzes) und zwei in index.html: der
-  #                     Ae6-Kommentar im Pivot-Block und der Alt-Text des
-  #                     Foto-Platzes assets/foto/weinberg_see.jpg
+  #   Spec 0001 44 -> 46  eine Zeile in der Spec-Datei selbst (Commit b33db21,
+  #                     Zitat des Hero-Satzes) und eine in index.html: der
+  #                     Ae6-Kommentar im Pivot-Block. Der Alt-Text von
+  #                     assets/foto/weinberg_see.jpg nennt bewusst KEINEN
+  #                     Gardasee: auf der Aufnahme ist nicht zu erkennen,
+  #                     welches Gewaesser zu sehen ist. "Blick auf den See"
+  #                     ist die pruefbare Aussage.
   # Ab hier wieder unveraendert.
-  "NEG Geografie Garda|lago di garda|gardasee|47 (44 + 3 aus Spec 0001)"
+  "NEG Geografie Garda|lago di garda|gardasee|46 (44 + 2 aus Spec 0001)"
   # Peschiera 17 -> 19 mit Spec 0001: zwei Zeilen in index.html nennen den
   # Foto-Platz assets/foto/peschiera_abend.jpg (Kommentar und src). Kein
   # Sichttext — der Ortsname im Fliesstext ist unveraendert.
