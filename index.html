@@ -382,6 +382,26 @@ footer a:hover{color:var(--notte)}
     </div>
     <div class="pivot-wrap reveal">
       <p class="problem-line" data-i18n="pb_pivot">Der See ist nicht das Problem. Es ist der <em>Moment.</em> Fünfzehn Minuten weiter — oder zwei Stunden später — liegt derselbe See ganz ruhig da.</p>
+      <!-- Ä6 · DIE SAISON — Platz vorbereitet, Satz fehlt.
+           "Der Gardasee ist nicht zu voll — nur falsch verteilt" wird auf der
+           Gästeseite bisher nur über den Tagesverlauf eingelöst. Die zweite
+           Hälfte der These, die Saison, steht ausschließlich auf /partner:
+           "Der See wechselt fünfmal im Jahr" (pr_box_h) und "Wir füllen die
+           guten Monate, nicht nur den August" (po_box_h). Für Paare 45+, die
+           nicht im August fahren müssen, ist das ein Kaufargument.
+
+           Die Formulierung gehört laut Spec Cristina. Sie ist hier bewusst
+           nicht erfunden — Ä6 ist keine der drei Stellen, an denen diese Spec
+           neue Copy zulässt.
+
+           Fertig zum Einsetzen, sobald der Satz da ist. Ein Absatz genügt,
+           direkt unter pb_pivot, ohne neue CSS-Klasse:
+
+      <p class="problem-line" style="margin-top:18px" data-i18n="pb_saison">…</p>
+
+           Dazu den Schlüssel pb_saison in allen drei Wörterbüchern anlegen,
+           DE zuerst, IT und EN danach. pb_pivot ("Der See ist nicht das
+           Problem. Es ist der Moment.") bleibt dabei unangetastet. -->
     </div>
     <!-- TODO §2: Promenaden-Foto (Südufer, ruhiger Hafen) hier einsetzen, sobald geliefert:
          <figure class="problem-photo reveal"><img src="assets/promenade.jpg" alt="Ruhiges Südufer am Gardasee" loading="lazy" decoding="async"></figure> -->
