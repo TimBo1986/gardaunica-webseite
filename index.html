@@ -299,6 +299,23 @@ footer{border-top:1px solid var(--linea-soft);padding:32px 0 44px;font-size:13px
 .foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--notte-3);text-decoration:none;font-weight:500}
 footer a:hover{color:var(--notte)}
+/* Foto-Plätze — nicht Teil von Spec 0001, von Tim bestellt.
+   Vier Querformat-Aufnahmen, keine Screenshots. Sie sitzen hinter oder neben
+   dem, was schon da ist; keine eigenen Bänder zwischen den Abschnitten.
+   Das Seitenverhältnis steht im CSS, nicht in width/height-Attributen: die
+   tatsächlichen Maße der Dateien stehen noch nicht fest, geratene Attribute
+   würden den Umbruch verschieben. object-fit:cover fängt jeden Zuschnitt ab. */
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;opacity:.18;z-index:0;pointer-events:none;
+  -webkit-mask-image:linear-gradient(to right,transparent 52%,#000 84%);mask-image:linear-gradient(to right,transparent 52%,#000 84%)}
+@media(max-width:860px){.hero-photo{opacity:.12;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 42%,#000 88%);mask-image:linear-gradient(to bottom,transparent 42%,#000 88%)}}
+.vcard .vfoto{margin:-28px -26px 22px;overflow:hidden;border-radius:16px 16px 0 0}
+.vcard .vfoto img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+.pil-copy .pfoto{margin-top:22px;max-width:46ch;border-radius:14px;overflow:hidden}
+.pil-copy .pfoto img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+@media(max-width:820px){.pil-copy .pfoto{margin-left:auto;margin-right:auto}}
+.team-foto{max-width:64ch;margin:32px auto 0;border-radius:16px;overflow:hidden}
+.team-foto img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease),transform 600ms var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -344,6 +361,16 @@ footer a:hover{color:var(--notte)}
 
 <!-- 1 · HERO -->
 <header class="hero">
+  <!-- PLATZHALTER · Datei fehlt: assets/foto/peschiera_abend.jpg
+       Querformat, gedacht 16:9 (1920x1080), JPG unter 200 KB. Liegt hinter
+       Raster und Gerät und ist rein schmückend, darum alt="" und aria-hidden.
+       Die Maske blendet es links aus, damit Überschrift und Fließtext auf
+       reinem Grund stehen; unter 860px kippt die Maske nach unten.
+       Solange die Datei fehlt, nimmt onerror die Aufnahme heraus.
+           Nicht durch ein anderes Bild aus assets/ ersetzen. Alt-Text ist
+           vorläufig — gegen die gelieferte Aufnahme gegenlesen.
+  -->
+  <img class="hero-photo" src="assets/foto/peschiera_abend.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async" onerror="this.remove()">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" data-i18n="hero_eyebrow">Süd-Gardasee · Peschiera bis Salò</span>
@@ -380,6 +407,13 @@ footer a:hover{color:var(--notte)}
         <p data-i18n="pb_v2_p">Mittagshunger, Google zeigt hundert Pizzerien. Ihr wählt nach Sternen — und sitzt in der einzigen ohne Kindermenü, zwischen zwölf anderen Tischen mit Reiseführer.</p>
       </div>
       <div class="vcard reveal">
+        <!-- PLATZHALTER · Datei fehlt: assets/foto/steg_mittag.jpg
+             Querformat 3:2 (1600x1067), JPG unter 200 KB. Sitzt im Kopf der
+             Karte, innerhalb ihres Radius — kein Band, die Karte bleibt eine
+             Karte. Solange die Datei fehlt, nimmt onerror die Aufnahme heraus.
+           Nicht durch ein anderes Bild aus assets/ ersetzen. Alt-Text ist
+           vorläufig — gegen die gelieferte Aufnahme gegenlesen. -->
+        <figure class="vfoto"><img src="assets/foto/steg_mittag.jpg" alt="Steg am Südufer in der Mittagssonne" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"></figure>
         <span class="vnum">03</span>
         <h3 data-i18n="pb_v3_h">Der <em>falsche</em> Moment.</h3>
         <p data-i18n="pb_v3_p">Sirmione, Samstag, 11 Uhr im August. Dieselbe Burg um 17:30 wäre ein ganz anderer Ort gewesen — Licht, Ruhe, Platz. Nur wusstet ihr das nicht.</p>
@@ -432,6 +466,14 @@ footer a:hover{color:var(--notte)}
         <p data-i18n="ls1_p">Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.</p>
         <p data-i18n="ls2_p">Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.</p>
         <p class="pcap" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
+        <!-- PLATZHALTER · Datei fehlt: assets/foto/zypressen_abend.jpg
+             Querformat 3:2 (1600x1067), JPG unter 200 KB. Steht in der
+             Textspalte, also neben dem Gerät dieser Zeile, und gehört zur
+             Saison — der Satz dazu fehlt noch, siehe Ä6 im Pivot-Block.
+             Solange die Datei fehlt, nimmt onerror die Aufnahme heraus.
+           Nicht durch ein anderes Bild aus assets/ ersetzen. Alt-Text ist
+           vorläufig — gegen die gelieferte Aufnahme gegenlesen. -->
+        <figure class="pfoto"><img src="assets/foto/zypressen_abend.jpg" alt="Zypressen über dem See im Abendlicht" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"></figure>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
         <div class="scr"><img src="assets/app/oggi_tipp.jpg" alt="Unica Benaco — eine Empfehlung mit Warum-Button" width="250" height="518" loading="lazy" decoding="async"></div>
@@ -619,6 +661,13 @@ footer a:hover{color:var(--notte)}
       <p data-i18n="tm_story3">Genau dieses Wissen steckt in Unica Benaco. Die App, die wir uns gewünscht hätten, als wir selbst noch Gäste am Gardasee waren.</p>
       <p class="tm-ps" data-i18n="tm_story4">Übrigens: Aus den drei Katzen, mit denen wir kamen, sind inzwischen neun geworden. Eine Straßenkatze zog bei uns ein, bekam vier Kätzchen — und der Kater lebt jetzt auf unserer Terrasse. Das ist eben auch Italien.</p>
     </div>
+    <!-- PLATZHALTER · Datei fehlt: assets/foto/weinberg_see.jpg
+         Querformat 3:2 (1600x1067), JPG unter 200 KB. Auf die 64ch der
+         Team-Geschichte begrenzt, damit es als Teil der Geschichte liest und
+         nicht als Band quer durch den Abschnitt. Solange die Datei fehlt, nimmt onerror die Aufnahme heraus.
+           Nicht durch ein anderes Bild aus assets/ ersetzen. Alt-Text ist
+           vorläufig — gegen die gelieferte Aufnahme gegenlesen. -->
+    <figure class="team-foto reveal"><img src="assets/foto/weinberg_see.jpg" alt="Weinberg über dem Gardasee bei San Benedetto di Lugana" loading="lazy" decoding="async" onerror="this.closest('figure').remove()"></figure>
     <div class="team-grid">
       <button class="person reveal" type="button" onclick="openBio('c')" aria-label="Cristina — Bio öffnen">
         <img class="photo" src="assets/cristina.jpg" alt="Cristina — Founder &amp; Creative Strategy" onerror="this.style.display='none'">
