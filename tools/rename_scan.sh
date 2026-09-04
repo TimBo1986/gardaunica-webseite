@@ -55,14 +55,21 @@ PATTERNS=(
   "M1 garda-unica gesamt|garda[ _-]?unica|4 = PDF-Dateiname, faellt mit WEB-04"
   "M8 unica-benaco|unica[ _-]?benaco|steigend"
   "M9 benaco-unica (Gegenprobe)|benaco[ _-]?unica|0"
-  # Die Geografie-Kontrolle ist zweimal absichtlich gewachsen:
+  # Die Geografie-Kontrolle ist mehrfach absichtlich gewachsen:
   #   WEB-02  28 -> 39  elf Titel-Descriptor "Unica Benaco · Lago di Garda"
   #                     (5 index, 5 app, 1 app-Stub)
   #   WEB-06  39 -> 44  fuenf Logo-Descriptor <span class="logo-desc">
   #                     (index, app, confirmed, partner nav + hero-mark)
+  #   Spec 0001 44 -> 47  eine Zeile in der Spec-Datei selbst (Commit b33db21,
+  #                     Zitat des Hero-Satzes) und zwei in index.html: der
+  #                     Ae6-Kommentar im Pivot-Block und der Alt-Text des
+  #                     Foto-Platzes assets/foto/weinberg_see.jpg
   # Ab hier wieder unveraendert.
-  "NEG Geografie Garda|lago di garda|gardasee|44 (39 + 5 Logo-Descriptor aus WEB-06)"
-  "NEG Peschiera|peschiera|17 unveraendert"
+  "NEG Geografie Garda|lago di garda|gardasee|47 (44 + 3 aus Spec 0001)"
+  # Peschiera 17 -> 19 mit Spec 0001: zwei Zeilen in index.html nennen den
+  # Foto-Platz assets/foto/peschiera_abend.jpg (Kommentar und src). Kein
+  # Sichttext — der Ortsname im Fliesstext ist unveraendert.
+  "NEG Peschiera|peschiera|19 (17 + 2 Dateiname peschiera_abend.jpg)"
 )
 
 if [ "$MODE" = "csv" ]; then echo "muster,datei,zeile,fundstelle"; fi
