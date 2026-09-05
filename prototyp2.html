@@ -429,7 +429,10 @@ footer a:hover{color:var(--notte)}
     <a class="logo" href="#">Unica <em>Benaco</em><span class="logo-desc">Lago di Garda</span></a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#tag" data-i18n="nav_day">Ein Tag mit Unica</a>
+        <!-- E-12: #tag ist aufgeloest. Beide Verweise fragen nach dem Ablauf —
+     den beantwortet der Planer, nicht der Puls. Die Beschriftung bleibt
+     vorerst; Vorschlag fuer Cristina: "So funktioniert es". -->
+        <a href="#planer" data-i18n="nav_day">Ein Tag mit Unica</a>
         <a href="#mission" data-i18n="nav_honest">Warum Unica</a>
         <a href="#team" data-i18n="nav_team">Wer wir sind</a>
         <a href="#faq">FAQ</a>
@@ -458,7 +461,7 @@ footer a:hover{color:var(--notte)}
       <p class="hero-lede" data-i18n="hero_lede">Der Gardasee ist nicht zu voll — nur falsch verteilt. Unica bringt dich dorthin, wo er zu dir passt, im richtigen Moment: eine Empfehlung, einzig für dich, statt zweihundert.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="#warteliste" data-i18n="hero_cta1">Auf die Warteliste</a>
-        <a class="btn-ghost" href="#tag" data-i18n="hero_cta2">Wie es funktioniert</a>
+        <a class="btn-ghost" href="#planer" data-i18n="hero_cta2">Wie es funktioniert</a>
       </div>
       <div class="hero-note" data-i18n="hero_note">Start: Herbst 2026 · kostenlos</div>
     </div>
@@ -705,68 +708,6 @@ footer a:hover{color:var(--notte)}
           <span class="ex-chip" data-i18n="ex_c2">Community-Beiträge</span>
           <span class="ex-chip" data-i18n="ex_c3">KI transparent gekennzeichnet</span>
         </div>
-    </div>
-  </div>
-</section>
-
-<!-- 3 · EIN TAG MIT UNICA -->
-<section id="tag" class="wrap">
-  <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
-    <span class="eyebrow" data-i18n="day_eyebrow">Ein Tag mit Unica</span>
-    <h2 data-i18n="day_h2">Vom Aufwachen bis zum <em>Aperitivo.</em></h2>
-  </div>
-
-  <div class="day-moment">
-    <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/onboarding_wer.jpg" alt="Unica Benaco — Onboarding"></div>
-    </div>
-    <div class="moment-copy">
-      <span class="time" data-i18n="m0_time">BEVOR ES LOSGEHT</span>
-      <h3 data-i18n="m0_h">Zwei Minuten — dann kennt Unica <em>euch.</em></h3>
-      <p data-i18n="m0_p">Familie mit Kindern? Zu zweit? Mit Hund? Frühaufsteher oder Dolce Vita? Ein kurzes, charmantes Kennenlernen statt endloser Formulare — und jede Empfehlung passt zu eurem Rhythmus.</p>
-      <div class="quote" data-i18n="m0_q">„Ihr mögt es entspannt. Perfetto."</div>
-    </div>
-  </div>
-
-  <div class="day-moment flip">
-    <div class="moment-copy">
-      <span class="time">08:30</span>
-      <h3 data-i18n="m1_h">Dein Moment <em>wartet schon.</em></h3>
-      <p data-i18n="m1_p">Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und der aktuellen Auslastungs-Einschätzung passt — mit Uhrzeit und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.</p>
-      <div class="quote" data-i18n="m1_q">„Um 8:30 ist die Bucht noch leer. Um 11 nicht mehr."</div>
-    </div>
-    <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/verkehr_liste.jpg" alt="Unica Benaco — Auslastungs-Einschätzung nach Ort" width="1080" height="2115" loading="lazy" decoding="async"></div>
-    </div>
-  </div>
-
-
-  <div class="day-moment flip">
-    <div class="moment-copy">
-      <span class="time">15:12</span>
-      <h3 data-i18n="m3_h">Und wenn's drauf ankommt, <em>warnt dich der See.</em></h3>
-      <p data-i18n="m3_p">Gewitterfront ab 16:00? Unica sagt es dir, bevor du am Strand bist — mit konkreter Uhrzeit statt vager Wetter-App-Prosa. Nicht nur empfehlen. Wirklich aufpassen.</p>
-      <div class="quote" data-i18n="m3_q">„Sei vor 15:30 zurück vom See — kein Bootsausflug."</div>
-    </div>
-    <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/storm_warning.jpg" alt="Unica Benaco — Unwetterwarnung" width="1080" height="2115" loading="lazy" decoding="async"></div>
-    </div>
-  </div>
-
-  <!-- 21:00 · Abschluss in notte (Screenshot La Carte du Soir folgt aus dem Paket) -->
-  <div class="day-close reveal">
-    <span class="time">21:00</span>
-    <h3 data-i18n="m4_h">Der Tag, als <em>Postkarte.</em></h3>
-    <p data-i18n="m4_p">Wenn der See dunkel wird, fasst Unica euren Tag zusammen — die Orte, der Moment, das eine Bild, das bleibt. Kein neues Programm mehr. Nur ein ruhiger Blick zurück auf einen Tag, der gepasst hat.</p>
-    <div class="quote" data-i18n="m4_q">„Buonanotte — morgen liest der See sich neu."</div>
-  </div>
-
-  <!-- Modus-Block (verschoben aus §7): Abschluss-Note nach dem Tagesbogen -->
-  <div class="cerchio-strip reveal modus-note">
-    <div class="cerchio-shot"><img src="assets/app/planungsmodi.jpg" alt="Unica Benaco — Planungsmodi: Sorprendimi oder A quattro mani" width="210" height="250" loading="lazy" decoding="async"></div>
-    <div class="cerchio-copy">
-      <h3 data-i18n="ce_h3">Du entscheidest, wie viel Unica <em>plant.</em></h3>
-      <p data-i18n="ce_p">Von „überrasch mich" bis „wir planen zu zweit": Wähl deinen Modus — und wechsle jederzeit, auch mitten im Urlaub. Unica denkt mit, nie über deinen Kopf hinweg.</p>
     </div>
   </div>
 </section>
@@ -1025,6 +966,21 @@ var I18N={
   cr_p:"Keine Dauer-Community. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Nach sieben Tagen ist es weg, und die nächste Woche fängt leer an.",
   /* ERSETZT mit Anhang E-6: */ // cr_p:"Keine Dauer-Community, kein Feed. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Danach ist es vorbei."
   ex_c1:"aus lokalen Quellen",ex_c2:"Community-Beiträge",ex_c3:"KI transparent gekennzeichnet",
+  /* AUSGESETZT mit Spec 0002: Der Tagesbogen ist aufgeloest, seine Momente
+     stehen in den Beats. Text bleibt vollstaendig, nichts geloescht.
+
+     day_eyebrow, day_h2 — Ueberschrift des Abschnitts, den es nicht mehr gibt.
+     m0_time, m0_p, m0_q — das Kennenlernen steht in Beat 5; m0_h lebt dort
+       weiter, m0_p nicht: "Familie mit Kindern?" widerspricht der Zielgruppe.
+     m1_h, m1_p, m1_q — 08:30 sagt dasselbe wie Beat 5.
+     m3_h, m3_p, m3_q — 15:12 Unwetter; Beat 4 traegt meteo allein, und
+       storm_warning.jpg zeigt noch die alte Wortmarke.
+     m4_h, m4_p, m4_q — 21:00 "Der Tag als Postkarte", ersatzlos:
+       La Carte du Soir verschwindet aus der App.
+     ce_h3, ce_p — der Modus-Streifen gehoert ins Onboarding und steht als
+       onboarding_7 in Beat 5.
+
+     Weiter live: m0_h, m2_h, m2_p und der Chat-Player, alle in Beat 5. */
   cl_u1:"Wann ist Markttag in Lazise?",cl_a1:"Mittwochs, 8 bis 13 Uhr — im historischen Zentrum. Viel Spaß beim Stöbern!",
   cl_u2:"Und wo gibt's um 22 Uhr noch Pizza in Peschiera?",cl_a2:"Da kenne ich zwei Öfen, die dann noch heiß sind. Soll ich dir den Weg zeigen?",
   cl_input:"Ihre Frage…",
@@ -1221,6 +1177,21 @@ var I18N={
   cr_p:"Nessuna community permanente. Ogni settimana un cerchio nuovo — quello che succede sul lago questa settimana, questa settimana si legge. Dopo sette giorni non c’è più, e la settimana dopo ricomincia vuota.",
   /* ERSETZT mit Anhang E-6: */ // cr_p:"Nessuna community permanente, nessun feed. Ogni settimana un cerchio nuovo — quello che succede sul lago questa settimana, questa settimana si legge. Poi è finita."
   ex_c1:"da fonti locali",ex_c2:"Contributi community",ex_c3:"AI segnalata con trasparenza",
+  /* AUSGESETZT mit Spec 0002: Der Tagesbogen ist aufgeloest, seine Momente
+     stehen in den Beats. Text bleibt vollstaendig, nichts geloescht.
+
+     day_eyebrow, day_h2 — Ueberschrift des Abschnitts, den es nicht mehr gibt.
+     m0_time, m0_p, m0_q — das Kennenlernen steht in Beat 5; m0_h lebt dort
+       weiter, m0_p nicht: "Familie mit Kindern?" widerspricht der Zielgruppe.
+     m1_h, m1_p, m1_q — 08:30 sagt dasselbe wie Beat 5.
+     m3_h, m3_p, m3_q — 15:12 Unwetter; Beat 4 traegt meteo allein, und
+       storm_warning.jpg zeigt noch die alte Wortmarke.
+     m4_h, m4_p, m4_q — 21:00 "Der Tag als Postkarte", ersatzlos:
+       La Carte du Soir verschwindet aus der App.
+     ce_h3, ce_p — der Modus-Streifen gehoert ins Onboarding und steht als
+       onboarding_7 in Beat 5.
+
+     Weiter live: m0_h, m2_h, m2_p und der Chat-Player, alle in Beat 5. */
   cl_u1:"Quando c'è il mercato a Lazise?",cl_a1:"Il mercoledì, dalle 8 alle 13 — nel centro storico. Buona passeggiata tra i banchi!",
   cl_u2:"E dove trovo una pizza a Peschiera alle 22?",cl_a2:"Conosco due forni ancora caldi a quell'ora. Ti mostro la strada?",
   cl_input:"La tua domanda…",
@@ -1417,6 +1388,21 @@ var I18N={
   cr_p:"No permanent community. Every week a new circle — what happens at the lake this week is what stands there this week. After seven days it is gone, and the next week starts empty.",
   /* ERSETZT mit Anhang E-6: */ // cr_p:"No permanent community, no feed. Every week a new circle — what happens at the lake this week is what stands there this week. After that it is over."
   ex_c1:"from local sources",ex_c2:"Community posts",ex_c3:"AI transparently labelled",
+  /* AUSGESETZT mit Spec 0002: Der Tagesbogen ist aufgeloest, seine Momente
+     stehen in den Beats. Text bleibt vollstaendig, nichts geloescht.
+
+     day_eyebrow, day_h2 — Ueberschrift des Abschnitts, den es nicht mehr gibt.
+     m0_time, m0_p, m0_q — das Kennenlernen steht in Beat 5; m0_h lebt dort
+       weiter, m0_p nicht: "Familie mit Kindern?" widerspricht der Zielgruppe.
+     m1_h, m1_p, m1_q — 08:30 sagt dasselbe wie Beat 5.
+     m3_h, m3_p, m3_q — 15:12 Unwetter; Beat 4 traegt meteo allein, und
+       storm_warning.jpg zeigt noch die alte Wortmarke.
+     m4_h, m4_p, m4_q — 21:00 "Der Tag als Postkarte", ersatzlos:
+       La Carte du Soir verschwindet aus der App.
+     ce_h3, ce_p — der Modus-Streifen gehoert ins Onboarding und steht als
+       onboarding_7 in Beat 5.
+
+     Weiter live: m0_h, m2_h, m2_p und der Chat-Player, alle in Beat 5. */
   cl_u1:"When is market day in Lazise?",cl_a1:"Wednesdays, 8am to 1pm — in the historic centre. Enjoy browsing!",
   cl_u2:"And where can I get pizza in Peschiera at 10pm?",cl_a2:"I know two ovens still hot at that hour. Want me to show you the way?",
   cl_input:"Your question…",
