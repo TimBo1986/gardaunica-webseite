@@ -103,6 +103,16 @@ kein Fleck. Bei der Nachaufnahme kommt ein neutrales Bild hinein.
 Die Ausnahme sind die eigenen Porträts unter `assets/` — Cristina, Tim, Luna.
 Die gehören dorthin.
 
+### Rohmaterial bleibt draußen
+
+`screenshot/` und `Fotos/` stehen in `.gitignore`. Nicht aus Ordnungsliebe:
+das Original von `profilo.jpg` trägt das Selfie weiter, und die Rohfotos
+tragen ihr EXIF. Beide Ordner waren bisher nur unversioniert — ein
+`git add -A` hätte gereicht, und beides wäre zurück im Repo gewesen.
+
+Was auf die Seite soll, wird nach `assets/` abgeleitet: zugeschnitten,
+verkleinert, ohne EXIF, ohne erkennbare Personen. Das Rohmaterial bleibt lokal.
+
 Das Seitenverhältnis wird am Bild festgemacht, nicht am Container. `height:auto`
 zusammen mit `min-height:100%` hat jede Geräteaufnahme um 9,5 % in die Länge
 gezogen, über Monate unbemerkt.

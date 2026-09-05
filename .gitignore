@@ -1,0 +1,16 @@
+# Rohmaterial. Gehoert NICHT ins Repo — siehe CLAUDE.md, Abschnitt Bilder.
+#
+# screenshot/  App-Aufnahmen im Originalzustand. Darunter profilo.jpg mit dem
+#              gut erkennbaren Selfie einer realen Person. In assets/ liegt
+#              davon nur die bearbeitete Fassung mit gepixeltem Profilbild;
+#              wuerde screenshot/ committet, waere das Original zurueck.
+# Fotos/       Originalfotos vom Handy, 2-8 MB, mit EXIF. peschiera_4.jpg
+#              traegt GPS-Koordinaten. Das Impressum fuehrt auf eine
+#              Privatanschrift.
+#
+# Beide Ordner bleiben lokal. Was auf die Seite soll, wird nach assets/
+# abgeleitet: zugeschnitten, verkleinert, ohne EXIF, ohne erkennbare Personen.
+screenshot/
+Fotos/
+
+.DS_Store
