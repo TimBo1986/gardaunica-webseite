@@ -5,7 +5,7 @@
 #
 # Nutzung:
 #   tools/pruefe_seite.py [DATEI] [VERGLEICHSSTAND]
-#   tools/pruefe_seite.py prototyp2.html HEAD
+#   tools/pruefe_seite.py index.html main
 #   tools/pruefe_seite.py --selftest
 #   tools/pruefe_seite.py --help
 #
@@ -180,7 +180,8 @@ def selftest():
     Gate nicht zu unterscheiden. Also: einen Abschnitt kuenstlich entfernen und
     verlangen, dass der Pruefer meckert.
     """
-    datei = 'prototyp2.html' if os.path.exists('prototyp2.html') else 'index.html'
+    datei = next((d for d in ('prototyp2.html', 'index.html') if os.path.exists(d)),
+                 'index.html')
     s = io.open(datei, encoding='utf-8').read()
 
     m = re.search(r'\n<section\b.*?\n</section>\n', s, re.S)

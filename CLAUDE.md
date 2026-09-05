@@ -8,7 +8,6 @@ Schriften sind lokal als base64 eingebettet — kein Google-Fonts-Aufruf.
 |---|---|
 | `index.html` | Gästeseite, **Livestand** |
 | `partner.html` · `app.html` · `confirmed.html` | die übrigen Seiten |
-| `prototyp2.html` | Entwurf für den Storyline-Umbau, `noindex`, nicht live |
 | `assets/lang.js` | Spracherkennung, für alle Seiten gemeinsam |
 | `docs/specs/` | Vorgaben · `FORTSCHRITT.md` Arbeitsprotokoll |
 
@@ -153,4 +152,9 @@ Palette, Schriften und das Layout-Grundgerüst. Der Chat-Player und die
 bestehenden ARIA-Muster. `prefers-reduced-motion` gilt weiter. Keine neuen
 externen Requests. Kein Build.
 
-`index.html` bleibt unberührt, solange ein Entwurf in `prototyp2.html` läuft.
+Grösserer Umbau laeuft in einer eigenen Entwurfsdatei im Wurzelverzeichnis,
+nicht in `index.html`. Die Entwurfsdatei traegt `noindex,nofollow` statt der
+canonical-Zeile und ein „ENTWURF · " im Titel — sie ist ueber GitHub Pages
+oeffentlich erreichbar, sobald sie gepusht wird. Beim Uebertrag fallen beide
+Marker weg, die canonical-Zeile kommt zurueck, und die Entwurfsdatei wird
+geloescht. Der Storyline-Umbau lief so als `prototyp2.html`.

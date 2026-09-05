@@ -69,10 +69,16 @@ PATTERNS=(
   #                     ist die pruefbare Aussage.
   # Ab hier wieder unveraendert.
   "NEG Geografie Garda|lago di garda|gardasee|46 (44 + 2 aus Spec 0001)"
-  # Peschiera 17 -> 19 mit Spec 0001: zwei Zeilen in index.html nennen den
-  # Foto-Platz assets/foto/peschiera_abend.jpg (Kommentar und src). Kein
-  # Sichttext — der Ortsname im Fliesstext ist unveraendert.
-  "NEG Peschiera|peschiera|19 (17 + 2 Dateiname peschiera_abend.jpg)"
+  # Peschiera 17 -> 46 ueber Spec 0001 und 0002. Aufgeschluesselt, Stand
+  # 5.9.2026 — der Zuwachs ist Dokumentation und Dateinamen, kein Sichttext:
+  #   docs/ANALYSE-STARTSEITE.md  23  Bildanalyse, nennt den Ort staendig
+  #   index.html                  17  davon 13 Sichttext wie vorher, 4 neu:
+  #                                   Dateinamen und Kommentare der Fotoebene
+  #   partner.html                 4  unveraendert
+  #   CLAUDE.md / .gitignore       2  Bildregeln, Beispiel mit GPS-Koordinate
+  # Der Ortsname im Fliesstext der Seiten ist unangetastet — genau das soll
+  # diese Negativkontrolle belegen, und sie belegt es weiter.
+  "NEG Peschiera|peschiera|46 (17 index + 23 Analyse + 4 partner + 2 Doku)"
 )
 
 if [ "$MODE" = "csv" ]; then echo "muster,datei,zeile,fundstelle"; fi

@@ -158,9 +158,12 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .pivot-wrap .problem-line{margin-top:0}
 /* solution pillars */
 .loesung{background:var(--carta-morn)}
-.pil-row{display:grid;grid-template-columns:1fr auto;gap:52px;align-items:center;padding:48px 0;border-bottom:1px solid var(--linea-soft)}
+/* Die Textspalte war 730px breit, der Text darin 508px — 274px tote Flaeche
+   zwischen Text und Geraet. Die Spalte traegt jetzt die Textbreite, das Paar
+   steht zentriert wie die Abschnittsueberschrift darueber. Abstand 56px. */
+.pil-row{display:grid;grid-template-columns:minmax(0,46ch) auto;justify-content:center;gap:56px;align-items:center;padding:48px 0;border-bottom:1px solid var(--linea-soft)}
 .pil-row:last-of-type{border-bottom:none}
-.pil-row.flip{grid-template-columns:auto 1fr}
+.pil-row.flip{grid-template-columns:auto minmax(0,46ch)}
 .pil-row.flip .pil-shot{order:-1}
 @media(max-width:820px){.pil-row,.pil-row.flip{grid-template-columns:1fr;justify-items:center;text-align:center}.pil-row.flip .pil-shot{order:0}}
 .pil-copy .pnum{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;color:var(--sole);font-weight:500;background:var(--notte);padding:6px 14px;border-radius:999px;display:inline-block}
@@ -168,6 +171,9 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .pil-copy h3 em{font-style:italic;color:var(--terracotta)}
 .pil-copy p{margin-top:12px;color:var(--notte-2);font-size:15px;max-width:46ch;line-height:1.7}
 @media(max-width:820px){.pil-copy p{margin-left:auto;margin-right:auto}}
+/* Nur in den Saeulen groesser: .phone-sm traegt auch den Tagesbogen und den
+   Chat-Rahmen. Hoehe folgt weiter 1080/2115. */
+.pil-shot.phone-sm{width:290px;height:553px}
 .pil-copy .pcap{margin-top:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--notte-3);line-height:1.6;max-width:46ch}
 @media(max-width:820px){.pil-copy .pcap{margin-left:auto;margin-right:auto}}
 /* day timeline */
@@ -313,22 +319,87 @@ footer a:hover{color:var(--notte)}
    Das Seitenverhältnis steht im CSS, nicht in width/height-Attributen: die
    tatsächlichen Maße der Dateien stehen noch nicht fest, geratene Attribute
    würden den Umbruch verschieben. object-fit:cover fängt jeden Zuschnitt ab. */
-.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;opacity:.18;z-index:0;pointer-events:none;
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 60%;opacity:.18;z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(to right,transparent 52%,#000 84%);mask-image:linear-gradient(to right,transparent 52%,#000 84%)}
 @media(max-width:860px){.hero-photo{opacity:.12;
   -webkit-mask-image:linear-gradient(to bottom,transparent 42%,#000 88%);mask-image:linear-gradient(to bottom,transparent 42%,#000 88%)}}
-/* Das Foto sitzt am Kartenfuss, nicht am Kopf: sonst schoebe es Nummer und
-   Ueberschrift von Karte 03 nach unten, waehrend 01 und 02 oben stehen — die
-   Reihe saehe verrutscht aus. margin-top:auto drueckt es an die Unterkante und
-   fuellt zugleich den Platz, den die gleich hohen Karten ohnehin lassen. */
-.vcard{display:flex;flex-direction:column}
-.vcard .vfoto{margin:22px -26px -28px;margin-top:auto;overflow:hidden;border-radius:0 0 16px 16px}
-.vcard .vfoto img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
-.pil-copy .pfoto{margin-top:22px;max-width:46ch;border-radius:14px;overflow:hidden}
-.pil-copy .pfoto img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
-@media(max-width:820px){.pil-copy .pfoto{margin-left:auto;margin-right:auto}}
-.team-foto{max-width:64ch;margin:32px auto 0;border-radius:16px;overflow:hidden}
-.team-foto img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover}
+/* Randlose Bänder. Kein Foto ist ein eingerücktes Rechteck mit Radius im
+   Weissraum — es laeuft ueber die volle Breite oder liegt hinter Inhalt.
+   Die Baender stehen darum als direkte Kinder ihrer <section>, ausserhalb des
+   .wrap. Kein 100vw-Kunstgriff: der zaehlt den Scrollbalken mit und erzeugt
+   waagerechten Ueberlauf.
+   Hoehe 500px bei 1440px Breite = 2,88:1, am Motiv gemessen statt geschaetzt.
+   Bei 374px blieben von steg_mittag nur 41-76 % der Bildhoehe: die Liegestuehle
+   klebten an der Oberkante, das Pflaster verlor seine Tiefe. Die Dateien tragen
+   genau diese 2,88:1, auf dem Desktop wird also nichts zusaetzlich beschnitten.
+   Unter ~750px wird der Streifen quadratischer; dort beschneidet der Browser die
+   Seiten und laesst die Hoehe ganz. */
+.foto-band{overflow:hidden}
+/* Mosaik — vier Belege nebeneinander. Auf dem Handy zwei mal zwei, damit die
+   Kacheln nicht zu Briefmarken werden. */
+.mosaik{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.mosaik img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+@media(max-width:820px){.mosaik{grid-template-columns:repeat(2,1fr);gap:10px}}
+.foto-band img{display:block;width:100%;height:clamp(260px,34.7vw,500px);object-fit:cover}
+.problem .foto-band,#team .foto-band{margin-top:44px}
+/* Beats — die sieben Kapitel der Storyline. Ein Rhythmus fuer alle:
+   Textspalte auf Textbreite, Geraet daneben, das Paar zentriert wie die
+   Ueberschriften darueber. Gleiche Geometrie wie .pil-row, nur ohne
+   Trennlinie, weil jeder Beat ein eigener Abschnitt ist. */
+.beat{padding:84px 0}
+/* E-13: --carta statt --carta-morn. Der Folgeabschnitt .loesung ist
+   carta-morn; bei gleichem Grund und gleicher Rastergeometrie las sich
+   beides als ein Block. */
+.beat-hell{background:var(--carta)}
+.beat-row{display:grid;grid-template-columns:minmax(0,46ch) auto;justify-content:center;gap:56px;align-items:center}
+.beat-row.flip{grid-template-columns:auto minmax(0,46ch)}
+.beat-row.flip .pil-shot{order:-1}
+@media(max-width:820px){
+  .beat-row,.beat-row.flip{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .beat-row.flip .pil-shot{order:0}
+}
+.beat-copy p{margin-top:14px;color:var(--notte-2);font-size:15.5px;line-height:1.7;max-width:46ch}
+@media(max-width:820px){.beat-copy p{margin-left:auto;margin-right:auto}}
+/* Kennzahlen-Reihe. Nimmt die Zusammenfassungszeile aus der App auf — dort
+   stehen unter der Karte dieselben drei Werte nebeneinander. Seite und App
+   reimen sich damit. */
+.fakten{display:flex;gap:30px;flex-wrap:wrap;margin-top:26px;padding:18px 0;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);list-style:none}
+@media(max-width:820px){.fakten{justify-content:center}}
+.fakten li{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--notte-3)}
+.fakten b{display:block;font-family:var(--f-display);font-weight:500;font-size:21px;letter-spacing:-.01em;text-transform:none;color:var(--notte);margin-bottom:3px}
+/* Beat 4 dunkel. Der Abschnitt macht Beat 3 glaubwuerdig — als hellen
+   Abschnitt daneben wuerde man ihn ueberblaettern. Werte aus .honest. */
+.beat-dunkel{background:var(--notte);color:var(--carta)}
+.beat-dunkel .eyebrow{color:var(--sole)}
+.beat-dunkel h2{color:var(--carta)}
+.beat-dunkel h2 em{color:var(--sole)}
+.beat-dunkel .beat-copy p{color:rgba(250,245,232,.78)}
+/* Die drei Herkunftsstufen. Die Pillen zitieren die Abzeichen aus der App —
+   dort steht VORHERSAGE ueber dem Tagesverlauf und BERECHNET ueber der
+   Wassertemperatur. Werte aus .ab-tag. */
+.stufen{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(250,245,232,.16)}
+@media(max-width:820px){.stufen{grid-template-columns:1fr;gap:20px}}
+.stufen dt{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--notte);background:var(--sole);padding:4px 10px;border-radius:999px;display:inline-block}
+.stufen dd{margin:9px 0 0;font-size:13.5px;line-height:1.6;color:rgba(250,245,232,.72)}
+.beat-dunkel .ehrlich{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,245,232,.16)}
+/* Geraetepaar. Zwei Aufnahmen nebeneinander, die zweite tiefer gesetzt —
+   das liest sich als Abfolge und bricht die Ein-Geraet-Monotonie, die sich
+   ueber Hero, Beat 3 und Beat 4 aufgebaut hat.
+   Kleinere Rahmen, damit zwei davon neben 46ch Text in die 1032px passen:
+   210 + 18 + 210 + 56 + 508 = 1002. Hoehe folgt weiter 1080/2115. */
+.phone-xs{width:210px;height:398px;border-radius:32px;padding:7px}
+.phone-xs .scr{border-radius:26px}
+.geraete-paar{display:flex;gap:18px;align-items:flex-start}
+.geraete-paar .phone-frame:nth-child(2){margin-top:46px}
+@media(max-width:820px){
+  .phone-xs{width:150px;height:284px;border-radius:24px;padding:5px}
+  .phone-xs .scr{border-radius:19px}
+  .geraete-paar{gap:12px}
+  .geraete-paar .phone-frame:nth-child(2){margin-top:30px}
+}
+.beat-copy h3{font-family:var(--f-display);font-weight:500;font-size:clamp(22px,3.2vw,30px);line-height:1.2;margin-top:16px}
+.beat-copy h3 em{font-style:italic;color:var(--terracotta)}
+.beat-zeile{margin-top:56px;padding-top:52px;border-top:1px solid var(--linea-soft)}
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity 600ms var(--ease),transform 600ms var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -357,7 +428,10 @@ footer a:hover{color:var(--notte)}
     <a class="logo" href="#">Unica <em>Benaco</em><span class="logo-desc">Lago di Garda</span></a>
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#tag" data-i18n="nav_day">Ein Tag mit Unica</a>
+        <!-- E-12: #tag ist aufgeloest. Beide Verweise fragen nach dem Ablauf —
+     den beantwortet der Planer, nicht der Puls. Die Beschriftung bleibt
+     vorerst; Vorschlag fuer Cristina: "So funktioniert es". -->
+        <a href="#planer" data-i18n="nav_day">Ein Tag mit Unica</a>
         <a href="#mission" data-i18n="nav_honest">Warum Unica</a>
         <a href="#team" data-i18n="nav_team">Wer wir sind</a>
         <a href="#faq">FAQ</a>
@@ -374,11 +448,18 @@ footer a:hover{color:var(--notte)}
 
 <!-- 1 · HERO -->
 <header class="hero">
-  <!-- Der Hafenkanal von Peschiera in der blauen Stunde. Liegt hinter Raster
-       und Gerät und ist rein schmückend, darum alt="" und aria-hidden. Die
-       Maske blendet links aus, damit Überschrift und Fließtext auf reinem
-       Grund stehen; unter 860px kippt sie nach unten. -->
-  <img class="hero-photo" src="assets/foto/peschiera_abend.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <!-- Der Kanal von Peschiera am hellen Tag — dieselbe Stunde und dasselbe
+       Wetter, die Karte im Gerät und meteo zeigen: 31 Grad, klarer Himmel.
+       Vorher lag hier die blaue Stunde, danach lief die Seite rückwärts vom
+       Abend in den Mittag.
+       Ausschnitt bis x 30 % der Vorlage: ab dort steht die Tafel
+       "TAPAS & COCKTAIL BAR" im Bild, und ein lesbarer Lokalname hat auf
+       einer Seite, die keine bezahlten Platzierungen verspricht, nichts
+       verloren — auch nicht im Hintergrund.
+       Liegt hinter Raster und Gerät und ist rein schmückend, darum alt=""
+       und aria-hidden. Die Maske blendet links aus, damit Überschrift und
+       Fließtext auf reinem Grund stehen; unter 860px kippt sie nach unten. -->
+  <img class="hero-photo" src="assets/foto/hero_peschiera.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" data-i18n="hero_eyebrow">Süd-Gardasee · Peschiera bis Salò</span>
@@ -386,7 +467,7 @@ footer a:hover{color:var(--notte)}
       <p class="hero-lede" data-i18n="hero_lede">Der Gardasee ist nicht zu voll — nur falsch verteilt. Unica bringt dich dorthin, wo er zu dir passt, im richtigen Moment: eine Empfehlung, einzig für dich, statt zweihundert.</p>
       <div class="hero-actions">
         <a class="btn-primary" href="#warteliste" data-i18n="hero_cta1">Auf die Warteliste</a>
-        <a class="btn-ghost" href="#tag" data-i18n="hero_cta2">Wie es funktioniert</a>
+        <a class="btn-ghost" href="#planer" data-i18n="hero_cta2">Wie es funktioniert</a>
       </div>
       <div class="hero-note" data-i18n="hero_note">Start: Herbst 2026 · kostenlos</div>
     </div>
@@ -418,10 +499,6 @@ footer a:hover{color:var(--notte)}
         <span class="vnum">03</span>
         <h3 data-i18n="pb_v3_h">Der <em>falsche</em> Moment.</h3>
         <p data-i18n="pb_v3_p">Sirmione, Samstag, 11 Uhr im August. Dieselbe Burg um 17:30 wäre ein ganz anderer Ort gewesen — Licht, Ruhe, Platz. Nur wusstet ihr das nicht.</p>
-        <!-- Hafenplatz am Südufer, Mittag — die Stunde, von der die Vignette
-             handelt. Sitzt am Kartenfuß innerhalb ihres Radius, kein Band.
-             Datei 4:3, das CSS rahmt auf 3:2 (object-fit:cover, mittig). -->
-        <figure class="vfoto"><img src="assets/foto/steg_mittag.jpg" alt="Gepflasterter Hafenplatz am See in der Mittagssonne, Boote am Kai" loading="lazy" decoding="async"></figure>
       </div>
     </div>
     <div class="pivot-wrap reveal">
@@ -447,118 +524,129 @@ footer a:hover{color:var(--notte)}
            DE zuerst, IT und EN danach. pb_pivot ("Der See ist nicht das
            Problem. Es ist der Moment.") bleibt dabei unangetastet. -->
     </div>
-    <!-- TODO §2: Promenaden-Foto (Südufer, ruhiger Hafen) hier einsetzen, sobald geliefert:
-         <figure class="problem-photo reveal"><img src="assets/promenade.jpg" alt="Ruhiges Südufer am Gardasee" loading="lazy" decoding="async"></figure> -->
+  </div>
+
+  <!-- Band nach dem Pivot-Satz, nicht davor: erst die Behauptung, dann das
+       Bild als Zäsur. Leere Uferpromenade, klares Wasser — das ist wörtlich,
+       was der Satz darüber sagt: "liegt derselbe See ganz ruhig da". -->
+  <figure class="foto-band reveal"><img src="assets/foto/band_lago.jpg" alt="Leere Uferpromenade am Südufer, klares Wasser" loading="lazy" decoding="async"></figure>
+</section>
+
+<!-- BEAT 3 · Der See hat einen Puls.
+     Steht direkt nach dem Pivot-Satz: der Pivot behauptet, fuenfzehn Minuten
+     weiter liege derselbe See ruhig da — dieser Beat belegt es.
+     Beweis: il_giorno, das Polso-Raster ueber zehn Orte und vierzehn Stunden,
+     mit VORHERSAGE-Kennzeichnung und dem ruhigen Fenster darunter.
+     ENTWURF — Ueberschrift von Tim, Fliesstext von mir, Cristina entscheidet. -->
+<section id="puls" class="beat beat-hell">
+  <div class="wrap beat-row">
+    <div class="beat-copy">
+      <span class="eyebrow" data-i18n="b3_eyebrow">Was dahinter rechnet</span>
+      <h2 data-i18n="b3_h2">Der See hat einen <em>Puls.</em></h2>
+      <p data-i18n="b3_p1">Jede Stunde rechnet Unica den Südsee neu: Verkehr, Wetter und eine Auslastungs-Einschätzung für zehn Orte, vierzehn Stunden im Voraus. Nicht auf Anfrage, sondern einmal für alle — wer morgens fragt, liest dieselbe Rechnung wie der, der mittags fragt.</p>
+      <ul class="fakten">
+        <li data-i18n="b3_f1"><b>stündlich</b> neu gerechnet</li>
+        <li data-i18n="b3_f2"><b>10 Orte</b> am Südufer</li>
+        <li data-i18n="b3_f3"><b>von morgens</b> bis abends</li>
+      </ul>
+      <p data-i18n="b3_p2">Daraus werden zwei Fragen auf zwei Ebenen: Lohnt sich die Richtung überhaupt — und ist es dort, wo ihr hinwollt, gerade erträglich?</p>
+    </div>
+    <div class="phone-frame phone-sm reveal pil-shot">
+      <div class="scr"><img src="assets/app/il_giorno.jpg" alt="Unica Benaco — Il Polso del Lago: zehn Orte über den Tag, mit Vorhersage und ruhigem Fenster" width="1080" height="2115" loading="lazy" decoding="async"></div>
+    </div>
   </div>
 </section>
 
-<!-- 3 · LÖSUNG · die drei Pfeiler des Produkts (Spec 0001, Ä1) -->
-<section id="loesung" class="loesung">
+<!-- BEAT 4 · Wir schreiben dazu, was wir nicht wissen.
+     Ohne diesen Beat ist Beat 3 eine Behauptung. Dunkel, damit er nicht neben
+     dem Puls-Abschnitt verschwindet.
+     Beweis: meteo. Die Aufnahme traegt alle drei Herkunftsstufen in einem
+     Bild — benannte Quelle mit Gueltigkeitsfenster (Italian Air Force
+     National Meteorological Service, 12:00-19:59), VORHERSAGE ueber dem
+     Tagesverlauf, BERECHNET ueber der Wassertemperatur, dazu die Zeile
+     "links vom Strich gemessen, rechts vorhergesagt, leer = kein Wert".
+     ls1_cap steht hier wortgleich; in Saeule 1 war es Kleingedrucktes.
+     mi_quote bleibt in der Mission — Wiederaufnahme, kein Fehler.
+     ENTWURF — Ueberschrift von Tim, Fliesstext von mir. -->
+<section id="ehrlich" class="beat beat-dunkel">
+  <div class="wrap beat-row flip">
+    <div class="phone-frame phone-sm reveal pil-shot">
+      <div class="scr"><img src="assets/app/meteo.jpg" alt="Unica Benaco — Wetter mit benannter Quelle, Vorhersage- und Berechnet-Kennzeichnung" width="1080" height="2115" loading="lazy" decoding="async"></div>
+    </div>
+    <div class="beat-copy">
+      <span class="eyebrow" data-i18n="b4_eyebrow">Woher die Zahlen kommen</span>
+      <h2 data-i18n="b4_h2">Wir schreiben dazu, was wir <em>nicht</em> wissen.</h2>
+      <p data-i18n="b4_p1">Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.</p>
+      <dl class="stufen">
+        <div><dt data-i18n="b4_s1t">gemessen</dt><dd data-i18n="b4_s1d">Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich.</dd></div>
+        <div><dt data-i18n="b4_s2t">berechnet</dt><dd data-i18n="b4_s2d">Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst.</dd></div>
+        <div><dt data-i18n="b4_s3t">vorhergesagt</dt><dd data-i18n="b4_s3d">Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer.</dd></div>
+      </dl>
+      <p class="ehrlich" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
+      <p data-i18n="b4_p2">Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEAT 5 · Daraus wird eine Entscheidung.
+     Der Planer ist die Aktivierungssaeule der App und war der duennste
+     Abschnitt der Seite: ein Screenshot plus Chat. Jetzt die volle Kette —
+     Wer faehrt mit, welcher Modus, der Plan als Ganzes, und die Frage.
+     Zwei Geraetepaare brechen die Ein-Geraet-Reihe aus Hero, Beat 3, Beat 4.
+     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player sind
+     freigegebene Copy und stehen hier woertlich; neu sind nur b5_*. -->
+<section id="planer" class="beat beat-hell">
   <div class="wrap">
     <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
-      <span class="eyebrow" data-i18n="ls_eyebrow">Was Unica tut</span>
-      <h2 data-i18n="ls_h2">Damit der Tag <em>euch</em> gehört.</h2>
+      <span class="eyebrow" data-i18n="b5_eyebrow">Vom Rechnen zum Vorschlag</span>
+      <h2 data-i18n="b5_h2">Daraus wird eine <em>Entscheidung.</em></h2>
     </div>
 
-    <!-- Pfeiler 1 · Der richtige Moment (Planer + Territorio).
-         ls2_p ist die frühere Säule 2, wortgleich hierhergezogen: Territorio
-         liefert die Lage, der Planer macht daraus eine Entscheidung.
-         ls1_cap bleibt die Ehrlichkeitszeile an dieser Stelle. -->
-    <div class="pil-row">
-      <div class="pil-copy">
-        <span class="pnum" data-i18n="ls1_num">Säule 1</span>
+    <div class="beat-row" style="margin-top:44px">
+      <div class="beat-copy">
         <h3 data-i18n="ls1_h">Der richtige <em>Moment.</em></h3>
         <p data-i18n="ls1_p">Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.</p>
         <p data-i18n="ls2_p">Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.</p>
-        <p class="pcap" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
-        <!-- Zypressen gegen die untergehende Sonne. Steht in der Textspalte,
-             also neben dem Gerät dieser Zeile, und gehört zur Saison — der Satz
-             dazu fehlt noch, siehe Ä6 im Pivot-Block. Datei 4:3, das CSS rahmt
-             auf 3:2 (object-fit:cover, mittig). -->
-        <figure class="pfoto"><img src="assets/foto/zypressen_abend.jpg" alt="Reihe von Zypressen gegen die untergehende Sonne" loading="lazy" decoding="async"></figure>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
         <div class="scr"><img src="assets/app/oggi_tipp.jpg" alt="Unica Benaco — eine Empfehlung mit Warum-Button" width="1080" height="2115" loading="lazy" decoding="async"></div>
       </div>
     </div>
 
-    <!-- Pfeiler 2 · Dein Tag (Diario). Stempel, Tagesstory, La Carte du Soir.
-         ENTWURF — Cristina entscheidet. Bildschirm folgt mit Ä3. -->
-    <div class="pil-row flip">
-      <!-- PLATZHALTER · Datei fehlt: assets/app/diario_raster.jpg
-           Von Tim angekündigt: Diario-Raster, die Stempel eines Tages.
-           1080×2115 wie die übrigen Aufnahmen, JPG ≤ 250 KB, später dieselbe
-           Ansicht auf IT und EN. Solange die Datei fehlt, nimmt onerror die
-           Aufnahme heraus — nicht durch ein anderes Bild aus assets/ ersetzen. -->
-      <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/diario_raster.jpg" alt="Unica Benaco — Diario: die Stempel eines Tages" width="1080" height="2115" loading="lazy" decoding="async" onerror="this.closest('.phone-frame').remove()"></div>
+    <div class="beat-row flip beat-zeile">
+      <div class="geraete-paar reveal pil-shot">
+        <div class="phone-frame phone-xs"><div class="scr"><img src="assets/app/onboarding_paar.jpg" alt="Unica Benaco — Wer fährt mit: Paar, Auto, Hund dabei" width="1080" height="2115" loading="lazy" decoding="async"></div></div>
+        <div class="phone-frame phone-xs"><div class="scr"><img src="assets/app/onboarding_7.jpg" alt="Unica Benaco — Sorprendimi oder A quattro mani: wie viel Unica plant" width="1080" height="2115" loading="lazy" decoding="async"></div></div>
       </div>
-      <div class="pil-copy">
-        <span class="pnum" data-i18n="ls2_num">Säule 2</span>
-        <h3 data-i18n="di_h">Der Tag, den ihr <em>behaltet.</em></h3>
-        <p data-i18n="di_p">Ein Stempel für jeden Ort, an dem ihr wart. Abends läuft der Tag als Story zurück — und La Carte du Soir schreibt ihn in einem Satz auf, aus eurem tatsächlichen Tagesverlauf. Bewusst ohne Bild: Unicas eigene Beobachtung, kein Foto-Recycling.</p>
+      <div class="beat-copy">
+        <h3 data-i18n="m0_h">Zwei Minuten — dann kennt Unica <em>euch.</em></h3>
+        <p data-i18n="b5a_p">Zu zweit oder zu dritt, mit Hund, mit dem Auto oder zu Fuß — und wie viel ihr selbst planen wollt. Sieben Fragen, keine Formulare. Am Ende steht die eine, die ihr behaltet: überrasch mich, oder wir planen zu zweit.</p>
       </div>
     </div>
 
-    <!-- Pfeiler 3 · Der Kreis (Cerchio). Ersetzt den eigenständigen Abschnitt
-         „Il Cerchio · Community": Überschrift, Absatz und die drei Chips sind
-         wortgleich von dort hierhergezogen. Überschrift und Absatz tragen seit
-         Ä2 den geltenden Stand: Wochen-Kohorte statt Dauer-Community. -->
-    <div class="pil-row">
-      <div class="pil-copy">
-        <span class="pnum" data-i18n="ls3_num">Säule 3</span>
-        <h3 data-i18n="cr_h">Der Kreis derer, die <em>jetzt hier sind.</em></h3>
-        <p data-i18n="cr_p">Keine Dauer-Community, kein Feed. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Danach ist es vorbei.</p>
-        <div class="ex-chips">
-          <span class="ex-chip" data-i18n="ex_c1">aus lokalen Quellen</span>
-          <span class="ex-chip" data-i18n="ex_c2">Community-Beiträge</span>
-          <span class="ex-chip" data-i18n="ex_c3">KI transparent gekennzeichnet</span>
-        </div>
+    <div class="beat-row beat-zeile">
+      <div class="beat-copy">
+        <h3 data-i18n="b5b_h">Und dann steht der <em>Plan.</em></h3>
+        <p data-i18n="b5b_p">Drei Tage an einem roten Faden, jeder Tag mit einem eigenen Thema. Wer ihn aufklappt, sieht die Stunden — und neben jedem Rat steht getrennt davon, was daran nachprüfbar ist.</p>
       </div>
-      <!-- ESPERIENZE-Feed mit dem Polso-Kopf "Cerchio Estate 2026 · Settimana 35".
-           Keine Persona-Karte, kein RESIDENTI-Reiter — das verlangt Ä3 zwingend.
-           Löst cerchio_community.jpg ab, die unten "Marco · AI · Fischer · Lazise"
-           zeigte. Offen: dieselbe Ansicht noch auf IT und EN aufnehmen. -->
-      <div class="phone-frame phone-sm reveal pil-shot">
-        <div class="scr"><img src="assets/app/cerchio_woche.jpg" alt="Unica Benaco — Il Cerchio: der Kreis dieser Woche mit den Momenten vom See" width="1080" height="2115" loading="lazy" decoding="async"></div>
+      <div class="geraete-paar reveal pil-shot">
+        <div class="phone-frame phone-xs"><div class="scr"><img src="assets/app/pre_plan.jpg" alt="Unica Benaco — Dein Plan: drei Tage, ein roter Faden" width="1080" height="2115" loading="lazy" decoding="async"></div></div>
+        <!-- PLATZHALTER · Datei fehlt: assets/app/plan_2.jpg
+             Die vorhandene Aufnahme zeigt als Faktenzeile "Tisch um 19:00
+             reserviert". Die App reserviert nicht: reservierung ist eine
+             Eigenschaft des Ortes (pflicht_hochsaison | empfohlen | nein),
+             der Knopf oeffnet buchungUrl und tut ohne Link gar nichts
+             (carta_sheet.dart:542), und fakten[] wird ungeprueft aus der
+             Modellantwort gelesen (travel_plan_model.dart:187) — allowedNames
+             prueft Ortsnamen, keine Zusagen. Die Zeile ist erfundener Text.
+             Nachaufnahme mit "Mercato bis 13:00" statt der Reservierung.
+             Nicht durch ein anderes Bild ersetzen. -->
+        <div class="phone-frame phone-xs"><div class="scr"><img src="assets/app/plan_2.jpg" alt="Unica Benaco — ein Tag im Plan, mit nachprüfbarer Angabe unter dem Rat" width="1080" height="2115" loading="lazy" decoding="async" onerror="this.closest('.phone-frame').remove()"></div></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- 3 · EIN TAG MIT UNICA -->
-<section id="tag" class="wrap">
-  <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
-    <span class="eyebrow" data-i18n="day_eyebrow">Ein Tag mit Unica</span>
-    <h2 data-i18n="day_h2">Vom Aufwachen bis zum <em>Aperitivo.</em></h2>
-  </div>
-
-  <div class="day-moment">
-    <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/onboarding_wer.jpg" alt="Unica Benaco — Onboarding"></div>
-    </div>
-    <div class="moment-copy">
-      <span class="time" data-i18n="m0_time">BEVOR ES LOSGEHT</span>
-      <h3 data-i18n="m0_h">Zwei Minuten — dann kennt Unica <em>euch.</em></h3>
-      <p data-i18n="m0_p">Familie mit Kindern? Zu zweit? Mit Hund? Frühaufsteher oder Dolce Vita? Ein kurzes, charmantes Kennenlernen statt endloser Formulare — und jede Empfehlung passt zu eurem Rhythmus.</p>
-      <div class="quote" data-i18n="m0_q">„Ihr mögt es entspannt. Perfetto."</div>
-    </div>
-  </div>
-
-  <div class="day-moment flip">
-    <div class="moment-copy">
-      <span class="time">08:30</span>
-      <h3 data-i18n="m1_h">Dein Moment <em>wartet schon.</em></h3>
-      <p data-i18n="m1_p">Jeden Morgen eine Empfehlung, die zu Wetter, Wochentag und der aktuellen Auslastungs-Einschätzung passt — mit Uhrzeit und dem Grund, warum genau jetzt. Keine 200 Optionen. Eine, die stimmt.</p>
-      <div class="quote" data-i18n="m1_q">„Um 8:30 ist die Bucht noch leer. Um 11 nicht mehr."</div>
-    </div>
-    <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/verkehr_liste.jpg" alt="Unica Benaco — Auslastungs-Einschätzung nach Ort" width="1080" height="2115" loading="lazy" decoding="async"></div>
-    </div>
-  </div>
-
-  <div class="day-moment">
-    <div class="phone-frame phone-sm reveal chat-phone">
+    <div class="beat-row flip beat-zeile">
+      <div class="phone-frame phone-sm reveal pil-shot chat-phone">
       <div class="scr chat-scr">
         <div class="chat-head">
           <span class="orb"></span>
@@ -573,41 +661,55 @@ footer a:hover{color:var(--notte)}
         </div>
         <div class="chat-foot"><span data-i18n="cl_input">Ihre Frage…</span><i>➤</i></div>
       </div>
-    </div>
-    <div class="moment-copy">
-      <span class="time">14:00</span>
-      <h3 data-i18n="m2_h">Frag, was du willst. <em>Auf Deutsch.</em></h3>
-      <p data-i18n="m2_p">Markttag in Lazise? Die Fähre nach Salò? Der Bäcker, der sonntags offen hat? Unica antwortet wie ein Freund, der am See wohnt — aus zusammengetragenem lokalem Wissen, nicht aus dem Internet-Rauschen.</p>
-      <div class="quote" data-i18n="m2_q">„Der Markt in Lazise ist mittwochs, 8 bis 13 Uhr."</div>
-    </div>
-  </div>
-
-  <div class="day-moment flip">
-    <div class="moment-copy">
-      <span class="time">15:12</span>
-      <h3 data-i18n="m3_h">Und wenn's drauf ankommt, <em>warnt dich der See.</em></h3>
-      <p data-i18n="m3_p">Gewitterfront ab 16:00? Unica sagt es dir, bevor du am Strand bist — mit konkreter Uhrzeit statt vager Wetter-App-Prosa. Nicht nur empfehlen. Wirklich aufpassen.</p>
-      <div class="quote" data-i18n="m3_q">„Sei vor 15:30 zurück vom See — kein Bootsausflug."</div>
-    </div>
-    <div class="phone-frame phone-sm reveal">
-      <div class="scr"><img src="assets/app/storm_warning.jpg" alt="Unica Benaco — Unwetterwarnung" width="1080" height="2115" loading="lazy" decoding="async"></div>
+      </div>
+      <div class="beat-copy">
+        <h3 data-i18n="m2_h">Frag, was du willst. <em>Auf Deutsch.</em></h3>
+        <p data-i18n="m2_p">Markttag in Lazise? Die Fähre nach Salò? Der Bäcker, der sonntags offen hat? Unica antwortet wie ein Freund, der am See wohnt — aus zusammengetragenem lokalem Wissen, nicht aus dem Internet-Rauschen.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- 21:00 · Abschluss in notte (Screenshot La Carte du Soir folgt aus dem Paket) -->
-  <div class="day-close reveal">
-    <span class="time">21:00</span>
-    <h3 data-i18n="m4_h">Der Tag, als <em>Postkarte.</em></h3>
-    <p data-i18n="m4_p">Wenn der See dunkel wird, fasst Unica euren Tag zusammen — die Orte, der Moment, das eine Bild, das bleibt. Kein neues Programm mehr. Nur ein ruhiger Blick zurück auf einen Tag, der gepasst hat.</p>
-    <div class="quote" data-i18n="m4_q">„Buonanotte — morgen liest der See sich neu."</div>
+<!-- BEAT 6 · Der Tag, den ihr behaltet.
+     Diario. Der Grund, die App am dritten Urlaubstag noch zu oeffnen.
+     Beweis: profilo — 41 Stempel, elf abgehakte Orte, die Abzeichen und
+     "Residente d'Onore. Der See gehoert dir." Ein reines Stempel-Raster
+     zeigt die Sammlung, profilo zeigt, was daraus wird.
+     di_p ist neu: die alte Fassung beschrieb zur Haelfte La Carte du Soir
+     ("schreibt ihn in einem Satz auf", "bewusst ohne Bild"), und die
+     verschwindet aus der App. Ein Wort zu tauschen haette nicht gereicht. -->
+<section id="diario" class="beat">
+  <div class="wrap beat-row">
+    <div class="beat-copy">
+      <span class="eyebrow" data-i18n="b6_eyebrow">Was bleibt</span>
+      <h2 data-i18n="di_h">Der Tag, den ihr <em>behaltet.</em></h2>
+      <p data-i18n="di_p">Ein Stempel für jeden Ort, an dem ihr wart — mehr müsst ihr nicht tun. Daraus wird eine Spur, die von selbst entsteht: wo ihr wart, in welcher Reihenfolge, an welchem Tag. Nach einer Woche steht dort ein Revier, das ihr nie angelegt habt.</p>
+    </div>
+    <div class="phone-frame phone-sm reveal pil-shot">
+      <div class="scr"><img src="assets/app/profilo.jpg" alt="Unica Benaco — 41 Stempel, elf Orte abgehakt, Residente d’Onore" width="1080" height="2115" loading="lazy" decoding="async"></div>
+    </div>
   </div>
+</section>
 
-  <!-- Modus-Block (verschoben aus §7): Abschluss-Note nach dem Tagesbogen -->
-  <div class="cerchio-strip reveal modus-note">
-    <div class="cerchio-shot"><img src="assets/app/planungsmodi.jpg" alt="Unica Benaco — Planungsmodi: Sorprendimi oder A quattro mani" width="210" height="250" loading="lazy" decoding="async"></div>
-    <div class="cerchio-copy">
-      <h3 data-i18n="ce_h3">Du entscheidest, wie viel Unica <em>plant.</em></h3>
-      <p data-i18n="ce_p">Von „überrasch mich" bis „wir planen zu zweit": Wähl deinen Modus — und wechsle jederzeit, auch mitten im Urlaub. Unica denkt mit, nie über deinen Kopf hinweg.</p>
+<!-- BEAT 7 · Der Kreis derer, die jetzt hier sind.
+     Cerchio. Wochen-Kohorte, Verfall nach sieben Tagen.
+     cr_p ist geaendert: "kein Feed" war gegen jede verfuegbare Aufnahme nicht
+     zu halten — beide zeigen einen Feed. Der Punkt ist die Kohorte und der
+     Verfall, nicht die Abwesenheit eines Feeds. -->
+<section id="kreis" class="beat beat-hell">
+  <div class="wrap beat-row flip">
+    <div class="phone-frame phone-sm reveal pil-shot">
+      <div class="scr"><img src="assets/app/cerchio_woche.jpg" alt="Unica Benaco — Il Cerchio: der Kreis dieser Woche mit den Momenten vom See" width="1080" height="2115" loading="lazy" decoding="async"></div>
+    </div>
+    <div class="beat-copy">
+      <span class="eyebrow" data-i18n="b7_eyebrow">Wer sonst noch da ist</span>
+      <h2 data-i18n="cr_h">Der Kreis derer, die <em>jetzt hier sind.</em></h2>
+      <p data-i18n="cr_p">Keine Dauer-Community. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Nach sieben Tagen ist es weg, und die nächste Woche fängt leer an.</p>
+        <div class="ex-chips">
+          <span class="ex-chip" data-i18n="ex_c1">aus lokalen Quellen</span>
+          <span class="ex-chip" data-i18n="ex_c2">Community-Beiträge</span>
+          <span class="ex-chip" data-i18n="ex_c3">KI transparent gekennzeichnet</span>
+        </div>
     </div>
   </div>
 </section>
@@ -661,11 +763,20 @@ footer a:hover{color:var(--notte)}
       <p data-i18n="tm_story3">Genau dieses Wissen steckt in Unica Benaco. Die App, die wir uns gewünscht hätten, als wir selbst noch Gäste am Gardasee waren.</p>
       <p class="tm-ps" data-i18n="tm_story4">Übrigens: Aus den drei Katzen, mit denen wir kamen, sind inzwischen neun geworden. Eine Straßenkatze zog bei uns ein, bekam vier Kätzchen — und der Kater lebt jetzt auf unserer Terrasse. Das ist eben auch Italien.</p>
     </div>
-    <!-- Weinreben mit dem See dahinter. Auf die 64ch der Team-Geschichte
-         begrenzt, damit es als Teil der Geschichte liest und nicht als Band quer
-         durch den Abschnitt. Datei 4:3, das CSS rahmt auf 3:2
-         (object-fit:cover, mittig). -->
-    <figure class="team-foto reveal"><img src="assets/foto/weinberg_see.jpg" alt="Weinreben mit Blick auf den See" loading="lazy" decoding="async"></figure>
+  </div>
+
+  <!-- Mosaik statt Band: vier Belege, dass wir da waren. Belege treten zu
+       viert auf, nie einzeln — ein einzelnes gerahmtes Foto gibt es nicht.
+       Ohne Ortsnamen: von den vier Aufnahmen kann ich zwei zweifelsfrei
+       zuordnen, zwei nicht. Vier Bilder mit zwei geratenen Bildunterschriften
+       wären schlechter als vier ohne. -->
+  <div class="wrap">
+    <div class="mosaik reveal">
+      <img src="assets/foto/revier_hafen.jpg" alt="Hafenplatz am Südufer in der Mittagssonne" loading="lazy" decoding="async">
+      <img src="assets/foto/revier_manerba.jpg" alt="Blick von der Höhe auf das tiefe Blau des Sees" loading="lazy" decoding="async">
+      <img src="assets/foto/revier_zypressen.jpg" alt="Zypressenreihe gegen die untergehende Sonne" loading="lazy" decoding="async">
+      <img src="assets/foto/revier_reben.jpg" alt="Rebzeilen mit einem Nussbaum am Rand" loading="lazy" decoding="async">
+    </div>
     <div class="team-grid">
       <button class="person reveal" type="button" onclick="openBio('c')" aria-label="Cristina — Bio öffnen">
         <img class="photo" src="assets/cristina.jpg" alt="Cristina — Founder &amp; Creative Strategy" onerror="this.style.display='none'">
@@ -734,6 +845,14 @@ footer a:hover{color:var(--notte)}
   </div>
 </section>
 
+<!-- Schlussband vor der Warteliste. Peschiera in der blauen Stunde,
+     beleuchtete Arkaden, besetzte Tische — das Bild für "hier wohnen
+     Menschen", der zweite Teil des Maßstabs. Steht zwischen zwei
+     Abschnitten, ist dort also ohne Kunstgriff randlos.
+     Ausschnitt ab x 16 %: links stand der beleuchtete Schriftzug
+     "PAVILLON" im Bild, dieselbe Regel wie beim Hero. -->
+<figure class="foto-band reveal"><img src="assets/foto/band_peschiera_abend.jpg" alt="Peschiera in der blauen Stunde, beleuchtete Arkaden am Kanal" loading="lazy" decoding="async"></figure>
+
 <!-- 6 · FINALE -->
 <section id="warteliste" class="finale wrap">
   <span class="eyebrow" data-i18n="wl_eyebrow">Herbst 2026</span>
@@ -793,6 +912,50 @@ footer a:hover{color:var(--notte)}
 <script>
 var I18N={
  de:{
+  /* BEAT 6 und 7 · ENTWURF, Cristina entscheidet. di_h, cr_h und die
+     Chips ex_c1-3 stehen wörtlich; di_p und cr_p sind neu gefasst. */
+  b6_eyebrow:"Was bleibt",
+  b7_eyebrow:"Wer sonst noch da ist",
+  /* BEAT 5 · ENTWURF, Cristina entscheidet. Neu sind nur diese Schlüssel;
+     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen
+     wörtlich und sind freigegebene Copy. */
+  b5_eyebrow:"Vom Rechnen zum Vorschlag",
+  b5_h2:"Daraus wird eine <em>Entscheidung.</em>",
+  b5a_p:"Zu zweit oder zu dritt, mit Hund, mit dem Auto oder zu Fuß — und wie viel ihr selbst planen wollt. Sieben Fragen, keine Formulare. Am Ende steht die eine, die ihr behaltet: überrasch mich, oder wir planen zu zweit.",
+  b5b_h:"Und dann steht der <em>Plan.</em>",
+  b5b_p:"Drei Tage an einem roten Faden, jeder Tag mit einem eigenen Thema. Wer ihn aufklappt, sieht die Stunden — und neben jedem Rat steht getrennt davon, was daran nachprüfbar ist.",
+  /* E-15: Der Satz "Passt nichts, empfiehlt sie nichts" ist zurückgenommen.
+     Kein Bild im Bestand zeigt die leere Antwort mit Begründung — eine
+     unbelegte Behauptung ausgerechnet im Ehrlichkeits-Abschnitt.
+     Wieder aufnehmen, sobald eine Aufnahme davon existiert. */
+  /* BEAT 4 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. ls1_cap steht unverändert und trägt hier den
+     Abschnitt, statt in Säule 1 Kleingedrucktes zu sein. */
+  b4_eyebrow:"Woher die Zahlen kommen",
+  b4_h2:"Wir schreiben dazu, was wir <em>nicht</em> wissen.",
+  b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.",
+  /* ERSETZT mit Anhang E: */ // b4_p1:"Jede Zahl in der App trägt ihre Herkunft. Du siehst nicht nur, wie warm es wird — du siehst, ob das gemessen, gerechnet oder erst vorhergesagt ist."
+  b4_s1t:"gemessen",
+  b4_s1d:"Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich.",
+  /* ERSETZT mit Anhang E: */ // b4_s1d:"Vom Wetterdienst gemeldet, mit Namen und Gültigkeitsfenster."
+  b4_s2t:"berechnet",
+  b4_s2d:"Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst.",
+  /* ERSETZT mit Anhang E: */ // b4_s2d:"Abgeleitet, nicht gemessen — die Wassertemperatur etwa aus dem Monatswert."
+  b4_s3t:"vorhergesagt",
+  b4_s3d:"Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer.",
+  /* ERSETZT mit Anhang E: */ // b4_s3d:"Was noch kommt. Wo nichts vorliegt, bleibt das Feld leer."
+  b4_p2:"Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.",
+  /* ERSETZT mit Anhang E: */ // b4_p2:"Und jeden Ortsnamen, den Unica ausgibt, hält sie gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus. Passt nichts, empfiehlt sie nichts — eine leere Antwort mit Begründung ist uns lieber als eine erfundene."
+  /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. IT und EN ebenfalls meine Fassung. */
+  b3_eyebrow:"Was dahinter rechnet",
+  b3_h2:"Der See hat einen <em>Puls.</em>",
+  b3_p1:"Jede Stunde rechnet Unica den Südsee neu: Verkehr, Wetter und eine Auslastungs-Einschätzung für zehn Orte, vierzehn Stunden im Voraus. Nicht auf Anfrage, sondern einmal für alle — wer morgens fragt, liest dieselbe Rechnung wie der, der mittags fragt.",
+  b3_f1:"<b>stündlich</b> neu gerechnet",
+  b3_f2:"<b>10 Orte</b> am Südufer",
+  b3_f3:"<b>von morgens</b> bis abends",
+  /* ERSETZT mit Anhang E: */ // b3_f3:"<b>14 Stunden</b> im Voraus"
+  b3_p2:"Daraus werden zwei Fragen auf zwei Ebenen: Lohnt sich die Richtung überhaupt — und ist es dort, wo ihr hinwollt, gerade erträglich?",
   mi_eyebrow:"Warum es uns gibt",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"Dass der Gardasee der Ort bleibt, in den man sich <em>verliebt</em> — weil jeder zur richtigen Zeit am richtigen Platz ist.",
   mi_mission:"Wir verteilen Tourismus intelligent: Unica rechnet mit Live-Daten — Wetter und Verkehr in Echtzeit — und lokalem Wissen von Menschen, die hier leben, und macht daraus eine ehrliche Einschätzung, wo der See gerade am schönsten ist. So finden Gäste ihren Platz, und die Orte, die Pause brauchen, bekommen sie.",
@@ -813,8 +976,24 @@ var I18N={
      Wochen-Kohorte statt Dauer-Community, Beiträge verfallen nach sieben
      Tagen, jede Woche ein neuer Kreis. */
   cr_h:"Der Kreis derer, die <em>jetzt hier sind.</em>",
-  cr_p:"Keine Dauer-Community, kein Feed. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Danach ist es vorbei.",
+  cr_p:"Keine Dauer-Community. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Nach sieben Tagen ist es weg, und die nächste Woche fängt leer an.",
+  /* ERSETZT mit Anhang E-6: */ // cr_p:"Keine Dauer-Community, kein Feed. Jede Woche ein neuer Kreis — was diese Woche am See passiert, steht diese Woche drin. Danach ist es vorbei."
   ex_c1:"aus lokalen Quellen",ex_c2:"Community-Beiträge",ex_c3:"KI transparent gekennzeichnet",
+  /* AUSGESETZT mit Spec 0002: Der Tagesbogen ist aufgeloest, seine Momente
+     stehen in den Beats. Text bleibt vollstaendig, nichts geloescht.
+
+     day_eyebrow, day_h2 — Ueberschrift des Abschnitts, den es nicht mehr gibt.
+     m0_time, m0_p, m0_q — das Kennenlernen steht in Beat 5; m0_h lebt dort
+       weiter, m0_p nicht: "Familie mit Kindern?" widerspricht der Zielgruppe.
+     m1_h, m1_p, m1_q — 08:30 sagt dasselbe wie Beat 5.
+     m3_h, m3_p, m3_q — 15:12 Unwetter; Beat 4 traegt meteo allein, und
+       storm_warning.jpg zeigt noch die alte Wortmarke.
+     m4_h, m4_p, m4_q — 21:00 "Der Tag als Postkarte", ersatzlos:
+       La Carte du Soir verschwindet aus der App.
+     ce_h3, ce_p — der Modus-Streifen gehoert ins Onboarding und steht als
+       onboarding_7 in Beat 5.
+
+     Weiter live: m0_h, m2_h, m2_p und der Chat-Player, alle in Beat 5. */
   cl_u1:"Wann ist Markttag in Lazise?",cl_a1:"Mittwochs, 8 bis 13 Uhr — im historischen Zentrum. Viel Spaß beim Stöbern!",
   cl_u2:"Und wo gibt's um 22 Uhr noch Pizza in Peschiera?",cl_a2:"Da kenne ich zwei Öfen, die dann noch heiß sind. Soll ich dir den Weg zeigen?",
   cl_input:"Ihre Frage…",
@@ -836,7 +1015,13 @@ var I18N={
   pb_v3_h:"Der <em>falsche</em> Moment.",
   pb_v3_p:"Sirmione, Samstag, 11 Uhr im August. Dieselbe Burg um 17:30 wäre ein ganz anderer Ort gewesen — Licht, Ruhe, Platz. Nur wusstet ihr das nicht.",
   pb_pivot:"Der See ist nicht das Problem. Es ist der <em>Moment.</em> Fünfzehn Minuten weiter — oder zwei Stunden später — liegt derselbe See ganz ruhig da.",
+  /* AUSGESETZT mit Spec 0002: ls_eyebrow und ls_h2 waren die Überschrift
+     des Säulen-Abschnitts, der sich in die Beats aufgelöst hat. Beat 5
+     trägt mit b5_eyebrow/b5_h2 seine eigene. Text bleibt, nichts gelöscht. */
   ls_eyebrow:"Was Unica tut",ls_h2:"Damit der Tag <em>euch</em> gehört.",
+  /* AUSGESETZT mit Spec 0002: Bei sieben Beats sind Säulen-Nummern
+     sinnlos. ls1_num, ls2_num und ls3_num tragen keinen Abschnitt
+     mehr. Text bleibt, nichts gelöscht. */
   ls1_num:"Säule 1",ls1_h:"Der richtige <em>Moment.</em>",
   ls1_p:"Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.",
   ls2_p:"Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?\" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.",
@@ -862,6 +1047,10 @@ var I18N={
   m1_q:"„Um 8:30 ist die Bucht noch leer. Um 11 nicht mehr.\"",
   m2_h:"Frag, was du willst. <em>Auf Deutsch.</em>",
   m2_p:"Markttag in Lazise? Die Fähre nach Salò? Der Bäcker, der sonntags offen hat? Unica antwortet wie ein Freund, der am See wohnt — aus zusammengetragenem lokalem Wissen, nicht aus dem Internet-Rauschen.",
+  /* AUSGESETZT mit Spec 0002: m2_q war die Zitatzeile unter dem Chat im
+     Tagesbogen. Der Chat-Player ist nach Beat 5 umgezogen, das Zitat nicht —
+     es sagt dasselbe wie die Antwortblase daneben (cl_a1: "Mittwochs, 8 bis
+     13 Uhr"). Zweimal derselbe Satz nebeneinander. Text bleibt. */
   m2_q:"„Der Markt in Lazise ist mittwochs, 8 bis 13 Uhr.\"",
   m3_h:"Und wenn's drauf ankommt, <em>warnt dich der See.</em>",
   m3_p:"Gewitterfront ab 16:00? Unica sagt es dir, bevor du am Strand bist — mit konkreter Uhrzeit statt vager Wetter-App-Prosa. Nicht nur empfehlen. Wirklich aufpassen.",
@@ -938,6 +1127,50 @@ var I18N={
   _desc:"Unica zeigt dir den südlichen Gardasee, den die Einheimischen lieben — der richtige Ort, zum richtigen Moment, passend zu euch. Eine ehrliche Empfehlung statt zweihundert Optionen."
  },
  it:{
+  /* BEAT 6 und 7 · ENTWURF, Cristina entscheidet. di_h, cr_h und die
+     Chips ex_c1-3 stehen wörtlich; di_p und cr_p sind neu gefasst. */
+  b6_eyebrow:"Ciò che resta",
+  b7_eyebrow:"Chi altro c’è",
+  /* BEAT 5 · ENTWURF, Cristina entscheidet. Neu sind nur diese Schlüssel;
+     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen
+     wörtlich und sind freigegebene Copy. */
+  b5_eyebrow:"Dal calcolo alla proposta",
+  b5_h2:"E ne nasce una <em>decisione.</em>",
+  b5a_p:"In due o in tre, con il cane, in auto o a piedi — e quanto volete pianificare voi stessi. Sette domande, nessun modulo. Alla fine resta quella che tenete: sorprendimi, oppure pianifichiamo insieme.",
+  b5b_h:"E poi il <em>piano</em> c’è.",
+  b5b_p:"Tre giorni su un filo rosso, ogni giorno con un tema. Chi lo apre vede le ore — e accanto a ogni consiglio, separato da esso, ciò che è verificabile.",
+  /* E-15: Der Satz "Passt nichts, empfiehlt sie nichts" ist zurückgenommen.
+     Kein Bild im Bestand zeigt die leere Antwort mit Begründung — eine
+     unbelegte Behauptung ausgerechnet im Ehrlichkeits-Abschnitt.
+     Wieder aufnehmen, sobald eine Aufnahme davon existiert. */
+  /* BEAT 4 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. ls1_cap steht unverändert und trägt hier den
+     Abschnitt, statt in Säule 1 Kleingedrucktes zu sein. */
+  b4_eyebrow:"Da dove vengono i numeri",
+  b4_h2:"Scriviamo anche ciò che <em>non</em> sappiamo.",
+  b4_p1:"Due cose Unica non le misura, le legge: traffico e meteo. Per il meteo il servizio è indicato per nome, e fino a quando vale la sua segnalazione. Tutto il resto lo calcola — e scrive che lo sta calcolando.",
+  /* ERSETZT mit Anhang E: */ // b4_p1:"Ogni numero nell’app porta con sé la sua origine. Non vedi solo quanto farà caldo — vedi se è misurato, calcolato o soltanto previsto."
+  b4_s1t:"misurato",
+  b4_s1d:"Traffico e meteo, segnalati dall’esterno. Nell’andamento della giornata, tutto a sinistra della linea.",
+  /* ERSETZT mit Anhang E: */ // b4_s1d:"Segnalato dal servizio meteo, con nome e finestra di validità."
+  b4_s2t:"calcolato",
+  b4_s2d:"Derivato, non osservato — la temperatura dell’acqua dal valore mensile, adattata all’aria.",
+  /* ERSETZT mit Anhang E: */ // b4_s2d:"Derivato, non misurato — la temperatura dell’acqua dal valore mensile."
+  b4_s3t:"previsto",
+  b4_s3d:"Quello che deve ancora arrivare, a destra della linea. Dove non c’è un valore, il campo resta vuoto.",
+  /* ERSETZT mit Anhang E: */ // b4_s3d:"Quello che deve ancora arrivare. Dove non c’è nulla, il campo resta vuoto."
+  b4_p2:"E ogni nome di luogo Unica lo confronta con un elenco di luoghi verificati. Ciò che non c’è, viene scartato.",
+  /* ERSETZT mit Anhang E: */ // b4_p2:"E ogni nome di luogo che Unica produce viene confrontato con un elenco di luoghi verificati. Ciò che non c’è, viene scartato. Se non c’è niente di adatto, non consiglia niente — una risposta vuota con motivazione è meglio di una inventata."
+  /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. IT und EN ebenfalls meine Fassung. */
+  b3_eyebrow:"Cosa calcola dietro le quinte",
+  b3_h2:"Il lago ha un <em>battito.</em>",
+  b3_p1:"Ogni ora Unica ricalcola il basso lago: traffico, meteo e una stima dell’affluenza per dieci località, quattordici ore in anticipo. Non su richiesta, ma una volta per tutti — chi chiede la mattina legge lo stesso calcolo di chi chiede a mezzogiorno.",
+  b3_f1:"ricalcolato <b>ogni ora</b>",
+  b3_f2:"<b>10 località</b> sulla sponda sud",
+  b3_f3:"<b>da mattina</b> a sera",
+  /* ERSETZT mit Anhang E: */ // b3_f3:"<b>14 ore</b> in anticipo"
+  b3_p2:"Ne nascono due domande su due livelli: vale la pena andare in quella direzione — e là dove volete andare, adesso si sta bene?",
   mi_eyebrow:"Perché esistiamo",mi_vlabel:"Visione",mi_mlabel:"Missione",
   mi_vision:"Che il Lago di Garda resti il luogo di cui ci si <em>innamora</em> — perché ognuno è al posto giusto al momento giusto.",
   mi_mission:"Distribuiamo il turismo in modo intelligente: Unica calcola con dati live — meteo e traffico in tempo reale — e la conoscenza locale di chi vive qui, e ne ricava una stima onesta di dove il lago è più bello ora. Così gli ospiti trovano il loro posto, e i luoghi che hanno bisogno di respiro lo ottengono.",
@@ -958,8 +1191,24 @@ var I18N={
      Wochen-Kohorte statt Dauer-Community, Beiträge verfallen nach sieben
      Tagen, jede Woche ein neuer Kreis. */
   cr_h:"Il cerchio di chi <em>è qui adesso.</em>",
-  cr_p:"Nessuna community permanente, nessun feed. Ogni settimana un cerchio nuovo — quello che succede sul lago questa settimana, questa settimana si legge. Poi è finita.",
+  cr_p:"Nessuna community permanente. Ogni settimana un cerchio nuovo — quello che succede sul lago questa settimana, questa settimana si legge. Dopo sette giorni non c’è più, e la settimana dopo ricomincia vuota.",
+  /* ERSETZT mit Anhang E-6: */ // cr_p:"Nessuna community permanente, nessun feed. Ogni settimana un cerchio nuovo — quello che succede sul lago questa settimana, questa settimana si legge. Poi è finita."
   ex_c1:"da fonti locali",ex_c2:"Contributi community",ex_c3:"AI segnalata con trasparenza",
+  /* AUSGESETZT mit Spec 0002: Der Tagesbogen ist aufgeloest, seine Momente
+     stehen in den Beats. Text bleibt vollstaendig, nichts geloescht.
+
+     day_eyebrow, day_h2 — Ueberschrift des Abschnitts, den es nicht mehr gibt.
+     m0_time, m0_p, m0_q — das Kennenlernen steht in Beat 5; m0_h lebt dort
+       weiter, m0_p nicht: "Familie mit Kindern?" widerspricht der Zielgruppe.
+     m1_h, m1_p, m1_q — 08:30 sagt dasselbe wie Beat 5.
+     m3_h, m3_p, m3_q — 15:12 Unwetter; Beat 4 traegt meteo allein, und
+       storm_warning.jpg zeigt noch die alte Wortmarke.
+     m4_h, m4_p, m4_q — 21:00 "Der Tag als Postkarte", ersatzlos:
+       La Carte du Soir verschwindet aus der App.
+     ce_h3, ce_p — der Modus-Streifen gehoert ins Onboarding und steht als
+       onboarding_7 in Beat 5.
+
+     Weiter live: m0_h, m2_h, m2_p und der Chat-Player, alle in Beat 5. */
   cl_u1:"Quando c'è il mercato a Lazise?",cl_a1:"Il mercoledì, dalle 8 alle 13 — nel centro storico. Buona passeggiata tra i banchi!",
   cl_u2:"E dove trovo una pizza a Peschiera alle 22?",cl_a2:"Conosco due forni ancora caldi a quell'ora. Ti mostro la strada?",
   cl_input:"La tua domanda…",
@@ -981,7 +1230,13 @@ var I18N={
   pb_v3_h:"Il momento <em>sbagliato.</em>",
   pb_v3_p:"Sirmione, sabato, ore 11 ad agosto. Lo stesso castello alle 17:30 sarebbe stato tutt'altro posto — luce, calma, spazio. Solo che non lo sapevate.",
   pb_pivot:"Il lago non è il problema. È il <em>momento.</em> Quindici minuti più in là — o due ore più tardi — lo stesso lago è lì tranquillo.",
+  /* AUSGESETZT mit Spec 0002: ls_eyebrow und ls_h2 waren die Überschrift
+     des Säulen-Abschnitts, der sich in die Beats aufgelöst hat. Beat 5
+     trägt mit b5_eyebrow/b5_h2 seine eigene. Text bleibt, nichts gelöscht. */
   ls_eyebrow:"Cosa fa Unica",ls_h2:"Perché la giornata sia <em>vostra.</em>",
+  /* AUSGESETZT mit Spec 0002: Bei sieben Beats sind Säulen-Nummern
+     sinnlos. ls1_num, ls2_num und ls3_num tragen keinen Abschnitt
+     mehr. Text bleibt, nichts gelöscht. */
   ls1_num:"Pilastro 1",ls1_h:"Il momento <em>giusto.</em>",
   ls1_p:"Unica legge il lago per te: una stima di quanto è affollato ogni luogo, meteo reale e allerte — ricalcolata regolarmente. Così sai dove vale la pena andare oggi.",
   ls2_p:"Invece di cento opzioni: un consiglio adatto a meteo, giorno e situazione — con un „Perché?\" e un'alternativa. Basta discussioni infinite a colazione.",
@@ -1007,6 +1262,10 @@ var I18N={
   m1_q:"„Alle 8:30 la baia è ancora vuota. Alle 11 no.\"",
   m2_h:"Chiedi quello che vuoi. <em>Nella tua lingua.</em>",
   m2_p:"Giorno di mercato a Lazise? Il traghetto per Salò? Il panificio aperto la domenica? Unica risponde come un amico che vive sul lago — con conoscenza locale messa insieme, non con il rumore di internet.",
+  /* AUSGESETZT mit Spec 0002: m2_q war die Zitatzeile unter dem Chat im
+     Tagesbogen. Der Chat-Player ist nach Beat 5 umgezogen, das Zitat nicht —
+     es sagt dasselbe wie die Antwortblase daneben (cl_a1: "Mittwochs, 8 bis
+     13 Uhr"). Zweimal derselbe Satz nebeneinander. Text bleibt. */
   m2_q:"„Il mercato di Lazise è il mercoledì, dalle 8 alle 13.\"",
   m3_h:"E quando conta davvero, <em>il lago ti avvisa.</em>",
   m3_p:"Fronte temporalesco dalle 16:00? Unica te lo dice prima che tu sia in spiaggia — con un orario preciso invece della vaga prosa da app meteo. Non solo consigliare. Davvero vegliare.",
@@ -1083,6 +1342,50 @@ var I18N={
   _desc:"Unica ti mostra il basso Lago di Garda che amano le persone del posto — il luogo giusto, al momento giusto, su misura per voi. Un consiglio onesto invece di duecento opzioni."
  },
  en:{
+  /* BEAT 6 und 7 · ENTWURF, Cristina entscheidet. di_h, cr_h und die
+     Chips ex_c1-3 stehen wörtlich; di_p und cr_p sind neu gefasst. */
+  b6_eyebrow:"What stays",
+  b7_eyebrow:"Who else is here",
+  /* BEAT 5 · ENTWURF, Cristina entscheidet. Neu sind nur diese Schlüssel;
+     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen
+     wörtlich und sind freigegebene Copy. */
+  b5_eyebrow:"From the calculation to the suggestion",
+  b5_h2:"And out of it comes a <em>decision.</em>",
+  b5a_p:"Two of you or three, with the dog, by car or on foot — and how much you want to plan yourselves. Seven questions, no forms. At the end stands the one you keep: surprise me, or let’s plan together.",
+  b5b_h:"And then the <em>plan</em> stands.",
+  b5b_p:"Three days on one red thread, each day with a theme of its own. Open it and you see the hours — and beside every piece of advice, kept apart from it, what can be checked.",
+  /* E-15: Der Satz "Passt nichts, empfiehlt sie nichts" ist zurückgenommen.
+     Kein Bild im Bestand zeigt die leere Antwort mit Begründung — eine
+     unbelegte Behauptung ausgerechnet im Ehrlichkeits-Abschnitt.
+     Wieder aufnehmen, sobald eine Aufnahme davon existiert. */
+  /* BEAT 4 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. ls1_cap steht unverändert und trägt hier den
+     Abschnitt, statt in Säule 1 Kleingedrucktes zu sein. */
+  b4_eyebrow:"Where the numbers come from",
+  b4_h2:"We also write down what we <em>don’t</em> know.",
+  b4_p1:"Two things Unica does not measure herself, she reads them: traffic and weather. For the weather the service is named, and until when its report holds. Everything else she calculates — and writes down that she is calculating it.",
+  /* ERSETZT mit Anhang E: */ // b4_p1:"Every number in the app carries its origin. You don’t only see how warm it will get — you see whether that is measured, calculated or merely forecast."
+  b4_s1t:"measured",
+  b4_s1d:"Traffic and weather, reported from outside. In the day’s course, everything left of the line.",
+  /* ERSETZT mit Anhang E: */ // b4_s1d:"Reported by the weather service, with a name and a validity window."
+  b4_s2t:"calculated",
+  b4_s2d:"Derived, not observed — the water temperature from the monthly value, adjusted to the air.",
+  /* ERSETZT mit Anhang E: */ // b4_s2d:"Derived, not measured — the water temperature from the monthly value."
+  b4_s3t:"forecast",
+  b4_s3d:"What is still to come, right of the line. Where no value exists, the field stays empty.",
+  /* ERSETZT mit Anhang E: */ // b4_s3d:"What is still to come. Where nothing exists, the field stays empty."
+  b4_p2:"And every place name Unica holds against a list of verified places. Whatever is not on it is dropped.",
+  /* ERSETZT mit Anhang E: */ // b4_p2:"And every place name Unica produces is checked against a list of verified places. Whatever is not on it is dropped. If nothing fits, she recommends nothing — an empty answer with a reason beats an invented one."
+  /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
+     Fließtext von mir. IT und EN ebenfalls meine Fassung. */
+  b3_eyebrow:"What is computing behind it",
+  b3_h2:"The lake has a <em>pulse.</em>",
+  b3_p1:"Every hour Unica recalculates the southern lake: traffic, weather and a crowding estimate for ten towns, fourteen hours ahead. Not on request, but once for everyone — whoever asks in the morning reads the same calculation as whoever asks at noon.",
+  b3_f1:"recalculated <b>hourly</b>",
+  b3_f2:"<b>10 towns</b> on the southern shore",
+  b3_f3:"<b>from morning</b> to evening",
+  /* ERSETZT mit Anhang E: */ // b3_f3:"<b>14 hours</b> ahead"
+  b3_p2:"Two questions come out of it, on two levels: is the direction worth it at all — and where you are heading, is it bearable right now?",
   mi_eyebrow:"Why we exist",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"That Lake Garda stays the place you <em>fall in love</em> with — because everyone is in the right place at the right time.",
   mi_mission:"We distribute tourism intelligently: Unica computes with live data — weather and traffic in real time — and local knowledge from people who live here, and turns it into an honest estimate of where the lake is loveliest right now. So guests find their place, and the places that need a breather get one.",
@@ -1103,8 +1406,24 @@ var I18N={
      Wochen-Kohorte statt Dauer-Community, Beiträge verfallen nach sieben
      Tagen, jede Woche ein neuer Kreis. */
   cr_h:"The circle of those <em>here right now.</em>",
-  cr_p:"No permanent community, no feed. Every week a new circle — what happens at the lake this week is what stands there this week. After that it is over.",
+  cr_p:"No permanent community. Every week a new circle — what happens at the lake this week is what stands there this week. After seven days it is gone, and the next week starts empty.",
+  /* ERSETZT mit Anhang E-6: */ // cr_p:"No permanent community, no feed. Every week a new circle — what happens at the lake this week is what stands there this week. After that it is over."
   ex_c1:"from local sources",ex_c2:"Community posts",ex_c3:"AI transparently labelled",
+  /* AUSGESETZT mit Spec 0002: Der Tagesbogen ist aufgeloest, seine Momente
+     stehen in den Beats. Text bleibt vollstaendig, nichts geloescht.
+
+     day_eyebrow, day_h2 — Ueberschrift des Abschnitts, den es nicht mehr gibt.
+     m0_time, m0_p, m0_q — das Kennenlernen steht in Beat 5; m0_h lebt dort
+       weiter, m0_p nicht: "Familie mit Kindern?" widerspricht der Zielgruppe.
+     m1_h, m1_p, m1_q — 08:30 sagt dasselbe wie Beat 5.
+     m3_h, m3_p, m3_q — 15:12 Unwetter; Beat 4 traegt meteo allein, und
+       storm_warning.jpg zeigt noch die alte Wortmarke.
+     m4_h, m4_p, m4_q — 21:00 "Der Tag als Postkarte", ersatzlos:
+       La Carte du Soir verschwindet aus der App.
+     ce_h3, ce_p — der Modus-Streifen gehoert ins Onboarding und steht als
+       onboarding_7 in Beat 5.
+
+     Weiter live: m0_h, m2_h, m2_p und der Chat-Player, alle in Beat 5. */
   cl_u1:"When is market day in Lazise?",cl_a1:"Wednesdays, 8am to 1pm — in the historic centre. Enjoy browsing!",
   cl_u2:"And where can I get pizza in Peschiera at 10pm?",cl_a2:"I know two ovens still hot at that hour. Want me to show you the way?",
   cl_input:"Your question…",
@@ -1126,7 +1445,13 @@ var I18N={
   pb_v3_h:"The <em>wrong</em> moment.",
   pb_v3_p:"Sirmione, Saturday, 11am in August. The same castle at 5:30pm would have been a whole different place — light, calm, space. You just didn't know it.",
   pb_pivot:"The lake isn't the problem. It's the <em>moment.</em> Fifteen minutes further — or two hours later — the same lake lies perfectly calm.",
+  /* AUSGESETZT mit Spec 0002: ls_eyebrow und ls_h2 waren die Überschrift
+     des Säulen-Abschnitts, der sich in die Beats aufgelöst hat. Beat 5
+     trägt mit b5_eyebrow/b5_h2 seine eigene. Text bleibt, nichts gelöscht. */
   ls_eyebrow:"What Unica does",ls_h2:"So the day belongs to <em>you.</em>",
+  /* AUSGESETZT mit Spec 0002: Bei sieben Beats sind Säulen-Nummern
+     sinnlos. ls1_num, ls2_num und ls3_num tragen keinen Abschnitt
+     mehr. Text bleibt, nichts gelöscht. */
   ls1_num:"Pillar 1",ls1_h:"The right <em>moment.</em>",
   ls1_p:"Unica reads the lake for you: an estimate of how busy each place is right now, real weather and warnings — recalculated regularly. So you know where today's trip is worth it.",
   ls2_p:"Instead of a hundred options: one recommendation that fits the weather, the day and the situation — with a „Why?\" and an alternative. No more talking it to death over breakfast.",
@@ -1152,6 +1477,10 @@ var I18N={
   m1_q:"„At 8:30 the bay is still empty. By 11 it isn't.\"",
   m2_h:"Ask anything. <em>In your language.</em>",
   m2_p:"Market day in Lazise? The ferry to Salò? The bakery that's open on Sundays? Unica answers like a friend who lives on the lake — from local knowledge we've gathered, not internet noise.",
+  /* AUSGESETZT mit Spec 0002: m2_q war die Zitatzeile unter dem Chat im
+     Tagesbogen. Der Chat-Player ist nach Beat 5 umgezogen, das Zitat nicht —
+     es sagt dasselbe wie die Antwortblase daneben (cl_a1: "Mittwochs, 8 bis
+     13 Uhr"). Zweimal derselbe Satz nebeneinander. Text bleibt. */
   m2_q:"„The market in Lazise is on Wednesdays, 8am to 1pm.\"",
   m3_h:"And when it matters, <em>the lake warns you.</em>",
   m3_p:"Storm front from 4pm? Unica tells you before you're on the beach — with a concrete time instead of vague weather-app prose. Not just recommending. Actually watching out.",
