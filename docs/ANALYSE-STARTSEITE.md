@@ -730,3 +730,130 @@ reservierten Tisch.
 10. **Ob „Settimana 35" ein Problem ist.** Heute ist der 5. September, das wäre
     Woche 36. Ob die App die Woche anders zählt oder die Aufnahme älter ist,
     kann ich von außen nicht sagen.
+
+---
+
+# E · Entschieden am 5. September 2026
+
+Antworten auf Abschnitt C, von Tim. Zusätzlich zwei Punkte, die dabei
+aufgeschlagen sind.
+
+| # | Entscheidung |
+|---|---|
+| 1 | **Lede bleibt.** Der Widerspruch betrifft nur den Nachsatz „statt zweihundert"; der erste Satz passt zur Karte. Copy-Punkt für Cristina, nicht selbst ändern. |
+| 2 | **Zahl raus.** `b3_f3` wird „von morgens bis abends" — stimmt gegen die Achse 8–20 Uhr und lädt zu keiner Nachzählung ein. |
+| 3 | **„jede Stunde" gewinnt**, die Engine läuft stündlich. `ls1_cap` angleichen — Copy-Punkt für Cristina. |
+| 4 | **Konsistenz vor Paarung.** `oggi_tipp` (Solferino, 14:05) bleibt, `borghetto_6` fällt raus. Solferino trägt zusätzlich die Hinterland-These. |
+| 5 | `profilo` **neu aufnehmen**, ohne Verona und Mantova. |
+| 6 | **`cr_p` ändern.** „Kein Feed" ist unhaltbar und trifft den Punkt nicht. Der Punkt ist die Wochen-Kohorte und der Verfall nach sieben Tagen. Entwurf für Cristina. |
+| 7 | Cerchio **neu aufnehmen**, mit mehr Momenten. |
+| 8 | **Persona einheitlich Martin.** |
+| 9 | `sunset` ins Mosaik, `lago` bleibt Pivot-Band. |
+| 10 | **Planer-Nachaufnahme freigegeben.** Ein Durchlauf deckt 5, 7 und 8 mit ab. |
+| 11 | `chat_lazise.jpg` **umbenennen**. |
+| 12 | Beide `#tag`-Links auf den **Planer-Beat**. `nav_day` und `hero_cta2` fragen nach dem Ablauf — den beantwortet der Planer, nicht der Puls. Navigationspunkt wandert mit; Vorschlag für Cristina: „So funktioniert es". |
+| 13 | Beat-3-Hintergrund auf **`--carta`**. |
+| 14 | Beat 4: **Entwurf A**. |
+| 15 | Abstinenz-Satz **zurücknehmen**. Kein Bild, keine Behauptung — gerade in diesem Abschnitt. |
+
+## E1 · Produktentscheidung: La Carte du Soir wird aus der App entfernt
+
+Auftrag war zu prüfen, dass nirgends mehr ein Bezug steht. Ergebnis:
+
+**Es steht noch drin, und zwar an der Stelle, die bleibt.** Der Wegfall von
+„Der Tag als Postkarte" (`m4_*`) reicht nicht.
+
+| Fundstelle | Datei | Status |
+|---|---|---|
+| `di_p` — Fließtext Beat 6 | `prototyp2.html` Z. 572, 978 (DE), 1145 (IT), 1312 (EN) | **bleibt auf der Seite** |
+| `di_p` — dieselbe Copy | `index.html` Z. 499, 846, 991, 1136 | **live** |
+| `m4_h` „Der Tag, als Postkarte." | beide Dateien | fällt ohnehin weg |
+| Kommentar „Stempel, Tagesstory, La Carte du Soir" | `prototyp2.html` Z. 558 | Kommentar |
+| Kommentar „Screenshot La Carte du Soir folgt aus dem Paket" | `prototyp2.html` Z. 701 | Kommentar |
+
+`di_p` lautet heute: *„Ein Stempel für jeden Ort, an dem ihr wart. Abends läuft
+der Tag als Story zurück — und La Carte du Soir schreibt ihn in einem Satz auf,
+aus eurem tatsächlichen Tagesverlauf. Bewusst ohne Bild: Unicas eigene
+Beobachtung, kein Foto-Recycling."*
+
+**Mehr als die Hälfte des Absatzes beschreibt die Carte** — „schreibt ihn in
+einem Satz auf" und „bewusst ohne Bild: Unicas eigene Beobachtung, kein
+Foto-Recycling" sind beide die Carte, nicht das Diario. Ein Wort zu tauschen
+genügt nicht; der Absatz muss in allen drei Sprachen neu geschrieben werden.
+**Copy-Punkt für Cristina.**
+
+**Betrifft auch den Livestand:** `index.html` verspricht die Funktion heute in
+drei Sprachen. Solange die Seite live ist, wirbt sie mit etwas, das aus der App
+verschwindet.
+
+**In Screenshots:** in keiner eingebundenen Aufnahme ist die Carte zu sehen.
+
+**Zum Filter „La Carte 8" in `profilo`:** ich habe ihn **nicht gefunden**. Ober-
+und Unterteil der Aufnahme einzeln vergrößert; sichtbar sind der Kopfbereich,
+das Ortsraster, der Kasten „Residente d'Onore" und die SPEZIAL-Abzeichen (Primo
+Sole 22.07, Nachtfalke 05.08, Aperitivo Kenner 19.08, Maratona di Garda 22.06,
+ein fünftes am Rand angeschnitten). Ein Filter mit diesem Namen ist in
+`profilo.jpg` nicht abgebildet — möglicherweise liegt er unterhalb der Falz.
+Für die Nachaufnahme trotzdem berücksichtigen.
+
+**Nebenbefund aus derselben Prüfung:** `profilo.jpg` zeigt als Profilbild ein
+**erkennbares Foto einer realen Person** (Mann in orangefarbenem Hoodie an einem
+Hafen). Auf einer öffentlichen Seite ist das eine Einwilligungsfrage, nicht nur
+eine Persona-Frage. Bei der Nachaufnahme klären oder das Bild ersetzen.
+
+## E2 · Reserviert die App einen Tisch? — Nein.
+
+Blockierende Frage vor Beat 5 (D-3). Im App-Repo `garda_compass_stable`
+nachgesehen. Drei Belege, die zusammen eindeutig sind:
+
+**1 · „Reservierung" ist eine Eigenschaft des Ortes, keine Buchung.**
+`lib/l10n/enum_werte.dart` Z. 25: `reservierung: pflicht_hochsaison | empfohlen
+| nein`. Das beantwortet „muss man hier reservieren", nicht „wir haben für dich
+reserviert". Die Vokabulare stammen laut Kommentar aus `seed_ort_knowledge.ts`.
+
+**2 · Der Knopf „Reservieren" öffnet die Seite des Partners.**
+`lib/widgets/carta_sheet.dart`, `_prenota()`: protokolliert die Strecke und ruft
+dann `launchUrl(s.buchungUrl)` im externen Browser auf. Ist keine URL hinterlegt,
+passiert **gar nichts** („Partner ohne Link: nur Signal, kein Ziel"). Die App
+vermittelt, sie reserviert nicht.
+
+**3 · `fakten[]` kommt aus dem Sprachmodell.**
+`lib/models/travel_plan_model.dart` Z. 187 liest `json['fakten']` direkt aus der
+Modellantwort. Der Prompt in `functions/src/index.ts` Z. 975 lautet:
+`"fakten": ["nur BELEGTE Angaben, z.B. 'Tavolo 20:00 prenotato' ... — leeres
+Array, wenn nichts belegt ist"]`. Die Anti-Halluzinations-Sicherung (A8,
+`allowedNames`) prüft **Ortsnamen**, keine Uhrzeiten und keine Zusagen.
+
+**Folge für die Seite:** Die Zeile „**Tisch um 19:00 reserviert · 5 min zu Fuß**"
+in `plan_2.jpg` ist vom Modell erzeugter Text, hinter dem keine Reservierung
+steht. Sie darf so nicht auf die Seite — und schon gar nicht als „stärkster
+Einzelbeleg", als den ich sie in Abschnitt B vorgeschlagen hatte. **Der
+Vorschlag ist damit hinfällig.**
+
+Drei Wege, in meiner Reihenfolge:
+
+1. **`plan_2` ohne die Faktenzeile aufnehmen** — ein Slot, bei dem `fakten[]`
+   leer ist. Der Beat verliert seinen konkretesten Beleg, behält aber Ort,
+   Uhrzeit, Hundehinweis und die Trennung kursiv/Kasten.
+2. **Einen Slot wählen, dessen Fakt nachprüfbar ist** — „Mercato bis 13:00" oder
+   „Traghetto 09:40" sind Öffnungs- und Fahrzeiten, keine Zusagen im Namen des
+   Gastes.
+3. **`plan_2` ganz weglassen**, Beat 5 trägt `onboarding_paar`, `onboarding_7`
+   und `pre_plan`.
+
+Weg 2 ist der stärkste: er behält die sichtbare Trennung von Rat und Tatsache
+(Entscheidungsregister A4) und behauptet nichts, was die App nicht kann.
+
+## E3 · Was daraus für den Bau folgt
+
+Vor Beat 5 zu klären, weil es die Aufnahmeliste ändert:
+
+- **Welcher Slot** für Weg 2 (Öffnungs- oder Fahrzeit statt Reservierung)?
+- Die Nachaufnahme aus Entscheidung 10 deckt jetzt **fünf** Dinge ab: `profilo`
+  ohne Verona/Mantova, Cerchio mit mehreren Momenten, Persona durchgehend
+  Martin, die Planer-Kette mit einheitlicher Tageszahl — und den Slot ohne
+  Reservierungszusage.
+- **Sechs Copy-Punkte für Cristina**, alle aus diesen Entscheidungen:
+  `hero_lede` Nachsatz (1), `b3_f3` (2), `ls1_cap` (3), `cr_p` (6), `di_p` ohne
+  La Carte (E1), `nav_day` (12). Dazu Beat 4 Entwurf A und die Streichung des
+  Abstinenz-Satzes (15).
