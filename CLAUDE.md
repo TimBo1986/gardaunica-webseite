@@ -75,8 +75,33 @@ zuerst, IT und EN danach — auch die sind Entwurf, nicht Freigabe.
 ## Bilder
 
 App-Aufnahmen **1080 × 2115**, Status- und Navigationsleiste entfernt, unter
-250 KB. Landschaftsfotos unter 200 KB. Grenzen dezimal gerechnet. **EXIF wird
-verworfen** — mindestens eine Aufnahme trug GPS-Koordinaten.
+250 KB. Landschaftsfotos unter 200 KB. Grenzen dezimal gerechnet.
+
+### Keine EXIF-Ortsdaten
+
+Handyaufnahmen speichern Koordinaten. Das Impressum dieser Seite führt auf eine
+Privatanschrift — Fotos, die den Aufnahmeort mitliefern, haben hier nichts
+verloren. `Fotos/peschiera_4.jpg` trug 45°26′20″N, 10°41′41″E.
+
+Neukodieren verwirft EXIF, aber **darauf wird sich nicht verlassen**: nach dem
+Schreiben prüfen, dass nichts übrig ist.
+
+```python
+k = Image.open(ziel); assert not k.getexif(), 'EXIF uebrig'
+```
+
+Stand heute: 0 von 28 Dateien unter `assets/` tragen EXIF.
+
+### Keine erkennbaren realen Personen ohne Einwilligung
+
+Betrifft vor allem **Profilbilder in Screenshots**. `assets/app/profilo.jpg`
+zeigte das Selfie einer realen Person, gut erkennbar, an einem Hafen — mit
+committet und in einen Beat eingebunden, bevor es auffiel. Der Kreis ist jetzt
+gepixelt und weichgezeichnet, harter Rand, damit es ein Profilbild bleibt und
+kein Fleck. Bei der Nachaufnahme kommt ein neutrales Bild hinein.
+
+Die Ausnahme sind die eigenen Porträts unter `assets/` — Cristina, Tim, Luna.
+Die gehören dorthin.
 
 Das Seitenverhältnis wird am Bild festgemacht, nicht am Container. `height:auto`
 zusammen mit `min-height:100%` hat jede Geräteaufnahme um 9,5 % in die Länge
