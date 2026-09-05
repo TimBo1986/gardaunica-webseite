@@ -348,7 +348,10 @@ footer a:hover{color:var(--notte)}
    Ueberschriften darueber. Gleiche Geometrie wie .pil-row, nur ohne
    Trennlinie, weil jeder Beat ein eigener Abschnitt ist. */
 .beat{padding:84px 0}
-.beat-hell{background:var(--carta-morn)}
+/* E-13: --carta statt --carta-morn. Der Folgeabschnitt .loesung ist
+   carta-morn; bei gleichem Grund und gleicher Rastergeometrie las sich
+   beides als ein Block. */
+.beat-hell{background:var(--carta)}
 .beat-row{display:grid;grid-template-columns:minmax(0,46ch) auto;justify-content:center;gap:56px;align-items:center}
 .beat-row.flip{grid-template-columns:auto minmax(0,46ch)}
 .beat-row.flip .pil-shot{order:-1}
@@ -521,7 +524,7 @@ footer a:hover{color:var(--notte)}
       <ul class="fakten">
         <li data-i18n="b3_f1"><b>stündlich</b> neu gerechnet</li>
         <li data-i18n="b3_f2"><b>10 Orte</b> am Südufer</li>
-        <li data-i18n="b3_f3"><b>14 Stunden</b> im Voraus</li>
+        <li data-i18n="b3_f3"><b>von morgens</b> bis abends</li>
       </ul>
       <p data-i18n="b3_p2">Daraus werden zwei Fragen auf zwei Ebenen: Lohnt sich die Richtung überhaupt — und ist es dort, wo ihr hinwollt, gerade erträglich?</p>
     </div>
@@ -618,14 +621,14 @@ footer a:hover{color:var(--notte)}
     <div class="beat-copy">
       <span class="eyebrow" data-i18n="b4_eyebrow">Woher die Zahlen kommen</span>
       <h2 data-i18n="b4_h2">Wir schreiben dazu, was wir <em>nicht</em> wissen.</h2>
-      <p data-i18n="b4_p1">Jede Zahl in der App trägt ihre Herkunft. Du siehst nicht nur, wie warm es wird — du siehst, ob das gemessen, gerechnet oder erst vorhergesagt ist.</p>
+      <p data-i18n="b4_p1">Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.</p>
       <dl class="stufen">
-        <div><dt data-i18n="b4_s1t">gemessen</dt><dd data-i18n="b4_s1d">Vom Wetterdienst gemeldet, mit Namen und Gültigkeitsfenster.</dd></div>
-        <div><dt data-i18n="b4_s2t">berechnet</dt><dd data-i18n="b4_s2d">Abgeleitet, nicht gemessen — die Wassertemperatur etwa aus dem Monatswert.</dd></div>
-        <div><dt data-i18n="b4_s3t">vorhergesagt</dt><dd data-i18n="b4_s3d">Was noch kommt. Wo nichts vorliegt, bleibt das Feld leer.</dd></div>
+        <div><dt data-i18n="b4_s1t">gemessen</dt><dd data-i18n="b4_s1d">Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich.</dd></div>
+        <div><dt data-i18n="b4_s2t">berechnet</dt><dd data-i18n="b4_s2d">Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst.</dd></div>
+        <div><dt data-i18n="b4_s3t">vorhergesagt</dt><dd data-i18n="b4_s3d">Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer.</dd></div>
       </dl>
       <p class="ehrlich" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
-      <p data-i18n="b4_p2">Und jeden Ortsnamen, den Unica ausgibt, hält sie gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus. Passt nichts, empfiehlt sie nichts — eine leere Antwort mit Begründung ist uns lieber als eine erfundene.</p>
+      <p data-i18n="b4_p2">Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.</p>
     </div>
   </div>
 </section>
@@ -903,19 +906,28 @@ footer a:hover{color:var(--notte)}
 <script>
 var I18N={
  de:{
+  /* E-15: Der Satz "Passt nichts, empfiehlt sie nichts" ist zurückgenommen.
+     Kein Bild im Bestand zeigt die leere Antwort mit Begründung — eine
+     unbelegte Behauptung ausgerechnet im Ehrlichkeits-Abschnitt.
+     Wieder aufnehmen, sobald eine Aufnahme davon existiert. */
   /* BEAT 4 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
      Fließtext von mir. ls1_cap steht unverändert und trägt hier den
      Abschnitt, statt in Säule 1 Kleingedrucktes zu sein. */
   b4_eyebrow:"Woher die Zahlen kommen",
   b4_h2:"Wir schreiben dazu, was wir <em>nicht</em> wissen.",
-  b4_p1:"Jede Zahl in der App trägt ihre Herkunft. Du siehst nicht nur, wie warm es wird — du siehst, ob das gemessen, gerechnet oder erst vorhergesagt ist.",
+  b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.",
+  /* ERSETZT mit Anhang E: */ // b4_p1:"Jede Zahl in der App trägt ihre Herkunft. Du siehst nicht nur, wie warm es wird — du siehst, ob das gemessen, gerechnet oder erst vorhergesagt ist."
   b4_s1t:"gemessen",
-  b4_s1d:"Vom Wetterdienst gemeldet, mit Namen und Gültigkeitsfenster.",
+  b4_s1d:"Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich.",
+  /* ERSETZT mit Anhang E: */ // b4_s1d:"Vom Wetterdienst gemeldet, mit Namen und Gültigkeitsfenster."
   b4_s2t:"berechnet",
-  b4_s2d:"Abgeleitet, nicht gemessen — die Wassertemperatur etwa aus dem Monatswert.",
+  b4_s2d:"Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst.",
+  /* ERSETZT mit Anhang E: */ // b4_s2d:"Abgeleitet, nicht gemessen — die Wassertemperatur etwa aus dem Monatswert."
   b4_s3t:"vorhergesagt",
-  b4_s3d:"Was noch kommt. Wo nichts vorliegt, bleibt das Feld leer.",
-  b4_p2:"Und jeden Ortsnamen, den Unica ausgibt, hält sie gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus. Passt nichts, empfiehlt sie nichts — eine leere Antwort mit Begründung ist uns lieber als eine erfundene.",
+  b4_s3d:"Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer.",
+  /* ERSETZT mit Anhang E: */ // b4_s3d:"Was noch kommt. Wo nichts vorliegt, bleibt das Feld leer."
+  b4_p2:"Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.",
+  /* ERSETZT mit Anhang E: */ // b4_p2:"Und jeden Ortsnamen, den Unica ausgibt, hält sie gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus. Passt nichts, empfiehlt sie nichts — eine leere Antwort mit Begründung ist uns lieber als eine erfundene."
   /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
      Fließtext von mir. IT und EN ebenfalls meine Fassung. */
   b3_eyebrow:"Was dahinter rechnet",
@@ -923,7 +935,8 @@ var I18N={
   b3_p1:"Jede Stunde rechnet Unica den Südsee neu: Verkehr, Wetter und eine Auslastungs-Einschätzung für zehn Orte, vierzehn Stunden im Voraus. Nicht auf Anfrage, sondern einmal für alle — wer morgens fragt, liest dieselbe Rechnung wie der, der mittags fragt.",
   b3_f1:"<b>stündlich</b> neu gerechnet",
   b3_f2:"<b>10 Orte</b> am Südufer",
-  b3_f3:"<b>14 Stunden</b> im Voraus",
+  b3_f3:"<b>von morgens</b> bis abends",
+  /* ERSETZT mit Anhang E: */ // b3_f3:"<b>14 Stunden</b> im Voraus"
   b3_p2:"Daraus werden zwei Fragen auf zwei Ebenen: Lohnt sich die Richtung überhaupt — und ist es dort, wo ihr hinwollt, gerade erträglich?",
   mi_eyebrow:"Warum es uns gibt",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"Dass der Gardasee der Ort bleibt, in den man sich <em>verliebt</em> — weil jeder zur richtigen Zeit am richtigen Platz ist.",
@@ -1070,19 +1083,28 @@ var I18N={
   _desc:"Unica zeigt dir den südlichen Gardasee, den die Einheimischen lieben — der richtige Ort, zum richtigen Moment, passend zu euch. Eine ehrliche Empfehlung statt zweihundert Optionen."
  },
  it:{
+  /* E-15: Der Satz "Passt nichts, empfiehlt sie nichts" ist zurückgenommen.
+     Kein Bild im Bestand zeigt die leere Antwort mit Begründung — eine
+     unbelegte Behauptung ausgerechnet im Ehrlichkeits-Abschnitt.
+     Wieder aufnehmen, sobald eine Aufnahme davon existiert. */
   /* BEAT 4 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
      Fließtext von mir. ls1_cap steht unverändert und trägt hier den
      Abschnitt, statt in Säule 1 Kleingedrucktes zu sein. */
   b4_eyebrow:"Da dove vengono i numeri",
   b4_h2:"Scriviamo anche ciò che <em>non</em> sappiamo.",
-  b4_p1:"Ogni numero nell’app porta con sé la sua origine. Non vedi solo quanto farà caldo — vedi se è misurato, calcolato o soltanto previsto.",
+  b4_p1:"Due cose Unica non le misura, le legge: traffico e meteo. Per il meteo il servizio è indicato per nome, e fino a quando vale la sua segnalazione. Tutto il resto lo calcola — e scrive che lo sta calcolando.",
+  /* ERSETZT mit Anhang E: */ // b4_p1:"Ogni numero nell’app porta con sé la sua origine. Non vedi solo quanto farà caldo — vedi se è misurato, calcolato o soltanto previsto."
   b4_s1t:"misurato",
-  b4_s1d:"Segnalato dal servizio meteo, con nome e finestra di validità.",
+  b4_s1d:"Traffico e meteo, segnalati dall’esterno. Nell’andamento della giornata, tutto a sinistra della linea.",
+  /* ERSETZT mit Anhang E: */ // b4_s1d:"Segnalato dal servizio meteo, con nome e finestra di validità."
   b4_s2t:"calcolato",
-  b4_s2d:"Derivato, non misurato — la temperatura dell’acqua dal valore mensile.",
+  b4_s2d:"Derivato, non osservato — la temperatura dell’acqua dal valore mensile, adattata all’aria.",
+  /* ERSETZT mit Anhang E: */ // b4_s2d:"Derivato, non misurato — la temperatura dell’acqua dal valore mensile."
   b4_s3t:"previsto",
-  b4_s3d:"Quello che deve ancora arrivare. Dove non c’è nulla, il campo resta vuoto.",
-  b4_p2:"E ogni nome di luogo che Unica produce viene confrontato con un elenco di luoghi verificati. Ciò che non c’è, viene scartato. Se non c’è niente di adatto, non consiglia niente — una risposta vuota con motivazione è meglio di una inventata.",
+  b4_s3d:"Quello che deve ancora arrivare, a destra della linea. Dove non c’è un valore, il campo resta vuoto.",
+  /* ERSETZT mit Anhang E: */ // b4_s3d:"Quello che deve ancora arrivare. Dove non c’è nulla, il campo resta vuoto."
+  b4_p2:"E ogni nome di luogo Unica lo confronta con un elenco di luoghi verificati. Ciò che non c’è, viene scartato.",
+  /* ERSETZT mit Anhang E: */ // b4_p2:"E ogni nome di luogo che Unica produce viene confrontato con un elenco di luoghi verificati. Ciò che non c’è, viene scartato. Se non c’è niente di adatto, non consiglia niente — una risposta vuota con motivazione è meglio di una inventata."
   /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
      Fließtext von mir. IT und EN ebenfalls meine Fassung. */
   b3_eyebrow:"Cosa calcola dietro le quinte",
@@ -1090,7 +1112,8 @@ var I18N={
   b3_p1:"Ogni ora Unica ricalcola il basso lago: traffico, meteo e una stima dell’affluenza per dieci località, quattordici ore in anticipo. Non su richiesta, ma una volta per tutti — chi chiede la mattina legge lo stesso calcolo di chi chiede a mezzogiorno.",
   b3_f1:"ricalcolato <b>ogni ora</b>",
   b3_f2:"<b>10 località</b> sulla sponda sud",
-  b3_f3:"<b>14 ore</b> in anticipo",
+  b3_f3:"<b>da mattina</b> a sera",
+  /* ERSETZT mit Anhang E: */ // b3_f3:"<b>14 ore</b> in anticipo"
   b3_p2:"Ne nascono due domande su due livelli: vale la pena andare in quella direzione — e là dove volete andare, adesso si sta bene?",
   mi_eyebrow:"Perché esistiamo",mi_vlabel:"Visione",mi_mlabel:"Missione",
   mi_vision:"Che il Lago di Garda resti il luogo di cui ci si <em>innamora</em> — perché ognuno è al posto giusto al momento giusto.",
@@ -1237,19 +1260,28 @@ var I18N={
   _desc:"Unica ti mostra il basso Lago di Garda che amano le persone del posto — il luogo giusto, al momento giusto, su misura per voi. Un consiglio onesto invece di duecento opzioni."
  },
  en:{
+  /* E-15: Der Satz "Passt nichts, empfiehlt sie nichts" ist zurückgenommen.
+     Kein Bild im Bestand zeigt die leere Antwort mit Begründung — eine
+     unbelegte Behauptung ausgerechnet im Ehrlichkeits-Abschnitt.
+     Wieder aufnehmen, sobald eine Aufnahme davon existiert. */
   /* BEAT 4 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
      Fließtext von mir. ls1_cap steht unverändert und trägt hier den
      Abschnitt, statt in Säule 1 Kleingedrucktes zu sein. */
   b4_eyebrow:"Where the numbers come from",
   b4_h2:"We also write down what we <em>don’t</em> know.",
-  b4_p1:"Every number in the app carries its origin. You don’t only see how warm it will get — you see whether that is measured, calculated or merely forecast.",
+  b4_p1:"Two things Unica does not measure herself, she reads them: traffic and weather. For the weather the service is named, and until when its report holds. Everything else she calculates — and writes down that she is calculating it.",
+  /* ERSETZT mit Anhang E: */ // b4_p1:"Every number in the app carries its origin. You don’t only see how warm it will get — you see whether that is measured, calculated or merely forecast."
   b4_s1t:"measured",
-  b4_s1d:"Reported by the weather service, with a name and a validity window.",
+  b4_s1d:"Traffic and weather, reported from outside. In the day’s course, everything left of the line.",
+  /* ERSETZT mit Anhang E: */ // b4_s1d:"Reported by the weather service, with a name and a validity window."
   b4_s2t:"calculated",
-  b4_s2d:"Derived, not measured — the water temperature from the monthly value.",
+  b4_s2d:"Derived, not observed — the water temperature from the monthly value, adjusted to the air.",
+  /* ERSETZT mit Anhang E: */ // b4_s2d:"Derived, not measured — the water temperature from the monthly value."
   b4_s3t:"forecast",
-  b4_s3d:"What is still to come. Where nothing exists, the field stays empty.",
-  b4_p2:"And every place name Unica produces is checked against a list of verified places. Whatever is not on it is dropped. If nothing fits, she recommends nothing — an empty answer with a reason beats an invented one.",
+  b4_s3d:"What is still to come, right of the line. Where no value exists, the field stays empty.",
+  /* ERSETZT mit Anhang E: */ // b4_s3d:"What is still to come. Where nothing exists, the field stays empty."
+  b4_p2:"And every place name Unica holds against a list of verified places. Whatever is not on it is dropped.",
+  /* ERSETZT mit Anhang E: */ // b4_p2:"And every place name Unica produces is checked against a list of verified places. Whatever is not on it is dropped. If nothing fits, she recommends nothing — an empty answer with a reason beats an invented one."
   /* BEAT 3 · ENTWURF, Cristina entscheidet. Überschrift von Tim,
      Fließtext von mir. IT und EN ebenfalls meine Fassung. */
   b3_eyebrow:"What is computing behind it",
@@ -1257,7 +1289,8 @@ var I18N={
   b3_p1:"Every hour Unica recalculates the southern lake: traffic, weather and a crowding estimate for ten towns, fourteen hours ahead. Not on request, but once for everyone — whoever asks in the morning reads the same calculation as whoever asks at noon.",
   b3_f1:"recalculated <b>hourly</b>",
   b3_f2:"<b>10 towns</b> on the southern shore",
-  b3_f3:"<b>14 hours</b> ahead",
+  b3_f3:"<b>from morning</b> to evening",
+  /* ERSETZT mit Anhang E: */ // b3_f3:"<b>14 hours</b> ahead"
   b3_p2:"Two questions come out of it, on two levels: is the direction worth it at all — and where you are heading, is it bearable right now?",
   mi_eyebrow:"Why we exist",mi_vlabel:"Vision",mi_mlabel:"Mission",
   mi_vision:"That Lake Garda stays the place you <em>fall in love</em> with — because everyone is in the right place at the right time.",
