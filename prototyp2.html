@@ -319,7 +319,7 @@ footer a:hover{color:var(--notte)}
    Das Seitenverhältnis steht im CSS, nicht in width/height-Attributen: die
    tatsächlichen Maße der Dateien stehen noch nicht fest, geratene Attribute
    würden den Umbruch verschieben. object-fit:cover fängt jeden Zuschnitt ab. */
-.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 55%;opacity:.18;z-index:0;pointer-events:none;
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% 60%;opacity:.18;z-index:0;pointer-events:none;
   -webkit-mask-image:linear-gradient(to right,transparent 52%,#000 84%);mask-image:linear-gradient(to right,transparent 52%,#000 84%)}
 @media(max-width:860px){.hero-photo{opacity:.12;
   -webkit-mask-image:linear-gradient(to bottom,transparent 42%,#000 88%);mask-image:linear-gradient(to bottom,transparent 42%,#000 88%)}}
@@ -335,13 +335,12 @@ footer a:hover{color:var(--notte)}
    Unter ~750px wird der Streifen quadratischer; dort beschneidet der Browser die
    Seiten und laesst die Hoehe ganz. */
 .foto-band{overflow:hidden}
+/* Mosaik — vier Belege nebeneinander. Auf dem Handy zwei mal zwei, damit die
+   Kacheln nicht zu Briefmarken werden. */
+.mosaik{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.mosaik img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px}
+@media(max-width:820px){.mosaik{grid-template-columns:repeat(2,1fr);gap:10px}}
 .foto-band img{display:block;width:100%;height:clamp(260px,34.7vw,500px);object-fit:cover}
-/* steg_mittag: Schirme und Liegestuehle liegen in der Banddatei bei x 0-17 %,
-   die Boote bei 55-95 %. Auf schmalen Schirmen sind nur 52 % der Breite
-   sichtbar — beides passt nicht hinein. Das Pflaster liegt ueberall, die
-   Liegestuehle nur links: also linksbuendig. Ueber 1440px beschneidet cover
-   stattdessen oben und unten, dort haelt die 40 % die Liegestuehle ganz. */
-.foto-band.b-steg img{object-position:0 40%}
 .problem .foto-band,#team .foto-band{margin-top:44px}
 /* Beats — die sieben Kapitel der Storyline. Ein Rhythmus fuer alle:
    Textspalte auf Textbreite, Geraet daneben, das Paar zentriert wie die
@@ -449,11 +448,18 @@ footer a:hover{color:var(--notte)}
 
 <!-- 1 · HERO -->
 <header class="hero">
-  <!-- Der Hafenkanal von Peschiera in der blauen Stunde. Liegt hinter Raster
-       und Gerät und ist rein schmückend, darum alt="" und aria-hidden. Die
-       Maske blendet links aus, damit Überschrift und Fließtext auf reinem
-       Grund stehen; unter 860px kippt sie nach unten. -->
-  <img class="hero-photo" src="assets/foto/peschiera_abend.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  <!-- Der Kanal von Peschiera am hellen Tag — dieselbe Stunde und dasselbe
+       Wetter, die Karte im Gerät und meteo zeigen: 31 Grad, klarer Himmel.
+       Vorher lag hier die blaue Stunde, danach lief die Seite rückwärts vom
+       Abend in den Mittag.
+       Ausschnitt bis x 30 % der Vorlage: ab dort steht die Tafel
+       "TAPAS & COCKTAIL BAR" im Bild, und ein lesbarer Lokalname hat auf
+       einer Seite, die keine bezahlten Platzierungen verspricht, nichts
+       verloren — auch nicht im Hintergrund.
+       Liegt hinter Raster und Gerät und ist rein schmückend, darum alt=""
+       und aria-hidden. Die Maske blendet links aus, damit Überschrift und
+       Fließtext auf reinem Grund stehen; unter 860px kippt sie nach unten. -->
+  <img class="hero-photo" src="assets/foto/hero_peschiera.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" data-i18n="hero_eyebrow">Süd-Gardasee · Peschiera bis Salò</span>
@@ -495,15 +501,6 @@ footer a:hover{color:var(--notte)}
         <p data-i18n="pb_v3_p">Sirmione, Samstag, 11 Uhr im August. Dieselbe Burg um 17:30 wäre ein ganz anderer Ort gewesen — Licht, Ruhe, Platz. Nur wusstet ihr das nicht.</p>
       </div>
     </div>
-  </div>
-
-  <!-- Randloses Band zwischen den Karten und dem Pivot-Satz. Hafenplatz am
-       Südufer zur Mittagsstunde — genau die Stunde, von der Vignette 03
-       handelt. Erfüllt zugleich das alte TODO §2 (Promenaden-Foto, Südufer,
-       ruhiger Hafen), das unten stand. -->
-  <figure class="foto-band b-steg reveal"><img src="assets/foto/steg_mittag.jpg" alt="Gepflasterter Hafenplatz am Südufer in der Mittagssonne, Boote am Kai" loading="lazy" decoding="async"></figure>
-
-  <div class="wrap">
     <div class="pivot-wrap reveal">
       <p class="problem-line" data-i18n="pb_pivot">Der See ist nicht das Problem. Es ist der <em>Moment.</em> Fünfzehn Minuten weiter — oder zwei Stunden später — liegt derselbe See ganz ruhig da.</p>
       <!-- Ä6 · DIE SAISON — Platz vorbereitet, Satz fehlt.
@@ -528,6 +525,11 @@ footer a:hover{color:var(--notte)}
            Problem. Es ist der Moment.") bleibt dabei unangetastet. -->
     </div>
   </div>
+
+  <!-- Band nach dem Pivot-Satz, nicht davor: erst die Behauptung, dann das
+       Bild als Zäsur. Leere Uferpromenade, klares Wasser — das ist wörtlich,
+       was der Satz darüber sagt: "liegt derselbe See ganz ruhig da". -->
+  <figure class="foto-band reveal"><img src="assets/foto/band_lago.jpg" alt="Leere Uferpromenade am Südufer, klares Wasser" loading="lazy" decoding="async"></figure>
 </section>
 
 <!-- BEAT 3 · Der See hat einen Puls.
@@ -763,10 +765,18 @@ footer a:hover{color:var(--notte)}
     </div>
   </div>
 
-  <!-- Randloses Band zwischen der Geschichte und den Personen. -->
-  <figure class="foto-band reveal"><img src="assets/foto/weinberg_see.jpg" alt="Weinreben mit Blick auf den See" loading="lazy" decoding="async"></figure>
-
+  <!-- Mosaik statt Band: vier Belege, dass wir da waren. Belege treten zu
+       viert auf, nie einzeln — ein einzelnes gerahmtes Foto gibt es nicht.
+       Ohne Ortsnamen: von den vier Aufnahmen kann ich zwei zweifelsfrei
+       zuordnen, zwei nicht. Vier Bilder mit zwei geratenen Bildunterschriften
+       wären schlechter als vier ohne. -->
   <div class="wrap">
+    <div class="mosaik reveal">
+      <img src="assets/foto/revier_hafen.jpg" alt="Hafenplatz am Südufer in der Mittagssonne" loading="lazy" decoding="async">
+      <img src="assets/foto/revier_manerba.jpg" alt="Blick von der Höhe auf das tiefe Blau des Sees" loading="lazy" decoding="async">
+      <img src="assets/foto/revier_zypressen.jpg" alt="Zypressenreihe gegen die untergehende Sonne" loading="lazy" decoding="async">
+      <img src="assets/foto/revier_reben.jpg" alt="Rebzeilen mit einem Nussbaum am Rand" loading="lazy" decoding="async">
+    </div>
     <div class="team-grid">
       <button class="person reveal" type="button" onclick="openBio('c')" aria-label="Cristina — Bio öffnen">
         <img class="photo" src="assets/cristina.jpg" alt="Cristina — Founder &amp; Creative Strategy" onerror="this.style.display='none'">
@@ -835,10 +845,13 @@ footer a:hover{color:var(--notte)}
   </div>
 </section>
 
-<!-- Randloses Band vor der Warteliste. Zypressen gegen die untergehende Sonne
-     — gehört zur Saison, deren Satz noch fehlt (siehe Ä6 im Pivot-Block).
-     Steht zwischen zwei Abschnitten, ist dort also ohne Kunstgriff randlos. -->
-<figure class="foto-band reveal"><img src="assets/foto/zypressen_abend.jpg" alt="Reihe von Zypressen gegen die untergehende Sonne" loading="lazy" decoding="async"></figure>
+<!-- Schlussband vor der Warteliste. Peschiera in der blauen Stunde,
+     beleuchtete Arkaden, besetzte Tische — das Bild für "hier wohnen
+     Menschen", der zweite Teil des Maßstabs. Steht zwischen zwei
+     Abschnitten, ist dort also ohne Kunstgriff randlos.
+     Ausschnitt ab x 16 %: links stand der beleuchtete Schriftzug
+     "PAVILLON" im Bild, dieselbe Regel wie beim Hero. -->
+<figure class="foto-band reveal"><img src="assets/foto/band_peschiera_abend.jpg" alt="Peschiera in der blauen Stunde, beleuchtete Arkaden am Kanal" loading="lazy" decoding="async"></figure>
 
 <!-- 6 · FINALE -->
 <section id="warteliste" class="finale wrap">
