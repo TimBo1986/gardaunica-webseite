@@ -10,7 +10,7 @@ Stand: September 2026
 
 ### 1. Verantwortliche
 
-Cristina Uhl
+Christina Uhl
 Via Boschetti 29
 37019 Peschiera del Garda (VR), Italien
 Telefon: +39 347 105 0557
@@ -206,9 +206,11 @@ Rechtsform, Sitz und Registernummer statt der natürlichen Person. Betrifft
 ebenso alle Konten — Hetzner, Brevo, Zoho, Namecheap, GitHub, Apple — und die
 AV-Verträge, die dann neu abzuschließen sind.
 
-**Der Name.** In den Rechtstexten steht „Cristina Uhl". Amtlich ist „Christina
-Uhl", die italienische Schreibweise ist ein Alias. Für das Impressum zählt der
-Name, unter dem sie eingetragen ist — mit der Firmenanmeldung zu klären.
+**Der Name.** Erledigt am 6.9.2026: In allen Rechtstexten steht jetzt der
+amtliche Name „Christina Uhl" — hier, in privacy.html, in der Signaturzeile auf
+/partner und in den sechs Rechtsseiten von lagonord.de. „Cristina" bleibt
+überall dort stehen, wo es Auftrittsname ist: Team-Biografien, Fließtext,
+Mailadresse, Bilddateiname.
 
 **Italienische und englische Fassung** stehen aus. Die italienische ist die
 dringendere.
