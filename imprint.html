@@ -41,15 +41,11 @@ nav{padding:18px 0;border-bottom:1px solid var(--linea-soft);background:var(--ca
 .logo span{color:var(--terracotta)}
 .back{font-size:14px;font-weight:500;color:var(--notte-2);text-decoration:none}
 .back:hover{color:var(--notte)}
-/* Sprachumschalter. IT und EN sind vorbereitet, aber noch nicht angelegt —
-   sie stehen darum als stumme Marken da, nicht als Verweis ins Leere. Sobald
-   imprint.it.html und imprint.en.html existieren, wird aus jedem
-   <span class="bald">IT</span> ein
-   <a href="imprint.it.html" hreflang="it" aria-label="Italiano">IT</a>. */
+/* Sprachumschalter. Je Rechtstext drei eigene Dateien; die gerade
+   gezeigte Sprache steht ohne Verweis da. */
 .sprachen{font-size:14px;font-weight:500;color:var(--notte-2)}
 .sprachen a{color:var(--terracotta);text-decoration:none}
 .sprachen a:hover{text-decoration:underline}
-.sprachen .bald{color:var(--notte-3);cursor:default}
 main{padding:56px 0 80px}
 h1{font-size:32px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
 .intro{font-size:13px;color:var(--notte-3);margin-bottom:40px}
@@ -65,7 +61,7 @@ footer{padding:28px 0;text-align:center;font-size:13px;color:var(--notte-3);bord
 <body>
 <nav><div class="nav-inner">
   <a class="logo" href="/">Unica <span>Benaco</span></a>
-  <span class="sprachen">DE · <span class="bald" aria-disabled="true">IT</span> · <span class="bald" aria-disabled="true">EN</span></span>
+  <span class="sprachen">DE · <a href="imprint.it.html" hreflang="it" aria-label="Italiano">IT</a> · <a href="imprint.en.html" hreflang="en" aria-label="English">EN</a></span>
   <a class="back" href="/">← Zurück zur Startseite</a>
 </div></nav>
 
