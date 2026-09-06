@@ -13,8 +13,9 @@ i18n-Schlüssel in beide Richtungen). Selbsttest: `--selftest`.
 
 **Branch:** `feature/pfeiler-v2`
 **Vorgabe:** `docs/AUFTRAG-01.md`, alle dreizehn Punkte von Tim entschieden
-**Neun Commits**, einer je umgesetztem Punkt. Vier Punkte sind nicht umgesetzt
-und stehen unter „Gemeldet statt entschieden".
+**Neun Commits**, einer je umgesetztem Punkt. Vier Punkte gingen zunächst
+zurück an Tim; er hat zwei davon am 6.9.2026 entschieden (vier weitere
+Commits, siehe „Nachtrag vom 6.9."), zwei bleiben offen.
 
 ### Was umgesetzt ist
 
@@ -42,10 +43,46 @@ Stand nach Ä13: **119 Schlüssel im DOM, 184/184/184 im Wörterbuch**, Wächter
 grün. Im Browser bei 390, 768 und 1440 px in DE, IT und EN geprüft: kein
 waagerechter Überlauf.
 
+### Nachtrag vom 6.9. — zwei der vier Meldungen entschieden
+
+Tim hat entschieden: die beiden Aufnahmen kommen rein, auch ohne die
+abgeschnittenen Zeilen. `hero_1.jpg` bleibt draußen, der Abstinenz-Satz bleibt
+gestrichen. Vier weitere Commits:
+
+| Commit | Ergebnis |
+|---|---|
+| `fcdfb0a` | `il_giorno.jpg` ersetzt, Alt-Text und Kommentar ohne das ruhige Fenster |
+| `00f2ad3` | Ä6: `traffic.jpg` als zweites Gerät in Beat 4 |
+| `a4c2fe8` | `b4_p1` neu — nennt nur, was in den beiden Geräten steht |
+| `8f8c50e` | Korrektur an Ä5: die drei Sätze sind ein Absatz, keine Abzeichen |
+
+Beide Aufnahmen sind an den Leisten zugeschnitten, nicht nach Augenmaß: die
+Navigationsleiste liegt gemessen bei y 2205–2339, die verbleibenden 90 px oben
+sind die Statusleiste. 2340 − 135 − 90 = 2115. Drei Wächter im Skript prüfen
+das vor jedem Schnitt; EXIF danach geprüft, Größen 149,2 und 215,4 KB.
+
+`8f8c50e` korrigiert einen Fehler von mir, nicht der Vorgabe: der feste
+Wortlaut aus Ä5 ist ein Absatz aus drei Sätzen, ich hatte ihn auf drei
+Abzeichen verteilt. Unter BERECHNET stand dadurch „Was noch kommt, ist
+vorhergesagt" — die Beschreibung der Nachbarstufe. Der Absatz steht jetzt
+ungeteilt in `b4_herkunft`; `b4_s1t` … `b4_s3d` sind ausgesetzt.
+
+Stand danach: **114 Schlüssel im DOM, 185/185/185 im Wörterbuch**, Wächter grün.
+
+Offen bleibt aus diesem Nachtrag:
+
+- Die Zeitmarke in `il_giorno` steht auf 13 Uhr, `meteo` (14:01) und
+  `oggi_tipp` (14:05) auf 14. Eine Stunde Drift zwischen Geräten derselben
+  Seite; bei der nächsten Nachaufnahme mitziehen.
+- Die Zeile am Fuß von `traffic` („Verkehr und Wetter sind gemessen …") wäre
+  weiterhin der stärkere Beleg für Beat 4 als jede Umschreibung. Eine
+  Nachaufnahme ohne Navigationsleiste bleibt wünschenswert.
+
 ### Gemeldet statt entschieden
 
-Vier Punkte lösen die Regel „Melden statt selbst entscheiden" aus. Alle vier
-sind am Bild nachgeprüft, nicht vermutet.
+Vier Punkte lösten die Regel „Melden statt selbst entscheiden" aus. Alle vier
+sind am Bild nachgeprüft, nicht vermutet. Ä6 und Ä7.2/Ä8 sind mit dem Nachtrag
+vom 6.9. erledigt und stehen unten nur noch als Befund; Ä7.1 und Ä9 sind offen.
 
 **Ä6 · `traffic.jpg` — die tragende Zeile ist nicht lesbar.**
 Der Punkt macht es zur zwingenden Bedingung, dass die Zeile „Verkehr und Wetter
@@ -54,8 +91,10 @@ Wetter." im ausgelieferten Bild vollständig lesbar ist. Sie liegt in der
 Rohaufnahme (1080 × 2340) unter der Android-Navigationsleiste, abgedunkelt, und
 ihre zweite Zeile wird vom unteren Bildrand abgeschnitten. Kein Zuschnitt kann
 sie freilegen — sie ist im Original nicht vollständig da.
-→ Bild nicht verwendet. **Nachaufnahme angefordert**, mit ausgeblendeter
-Navigationsleiste oder ein Stück weiter gescrollt.
+→ **Erledigt am 6.9.** Tim hat den Einbau ohne die Zeile entschieden. Das Bild
+steht seit `00f2ad3` als zweites Gerät in Beat 4; die Seite zitiert die Zeile
+nicht und lehnt sich nicht an sie an. Eine Nachaufnahme ohne
+Navigationsleiste bleibt wünschenswert, aber nicht mehr blockierend.
 
 **Ä7.1 · `hero_1.jpg` — die Zusammenfassung passt nicht zur Karte.**
 Die zehn Pins tragen: Padenghe 30, Manerba 34, Moniga 34 (dunkelgrün, „ruhig") ·
@@ -80,8 +119,12 @@ Tausch würde zweimal schaden: die eingebundene Fassung zeigt ein *lesbares*
 ruhiges Fenster („ab 19 Uhr · Andrang unter 58 und kein Regen erwartet"), und
 ihre Zeitmarke steht auf 14 Uhr, wie `meteo` (14:01) und `oggi_tipp` (14:05).
 Die neue steht auf 13 Uhr bei Uhrzeit 13:38.
-→ Nicht getauscht. Auch hier hilft nur eine Nachaufnahme ohne
-Navigationsleiste, dann mit Zeitmarke auf 14 Uhr.
+→ **Teils erledigt am 6.9.** Der Zweig **nein** steht: der Abstinenz-Satz
+bleibt gestrichen, sein Beleg fehlt weiter. Getauscht wurde die Aufnahme
+trotzdem, auf Tims Entscheidung (`fcdfb0a`). Alt-Text und Abschnittskommentar
+nennen das ruhige Fenster deshalb nicht mehr — übrig bleibt die Überschrift
+RUHIGES FENSTER an der Schnittkante, was sich als Bildlauf liest. Die
+Stundendrift auf 13 Uhr bleibt offen.
 
 **Ä9 · `planer_tag.jpg` liegt nicht im Repo.**
 Der Punkt beschreibt die Aufnahme genau (Lazise, „Dein Tag.", Tagesreiter
