@@ -4,6 +4,103 @@ Laufende Dokumentation der Rename-Tasks. Neueste Einträge oben.
 
 Prüfwerkzeug für alle Tasks: `tools/rename_scan.sh` (rein lesend).
 Selbsttest des Werkzeugs: `tools/rename_scan.sh --selftest`.
+Seit Spec 0002 zusätzlich `tools/pruefe_seite.py` (rein lesend, prüft die
+i18n-Schlüssel in beide Richtungen). Selbsttest: `--selftest`.
+
+---
+
+## Auftrag 01 — dreizehn Änderungen an der Startseite
+
+**Branch:** `feature/pfeiler-v2`
+**Vorgabe:** `docs/AUFTRAG-01.md`, alle dreizehn Punkte von Tim entschieden
+**Neun Commits**, einer je umgesetztem Punkt. Vier Punkte sind nicht umgesetzt
+und stehen unter „Gemeldet statt entschieden".
+
+### Was umgesetzt ist
+
+| Punkt | Commit | Ergebnis |
+|---|---|---|
+| Ä1 | `6ac3dad` | Hero-Lede an die Karte angeglichen |
+| Ä2 | `a05c857` | Zeitangaben in Beat 3 qualitativ statt beziffert |
+| Ä3 | `733beb2` | „erträglich" raus aus Beat 3 |
+| Ä4 | `6f30e37` | Beat 4 heißt „Woher die Zahlen *kommen.*" |
+| Ä5 | `bbcf7e1` | Herkunftsabsatz in Beat 4 neu gefasst |
+| Ä10 | `cc98947` | „Auf Deutsch" → „Auf Deutsch, Italienisch oder Englisch" |
+| Ä11 | `ddc5bd1` | „La Carte du Soir" vollständig raus, auch aus `di_p` |
+| Ä12 | `ef2ce5d` | Katzen-Satz aus dem Team-Abschnitt |
+| Ä13 | `76c9757` | Partner-Abschnitt raus, Streifen hinter das FAQ |
+
+Neue Copy, alles **Entwurf — Cristina entscheidet**: die Beat-4-Überschrift und
+ihr Fließtext (Ä4, Ä5), die erweiterte Sprachzeile (Ä10) und der Satz im
+Partner-Streifen `pts_p` (Ä13), je in DE, IT und EN.
+
+Ausgesetzt, nichts gelöscht: `tm_story4` (Ä12) sowie `pt_eyebrow`, `pt_h2`,
+`pt_intro`, `pt1_*`, `pt2_*` und `pt_more` (Ä13). Die zugehörigen CSS-Regeln
+(`.tm-ps`, `.partner*`) bleiben ungenutzt mit Vermerk stehen.
+
+Stand nach Ä13: **119 Schlüssel im DOM, 184/184/184 im Wörterbuch**, Wächter
+grün. Im Browser bei 390, 768 und 1440 px in DE, IT und EN geprüft: kein
+waagerechter Überlauf.
+
+### Gemeldet statt entschieden
+
+Vier Punkte lösen die Regel „Melden statt selbst entscheiden" aus. Alle vier
+sind am Bild nachgeprüft, nicht vermutet.
+
+**Ä6 · `traffic.jpg` — die tragende Zeile ist nicht lesbar.**
+Der Punkt macht es zur zwingenden Bedingung, dass die Zeile „Verkehr und Wetter
+sind gemessen. Der Andrang ist gerechnet — aus Ort, Wochentag, Jahreszeit und
+Wetter." im ausgelieferten Bild vollständig lesbar ist. Sie liegt in der
+Rohaufnahme (1080 × 2340) unter der Android-Navigationsleiste, abgedunkelt, und
+ihre zweite Zeile wird vom unteren Bildrand abgeschnitten. Kein Zuschnitt kann
+sie freilegen — sie ist im Original nicht vollständig da.
+→ Bild nicht verwendet. **Nachaufnahme angefordert**, mit ausgeblendeter
+Navigationsleiste oder ein Stück weiter gescrollt.
+
+**Ä7.1 · `hero_1.jpg` — die Zusammenfassung passt nicht zur Karte.**
+Die zehn Pins tragen: Padenghe 30, Manerba 34, Moniga 34 (dunkelgrün, „ruhig") ·
+Salò 48, Lazise 53, Bardolino 58 (hellgrün, „belebt") · Peschiera 69 (gelb,
+„voll") · Garda 76, Desenzano 76, Sirmione 98 (rot, „schwierig"). Die
+Zusammenfassung sagt „7 Orte ruhig · 2 voll". Keine Schwelle ergibt 7 und 2,
+und 7 + 2 = 9 bei zehn Pins.
+Dazu ein zweiter Widerspruch: `hero_1` sagt „31 °C, Bedeckt" und trägt eine
+Hitze-Warnung, während `meteo.jpg` im selben Seitenlauf „31° Klarer Himmel ·
+Wolken 4 %" zeigt — derselbe Tag, dieselbe Stunde, zwei Wetter.
+→ Nicht eingebaut. Die eingebundene `territorio_map.jpg` bleibt: dort steht
+„9 Orte ruhig · 1 voll" bei neun grünen Pins und einem roten (Sirmione 77) —
+das geht auf — und „31 °C, Klarer Himmel", passend zu `meteo`.
+
+**Ä7.2 / Ä8 · `il_giorno.jpg` — die neue Aufnahme wäre ein Rückschritt.**
+Ä8 hängt am Satz „RUHIGES FENSTER — Kein Zeitfenster verfügbar". „RUHIGES
+FENSTER" steht knapp über der Navigationsleiste, „Kein Zeitfenster verfügbar"
+darunter, abgedunkelt. Also greift der Zweig **nein**: der Satz über die leere
+Antwort kommt nicht zurück in Beat 4.
+Damit fällt auch der Grund weg, die Aufnahme überhaupt zu tauschen — und der
+Tausch würde zweimal schaden: die eingebundene Fassung zeigt ein *lesbares*
+ruhiges Fenster („ab 19 Uhr · Andrang unter 58 und kein Regen erwartet"), und
+ihre Zeitmarke steht auf 14 Uhr, wie `meteo` (14:01) und `oggi_tipp` (14:05).
+Die neue steht auf 13 Uhr bei Uhrzeit 13:38.
+→ Nicht getauscht. Auch hier hilft nur eine Nachaufnahme ohne
+Navigationsleiste, dann mit Zeitmarke auf 14 Uhr.
+
+**Ä9 · `planer_tag.jpg` liegt nicht im Repo.**
+Der Punkt beschreibt die Aufnahme genau (Lazise, „Dein Tag.", Tagesreiter
+6.–8.9., Tagesthema „Kultur und Natur", Weinverkostungs-Slot). Unter
+`screenshot/` liegt sie nicht — weder unter diesem Namen noch inhaltlich: das
+nächstgelegene `Planner/plan_1.jpg` zeigt Peschiera, Reiter 5.–7.9. und
+„Aperitivo-Tag". Nach der Repo-Regel wird kein Ersatz gegriffen.
+Unabhängig davon ist der Punkt entschieden: **Solferino bleibt stehen**, weil
+der beschriebene Bildschirm den Rohwert `Reservierung: pflicht_hochsaison`
+zeigt. Der Befund ist im App-Repo `garda_compass_stable` unter
+`docs/ENTSCHEIDUNGSREGISTER.md`, Abschnitt 6, als offener Punkt eingetragen —
+dort nicht committet, es gilt W1 („kein Commit durch Agenten").
+
+### Nebenbefund
+
+`Planner/plan_2.jpg` trägt in der Slot-Karte „Tisch um 19:00 reserviert". Die
+App reserviert keine Tische — `reservierung` ist ein Merkmal des Ortes
+(`pflicht_hochsaison | empfohlen | nein`), kein Vorgang. Die Aufnahme bleibt
+deshalb weiterhin außen vor.
 
 ---
 
