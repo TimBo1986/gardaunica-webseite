@@ -297,7 +297,8 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .ab-tag{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--notte);background:var(--sole);padding:4px 10px;border-radius:999px;display:inline-block}
 .ab-card h3{font-family:var(--f-display);font-weight:500;font-size:20px;color:var(--carta);margin-top:14px}
 .ab-card p{margin-top:8px;font-size:14px;color:rgba(250,245,232,.72);line-height:1.65}
-/* partner */
+/* partner — der Abschnitt ist mit Ae13 aus dem DOM genommen (/partner traegt
+   ihn). Die Regeln bleiben ungenutzt stehen, falls er zurueckkommt. */
 .partner{background:var(--carta-warm)}
 .partner-intro{max-width:60ch;margin:0 auto;text-align:center}
 .partner-intro p{margin-top:16px;color:var(--notte-2);font-size:15.5px;line-height:1.7}
@@ -311,6 +312,14 @@ h1 em{font-style:italic;color:var(--terracotta)}
 .pt-note{margin-top:16px}
 .pt-note a{font-size:13.5px;font-weight:500;color:var(--notte-2);text-decoration:none;border-bottom:1px solid var(--linea);padding-bottom:2px;transition:color 160ms var(--ease),border-color 160ms var(--ease)}
 .pt-note a:hover{color:var(--terracotta);border-color:var(--terracotta)}
+/* Partner-Streifen: der einzige Terracotta-Grund der Seite, volle Breite und
+   flach. Auf diesem Grund kann der Knopf nicht terracotta sein, also invers. */
+.pt-strip{background:var(--terracotta);color:var(--carta);padding:30px 0}
+.pt-strip-inner{display:flex;align-items:center;justify-content:center;gap:30px;flex-wrap:wrap;text-align:center}
+.pt-strip p{font-family:var(--f-display);font-size:19px;line-height:1.35}
+.btn-strip{display:inline-block;flex:none;text-decoration:none;font-weight:600;font-size:14.5px;padding:13px 28px;border-radius:999px;background:var(--carta);color:var(--terracotta);transition:background 180ms var(--ease),transform 180ms var(--ease)}
+.btn-strip:hover{background:#fff;transform:translateY(-1px)}
+@media(max-width:640px){.pt-strip{padding:34px 0}.pt-strip-inner{flex-direction:column;gap:20px}.pt-strip p{font-size:17.5px}}
 footer{border-top:1px solid var(--linea-soft);padding:32px 0 44px;font-size:13px;color:var(--notte-3)}
 .foot-inner{max-width:1080px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--notte-3);text-decoration:none;font-weight:500}
@@ -819,33 +828,6 @@ footer a:hover{color:var(--notte)}
   </div>
 </section>
 
-<!-- PARTNER (vor Warteliste) -->
-<section id="partner" class="partner">
-  <div class="wrap">
-    <div class="partner-intro">
-      <span class="eyebrow" data-i18n="pt_eyebrow">Für Gastgeber &amp; Betriebe am See</span>
-      <h2 data-i18n="pt_h2">Die richtigen Gäste, zum <em>richtigen Moment.</em></h2>
-      <p data-i18n="pt_intro">Unica Benaco bringt Besucher dorthin, wo es gerade passt — und dann, wenn es passt. Für Gastgeber und lokale Betriebe heißt das: Passung statt Masse.</p>
-    </div>
-    <div class="partner-grid">
-      <div class="pt-card reveal">
-        <span class="pt-label" data-i18n="pt1_label">Hotels &amp; Campingplätze</span>
-        <h3 data-i18n="pt1_h">Der Concierge, der nie Feierabend hat.</h3>
-        <p data-i18n="pt1_p">Entlastet Ihre Rezeption, beantwortet die immer gleichen Fragen — und ein gelungener Tag zahlt am Ende auf Ihre Bewertungen ein.</p>
-      </div>
-      <div class="pt-card reveal">
-        <span class="pt-label" data-i18n="pt2_label">Erlebnisse, Weinbau &amp; Gastronomie</span>
-        <h3 data-i18n="pt2_h">Passung statt Rabattschlacht.</h3>
-        <p data-i18n="pt2_p">Die richtigen Gäste zum richtigen Moment — Nebenzeiten statt Andrang, eine echte Auswahl, die man nicht kaufen kann.</p>
-      </div>
-    </div>
-    <div class="partner-cta">
-      <a class="btn-primary" href="/partner" data-i18n="pt_cta">Partner werden →</a>
-      <p class="pt-note"><a href="/partner" data-i18n="pt_more">Alles für Gastgeber &amp; Betriebe (auf Italienisch) →</a></p>
-    </div>
-  </div>
-</section>
-
 <!-- Schlussband vor der Warteliste. Peschiera in der blauen Stunde,
      beleuchtete Arkaden, besetzte Tische — das Bild für "hier wohnen
      Menschen", der zweite Teil des Maßstabs. Steht zwischen zwei
@@ -882,6 +864,23 @@ footer a:hover{color:var(--notte)}
   <details><summary data-i18n="faq6_q">Wo liegen meine Daten?</summary><p data-i18n="faq6_a">Auf EU-Servern in Deutschland, nach DSGVO. Die Anmeldung läuft über Double-Opt-in, und für Nutzerdaten setzen wir keine US-Cloud ein. Deine E-Mail nutzen wir nur für den Launch — kein Weiterverkauf, kein Spam.</p></details>
   <details><summary data-i18n="faq7_q">Für iPhone und Android?</summary><p data-i18n="faq7_a">Ja, beide — zum Start. Sobald es losgeht, sagen wir dir Bescheid, wo du Unica Benaco laden kannst.</p></details>
 </div>
+
+<!-- PARTNER-STREIFEN (Ä13). Der vollständige Partner-Abschnitt stand bis hier
+     zwischen Team und Warteliste — eine B2B-Abzweigung kurz vor der Anmeldung.
+     Er ist ersatzlos entfallen, die Seite /partner trägt ihn ausführlicher.
+     Was bleibt, ist ein Satz und ein Knopf.
+     Er steht hinter dem FAQ, nicht unmittelbar hinter der Warteliste: die
+     häufigen Fragen gehören noch zur Gästespur, und ein Fremdkörper mittendrin
+     wäre derselbe Fehler in klein. Hier schließt er die Seite ab und übergibt
+     an die Fußzeile, in der der Partner-Link ohnehin steht.
+     Terracotta statt notte: die dunklen Abschnitte tragen Produktinhalte, der
+     Streifen soll sichtbar eine andere Spur sein. -->
+<section class="pt-strip">
+  <div class="wrap pt-strip-inner">
+    <p data-i18n="pts_p">Sie führen ein Hotel, ein Weingut oder eine Osteria am See?</p>
+    <a class="btn-strip" href="/partner" data-i18n="pt_cta">Partner werden →</a>
+  </div>
+</section>
 
 <footer>
   <div class="foot-inner">
@@ -1164,6 +1163,13 @@ var I18N={
   ab1_tag:"In Arbeit",ab1_h:"Antworten auf Ziel-Ebene",ab1_p:"Kommst du heute rein — und kannst du parken? Diese Antworten bringen wir auf die Ebene einzelner Ziele: Strände, Restaurants, Sehenswürdigkeiten.",
   ab2_tag:"Fundament liegt",ab2_h:"Ein Concierge, der deinen Tag kennt",ab2_p:"Bald bezieht Unica im Chat deinen Plan und das Wetter von heute mit ein — für Antworten, die noch näher an eurem Tag sind.",
   ab3_tag:"Als Nächstes",ab3_h:"Erlebnisse direkt buchen",ab3_p:"Handverlesene Erlebnisse bei unseren Partnern — in Kürze direkt in der App buchbar, transparent gekennzeichnet.",
+  pts_p:"Sie führen ein Hotel, ein Weingut oder eine Osteria am See?",
+  /* AUSGESETZT mit Auftrag 01, Ae13: der Partner-Abschnitt ist aus der
+     Startseite genommen, /partner traegt ihn ausfuehrlicher. Nicht mehr im
+     DOM: pt_eyebrow, pt_h2, pt_intro, pt1_label, pt1_h, pt1_p, pt2_label,
+     pt2_h, pt2_p, pt_more. Werte bleiben vollstaendig stehen.
+     pt_cta traegt weiter, jetzt im Streifen hinter dem FAQ.
+     pts_p ist neu und ein Entwurf — Cristina entscheidet. */
   pt_eyebrow:"Für Gastgeber &amp; Betriebe am See",pt_h2:"Die richtigen Gäste, zum <em>richtigen Moment.</em>",
   pt_intro:"Unica Benaco bringt Besucher dorthin, wo es gerade passt — und dann, wenn es passt. Für Gastgeber und lokale Betriebe heißt das: Passung statt Masse.",
   pt1_label:"Hotels &amp; Campingplätze",pt1_h:"Der Concierge, der nie Feierabend hat.",pt1_p:"Entlastet Ihre Rezeption, beantwortet die immer gleichen Fragen — und ein gelungener Tag zahlt am Ende auf Ihre Bewertungen ein.",
@@ -1426,6 +1432,13 @@ var I18N={
   ab1_tag:"In lavorazione",ab1_h:"Risposte a livello di destinazione",ab1_p:"Riesci a entrare oggi — e a parcheggiare? Portiamo queste risposte al livello dei singoli luoghi: spiagge, ristoranti, attrazioni.",
   ab2_tag:"Le basi ci sono",ab2_h:"Un concierge che conosce la tua giornata",ab2_p:"Presto Unica in chat terrà conto del tuo piano e del meteo di oggi — per risposte ancora più vicine alla vostra giornata.",
   ab3_tag:"Prossimamente",ab3_h:"Prenotare esperienze direttamente",ab3_p:"Esperienze selezionate a mano presso i nostri partner — a breve prenotabili direttamente in app, segnalate con trasparenza.",
+  pts_p:"Gestisci un hotel, una cantina o un'osteria sul lago?",
+  /* AUSGESETZT mit Auftrag 01, Ae13: der Partner-Abschnitt ist aus der
+     Startseite genommen, /partner traegt ihn ausfuehrlicher. Nicht mehr im
+     DOM: pt_eyebrow, pt_h2, pt_intro, pt1_label, pt1_h, pt1_p, pt2_label,
+     pt2_h, pt2_p, pt_more. Werte bleiben vollstaendig stehen.
+     pt_cta traegt weiter, jetzt im Streifen hinter dem FAQ.
+     pts_p ist neu und ein Entwurf — Cristina entscheidet. */
   pt_eyebrow:"Per host e attività sul lago",pt_h2:"Gli ospiti giusti, al <em>momento giusto.</em>",
   pt_intro:"Unica Benaco porta i visitatori dove va bene — e quando va bene. Per host e attività locali significa: affinità, non massa.",
   pt1_label:"Hotel &amp; campeggi",pt1_h:"Il concierge che non stacca mai.",pt1_p:"Alleggerisce la reception, risponde alle solite domande — e una giornata riuscita alla fine premia le vostre recensioni.",
@@ -1688,6 +1701,13 @@ var I18N={
   ab1_tag:"In progress",ab1_h:"Answers at destination level",ab1_p:"Can you get in today — and can you park? We're bringing these answers down to individual places: beaches, restaurants, sights.",
   ab2_tag:"Foundation in place",ab2_h:"A concierge that knows your day",ab2_p:"Soon Unica in chat will factor in your plan and today's weather — for answers even closer to your day.",
   ab3_tag:"Up next",ab3_h:"Book experiences directly",ab3_p:"Hand-picked experiences with our partners — bookable directly in the app soon, transparently marked.",
+  pts_p:"Do you run a hotel, a winery or an osteria on the lake?",
+  /* AUSGESETZT mit Auftrag 01, Ae13: der Partner-Abschnitt ist aus der
+     Startseite genommen, /partner traegt ihn ausfuehrlicher. Nicht mehr im
+     DOM: pt_eyebrow, pt_h2, pt_intro, pt1_label, pt1_h, pt1_p, pt2_label,
+     pt2_h, pt2_p, pt_more. Werte bleiben vollstaendig stehen.
+     pt_cta traegt weiter, jetzt im Streifen hinter dem FAQ.
+     pts_p ist neu und ein Entwurf — Cristina entscheidet. */
   pt_eyebrow:"For hosts &amp; businesses on the lake",pt_h2:"The right guests, at the <em>right moment.</em>",
   pt_intro:"Unica Benaco brings visitors where it fits — and when it fits. For hosts and local businesses that means fit, not mass.",
   pt1_label:"Hotels &amp; campsites",pt1_h:"The concierge that never clocks off.",pt1_p:"Takes load off your reception, answers the same questions again and again — and a day well spent pays back into your reviews.",
