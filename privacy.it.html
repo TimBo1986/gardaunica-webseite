@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informativa sulla privacy — Unica Benaco</title>
+<meta name="robots" content="noindex">
+<!--
+  Rechtsseite, nach dem Vorbild der Rechtsseiten von lagonord.de gebaut:
+  eigenstaendige Datei, eigenes Inline-CSS, kein lang.js, kein Wortverzeichnis.
+  Die Startseite schaltet ihre Sprache im Browser um; eine Rechtsseite tut das
+  nicht — jede Sprachfassung ist eine eigene Datei. Deshalb faellt hier auch
+  die base64-Schrift weg: fuer eine Seite, die man einmal liest, sind 140 KB
+  Schrift nicht zu rechtfertigen. Systemschrift, Palette der Startseite.
+
+  Keine externen Verweise. Die GitHub-Adresse in Ziffer 3 und
+  www.garanteprivacy.it in Ziffer 8 stehen als Text, nicht als Link.
+
+  Inhalt aus docs/rechtstexte/datenschutz-unicabenaco-it.md, nur der Teil zwischen den beiden Trennlinien. Aufbau,
+  CSS und die Abschnitts-Anker sind aus privacy.html abgeleitet; die
+  Anker sind in allen drei Sprachen dieselben, weil Nummerierung und
+  Reihenfolge es auch sind.
+-->
+<style>
+:root{
+  --carta:#FAF5E8;--carta-warm:#F3EBD8;--carta-morn:#FDFAF2;
+  --terracotta:#B54327;--terracotta-soft:#C96449;
+  --sole:#E5A83A;
+  --notte:#1A2540;--notte-2:#4A5570;--notte-3:#8A93AB;
+  --linea:rgba(26,37,64,.14);--linea-soft:rgba(26,37,64,.08);
+  --f:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--carta-morn);color:var(--notte);font-family:var(--f);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto;padding:0 24px}
+nav{padding:18px 0;border-bottom:1px solid var(--linea-soft);background:var(--carta)}
+.nav-inner{max-width:760px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.logo{font-weight:700;font-size:18px;text-decoration:none;color:var(--notte);letter-spacing:-.01em}
+.logo span{color:var(--terracotta)}
+.back{font-size:14px;font-weight:500;color:var(--notte-2);text-decoration:none}
+.back:hover{color:var(--notte)}
+/* Sprachumschalter. IT und EN sind vorbereitet, aber noch nicht angelegt —
+   sie stehen darum als stumme Marken da, nicht als Verweis ins Leere. Sobald
+   privacy.html und die dritte Fassung verlinkt sind, bleibt die eigene
+   Sprache die stumme Marke. */
+.sprachen{font-size:14px;font-weight:500;color:var(--notte-2)}
+.sprachen a{color:var(--terracotta);text-decoration:none}
+.sprachen a:hover{text-decoration:underline}
+.sprachen .bald{color:var(--notte-3);cursor:default}
+main{padding:56px 0 80px}
+h1{font-size:32px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.updated{font-size:13px;color:var(--notte-3);margin-bottom:40px}
+h2{font-size:20px;font-weight:700;margin:40px 0 12px;padding-top:16px;border-top:1px solid var(--linea-soft)}
+h2:first-of-type{border-top:none;padding-top:0}
+h3{font-size:15.5px;font-weight:700;margin:22px 0 8px}
+p,li{margin-bottom:11px;color:var(--notte-2)}
+ul{padding-left:20px;margin-bottom:14px}
+strong{color:var(--notte);font-weight:600}
+a{color:var(--terracotta);font-weight:600;text-decoration:none}
+a:hover{text-decoration:underline}
+.toc{background:var(--carta-warm);border-radius:12px;padding:20px 24px;margin-bottom:8px}
+.toc b{display:block;margin-bottom:8px;color:var(--notte)}
+.toc a{display:block;font-size:14px;font-weight:500;margin-bottom:5px}
+.adresse{color:var(--notte-2)}
+footer{padding:28px 0;text-align:center;font-size:13px;color:var(--notte-3);border-top:1px solid var(--linea-soft)}
+</style>
+</head>
+<body>
+<nav><div class="nav-inner">
+  <a class="logo" href="/">Unica <span>Benaco</span></a>
+  <span class="sprachen"><a href="privacy.html" hreflang="de" aria-label="Deutsch">DE</a> · IT · <a href="privacy.en.html" hreflang="en" aria-label="English">EN</a></span>
+  <a class="back" href="/">← Torna alla home</a>
+</div></nav>
+
+<main class="wrap">
+  <h1>Informativa sul trattamento dei dati personali</h1>
+  <div class="updated">Ultimo aggiornamento: settembre 2026</div>
+
+  <div class="toc">
+    <b>Indice</b>
+    <a href="#verantwortliche">1. Titolare del trattamento</a>
+    <a href="#grundsatz">2. Principio</a>
+    <a href="#logfiles">3. Consultazione del sito e file di log</a>
+    <a href="#warteliste">4. Lista d'attesa</a>
+    <a href="#kontakt">5. Contatto via e-mail</a>
+    <a href="#sprache">6. Versioni linguistiche</a>
+    <a href="#keine-automatik">7. Assenza di processi decisionali automatizzati</a>
+    <a href="#rechte">8. I suoi diritti</a>
+    <a href="#aenderungen">9. Modifiche alla presente informativa</a>
+  </div>
+
+  <h2 id="verantwortliche">1. Titolare del trattamento</h2>
+  <p class="adresse">
+    Christina Uhl<br>
+    Via Boschetti 29<br>
+    37019 Peschiera del Garda (VR), Italia<br>
+    Telefono: +39 347 105 0557<br>
+    E-mail: <a href="mailto:info@unicabenaco.com">info@unicabenaco.com</a>
+  </p>
+  <p>
+    Non è stato nominato un responsabile della protezione dei dati (DPO): non
+    ricorrono i presupposti di legge.
+  </p>
+  <p>
+    Unica Benaco è un servizio di LagoNord AI. La presente informativa riguarda il
+    sito unicabenaco.com. Per www.lagonord.de vale un'informativa separata.
+  </p>
+  <h2 id="grundsatz">2. Principio</h2>
+  <p>
+    Questo sito non utilizza <strong>cookie</strong>, non impiega **servizi di analisi o di
+    tracciamento<strong> e non include </strong>caratteri tipografici, mappe o script da server
+    esterni**. Per questo motivo non è necessario alcun banner di consenso.
+  </p>
+  <p>
+    Trattiamo dati personali soltanto se lei si iscrive alla lista d'attesa o ci
+    scrive.
+  </p>
+  <h2 id="logfiles">3. Consultazione del sito e file di log</h2>
+  <p>
+    Il sito è ospitato su GitHub Pages, un servizio di GitHub Inc., 88 Colin P.
+    Kelly Jr. Street, San Francisco, CA 94107, USA — società del gruppo Microsoft
+    Corporation.
+  </p>
+  <p>
+    Alla consultazione il suo browser trasmette dati tecnicamente necessari, che
+    GitHub tratta in file di log: indirizzo IP, data e ora, nome del file richiamato,
+    browser e sistema operativo, ed eventualmente la pagina visitata in precedenza.
+  </p>
+  <p>
+    Il trattamento è necessario per erogare il sito e garantirne stabilità e
+    sicurezza. La base giuridica è il nostro legittimo interesse ai sensi
+    dell'art. 6, par. 1, lett. f) GDPR. Noi non abbiamo accesso a tali file di log.
+  </p>
+  <p>
+    <strong>Trasferimento negli Stati Uniti:</strong> GitHub tratta i dati anche al di fuori
+    dell'Unione europea. Il trasferimento avviene sulla base delle clausole
+    contrattuali tipo adottate dalla Commissione europea e di misure supplementari.
+    Nonostante tali misure non è possibile escludere del tutto un accesso da parte di
+    autorità statunitensi. Maggiori informazioni:
+    https://docs.github.com/site-policy/privacy-policies/github-privacy-statement
+  </p>
+  <h2 id="warteliste">4. Lista d'attesa</h2>
+  <p>
+    Può iscriversi per essere avvisato al lancio dell'app.
+  </p>
+  <h3>Quali dati trattiamo</h3>
+  <ul>
+    <li>il suo nome</li>
+    <li>il suo indirizzo e-mail</li>
+    <li>la lingua del sito da lei scelta</li>
+    <li>una chiave di conferma generata casualmente</li>
+    <li>il momento dell'iscrizione e il momento della conferma</li>
+  </ul>
+  <p>
+    <strong>Non memorizziamo il suo indirizzo IP.</strong>
+  </p>
+  <h3>Procedura di conferma</h3>
+  <p>
+    Dopo l'iscrizione riceverà un'e-mail con un link di conferma. Solo dopo il clic
+    la inseriamo nella lista. In questo modo è escluso che qualcuno iscriva indirizzi
+    altrui.
+  </p>
+  <h3>Base giuridica</h3>
+  <p>
+    Il suo consenso ai sensi dell'art. 6, par. 1, lett. a) GDPR.
+  </p>
+  <h3>Revoca</h3>
+  <p>
+    Può revocare il consenso in qualsiasi momento con effetto per il futuro — è
+    sufficiente un messaggio a <a href="mailto:info@unicabenaco.com">info@unicabenaco.com</a>. Resta impregiudicata la liceità
+    del trattamento effettuato fino alla revoca.
+  </p>
+  <h3>Finalità</h3>
+  <p>
+    Utilizziamo i suoi dati esclusivamente per informarla sul lancio di Unica Benaco
+    e sulle novità direttamente connesse. Non li comunichiamo a terzi e non li
+    vendiamo.
+  </p>
+  <h3>Periodo di conservazione</h3>
+  <p>
+    Conserviamo i suoi dati fino alla sua revoca. Al momento non è prevista una
+    cancellazione automatica dopo un termine fisso. Su sua richiesta cancelliamo i
+    dati senza indugio.
+  </p>
+  <h3>Servizi utilizzati</h3>
+  <ul>
+    <li><strong>Server proprio</strong> presso Hetzner Online GmbH, Industriestraße 25, 91710 Gunzenhausen, Germania. Vi si svolgono l'elaborazione dell'iscrizione e la banca dati in cui è conservata la lista. Ubicazione del data center: Germania. È in essere un accordo di nomina a responsabile del trattamento ai sensi dell'art. 28 GDPR.</li>
+    <li><strong>Brevo</strong> (Brevo SAS, 106 boulevard Haussmann, 75008 Parigi, Francia) per l'invio delle e-mail di conferma e di avviso. Brevo riceve il suo indirizzo e-mail e il suo nome già con l'invio dell'e-mail di conferma, quindi prima della sua conferma. È in essere un accordo ai sensi dell'art. 28 GDPR.</li>
+  </ul>
+  <p>
+    Nell'ambito della lista d'attesa non avviene alcun trasferimento dei suoi dati
+    verso Paesi al di fuori dell'Unione europea.
+  </p>
+  <h2 id="kontakt">5. Contatto via e-mail</h2>
+  <p>
+    Se ci scrive, trattiamo i suoi dati per dare seguito alla richiesta. La base
+    giuridica è l'art. 6, par. 1, lett. b) GDPR quando la richiesta è finalizzata
+    alla conclusione o all'esecuzione di un contratto, negli altri casi il nostro
+    legittimo interesse ai sensi dell'art. 6, par. 1, lett. f) GDPR.
+  </p>
+  <p>
+    La nostra casella di posta è gestita presso Zoho Corporation B.V., Beneluxlaan
+    4B, 3527 HK Utrecht, Paesi Bassi. I dati sono trattati in data center situati
+    all'interno dell'Unione europea. È in essere un accordo ai sensi dell'art. 28
+    GDPR.
+  </p>
+  <p>
+    Cancelliamo la sua richiesta non appena è stata evasa, salvo termini di
+    conservazione previsti dalla legge.
+  </p>
+  <h2 id="sprache">6. Versioni linguistiche</h2>
+  <p>
+    Il passaggio tra tedesco, italiano e inglese avviene nel suo browser. La sua
+    scelta viene memorizzata localmente sul suo dispositivo, affinché alla visita
+    successiva il sito appaia nella stessa lingua. Questa memorizzazione è necessaria
+    per il funzionamento del sito da lei richiesto; non vengono trasmessi dati a noi
+    o a terzi.
+  </p>
+  <h2 id="keine-automatik">7. Assenza di processi decisionali automatizzati</h2>
+  <p>
+    Non viene effettuato alcun processo decisionale automatizzato, compresa la
+    profilazione, ai sensi dell'art. 22 GDPR.
+  </p>
+  <h2 id="rechte">8. I suoi diritti</h2>
+  <p>
+    Ai sensi del GDPR lei ha diritto a:
+  </p>
+  <ul>
+    <li><strong>accesso</strong> ai dati che la riguardano (art. 15)</li>
+    <li><strong>rettifica</strong> dei dati inesatti (art. 16)</li>
+    <li><strong>cancellazione</strong> (art. 17)</li>
+    <li><strong>limitazione del trattamento</strong> (art. 18)</li>
+    <li><strong>portabilità dei dati</strong> (art. 20)</li>
+    <li><strong>opposizione</strong> ai trattamenti fondati su un legittimo interesse (art. 21)</li>
+  </ul>
+  <p>
+    nonché il diritto di revocare in qualsiasi momento il consenso prestato.
+  </p>
+  <p>
+    Per esercitarli è sufficiente un messaggio a <a href="mailto:info@unicabenaco.com">info@unicabenaco.com</a>.
+  </p>
+  <p>
+    <strong>Reclamo:</strong> ha il diritto di proporre reclamo a un'autorità di controllo.
+    L'autorità competente per noi è il Garante per la protezione dei dati personali,
+    Piazza Venezia 11, 00187 Roma (www.garanteprivacy.it). Può inoltre rivolgersi
+    all'autorità di controllo del suo luogo di residenza.
+  </p>
+  <h2 id="aenderungen">9. Modifiche alla presente informativa</h2>
+  <p>
+    Adegueremo la presente informativa in caso di modifiche normative, dei nostri
+    servizi o della tecnologia impiegata. Vale la versione di volta in volta
+    pubblicata su questa pagina.
+  </p>
+</main>
+
+<footer>© 2026 Unica Benaco · un prodotto di LagoNord AI · Peschiera del Garda</footer>
+</body>
+</html>
