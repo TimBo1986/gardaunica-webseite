@@ -9,6 +9,87 @@ i18n-Schlüssel in beide Richtungen). Selbsttest: `--selftest`.
 
 ---
 
+## Auftrag lagonord.it — Domainwechsel in den Rechtstexten
+
+**Branch:** `feature/lagonord-it`, Basis `main` auf `d8fcb00`
+**Zwei Commits.** Von den sechs Nummern des Auftrags waren drei bereits
+erledigt, zwei sind neu umgesetzt, und zwei Funde liegen außerhalb.
+
+### Was schon stand
+
+| Nr. | Stand |
+|---|---|
+| 1 | `privacy.it.html` und `privacy.en.html` liegen seit `8b65aef`. Quellen, Zuschnitt zwischen den Trennlinien und das Weglassen von „Non per il sito" / „Not for the website" sind dort schon so umgesetzt |
+| 4 | Die Verweise auf `lagonord.de/imprint` und `/privacy` sind seit `97bab19` und `dfa898b` gelöst; Fußzeile und Einwilligung zeigen auf `/privacy.html` und `/imprint.html`. Sprachrichtig ist es automatisch: die Wörterbücher tragen nur die Beschriftung, die Adresse steht je Datei einmal im DOM |
+| 5 | Sprachumschalter seit `d8fcb00` in allen sechs Rechtsseiten scharf, keine stummen Marken mehr |
+
+Nicht noch einmal gemacht. Wer den Stand nachsehen will: `git show 8b65aef`,
+`97bab19`, `dfa898b`, `d8fcb00`.
+
+### Was neu ist
+
+| Nr. | Commit | Ergebnis |
+|---|---|---|
+| 2 | `b97af4a` | Ziffer 1 der drei Datenschutzseiten nennt `lagonord.it`, ohne www, DE/IT/EN |
+| 3 | `0ef8ba2` | Die drei Impressumseiten nennen `lagonord.it` — je fünf von sechs Stellen |
+
+Der Wechsel ist belegt, nicht angenommen: das Schwester-Repo `lagonord-website`
+hat mit `c3d53fa` seine `CNAME` auf `www.lagonord.it` umgestellt, und
+`lagonord.it` löst auf die GitHub-Pages-Adressen auf (185.199.108–111.153).
+
+Eine Stelle je Impressumseite bleibt bewusst auf `.de`: der Kopfkommentar
+„Kontakt nennt info@unicabenaco.com statt **info@lagonord.de**". Das ist eine
+Mailadresse, keine Website-Adresse, und der Satz beschreibt, was auf der
+Vorlageseite steht — dort ist sie unverändert. Mitziehen hieße, den Kommentar
+unwahr zu machen.
+
+### Zwei Funde außerhalb des Auftrags — nicht angefasst
+
+**A · Acht tote Verweise in den Fußzeilen.** Die Signatur „ein Produkt von
+LagoNord AI" verlinkt weiter auf `https://www.lagonord.de` — viermal in
+`index.html` (DOM plus DE/IT/EN) und viermal in `partner.html`. Dieser Host
+löst auf `46.225.108.89` auf, **nicht** auf GitHub Pages; die LagoNord-Seite
+liegt seit `c3d53fa` unter `www.lagonord.it`. Die acht Verweise gehen damit
+voraussichtlich ins Leere. Nummer 3 des Auftrags nannte ausdrücklich nur die
+drei Impressumseiten, deshalb blieben sie stehen.
+Beim Nachziehen ist `BEKANNT` in `tools/pruefe_seite.py` mitzuführen: dort
+stehen drei `www.lagonord.de`-Einträge, und der Prüfer meldet sonst
+„neuer externer Verweis" für `https://lagonord.it`.
+
+**B · Der Wartelisten-Endpunkt.** `assets/waitlist.js` sendet an
+`https://n8n.lagonord.de/webhook/waitlist-signup`. Eine Subdomain, vom
+Auftrag nicht erfasst, und eine Änderung daran hat Folgen für den Betrieb —
+falsch geraten, nimmt die Seite keine Anmeldungen mehr an. Ungeprüft und
+unverändert gelassen.
+
+### Nummer 6 — beide Werkzeuge, vorher und nachher
+
+`tools/rename_scan.sh`: **alle elf Zähler vorher wie nachher gleich.** Das ist
+das erwartete Ergebnis — der Scan verfolgt die Umbenennung Garda Unica →
+Unica Benaco, nicht die Domain. Er wurde trotzdem in beide Richtungen gefahren,
+weil ein unveränderter Zähler nur dann etwas aussagt, wenn man ihn vorher
+gemessen hat.
+
+```
+MK Wortmarke neu        5 Zeilen /  4 Dateien   (Soll: 5)
+M1 garda-unica          9 Zeilen /  3 Dateien   (Soll: 4, PDF-Dateiname, faellt mit WEB-04)
+M8 unica-benaco       234 Zeilen / 24 Dateien   (Soll: steigend)
+NEG Geografie Garda    47 Zeilen /  8 Dateien   (Soll: 46)
+NEG Peschiera          63 Zeilen / 15 Dateien   (Soll: 46)
+MK-MU neu (markup)     19 Vork.  / 10 Dateien   (Soll: 13)
+```
+
+Die vier Abweichungen von ihren Soll-Werten sind allesamt älter als dieser
+Auftrag und durch ihn unverändert; sie stammen aus den Rechtsseiten und den
+Dokumenten, die seit dem 6.9. dazugekommen sind. Keiner der Soll-Werte ist
+nachgezogen.
+
+`tools/pruefe_seite.py index.html HEAD~2`: grün, 114 Schlüssel im DOM,
+185/185/185 im Wörterbuch, beide Schlüsselrichtungen. `--selftest`: grün,
+Abschnitt mit 9 Schlüsseln entfernt, 9 gemeldet, unveränderte Datei still.
+
+---
+
 ## Auftrag 01 — dreizehn Änderungen an der Startseite
 
 **Branch:** `feature/pfeiler-v2`
