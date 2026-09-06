@@ -395,7 +395,8 @@ footer a:hover{color:var(--notte)}
 .beat-dunkel .ehrlich{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,245,232,.16)}
 /* Geraetepaar. Zwei Aufnahmen nebeneinander, die zweite tiefer gesetzt —
    das liest sich als Abfolge und bricht die Ein-Geraet-Monotonie, die sich
-   ueber Hero, Beat 3 und Beat 4 aufgebaut hat.
+   sonst ueber die Beats aufbaut. Zuerst in Beat 4 (traffic neben meteo),
+   dann zweimal in Beat 5.
    Kleinere Rahmen, damit zwei davon neben 46ch Text in die 1032px passen:
    210 + 18 + 210 + 56 + 508 = 1002. Hoehe folgt weiter 1080/2115. */
 .phone-xs{width:210px;height:398px;border-radius:32px;padding:7px}
@@ -578,18 +579,29 @@ footer a:hover{color:var(--notte)}
 <!-- BEAT 4 · Wir schreiben dazu, was wir nicht wissen.
      Ohne diesen Beat ist Beat 3 eine Behauptung. Dunkel, damit er nicht neben
      dem Puls-Abschnitt verschwindet.
-     Beweis: meteo. Die Aufnahme traegt alle drei Herkunftsstufen in einem
-     Bild — benannte Quelle mit Gueltigkeitsfenster (Italian Air Force
-     National Meteorological Service, 12:00-19:59), VORHERSAGE ueber dem
-     Tagesverlauf, BERECHNET ueber der Wassertemperatur, dazu die Zeile
-     "links vom Strich gemessen, rechts vorhergesagt, leer = kein Wert".
+     Beweis sind zwei Geraete, in der Reihenfolge des Fliesstextes.
+     traffic: die Zufahrten zu zehn Orten, jede mit einer Zahl und, wo etwas
+     ist, mit Strassennamen — "GESPERRT · Via Custoza", "Stau auf 594 m ·
+     Peschiera del Garda". Das ist das Gelesene, von aussen gemeldet.
+     Am Fuss dieser Ansicht steht in der App die Zeile "Verkehr und Wetter
+     sind gemessen. Der Andrang ist gerechnet — aus Ort, Wochentag,
+     Jahreszeit und Wetter." Sie liegt in der Rohaufnahme unter der
+     Navigationsleiste und ist auch dort nur halb da; im ausgelieferten Bild
+     steht sie nicht. Die Seite zitiert sie deshalb nicht und lehnt sich
+     nicht an sie an — b4_p1 nennt stattdessen, was sichtbar ist.
+     meteo: alle drei Herkunftsstufen in einem Bild — benannte Quelle mit
+     Gueltigkeitsfenster (Italian Air Force National Meteorological Service,
+     12:00-19:59), VORHERSAGE ueber dem Tagesverlauf, BERECHNET ueber der
+     Wassertemperatur, dazu die Zeile "links vom Strich gemessen, rechts
+     vorhergesagt, leer = kein Wert".
      ls1_cap steht hier wortgleich; in Saeule 1 war es Kleingedrucktes.
      mi_quote bleibt in der Mission — Wiederaufnahme, kein Fehler.
      ENTWURF — Ueberschrift von Tim, Fliesstext von mir. -->
 <section id="ehrlich" class="beat beat-dunkel">
   <div class="wrap beat-row flip">
-    <div class="phone-frame phone-sm reveal pil-shot">
-      <div class="scr"><img src="assets/app/meteo.jpg" alt="Unica Benaco — Wetter mit benannter Quelle, Vorhersage- und Berechnet-Kennzeichnung" width="1080" height="2115" loading="lazy" decoding="async"></div>
+    <div class="geraete-paar reveal pil-shot">
+      <div class="phone-frame phone-xs"><div class="scr"><img src="assets/app/traffic.jpg" alt="Unica Benaco — Zufahrten zu zehn Orten, mit Sperrungen und Staulängen nach Straßenname" width="1080" height="2115" loading="lazy" decoding="async"></div></div>
+      <div class="phone-frame phone-xs"><div class="scr"><img src="assets/app/meteo.jpg" alt="Unica Benaco — Wetter mit benannter Quelle, Vorhersage- und Berechnet-Kennzeichnung" width="1080" height="2115" loading="lazy" decoding="async"></div></div>
     </div>
     <div class="beat-copy">
       <span class="eyebrow" data-i18n="b4_eyebrow">Woher die Zahlen kommen</span>
@@ -610,7 +622,7 @@ footer a:hover{color:var(--notte)}
      Der Planer ist die Aktivierungssaeule der App und war der duennste
      Abschnitt der Seite: ein Screenshot plus Chat. Jetzt die volle Kette —
      Wer faehrt mit, welcher Modus, der Plan als Ganzes, und die Frage.
-     Zwei Geraetepaare brechen die Ein-Geraet-Reihe aus Hero, Beat 3, Beat 4.
+     Zwei weitere Geraetepaare, nach dem ersten in Beat 4.
      ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player sind
      freigegebene Copy und stehen hier woertlich; neu sind nur b5_*. -->
 <section id="planer" class="beat beat-hell">
