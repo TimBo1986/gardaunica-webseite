@@ -578,9 +578,9 @@ footer a:hover{color:var(--notte)}
       <h2 data-i18n="b4_h2">Woher die Zahlen <em>kommen.</em></h2>
       <p data-i18n="b4_p1">Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.</p>
       <dl class="stufen">
-        <div><dt data-i18n="b4_s1t">gemessen</dt><dd data-i18n="b4_s1d">Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich.</dd></div>
-        <div><dt data-i18n="b4_s2t">berechnet</dt><dd data-i18n="b4_s2d">Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst.</dd></div>
-        <div><dt data-i18n="b4_s3t">vorhergesagt</dt><dd data-i18n="b4_s3d">Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer.</dd></div>
+        <div><dt data-i18n="b4_s1t">gemessen</dt><dd data-i18n="b4_s1d">Was schon vorbei ist, wurde gemessen.</dd></div>
+        <div><dt data-i18n="b4_s2t">berechnet</dt><dd data-i18n="b4_s2d">Was noch kommt, ist vorhergesagt.</dd></div>
+        <div><dt data-i18n="b4_s3t">vorhergesagt</dt><dd data-i18n="b4_s3d">Beides steht nebeneinander, und man sieht, welches was ist.</dd></div>
       </dl>
       <p class="ehrlich" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
       <p data-i18n="b4_p2">Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.</p>
@@ -940,13 +940,28 @@ var I18N={
   b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.",
   /* ERSETZT mit Anhang E: */ // b4_p1:"Jede Zahl in der App trägt ihre Herkunft. Du siehst nicht nur, wie warm es wird — du siehst, ob das gemessen, gerechnet oder erst vorhergesagt ist."
   b4_s1t:"gemessen",
-  b4_s1d:"Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich.",
+  b4_s1d:"Was schon vorbei ist, wurde gemessen.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s1d:"Verkehr und Wetter, von außen gemeldet. Im Tagesverlauf alles links vom Strich."
   /* ERSETZT mit Anhang E: */ // b4_s1d:"Vom Wetterdienst gemeldet, mit Namen und Gültigkeitsfenster."
   b4_s2t:"berechnet",
-  b4_s2d:"Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst.",
+  b4_s2d:"Was noch kommt, ist vorhergesagt.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s2d:"Abgeleitet, nicht beobachtet — die Wassertemperatur aus dem Monatswert, an die Luft angepasst."
   /* ERSETZT mit Anhang E: */ // b4_s2d:"Abgeleitet, nicht gemessen — die Wassertemperatur etwa aus dem Monatswert."
   b4_s3t:"vorhergesagt",
-  b4_s3d:"Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer.",
+  b4_s3d:"Beides steht nebeneinander, und man sieht, welches was ist.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s3d:"Was noch kommt, rechts vom Strich. Wo kein Wert vorliegt, bleibt das Feld leer."
   /* ERSETZT mit Anhang E: */ // b4_s3d:"Was noch kommt. Wo nichts vorliegt, bleibt das Feld leer."
   b4_p2:"Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.",
   /* ERSETZT mit Anhang E: */ // b4_p2:"Und jeden Ortsnamen, den Unica ausgibt, hält sie gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus. Passt nichts, empfiehlt sie nichts — eine leere Antwort mit Begründung ist uns lieber als eine erfundene."
@@ -1177,13 +1192,28 @@ var I18N={
   b4_p1:"Due cose Unica non le misura, le legge: traffico e meteo. Per il meteo il servizio è indicato per nome, e fino a quando vale la sua segnalazione. Tutto il resto lo calcola — e scrive che lo sta calcolando.",
   /* ERSETZT mit Anhang E: */ // b4_p1:"Ogni numero nell’app porta con sé la sua origine. Non vedi solo quanto farà caldo — vedi se è misurato, calcolato o soltanto previsto."
   b4_s1t:"misurato",
-  b4_s1d:"Traffico e meteo, segnalati dall’esterno. Nell’andamento della giornata, tutto a sinistra della linea.",
+  b4_s1d:"Ciò che è già passato è stato misurato.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s1d:"Traffico e meteo, segnalati dall’esterno. Nell’andamento della giornata, tutto a sinistra della linea."
   /* ERSETZT mit Anhang E: */ // b4_s1d:"Segnalato dal servizio meteo, con nome e finestra di validità."
   b4_s2t:"calcolato",
-  b4_s2d:"Derivato, non osservato — la temperatura dell’acqua dal valore mensile, adattata all’aria.",
+  b4_s2d:"Ciò che deve ancora arrivare è previsto.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s2d:"Derivato, non osservato — la temperatura dell’acqua dal valore mensile, adattata all’aria."
   /* ERSETZT mit Anhang E: */ // b4_s2d:"Derivato, non misurato — la temperatura dell’acqua dal valore mensile."
   b4_s3t:"previsto",
-  b4_s3d:"Quello che deve ancora arrivare, a destra della linea. Dove non c’è un valore, il campo resta vuoto.",
+  b4_s3d:"Stanno l’uno accanto all’altro, e si vede quale è quale.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s3d:"Quello che deve ancora arrivare, a destra della linea. Dove non c’è un valore, il campo resta vuoto."
   /* ERSETZT mit Anhang E: */ // b4_s3d:"Quello che deve ancora arrivare. Dove non c’è nulla, il campo resta vuoto."
   b4_p2:"E ogni nome di luogo Unica lo confronta con un elenco di luoghi verificati. Ciò che non c’è, viene scartato.",
   /* ERSETZT mit Anhang E: */ // b4_p2:"E ogni nome di luogo che Unica produce viene confrontato con un elenco di luoghi verificati. Ciò che non c’è, viene scartato. Se non c’è niente di adatto, non consiglia niente — una risposta vuota con motivazione è meglio di una inventata."
@@ -1414,13 +1444,28 @@ var I18N={
   b4_p1:"Two things Unica does not measure herself, she reads them: traffic and weather. For the weather the service is named, and until when its report holds. Everything else she calculates — and writes down that she is calculating it.",
   /* ERSETZT mit Anhang E: */ // b4_p1:"Every number in the app carries its origin. You don’t only see how warm it will get — you see whether that is measured, calculated or merely forecast."
   b4_s1t:"measured",
-  b4_s1d:"Traffic and weather, reported from outside. In the day’s course, everything left of the line.",
+  b4_s1d:"What is already past was measured.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s1d:"Traffic and weather, reported from outside. In the day’s course, everything left of the line."
   /* ERSETZT mit Anhang E: */ // b4_s1d:"Reported by the weather service, with a name and a validity window."
   b4_s2t:"calculated",
-  b4_s2d:"Derived, not observed — the water temperature from the monthly value, adjusted to the air.",
+  b4_s2d:"What is still to come is forecast.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s2d:"Derived, not observed — the water temperature from the monthly value, adjusted to the air."
   /* ERSETZT mit Anhang E: */ // b4_s2d:"Derived, not measured — the water temperature from the monthly value."
   b4_s3t:"forecast",
-  b4_s3d:"What is still to come, right of the line. Where no value exists, the field stays empty.",
+  b4_s3d:"Both stand side by side, and you can see which is which.",
+  /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
+     Der alte Text erklaerte "links vom Strich / rechts vom Strich".
+     Das ist die Legendenzeile der App; dort steht der Strich daneben,
+     auf der Website nicht — der Satz erklaerte etwas, das der Leser
+     nicht sieht. Alte Fassung: */ // b4_s3d:"What is still to come, right of the line. Where no value exists, the field stays empty."
   /* ERSETZT mit Anhang E: */ // b4_s3d:"What is still to come. Where nothing exists, the field stays empty."
   b4_p2:"And every place name Unica holds against a list of verified places. Whatever is not on it is dropped.",
   /* ERSETZT mit Anhang E: */ // b4_p2:"And every place name Unica produces is checked against a list of verified places. Whatever is not on it is dropped. If nothing fits, she recommends nothing — an empty answer with a reason beats an invented one."
