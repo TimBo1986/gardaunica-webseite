@@ -388,11 +388,20 @@ footer a:hover{color:var(--notte)}
 /* Die drei Herkunftsstufen. Die Pillen zitieren die Abzeichen aus der App —
    dort steht VORHERSAGE ueber dem Tagesverlauf und BERECHNET ueber der
    Wassertemperatur. Werte aus .ab-tag. */
+/* .stufen trug die Abzeichenreihe in Beat 4. Sie ist seit dem 6.9.2026 nicht
+   mehr im DOM (siehe Vermerk bei b4_s1t); die Regeln bleiben ungenutzt stehen. */
 .stufen{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(250,245,232,.16)}
 @media(max-width:820px){.stufen{grid-template-columns:1fr;gap:20px}}
 .stufen dt{font-family:var(--f-mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--notte);background:var(--sole);padding:4px 10px;border-radius:999px;display:inline-block}
 .stufen dd{margin:9px 0 0;font-size:13.5px;line-height:1.6;color:rgba(250,245,232,.72)}
 .beat-dunkel .ehrlich{margin-top:26px;padding-top:22px;border-top:1px solid rgba(250,245,232,.16)}
+/* Der Herkunftsabsatz. Er sortiert, was die beiden Geraete zeigen, und traegt
+   darum etwas mehr Gewicht als der Fliesstext um ihn herum — Anzeigenschrift,
+   nicht groesser. Ein Strich links statt eines Rahmens: der Abschnitt hat mit
+   .ehrlich schon eine waagerechte Trennung, eine zweite waere eine zu viel. */
+.beat-copy .herkunft{font-family:var(--f-display);font-size:17px;line-height:1.55;margin-top:24px;padding-left:18px;border-left:2px solid var(--sole)}
+.beat-dunkel .beat-copy .herkunft{color:rgba(250,245,232,.94)}
+@media(max-width:820px){.beat-copy .herkunft{text-align:left;margin-left:auto;margin-right:auto}}
 /* Geraetepaar. Zwei Aufnahmen nebeneinander, die zweite tiefer gesetzt —
    das liest sich als Abfolge und bricht die Ein-Geraet-Monotonie, die sich
    sonst ueber die Beats aufbaut. Zuerst in Beat 4 (traffic neben meteo),
@@ -607,11 +616,7 @@ footer a:hover{color:var(--notte)}
       <span class="eyebrow" data-i18n="b4_eyebrow">Woher die Zahlen kommen</span>
       <h2 data-i18n="b4_h2">Woher die Zahlen <em>kommen.</em></h2>
       <p data-i18n="b4_p1">Zwei Dinge misst Unica nicht selbst, sie liest sie: den Verkehr auf den Zufahrten und das Wetter. Beim Verkehr steht die Sperrung mit dem Straßennamen da und der Stau mit seiner Länge, beim Wetter der Dienst mit Namen und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.</p>
-      <dl class="stufen">
-        <div><dt data-i18n="b4_s1t">gemessen</dt><dd data-i18n="b4_s1d">Was schon vorbei ist, wurde gemessen.</dd></div>
-        <div><dt data-i18n="b4_s2t">berechnet</dt><dd data-i18n="b4_s2d">Was noch kommt, ist vorhergesagt.</dd></div>
-        <div><dt data-i18n="b4_s3t">vorhergesagt</dt><dd data-i18n="b4_s3d">Beides steht nebeneinander, und man sieht, welches was ist.</dd></div>
-      </dl>
+      <p class="herkunft" data-i18n="b4_herkunft">Was schon vorbei ist, wurde gemessen. Was noch kommt, ist vorhergesagt. Beides steht nebeneinander, und man sieht, welches was ist.</p>
       <p class="ehrlich" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
       <p data-i18n="b4_p2">Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.</p>
     </div>
@@ -967,6 +972,17 @@ var I18N={
      Laenge, Wetterdienst mit Namen und Gueltigkeitsfenster.
      Alte Fassung: */ // b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: Verkehr und Wetter. Beim Wetter steht der Dienst mit Namen daneben und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet."
   /* ERSETZT mit Anhang E: */ // b4_p1:"Jede Zahl in der App trägt ihre Herkunft. Du siehst nicht nur, wie warm es wird — du siehst, ob das gemessen, gerechnet oder erst vorhergesagt ist."
+  b4_herkunft:"Was schon vorbei ist, wurde gemessen. Was noch kommt, ist vorhergesagt. Beides steht nebeneinander, und man sieht, welches was ist.",
+  /* AUSGESETZT am 6.9.2026: b4_s1t, b4_s1d, b4_s2t, b4_s2d, b4_s3t und
+     b4_s3d sind nicht mehr im DOM. Aus ihnen bestand die Abzeichenreihe
+     GEMESSEN · BERECHNET · VORHERGESAGT mit je einem Satz darunter.
+     Der Wortlaut aus Auftrag 01, Ae5 ist ein Absatz aus drei Saetzen; auf
+     drei Abzeichen verteilt stand er falsch: unter BERECHNET las man "Was
+     noch kommt, ist vorhergesagt". Das war mein Einbaufehler, nicht die
+     Vorgabe. Die drei Saetze stehen jetzt woertlich und ungeteilt in
+     b4_herkunft. Die Abzeichen selbst waren ausserdem nur zur Haelfte in
+     der App belegt: meteo kennzeichnet VORHERSAGE und BERECHNET, "gemessen"
+     steht dort nur in der Legendenzeile. */
   b4_s1t:"gemessen",
   b4_s1d:"Was schon vorbei ist, wurde gemessen.",
   /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
@@ -1245,6 +1261,17 @@ var I18N={
      Laenge, Wetterdienst mit Namen und Gueltigkeitsfenster.
      Alte Fassung: */ // b4_p1:"Due cose Unica non le misura, le legge: traffico e meteo. Per il meteo il servizio è indicato per nome, e fino a quando vale la sua segnalazione. Tutto il resto lo calcola — e scrive che lo sta calcolando."
   /* ERSETZT mit Anhang E: */ // b4_p1:"Ogni numero nell’app porta con sé la sua origine. Non vedi solo quanto farà caldo — vedi se è misurato, calcolato o soltanto previsto."
+  b4_herkunft:"Ciò che è già passato è stato misurato. Ciò che deve ancora arrivare è previsto. Stanno l'uno accanto all'altro, e si vede quale è quale.",
+  /* AUSGESETZT am 6.9.2026: b4_s1t, b4_s1d, b4_s2t, b4_s2d, b4_s3t und
+     b4_s3d sind nicht mehr im DOM. Aus ihnen bestand die Abzeichenreihe
+     GEMESSEN · BERECHNET · VORHERGESAGT mit je einem Satz darunter.
+     Der Wortlaut aus Auftrag 01, Ae5 ist ein Absatz aus drei Saetzen; auf
+     drei Abzeichen verteilt stand er falsch: unter BERECHNET las man "Was
+     noch kommt, ist vorhergesagt". Das war mein Einbaufehler, nicht die
+     Vorgabe. Die drei Saetze stehen jetzt woertlich und ungeteilt in
+     b4_herkunft. Die Abzeichen selbst waren ausserdem nur zur Haelfte in
+     der App belegt: meteo kennzeichnet VORHERSAGE und BERECHNET, "gemessen"
+     steht dort nur in der Legendenzeile. */
   b4_s1t:"misurato",
   b4_s1d:"Ciò che è già passato è stato misurato.",
   /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
@@ -1523,6 +1550,17 @@ var I18N={
      Laenge, Wetterdienst mit Namen und Gueltigkeitsfenster.
      Alte Fassung: */ // b4_p1:"Two things Unica does not measure herself, she reads them: traffic and weather. For the weather the service is named, and until when its report holds. Everything else she calculates — and writes down that she is calculating it."
   /* ERSETZT mit Anhang E: */ // b4_p1:"Every number in the app carries its origin. You don’t only see how warm it will get — you see whether that is measured, calculated or merely forecast."
+  b4_herkunft:"What is already past was measured. What is still to come is forecast. Both stand side by side, and you can see which is which.",
+  /* AUSGESETZT am 6.9.2026: b4_s1t, b4_s1d, b4_s2t, b4_s2d, b4_s3t und
+     b4_s3d sind nicht mehr im DOM. Aus ihnen bestand die Abzeichenreihe
+     GEMESSEN · BERECHNET · VORHERGESAGT mit je einem Satz darunter.
+     Der Wortlaut aus Auftrag 01, Ae5 ist ein Absatz aus drei Saetzen; auf
+     drei Abzeichen verteilt stand er falsch: unter BERECHNET las man "Was
+     noch kommt, ist vorhergesagt". Das war mein Einbaufehler, nicht die
+     Vorgabe. Die drei Saetze stehen jetzt woertlich und ungeteilt in
+     b4_herkunft. Die Abzeichen selbst waren ausserdem nur zur Haelfte in
+     der App belegt: meteo kennzeichnet VORHERSAGE und BERECHNET, "gemessen"
+     steht dort nur in der Legendenzeile. */
   b4_s1t:"measured",
   b4_s1d:"What is already past was measured.",
   /* ERSETZT mit Auftrag 01, Ae5 — Wortlaut steht fest.
