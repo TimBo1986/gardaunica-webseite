@@ -9,6 +9,35 @@ i18n-Schlüssel in beide Richtungen). Selbsttest: `--selftest`.
 
 ---
 
+## Auftrag Aufnahmen in drei Sprachen — Nachtrag zum Register
+
+**Branch:** `claude/unicabenaco-webseite-fixes-nbwogg`
+
+Zwei Befunde aus Beat 4 gehören in die App, nicht auf die Seite. Sie sind im
+App-Repo `garda-compass` unter `docs/ENTSCHEIDUNGSREGISTER.md` eingetragen —
+dort nicht committet, es gilt W1 („kein Commit durch Agenten").
+
+| | Befund |
+|---|---|
+| 1 | Die Fußzeile der Verkehrsansicht nennt „Ort, Wochentag, Jahreszeit und Wetter". `forecast_service.dart` kennt keinen Monats- oder Saisonterm; `_fetchIsHoliday()` gibt fest `false` zurück, der Feiertags-Multiplikator ist toter Code. Wochentag kommt nur über Googles `populartimes` herein. Google Places selbst — mit ±75 Punkten der stärkste Term — wird nicht genannt |
+| 2 | Der benannte Wetterdienst mit Gültigkeitsfenster hängt am Warnband, nicht am Wetterblock. Ohne aktive Warnung nennt die App ihre Wetterquelle nicht |
+
+**Deshalb steht das hier und nicht nur dort.** `docs/ENTSCHEIDUNGSREGISTER.md`
+existiert in `garda-compass` nicht — `git log --all` auf die Datei ist leer,
+auch nach `--depth=1000`. Der frühere Eintrag Ä9 (Solferino), oben in diesem
+Protokoll als dort eingetragen vermerkt, ist damit verloren: unter W1 wird die
+Datei angelegt, aber nie committet, und verschwindet mit der Arbeitsumgebung.
+Diese Tabelle ist die einzige Fassung, die überdauert. Ob das so bleiben soll,
+ist Tims Entscheidung — nicht meine, darum nur notiert.
+
+Wirkung auf die Seite: `traffic` bleibt im Zuschnitt 90-2205, die Herkunftszeile
+also außerhalb des Bildes (`25eb453`). `b4_p1` nennt beim Wetter nur noch
+Uhrzeit und Ort der Messung (`2639a7a`, Entwurf für Cristina). Beides ist
+umkehrbar, sobald der jeweilige Befund aufgelöst ist; die Vorfassungen stehen
+im Wörterbuch.
+
+---
+
 ## Auftrag lagonord.it — Domainwechsel in den Rechtstexten
 
 **Branch:** `feature/lagonord-it`, Basis `main` auf `d8fcb00`
