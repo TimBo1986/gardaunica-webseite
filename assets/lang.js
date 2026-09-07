@@ -91,6 +91,28 @@
           || fromRegion(supported)
           || fallback;
     },
+    /* Tauscht den Sprachordner der App-Aufnahmen.
+       Muster: assets/app/<lang>/<name>.jpg — <name> steht in data-app-img,
+       das Verzeichnis davor wird aus der vorhandenen src übernommen, damit
+       relative und absolute Verweise gleich gut laufen.
+
+       Kein Rückfall auf eine andere Sprache: fehlt eine Datei, läuft der
+       Verweis ins Leere und es greift, was am <img> steht. Ein still
+       eingesetztes Bild aus einer anderen Sprache wäre schlimmer als eine
+       Lücke — es behauptete etwas, das so nicht aufgenommen wurde.
+       Passt die src nicht ins Muster, wird sie nicht angefasst. */
+    applyImages: function (lang, wurzel) {
+      if (["de", "it", "en"].indexOf(lang) < 0) return;
+      var knoten = (wurzel || document).querySelectorAll("[data-app-img]");
+      for (var i = 0; i < knoten.length; i++) {
+        var el = knoten[i];
+        var jetzt = el.getAttribute("src") || "";
+        var m = jetzt.match(/^(.*\/)(?:de|it|en)\/[^/]+$/);
+        if (!m) continue;
+        var ziel = m[1] + lang + "/" + el.getAttribute("data-app-img") + ".jpg";
+        if (jetzt !== ziel) el.setAttribute("src", ziel);
+      }
+    },
     /* Merkt die Wahl, damit sie beim nächsten Besuch gilt */
     remember: function (lang) {
       try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
