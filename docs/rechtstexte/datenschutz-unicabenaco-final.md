@@ -20,7 +20,7 @@ Eine Datenschutzbeauftragte ist nicht bestellt; die gesetzlichen
 Voraussetzungen dafür liegen nicht vor.
 
 Unica Benaco ist ein Angebot von LagoNord AI. Diese Erklärung gilt für die
-Website unicabenaco.com. Für www.lagonord.de gilt eine eigene
+Website unicabenaco.com. Für lagonord.it gilt eine eigene
 Datenschutzerklärung.
 
 ### 2. Grundsatz

@@ -20,7 +20,7 @@ No data protection officer has been appointed; the legal requirements for doing
 so are not met.
 
 Unica Benaco is a service of LagoNord AI. This policy applies to the website
-unicabenaco.com. A separate privacy policy applies to www.lagonord.de.
+unicabenaco.com. A separate privacy policy applies to lagonord.it.
 
 ### 2. Principle
 

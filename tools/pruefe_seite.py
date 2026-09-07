@@ -47,7 +47,12 @@ GLEICH_OK = {'ex_eyebrow', 'c_role', 'l_role', 't_role', 'wl_name',
              'mi_vlabel', 'mi_mlabel'}
 
 # Externe Verweise, die es geben darf. Alles andere ist ein neuer Request.
-BEKANNT = {'https://www.lagonord.de', 'https://www.lagonord.de/privacy.html',
+# www.lagonord.it kam am 7.9.2026 dazu: die Fusszeilen-Signatur zeigt seither
+# dorthin. Die drei .de-Eintraege bleiben stehen, sie werden weiter gebraucht —
+# sie stecken in auskommentierten Vorfassungen, und Punkt 6 liest die ganze
+# Datei, Kommentare eingeschlossen.
+BEKANNT = {'https://www.lagonord.it',
+           'https://www.lagonord.de', 'https://www.lagonord.de/privacy.html',
            'https://www.lagonord.de/imprint.html', 'https://unicabenaco.com',
            'https://unicabenaco.com/assets/og.jpg',
            'https://www.instagram.com/luna_the_digital_dog/'}

@@ -20,7 +20,7 @@ Non è stato nominato un responsabile della protezione dei dati (DPO): non
 ricorrono i presupposti di legge.
 
 Unica Benaco è un servizio di LagoNord AI. La presente informativa riguarda il
-sito unicabenaco.com. Per www.lagonord.de vale un'informativa separata.
+sito unicabenaco.com. Per lagonord.it vale un'informativa separata.
 
 ### 2. Principio
 
