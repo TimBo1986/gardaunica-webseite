@@ -122,8 +122,8 @@ und der Hinweis, sie nicht durch ein anderes Bild zu ersetzen. Lieber eine
 sichtbare Lücke als ein falsches Bild.
 
 **Screenshots erzählen denselben Tag zur selben Stunde.** `territorio_map` und
-`meteo` sind die Referenz: 31 Grad, klarer Himmel, 14 Uhr. Wer eine Aufnahme
-nachzieht, trifft das. Persona durchgehend Martin.
+`meteo` sind die Referenz: 30 Grad, klarer Himmel, rund 12:50. Wer eine
+Aufnahme nachzieht, trifft das. Persona durchgehend Martin.
 
 **Kein Bild behauptet, was die App nicht kann.** Eine Aufnahme mit „Tisch um
 19:00 reserviert" kam nicht auf die Seite, weil die App nicht reserviert —
