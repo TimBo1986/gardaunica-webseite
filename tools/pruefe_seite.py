@@ -83,9 +83,16 @@ def woerterbuch(quelle, lang):
 
 
 def dom_schluessel(quelle):
-    """Nur sichtbares Markup. Auskommentiertes ist Notiz, kein DOM."""
+    """Nur sichtbares Markup. Auskommentiertes ist Notiz, kein DOM.
+
+    -alt kam am 7.9.2026 dazu. Seither liegen die App-Aufnahmen je Sprache
+    getrennt, und die Alt-Texte sind mit ihnen ins Woerterbuch gezogen. Ohne
+    diesen Zweig stuenden zehn Schluessel im DOM, die der Pruefer nicht sieht —
+    in keiner der beiden Richtungen. Ein Gate, das die Haelfte der Attribute
+    nicht kennt, ist von einem gruenen Gate nicht zu unterscheiden.
+    """
     ohne = re.sub(r'<!--.*?-->', ' ', quelle, flags=re.S)
-    return set(re.findall(r'data-i18n(?:-ph)?="([a-z_0-9]+)"', ohne))
+    return set(re.findall(r'data-i18n(?:-ph|-alt)?="([a-z_0-9]+)"', ohne))
 
 
 def pruefe(s, alt, mit_bildern=True):
