@@ -13,4 +13,9 @@
 screenshot/
 Fotos/
 
+# Bauschutt. Entsteht, sobald jemand tools/pruefe_seite.py importiert statt es
+# aufzurufen — die Gegenproben zum Pruefer tun das. Bytecode, kein Quelltext.
+__pycache__/
+*.pyc
+
 .DS_Store
