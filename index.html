@@ -620,9 +620,14 @@ footer a:hover{color:var(--notte)}
      Die dritte, die benannte Quelle mit Gueltigkeitsfenster (Italian Air
      Force National Meteorological Service, 12:00-19:59), hing am Warnband
      "Hitze · regional gemeldet". Am 7.9. lag keine Warnung vor, das Band
-     fehlt, und mit ihm der Quellenname. b4_p1 nennt "beim Wetter der Dienst
-     mit Namen und bis wann seine Meldung gilt" — dafuer steht im Bild daneben
-     kein Beleg mehr. Offen gemeldet, nicht geglaettet.
+     fehlt, und mit ihm der Quellenname. b4_p1 nannte "beim Wetter der Dienst
+     mit Namen und bis wann seine Meldung gilt" und stand damit ohne Beleg
+     neben dem Bild. Der Satz nennt jetzt die Uhrzeit der Messung und den Ort,
+     fuer den sie gilt — "JETZT AM SEE · 12:01 · Peschiera" steht so im Bild.
+     ENTWURF, Cristina entscheidet; die Vorfassung steht je Sprache im
+     Woerterbuch darunter. Kommt das Warnband in einer spaeteren Aufnahme
+     zurueck, ist der Quellenname wieder belegt und die alte Fassung kann
+     zurueck.
      ls1_cap steht hier wortgleich; in Saeule 1 war es Kleingedrucktes.
      mi_quote bleibt in der Mission — Wiederaufnahme, kein Fehler.
      Freigegeben Cristina, 6.9.2026. Ueberschrift von Tim, Fliesstext von mir.
@@ -636,7 +641,7 @@ footer a:hover{color:var(--notte)}
     <div class="beat-copy">
       <span class="eyebrow" data-i18n="b4_eyebrow">Gemessen oder gerechnet</span>
       <h2 data-i18n="b4_h2">Woher die Zahlen <em>kommen.</em></h2>
-      <p data-i18n="b4_p1">Zwei Dinge misst Unica nicht selbst, sie liest sie: den Verkehr auf den Zufahrten und das Wetter. Beim Verkehr steht die Sperrung mit dem Straßennamen da und der Stau mit seiner Länge, beim Wetter der Dienst mit Namen und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.</p>
+      <p data-i18n="b4_p1">Zwei Dinge misst Unica nicht selbst, sie liest sie: den Verkehr auf den Zufahrten und das Wetter. Beim Verkehr steht die Sperrung mit dem Straßennamen da und der Stau mit seiner Länge, beim Wetter die Uhrzeit der Messung und der Ort, für den sie gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.</p>
       <p class="herkunft" data-i18n="b4_herkunft">Was schon vorbei ist, wurde gemessen. Was noch kommt, ist vorhergesagt. Beides steht nebeneinander, und man sieht, welches was ist.</p>
       <p class="ehrlich" data-i18n="ls1_cap">Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.</p>
       <p data-i18n="b4_p2">Und jeden Ortsnamen hält Unica gegen eine Liste geprüfter Orte. Was nicht darauf steht, fliegt raus.</p>
@@ -994,7 +999,20 @@ var I18N={
   b4_eyebrow:"Gemessen oder gerechnet",
   /* ERSETZT am 7.9.2026, siehe darüber. Vorheriger Wert: */ // b4_eyebrow:"Woher die Zahlen kommen"
   b4_h2:"Woher die Zahlen <em>kommen.</em>",
-  b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: den Verkehr auf den Zufahrten und das Wetter. Beim Verkehr steht die Sperrung mit dem Straßennamen da und der Stau mit seiner Länge, beim Wetter der Dienst mit Namen und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.",
+  /* b4_p1 · ENTWURF, Cristina entscheidet — geändert ist nur die Teilaussage
+     zum Wetter. Sie nannte "den Dienst mit Namen und bis wann seine Meldung
+     gilt". Das stand in der Aufnahme im Warnband "Hitze · regional gemeldet"
+     (Italian Air Force National Meteorological Service, 12:00-19:59); am
+     7.9.2026 lag keine Warnung vor, das Band fehlt, und mit ihm der
+     Quellenname. Der Satz stand damit ohne Beleg neben dem Bild.
+     Jetzt nennt er, was in meteo tatsächlich steht: "JETZT AM SEE · 12:01 ·
+     Peschiera" — Uhrzeit der Messung und Ort, für den sie gilt. Der Rest des
+     Absatzes ist wortgleich, ebenso der Satzbau: beim Verkehr zwei Angaben,
+     beim Wetter zwei.
+     Kommt das Warnband in einer späteren Aufnahme zurück, ist der Quellenname
+     wieder belegt und die alte Fassung kann zurück — sie steht darunter. */
+  b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: den Verkehr auf den Zufahrten und das Wetter. Beim Verkehr steht die Sperrung mit dem Straßennamen da und der Stau mit seiner Länge, beim Wetter die Uhrzeit der Messung und der Ort, für den sie gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet.",
+  /* ERSETZT am 7.9.2026, siehe darüber. Vorheriger Wert: */ // b4_p1:"Zwei Dinge misst Unica nicht selbst, sie liest sie: den Verkehr auf den Zufahrten und das Wetter. Beim Verkehr steht die Sperrung mit dem Straßennamen da und der Stau mit seiner Länge, beim Wetter der Dienst mit Namen und bis wann seine Meldung gilt. Alles andere rechnet sie — und schreibt dazu, dass sie es rechnet."
   b4_herkunft:"Was schon vorbei ist, wurde gemessen. Was noch kommt, ist vorhergesagt. Beides steht nebeneinander, und man sieht, welches was ist.",
   /* AUSGESETZT am 6.9.2026: b4_s1t, b4_s1d, b4_s2t, b4_s2d, b4_s3t und
      b4_s3d sind nicht mehr im DOM. Aus ihnen bestand die Abzeichenreihe
@@ -1268,7 +1286,20 @@ var I18N={
   b4_eyebrow:"Misurato o calcolato",
   /* ERSETZT am 7.9.2026, siehe darüber. Vorheriger Wert: */ // b4_eyebrow:"Da dove vengono i numeri"
   b4_h2:"Da dove vengono i <em>numeri.</em>",
-  b4_p1:"Due cose Unica non le misura, le legge: il traffico sugli accessi e il meteo. Per il traffico la chiusura porta il nome della strada e la coda la sua lunghezza; per il meteo il servizio è indicato per nome, e fino a quando vale la sua segnalazione. Tutto il resto lo calcola — e scrive che lo sta calcolando.",
+  /* b4_p1 · ENTWURF, Cristina entscheidet — geändert ist nur die Teilaussage
+     zum Wetter. Sie nannte "den Dienst mit Namen und bis wann seine Meldung
+     gilt". Das stand in der Aufnahme im Warnband "Hitze · regional gemeldet"
+     (Italian Air Force National Meteorological Service, 12:00-19:59); am
+     7.9.2026 lag keine Warnung vor, das Band fehlt, und mit ihm der
+     Quellenname. Der Satz stand damit ohne Beleg neben dem Bild.
+     Jetzt nennt er, was in meteo tatsächlich steht: "JETZT AM SEE · 12:01 ·
+     Peschiera" — Uhrzeit der Messung und Ort, für den sie gilt. Der Rest des
+     Absatzes ist wortgleich, ebenso der Satzbau: beim Verkehr zwei Angaben,
+     beim Wetter zwei.
+     Kommt das Warnband in einer späteren Aufnahme zurück, ist der Quellenname
+     wieder belegt und die alte Fassung kann zurück — sie steht darunter. */
+  b4_p1:"Due cose Unica non le misura, le legge: il traffico sugli accessi e il meteo. Per il traffico la chiusura porta il nome della strada e la coda la sua lunghezza; per il meteo l'ora della misurazione e il luogo a cui si riferisce. Tutto il resto lo calcola — e scrive che lo sta calcolando.",
+  /* ERSETZT am 7.9.2026, siehe darüber. Vorheriger Wert: */ // b4_p1:"Due cose Unica non le misura, le legge: il traffico sugli accessi e il meteo. Per il traffico la chiusura porta il nome della strada e la coda la sua lunghezza; per il meteo il servizio è indicato per nome, e fino a quando vale la sua segnalazione. Tutto il resto lo calcola — e scrive che lo sta calcolando."
   b4_herkunft:"Ciò che è già passato è stato misurato. Ciò che deve ancora arrivare è previsto. Stanno l'uno accanto all'altro, e si vede quale è quale.",
   /* AUSGESETZT am 6.9.2026: b4_s1t, b4_s1d, b4_s2t, b4_s2d, b4_s3t und
      b4_s3d sind nicht mehr im DOM. Aus ihnen bestand die Abzeichenreihe
@@ -1541,7 +1572,20 @@ var I18N={
   b4_eyebrow:"Measured or computed",
   /* ERSETZT am 7.9.2026, siehe darüber. Vorheriger Wert: */ // b4_eyebrow:"Where the numbers come from"
   b4_h2:"Where the numbers <em>come from.</em>",
-  b4_p1:"Two things Unica does not measure herself, she reads them: the traffic on the approach roads and the weather. For traffic the closure comes with the street name and the jam with its length; for the weather the service is named, and until when its report holds. Everything else she calculates — and writes down that she is calculating it.",
+  /* b4_p1 · ENTWURF, Cristina entscheidet — geändert ist nur die Teilaussage
+     zum Wetter. Sie nannte "den Dienst mit Namen und bis wann seine Meldung
+     gilt". Das stand in der Aufnahme im Warnband "Hitze · regional gemeldet"
+     (Italian Air Force National Meteorological Service, 12:00-19:59); am
+     7.9.2026 lag keine Warnung vor, das Band fehlt, und mit ihm der
+     Quellenname. Der Satz stand damit ohne Beleg neben dem Bild.
+     Jetzt nennt er, was in meteo tatsächlich steht: "JETZT AM SEE · 12:01 ·
+     Peschiera" — Uhrzeit der Messung und Ort, für den sie gilt. Der Rest des
+     Absatzes ist wortgleich, ebenso der Satzbau: beim Verkehr zwei Angaben,
+     beim Wetter zwei.
+     Kommt das Warnband in einer späteren Aufnahme zurück, ist der Quellenname
+     wieder belegt und die alte Fassung kann zurück — sie steht darunter. */
+  b4_p1:"Two things Unica does not measure herself, she reads them: the traffic on the approach roads and the weather. For traffic the closure comes with the street name and the jam with its length; for the weather the time of the reading and the place it applies to. Everything else she calculates — and writes down that she is calculating it.",
+  /* ERSETZT am 7.9.2026, siehe darüber. Vorheriger Wert: */ // b4_p1:"Two things Unica does not measure herself, she reads them: the traffic on the approach roads and the weather. For traffic the closure comes with the street name and the jam with its length; for the weather the service is named, and until when its report holds. Everything else she calculates — and writes down that she is calculating it."
   b4_herkunft:"What is already past was measured. What is still to come is forecast. Both stand side by side, and you can see which is which.",
   /* AUSGESETZT am 6.9.2026: b4_s1t, b4_s1d, b4_s2t, b4_s2d, b4_s3t und
      b4_s3d sind nicht mehr im DOM. Aus ihnen bestand die Abzeichenreihe
