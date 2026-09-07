@@ -76,6 +76,21 @@ zuerst, IT und EN danach — auch die sind Entwurf, nicht Freigabe.
 App-Aufnahmen **1080 × 2115**, Status- und Navigationsleiste entfernt, unter
 250 KB. Landschaftsfotos unter 200 KB. Grenzen dezimal gerechnet.
 
+### Drei Sprachfassungen je Aufnahme
+
+App-Aufnahmen liegen seit dem 7.9.2026 je Sprache getrennt:
+`assets/app/<lang>/<name>.jpg`, `<lang>` aus `de`, `it`, `en`, in allen drei
+Ordnern dieselben Dateinamen. Im Markup steht die deutsche Fassung; das `<img>`
+trägt `data-app-img="<name>"`, und `GardaLang.applyImages` in `assets/lang.js`
+tauscht beim Sprachwechsel nur den Ordner.
+
+Kein Rückfall auf eine andere Sprache: fehlt eine Datei, läuft der Verweis ins
+Leere. Ein still eingesetztes Bild aus einer anderen Sprache behauptete etwas,
+das so nicht aufgenommen wurde.
+
+Die Alt-Texte wechseln mit. Sie sind Copy und stehen darum im Wörterbuch, unter
+`alt_<name>`, angebunden über `data-i18n-alt`.
+
 ### Keine EXIF-Ortsdaten
 
 Handyaufnahmen speichern Koordinaten. Das Impressum dieser Seite führt auf eine
