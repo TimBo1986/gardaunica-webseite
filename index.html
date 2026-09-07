@@ -628,8 +628,9 @@ footer a:hover{color:var(--notte)}
      Abschnitt der Seite: ein Screenshot plus Chat. Jetzt die volle Kette —
      Wer faehrt mit, welcher Modus, der Plan als Ganzes, und die Frage.
      Zwei weitere Geraetepaare, nach dem ersten in Beat 4.
-     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player sind
-     freigegebene Copy und stehen hier woertlich; neu sind nur b5_*. -->
+     ls2_p, m0_h, m2_h, m2_p und der Chat-Player sind freigegebene Copy
+     und stehen hier woertlich; neu sind nur b5_*. ls1_h und ls1_p standen
+     bis zum 7.9.2026 ebenfalls hier und sind seither ausgesetzt. -->
 <section id="planer" class="beat beat-hell">
   <div class="wrap">
     <div style="text-align:center;max-width:60ch;margin:0 auto 8px">
@@ -639,8 +640,12 @@ footer a:hover{color:var(--notte)}
 
     <div class="beat-row" style="margin-top:44px">
       <div class="beat-copy">
-        <h3 data-i18n="ls1_h">Der richtige <em>Moment.</em></h3>
-        <p data-i18n="ls1_p">Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.</p>
+        <!-- AUSGESETZT am 7.9.2026: die Ueberschrift ls1_h "Der richtige
+             Moment." und der Absatz ls1_p, beide aus Saeule 1. Spec 0002
+             laesst Beat 5 die Saeule ersetzen — die beiden standen aber
+             weiter unter b5_h2 und wiederholten dort Beat 3. Copy steht
+             unveraendert im Woerterbuch, Vermerk dort bei ls1_h/ls1_p.
+             Aus Saeule 1 bleiben im DOM: ls2_p hier, ls1_cap in Beat 4. -->
         <p data-i18n="ls2_p">Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.</p>
       </div>
       <div class="phone-frame phone-sm reveal pil-shot">
@@ -941,8 +946,9 @@ var I18N={
   b6_eyebrow:"Was bleibt",
   b7_eyebrow:"Wer sonst noch da ist",
   /* BEAT 5 · Freigegeben Cristina, 6.9.2026. Neu sind nur diese Schlüssel;
-     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen
-     wörtlich und sind freigegebene Copy. */
+     ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen wörtlich und sind
+     freigegebene Copy. ls1_h und ls1_p standen bis zum 7.9.2026 ebenfalls
+     hier; sie sind ausgesetzt, der Vermerk steht bei ihnen. */
   b5_eyebrow:"Vom Rechnen zum Vorschlag",
   b5_h2:"Daraus wird eine <em>Entscheidung.</em>",
   b5a_p:"Zu zweit oder zu dritt, mit Hund, mit dem Auto oder zu Fuß — und wie viel ihr selbst planen wollt. Sieben Fragen, keine Formulare. Am Ende steht die eine, die ihr behaltet: überrasch mich, oder wir planen zu zweit.",
@@ -1060,7 +1066,17 @@ var I18N={
   /* AUSGESETZT mit Spec 0002: Bei sieben Beats sind Säulen-Nummern
      sinnlos. ls1_num, ls2_num und ls3_num tragen keinen Abschnitt
      mehr. Text bleibt, nichts gelöscht. */
-  ls1_num:"Säule 1",ls1_h:"Der richtige <em>Moment.</em>",
+  ls1_num:"Säule 1",
+  /* AUSGESETZT am 7.9.2026: ls1_h und ls1_p, Überschrift und Fließtext von
+     Säule 1. Spec 0002 lässt Beat 5 die Säule ersetzen; die beiden standen
+     aber weiter unter der eigenen Überschrift des Beats — b5_h2 „Daraus wird
+     eine Entscheidung." — und wiederholten dort Beat 3: „eine Einschätzung,
+     wie voll es gerade wo ist, echtes Wetter … regelmäßig neu berechnet" ist
+     die Aussage von b3_p1, zwei Beats später und schwächer. Der Inhalt steht
+     jetzt in Beat 3 (b3_p1 mit b3_f1-f3), die Überschrift des Abschnitts
+     trägt b5_h2. Aus Säule 1 bleiben im DOM: ls2_p in Beat 5, ls1_cap in
+     Beat 4. Text bleibt, nichts gelöscht. */
+  ls1_h:"Der richtige <em>Moment.</em>",
   ls1_p:"Unica liest den See für dich: eine Einschätzung, wie voll es gerade wo ist, echtes Wetter und Warnungen — regelmäßig neu berechnet. So weißt du, wohin sich der Weg heute lohnt.",
   ls2_p:"Statt hundert Optionen: eine Empfehlung, die zu Wetter, Tag und Lage passt — mit einem „Warum?\" und einer Alternative. Schluss mit dem Zerreden am Frühstückstisch.",
   ls1_cap:"Die Auslastung ist eine regelmäßig neu berechnete Einschätzung je Ort — aus Verkehrs- und Wetterdaten und Ortskenntnis. Keine Straßensensoren, keine Personenzählung. Wetter ist live und echt.",
@@ -1189,8 +1205,9 @@ var I18N={
   b6_eyebrow:"Ciò che resta",
   b7_eyebrow:"Chi altro c’è",
   /* BEAT 5 · Freigegeben Cristina, 6.9.2026. Neu sind nur diese Schlüssel;
-     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen
-     wörtlich und sind freigegebene Copy. */
+     ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen wörtlich und sind
+     freigegebene Copy. ls1_h und ls1_p standen bis zum 7.9.2026 ebenfalls
+     hier; sie sind ausgesetzt, der Vermerk steht bei ihnen. */
   b5_eyebrow:"Dal calcolo alla proposta",
   b5_h2:"E ne nasce una <em>decisione.</em>",
   b5a_p:"In due o in tre, con il cane, in auto o a piedi — e quanto volete pianificare voi stessi. Sette domande, nessun modulo. Alla fine resta quella che tenete: sorprendimi, oppure pianifichiamo insieme.",
@@ -1308,7 +1325,17 @@ var I18N={
   /* AUSGESETZT mit Spec 0002: Bei sieben Beats sind Säulen-Nummern
      sinnlos. ls1_num, ls2_num und ls3_num tragen keinen Abschnitt
      mehr. Text bleibt, nichts gelöscht. */
-  ls1_num:"Pilastro 1",ls1_h:"Il momento <em>giusto.</em>",
+  ls1_num:"Pilastro 1",
+  /* AUSGESETZT am 7.9.2026: ls1_h und ls1_p, Überschrift und Fließtext von
+     Säule 1. Spec 0002 lässt Beat 5 die Säule ersetzen; die beiden standen
+     aber weiter unter der eigenen Überschrift des Beats — b5_h2 „Daraus wird
+     eine Entscheidung." — und wiederholten dort Beat 3: „eine Einschätzung,
+     wie voll es gerade wo ist, echtes Wetter … regelmäßig neu berechnet" ist
+     die Aussage von b3_p1, zwei Beats später und schwächer. Der Inhalt steht
+     jetzt in Beat 3 (b3_p1 mit b3_f1-f3), die Überschrift des Abschnitts
+     trägt b5_h2. Aus Säule 1 bleiben im DOM: ls2_p in Beat 5, ls1_cap in
+     Beat 4. Text bleibt, nichts gelöscht. */
+  ls1_h:"Il momento <em>giusto.</em>",
   ls1_p:"Unica legge il lago per te: una stima di quanto è affollato ogni luogo, meteo reale e allerte — ricalcolata regolarmente. Così sai dove vale la pena andare oggi.",
   ls2_p:"Invece di cento opzioni: un consiglio adatto a meteo, giorno e situazione — con un „Perché?\" e un'alternativa. Basta discussioni infinite a colazione.",
   ls1_cap:"L'affluenza è una stima ricalcolata regolarmente per ogni località — da dati di traffico e meteo e conoscenza del territorio. Nessun sensore stradale, nessun conteggio di persone. Il meteo è reale e in tempo reale.",
@@ -1437,8 +1464,9 @@ var I18N={
   b6_eyebrow:"What stays",
   b7_eyebrow:"Who else is here",
   /* BEAT 5 · Freigegeben Cristina, 6.9.2026. Neu sind nur diese Schlüssel;
-     ls1_h, ls1_p, ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen
-     wörtlich und sind freigegebene Copy. */
+     ls2_p, m0_h, m2_h, m2_p und der Chat-Player stehen wörtlich und sind
+     freigegebene Copy. ls1_h und ls1_p standen bis zum 7.9.2026 ebenfalls
+     hier; sie sind ausgesetzt, der Vermerk steht bei ihnen. */
   b5_eyebrow:"From the calculation to the suggestion",
   b5_h2:"And out of it comes a <em>decision.</em>",
   b5a_p:"Two of you or three, with the dog, by car or on foot — and how much you want to plan yourselves. Seven questions, no forms. At the end stands the one you keep: surprise me, or let’s plan together.",
@@ -1556,7 +1584,17 @@ var I18N={
   /* AUSGESETZT mit Spec 0002: Bei sieben Beats sind Säulen-Nummern
      sinnlos. ls1_num, ls2_num und ls3_num tragen keinen Abschnitt
      mehr. Text bleibt, nichts gelöscht. */
-  ls1_num:"Pillar 1",ls1_h:"The right <em>moment.</em>",
+  ls1_num:"Pillar 1",
+  /* AUSGESETZT am 7.9.2026: ls1_h und ls1_p, Überschrift und Fließtext von
+     Säule 1. Spec 0002 lässt Beat 5 die Säule ersetzen; die beiden standen
+     aber weiter unter der eigenen Überschrift des Beats — b5_h2 „Daraus wird
+     eine Entscheidung." — und wiederholten dort Beat 3: „eine Einschätzung,
+     wie voll es gerade wo ist, echtes Wetter … regelmäßig neu berechnet" ist
+     die Aussage von b3_p1, zwei Beats später und schwächer. Der Inhalt steht
+     jetzt in Beat 3 (b3_p1 mit b3_f1-f3), die Überschrift des Abschnitts
+     trägt b5_h2. Aus Säule 1 bleiben im DOM: ls2_p in Beat 5, ls1_cap in
+     Beat 4. Text bleibt, nichts gelöscht. */
+  ls1_h:"The right <em>moment.</em>",
   ls1_p:"Unica reads the lake for you: an estimate of how busy each place is right now, real weather and warnings — recalculated regularly. So you know where today's trip is worth it.",
   ls2_p:"Instead of a hundred options: one recommendation that fits the weather, the day and the situation — with a „Why?\" and an alternative. No more talking it to death over breakfast.",
   ls1_cap:"Crowding is a regularly recalculated estimate per town — from traffic and weather data and local knowledge. No road sensors, no head-counting. Weather is real and live.",
