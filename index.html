@@ -596,16 +596,24 @@ footer a:hover{color:var(--notte)}
      traffic: die Zufahrten zu zehn Orten, jede mit einer Zahl und, wo etwas
      ist, mit Strassennamen — "GESPERRT · SP31", "Stau auf 1784 m · Via
      Condominio". Das ist das Gelesene, von aussen gemeldet.
-     Am Fuss steht seit dem Nachschnitt vom 7.9.2026 die Herkunftszeile
-     vollstaendig im Bild: "Verkehr und Wetter sind gemessen. Der Andrang ist
-     gerechnet — aus Ort, Wochentag, Jahreszeit und Wetter." Fenster 195-2310
-     statt 90-2205; den Platz zahlt die Kopfzeile "Territorio", die meteo
-     daneben weiter traegt. Die frueher hier notierte Begruendung — die Seite
-     zitiere die Zeile nicht, weil sie im ausgelieferten Bild fehle — ist damit
-     hinfaellig. Beat 4 bleibt trotzdem vorerst wortgleich: "Jahreszeit" kommt
-     in der Andrang-Rechnung nicht vor (garda-compass, forecast_service.dart),
-     die Zeile im Bild behauptet also mehr als der Code haelt. Was die Seite
-     daraus macht, entscheidet Tim.
+     Am Fuss dieser Ansicht steht in der App die Zeile "Verkehr und Wetter
+     sind gemessen. Der Andrang ist gerechnet — aus Ort, Wochentag,
+     Jahreszeit und Wetter." Der Zuschnitt 90-2205 laesst sie draussen, und
+     das ist eine Entscheidung, keine Verlegenheit: "Jahreszeit" hat in der
+     Andrang-Rechnung keine Entsprechung. forecast_service.dart in
+     garda-compass kennt den Ort (baseCrowdLevel), die Google-Popularitaet,
+     das Wetter und einen Feiertags-Term, dessen Quelle fest false
+     zurueckgibt — Monat und Saison kommen nicht vor.
+     Ein Schnitt bis 2310 zeigt die Zeile vollstaendig; so lag sie am 7.9.
+     kurz auf der Seite (7c24c97) und haette jeden Besucher eine Behauptung
+     mitlesen lassen, die der Code nicht deckt. Zurueckgenommen: lieber steht
+     sie nur im App-Code als auch noch auf der Seite. b4_p1 nennt darum
+     weiter, was sichtbar ist.
+     Nicht wiederhergestellt wurde die frueher hier notierte Begruendung, die
+     Zeile liege "in der Rohaufnahme unter der Navigationsleiste und ist auch
+     dort nur halb da". Der Schnitt bis 2310 hat gezeigt, dass sie im
+     Rohmaterial vollstaendig vorliegt. Ein Kommentar, der einen widerlegten
+     Grund nennt, ist schlechter als keiner.
      meteo: im Bild stehen zwei der drei Herkunftsstufen — VORHERSAGE ueber
      dem Tagesverlauf, BERECHNET ueber der Wassertemperatur, dazu die Zeile
      "links vom Strich gemessen, rechts vorhergesagt, leer = kein Wert".
@@ -618,7 +626,7 @@ footer a:hover{color:var(--notte)}
      ls1_cap steht hier wortgleich; in Saeule 1 war es Kleingedrucktes.
      mi_quote bleibt in der Mission — Wiederaufnahme, kein Fehler.
      Freigegeben Cristina, 6.9.2026. Ueberschrift von Tim, Fliesstext von mir.
-     Aufnahmen am 7.9.2026 nachgezogen, Copy dabei unveraendert. -->
+     Aufnahmen vom 7.9.2026, traffic im Zuschnitt 90-2205. -->
 <section id="ehrlich" class="beat beat-dunkel">
   <div class="wrap beat-row flip">
     <div class="geraete-paar reveal pil-shot">
